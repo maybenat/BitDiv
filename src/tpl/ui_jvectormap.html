@@ -1,0 +1,57 @@
+<div class="wrapper-md" ng-controller="JVectorMapDemoCtrl">
+    <div class="panel b-a">
+        <div class="panel-heading b-b b-light">World View</div>
+        <div class="panel-body">
+            <div class="h3 m-b font-thin">World Map with information</div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div style="height:240px;" ui-jq="vectorMap" ui-options="{            
+            map: 'world_mill_en',
+            markers: {{world_markers}},
+            normalizeFunction: 'polynomial',
+            backgroundColor: '#fff',
+            regionStyle: {
+              initial: {
+                fill: '{{app.color.light}}'
+              },
+             hover: {
+                fill: '{{app.color.primary}}'
+              },
+            },
+            markerStyle: {
+              initial: {
+                fill: '{{app.color.info}}',
+                stroke: '#fff'
+              }
+            }
+          }">
+                    </div>
+                    <div class="m-t-xl m-b clearfix">
+                        <i class="i i-local i-2x text-info pull-left m-r m-l m-t-xs"></i>
+                        <div class="clear text-sm">
+                            Figure out some world stats that are relevant. Based on j vector map example.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="h4 m-b font-thin">Statistics</div>
+                    <p class="m-b-xs">Population growth</p>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="80%" style="width: 80%"></div>
+                    </div>
+                    <p class="m-b-xs">GDP</p>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="60%" style="width: 60%"></div>
+                    </div>
+                    <p class="m-b-xs">Natural Disasters</p>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-warning" data-toggle="tooltip" data-original-title="70%" style="width: 70%"></div>
+                    </div>
+                    <p class="m-b-xs">Top Exports</p>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-primary lter" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
