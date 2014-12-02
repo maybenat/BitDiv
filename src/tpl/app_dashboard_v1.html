@@ -17,7 +17,7 @@
                         </div>
                         <div ng-init="data1=[ 109,105,104,107,109,105,100,105,102,101,99,98 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                         </div>
-                    </ul>
+                        </ul>
                     </div>
                     <div class="inline text-left">
                         <div class="m-b-xs">$30,000 <span class="text-muted"></span>
@@ -70,6 +70,41 @@
             </div>
 
         </div>
+        <div class="col-sm-6 col-xs-12">
+            <h1 class="m-n font-thin h2 text-primary">Portfolio A</h1>
+        </div>
+        <table class="table table-striped m-b-none">
+            <tbody>
+                <tr>
+                    <td>
+                        <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:'bar', height:19, barWidth:4, barSpacing:2, barColor:'{{app.color.success}}'}" class="sparkline inline">loading...</div>
+                    </td>
+                    <td>Recommended stocks invested in</td>
+                    <td class="text-success">
+                        <i class="fa fa-level-up"></i> 40%
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div ng-init="data3=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data3}}, {type:'line', height:19, width:60, lineColor:'{{app.color.primary}}', fillColor:'#fff'}" class="sparkline inline">loading...</div>
+                    </td>
+                    <td>Portfolio</td>
+                    <td class="text-success">
+                        <i class="fa fa-level-up"></i> 55%
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div ng-init="data4=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data4}}, {type:'discrete', height:19, width:60, lineColor:'{{app.color.success}}'}" class="sparkline inline">loading...</div>
+                    </td>
+                    <td>Puts vs. Calls Market</td>
+                    <td class="text-danger">
+                        <i class="fa fa-level-down"></i> 2%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
         <!-- / main header -->
         <div class="wrapper-md" ng-controller="FlotChartDemoCtrl">
@@ -295,7 +330,7 @@
                 </div>
             </tab>
 
-           
+
         </tabset>
         <div class="padder-md">
 
