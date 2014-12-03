@@ -1,57 +1,106 @@
-<div class="wrapper-md" ng-controller="JVectorMapDemoCtrl">
-    <div class="panel b-a">
-        <div class="panel-heading b-b b-light">World View</div>
-        <div class="panel-body">
-            <div class="h3 m-b font-thin">World Map with information</div>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div style="height:240px;" ui-jq="vectorMap" ui-options="{            
-            map: 'world_mill_en',
-            markers: {{world_markers}},
-            normalizeFunction: 'polynomial',
-            backgroundColor: '#fff',
-            regionStyle: {
-              initial: {
-                fill: '{{app.color.light}}'
-              },
-             hover: {
-                fill: '{{app.color.primary}}'
-              },
-            },
-            markerStyle: {
-              initial: {
-                fill: '{{app.color.info}}',
-                stroke: '#fff'
-              }
-            }
-          }">
-                    </div>
-                    <div class="m-t-xl m-b clearfix">
-                        <i class="i i-local i-2x text-info pull-left m-r m-l m-t-xs"></i>
-                        <div class="clear text-sm">
-                            Figure out some world stats that are relevant. Based on j vector map example.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="h4 m-b font-thin">Statistics</div>
-                    <p class="m-b-xs">Population growth</p>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="80%" style="width: 80%"></div>
-                    </div>
-                    <p class="m-b-xs">GDP</p>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="60%" style="width: 60%"></div>
-                    </div>
-                    <p class="m-b-xs">Natural Disasters</p>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-warning" data-toggle="tooltip" data-original-title="70%" style="width: 70%"></div>
-                    </div>
-                    <p class="m-b-xs">Top Exports</p>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-primary lter" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>
-                    </div>
-                </div>
-            </div>
+<!-- hbox layout -->
+<div class="hbox hbox-auto-xs bg-light " ng-init="
+  app.settings.asideFixed = true;
+  app.settings.asideDock = false;
+  app.settings.container = false;
+  app.hideAside = false;
+  app.hideFooter = true;
+  " ng-controller="NoteCtrl">
+  <!-- column -->
+  <div class="col w-lg lt b-r">
+    <div class="vbox">
+      <div class="wrapper">
+        <a href class="pull-right btn btn-sm btn-info m-t-n-xs" >New</a>
+        <div class="h4">Portfolio's</div>
+      </div>
+      <div class="wrapper b-t m-t-xxs">
+        <div class="input-group">
+          <span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>
+          <input type="text" class="form-control input-sm" placeholder="search" ng-model="query">
         </div>
+      </div>
+      <div class="row-row">
+        <div class="cell scrollable hover">
+          <div class="cell-inner">
+            <div class="padder">
+              <div class="list-group">
+                <a ng-repeat="note in notes | filter:query | orderBy:'date':true" class="list-group-item b-l-{{note.color}} b-l-3x hover-anchor" ng-class="{'hover': note.selected }" ng-click="selectNote(note)">
+                  <span ng-click='deleteNote(note)' class="pull-right text-muted hover-action"><i class="fa fa-times"></i></span>
+                  <span class="block text-ellipsis">{{ note.content ? note.content : 'Empty note' }}</span>
+                  <small class="text-muted">{{ note.date | fromNow }}</small>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <!-- /column -->
+
+  <!-- column -->
+  <div class="col">
+    <div class="vbox">
+      <div class="wrapper bg-light lt b-b">
+        <span class="text-muted">Created on:</span> <span>{{ note.date  | date:'MMM-dd-yyyy H:mm' }}</span>
+        <div class="m-l inline dropdown" dropdown>
+          <a class="v-middle pos-rlt inline bg-{{note.color}}" dropdown-toggle style="width:16px;height:16px;top:-2px"></a>
+          <div class="dropdown-menu animated fadeInUp w wrapper">
+            <a ng-repeat="color in colors" class="inline m-xs bg-{{color}}" style="width:18px;height:18px" ng-click=" note.color = color "></a>
+          </div>
+        </div>
+      </div>
+      <div class="row-row">
+        <div class="cell">
+          <div class="cell-inner">
+                    <div class="col-sm-6 col-xs-12">
+            <h1 class="m-n font-thin h2 text-primary">Portfolio A</h1>
+        </div>
+  <table class="table table-striped m-b-none">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:'bar', height:19, barWidth:4, barSpacing:2, barColor:'{{app.color.success}}'}" class="sparkline inline">loading...</div>
+                            </td>
+                            <td>Recommended stocks invested in</td>
+                            <td class="text-success">
+                                <i class="fa fa-level-up"></i> 40%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div ng-init="data2=[ 60,30,10 ]" ui-jq="sparkline" ui-options="{{data2}}, {type:'pie', height:19, sliceColors:['{{app.color.info}}','#fff','{{app.color.warning}}']}" class="sparkline inline">loading...</div>
+                            </td>
+                            <td>New Friends</td>
+                            <td class="text-success">
+                                <i class="fa fa-level-up"></i> 20%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div ng-init="data3=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data3}}, {type:'line', height:19, width:60, lineColor:'{{app.color.primary}}', fillColor:'#fff'}" class="sparkline inline">loading...</div>
+                            </td>
+                            <td>Portfolio</td>
+                            <td class="text-success">
+                                <i class="fa fa-level-up"></i> 55%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div ng-init="data4=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data4}}, {type:'discrete', height:19, width:60, lineColor:'{{app.color.success}}'}" class="sparkline inline">loading...</div>
+                            </td>
+                            <td>Puts vs. Calls Market</td>
+                            <td class="text-danger">
+                                <i class="fa fa-level-down"></i> 2%
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /column -->
+</div>
+<!-- /hbox layout -->

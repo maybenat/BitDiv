@@ -21,7 +21,6 @@
             "components": {
                 "COMPONENTS": "Research & Learn",
                 "ui_kits": {
-                    "UI_KITS": "UI Kits",
                     "BUTTONS": "Buttons",
                     "ICONS": "Icons",
                     "GRID": "Grid",
@@ -32,10 +31,9 @@
                 },
 
                 "CHART": "Stock Example Page",
-                "VECTOR_MAP": "World View",
+                "VECTOR_MAP": "My Portfolio's",
 
                 "pages": {
-                    "PAGES": "Pages",
                     "PROFILE": "Profile",
                     "POST": "Post",
                     "SEARCH": "Search",
