@@ -68,49 +68,38 @@ angular.module('app')
 
                 .state('app.ui.jvectormap', {
                     url: '/portfolio',
-                    templateUrl: 'tpl/ui_jvectormap.html',
+                    templateUrl: 'tpl/portfolio.html',
                     resolve: {
-                      deps: ['uiLoad',
-                        function( uiLoad ){
-                          return uiLoad.load( ['js/note/note.js',
-                                               'vendor/libs/moment.min.js'] );
-                      }]
-                  }
-              })
+                        deps: ['uiLoad',
+                            function(uiLoad) {
+                                return uiLoad.load(['js/note/note.js',
+                                    'vendor/libs/moment.min.js'
+                                ]);
+                            }
+                        ]
+                    }
+                })
+
+                .state('app.wizard', {
+                    url: '/wizard',
+                    templateUrl: 'tpl/form_wizard.html'
+                })
 
 
-                    .state('app.ui.googlemap', {
-                        url: '/googlemap',
-                        templateUrl: 'tpl/ui_googlemap.html',
-                        resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load([
-                                        'js/app/map/load-google-maps.js',
-                                        'js/app/map/ui-map.js',
-                                        'js/app/map/map.js'
-                                    ]).then(
-                                        function() {
-                                            return loadGoogleMaps();
-                                        }
-                                    );
-                                }
-                            ]
-                        }
-                    })
-                    .state('app.chart', {
-                        url: '/chart',
-                        templateUrl: 'tpl/ui_chart.html',
-                        resolve: {
-                            deps: ['uiLoad',
-                                function(uiLoad) {
-                                    return uiLoad.load('js/controllers/chart.js',
-                                        'js/controllers/highstock.js',
-                                        'js/controllers/chart_2.js');
-                                }
-                            ]
-                        }
-                    })
+
+                .state('app.chart', {
+                    url: '/chart',
+                    templateUrl: 'tpl/ui_chart.html',
+                    resolve: {
+                        deps: ['uiLoad',
+                            function(uiLoad) {
+                                return uiLoad.load('js/controllers/chart.js',
+                                    'js/controllers/highstock.js',
+                                    'js/controllers/chart_2.js');
+                            }
+                        ]
+                    }
+                })
 
 
                 .state('app.form.elements', {

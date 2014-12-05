@@ -1,0 +1,87 @@
+<ng-init="app.settings.container = false;">
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">Welcome to bitdiv. Let's get started.</h1>
+    </div>
+    <div class="wrapper-md">
+        <tabset class="tab-container" ng-init="steps={percent:20, step1:true, step2:false, step3:false, step4:false, step5:false}">
+            <tab heading="Step 1" active="steps.step1" select="steps.percent=10">
+                <p class="m-b">Before we can begin we need to get to know you & the goals you have.</p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <h4>About You</h4>
+                <form name="step1" class="form-validation">
+                    <p>Your funding:</p>
+                    <input type="number" name="funding" placeholder="dollars" class="form-control" ng-model="funding" required>
+                    <p class="m-t">Your age:</p>
+                    <input type="number" name="age" placeholder="years" class="form-control" ng-model="age" required>
+                    <div class="m-t m-b">
+                        <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step2=true">Next</button>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Step 2" disabled="step1.$invalid" active="steps.step2" select="steps.percent=30">
+                <form name="step2" class="form-validation">
+                    <p class="m-b">How much risk do you want to take? </p>
+                    <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                    <p>Risk Level:</p>
+                    <div class="m-b-lg">
+                        <div class="btn-group" ng-init="radioModel = 'High Risk'">
+                            <label class="btn btn-lg btn-info" ng-model="radioModel" btn-radio="'High Risk'"><i class="fa fa-check text-active"></i> High Risk</label>
+                            <label class="btn btn-lg btn-success" ng-model="radioModel" btn-radio="'Medium Risk'"><i class="fa fa-check text-active"></i> Medium Risk</label>
+                            <label class="btn btn-lg btn-primary" ng-model="radioModel" btn-radio="'Low Risk'"><i class="fa fa-check text-active"></i> Low Risk</label>
+                        </div>
+                    </div>
+                    <div class="m-t m-b">
+                        <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true">Prev</button>
+                        <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step3=true">Next</button>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Step 3" disabled="step2.$invalid" active="steps.step3" select="steps.percent=60">
+                <p class="m-b">How much do you return do you want and do you want a monthly payout? </p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <div class="m-b-lg">
+                    <div class="btn-group" ng-init="radioModel = 'High Risk'">
+                        <label class="btn btn-lg btn-info" ng-model="radioModel" btn-radio="'High Risk'"><i class="fa fa-check text-active"></i> Monthly Payout</label>
+                        <label class="btn btn-lg btn-success" ng-model="radioModel" btn-radio="'Medium Risk'"><i class="fa fa-check text-active"></i> Re-invest</label>
+                    </div>
+                </div>
+                <p>Your desired monthly payout:</p>
+                <input type="number" name="monthly" placeholder="dollars" class="form-control" ng-model="monthly" required>
+                <div class="m-t m-b">
+                    <button type="submit" ng-disabled="step3.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step4=true">Next</button>
+                </div>
+            </tab>
+            <tab heading="Step 4" disabled="step3.$invalid" active="steps.step4" select="steps.percent=100">
+                <p class="m-b">Add the stocks you already own </p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <div class="well b bg-light wrapper-sm">Stock: {{selected | json}} Shares: {{ shares }} Price Purchased: {{price}}</div>
+                <p>Ticker:</p>
+                <input type="text" ng-model="selected" class="form-control">
+                <p>Shares:</p>
+                <input type="number" name="shares" placeholder="" class="form-control" ng-model="shares" required>
+                <p>Price Purchased:</p>
+                <input type="number" name="price" placeholder="" class="form-control" ng-model="price" required>
+                <div class="m-t m-b">
+                    <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step5=true">Add Stock</button>
+                    <a href = "#/app/dashboard-v1"><button type="button" class="btn btn-default btn-rounded" ng-click="">Continue to Dashboard</button></a>
+
+                </div>
+            </tab>
+            <tab heading="Step 5" disabled="step4.$invalid" active="steps.step5" select="steps.percent=100">
+                <p class="m-b">Add the stocks you already own </p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <div class="well b bg-light wrapper-sm">Stock: {{selected | json}} Shares: {{ shares }} Price Purchased: {{price}}</div>
+                <p>Ticker:</p>
+                <input type="text" ng-model="selected" class="form-control">
+                <p>Shares:</p>
+                <input type="number" name="shares2" placeholder="" class="form-control" ng-model="shares2" required>
+                <p>Price Purchased:</p>
+                <input type="number" name="price2" placeholder="" class="form-control" ng-model="price2" required>
+                <div class="m-t m-b">
+                    <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step4=true">Add Stock</button>
+                    <a href = "#/app/dashboard-v1"><button type="button" class="btn btn-default btn-rounded" ng-click="">Continue to Dashboard</button>
+
+                </div>
+            </tab>
+        </tabset>
+    </div>

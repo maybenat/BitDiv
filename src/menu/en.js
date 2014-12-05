@@ -2,10 +2,8 @@
 
     "header": {
         "navbar": {
-            "UPLOAD": "Upload",
             "new": {
                 "NEW": "New",
-                "PROJECT": "Projects",
                 "USER": "User"
             },
             "NOTIFICATIONS": "Notifications"
@@ -15,36 +13,22 @@
         "nav": {
             "HEADER": "Navigation",
             "DASHBOARD": "Dashboard",
-            "CALENDAR": "Calendar",
-            "EMAIL": "Email",
-            "WIDGETS": "Widgets",
             "components": {
                 "COMPONENTS": "Research & Learn",
-                "ui_kits": {
-                    "BUTTONS": "Buttons",
-                    "ICONS": "Icons",
-                    "GRID": "Grid",
-                    "BOOTSTRAP": "Bootstrap",
-                    "SORTABLE": "Sortable",
-                    "PORTLET": "Portlet",
-                    "TIMELINE": "Timeline"
-                },
+
 
                 "CHART": "Stock Example Page",
                 "VECTOR_MAP": "My Portfolio's",
+                "FORM_WIZARD": "Your Settings",
 
                 "pages": {
                     "PROFILE": "Profile",
                     "POST": "Post",
                     "SEARCH": "Search",
-                    "INVOICE": "Invoice",
-                    "LOCK_SCREEN": "Lock screen",
-                    "SIGNIN": "Signin",
-                    "SIGNUP": "Signup",
-                    "FORGOT_PASSWORD": "Forgot password",
                     "404": "404"
                 }
             },
+
             "your_stuff": {
                 "YOUR_STUFF": "Your Stuff",
                 "PROFILE": "Profile",
