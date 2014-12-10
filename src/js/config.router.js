@@ -72,7 +72,7 @@ angular.module('app')
                     resolve: {
                         deps: ['uiLoad',
                             function(uiLoad) {
-                                return uiLoad.load(['js/note/note.js',
+                                return uiLoad.load(['js/controllers/table.js',
                                     'vendor/libs/moment.min.js'
                                 ]);
                             }
