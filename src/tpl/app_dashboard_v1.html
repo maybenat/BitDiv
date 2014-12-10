@@ -161,36 +161,48 @@
                     <i class="fa fa-circle-o text-info m-r-sm pull-right"></i>
                     <h4 class="font-thin m-t-none m-b-none text-primary-lt">Recommendations of the day for you</h4>
                     <span class="m-b block text-sm text-muted">(updated 1 hour ago)</span>
-                    <div ui-jq="plot" ui-options="
-            [
-              { data: {{d0_1}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
-            ], 
-            {
-              colors: ['{{app.color.light}}'],
-              series: { shadowSize: 3 },
-              xaxis:{ show:false },
-              yaxis:{ font: { color: '#a1a7ac' } },
-              grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#dce5ec' },
-              tooltip: true,
-              tooltipOpts: { content: '%x.1  %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
-            }
-          " style="height:240px">
-                    </div>
-                </div>
-                <div class="col wrapper-lg w-lg bg-light dk r-r">
                     <h4 class="font-thin m-t-none m-b">Reports</h4>
                     <div class="">
                         <div class="">
                             <span class="pull-right text-primary">80% match</span>
+                            <span>UNP</span>
+                        </div>
+                        <progressbar value="80" class="progress-xs m-t-sm bg-white" animate="true" type="primary"></progressbar>
+                        <div class="">
+                            <span class="pull-right text-info">65% match</span>
+                            <span>LM</span>
+                        </div>
+                        <progressbar value="65" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
+                        <div class="">
+                            <span class="pull-right text-info">90% match</span>
+                            <span>SJM</span>
+                        </div>
+                        <progressbar value="90" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
+                    </div>
+                </div>
+                <div class="col wrapper-lg w-lg bg-light dk r-r">
+                    <h4 class="font-thin m-t-none m-b">Sector</h4>
+                    <div class="">
+                        <div class="">
+                            <span class="pull-right text-primary">Services</span>
+                            <span>UNP</span>
+                        </div>
+                        <div class="">
+                            <span class="pull-right text-info">Financial</span>
+                            <span>LM</span>
+                        </div>
+                        <div class="">
+                            <span class="pull-right ">Consumer Goods</span>
+                            <span>SJM</span>
+                        </div>
+                        <div class="">
+                            <span class="pull-right text-success">Technology</span>
                             <span>AAPL</span>
                         </div>
-                        <progressbar value="60" class="progress-xs m-t-sm bg-white" animate="true" type="primary"></progressbar>
                         <div class="">
-                            <span class="pull-right text-info">35% match</span>
+                            <span class="pull-right text-success">Technology</span>
                             <span>GOOG</span>
                         </div>
-                        <progressbar value="35" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
-
                     </div>
                 </div>
             </div>
