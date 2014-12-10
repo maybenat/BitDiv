@@ -73,7 +73,7 @@ angular.module('app')
                         deps: ['uiLoad',
                             function(uiLoad) {
                                 return uiLoad.load(['js/controllers/table.js',
-                                    'vendor/libs/moment.min.js'
+                                    'js/directives/plunker.js'
                                 ]);
                             }
                         ]

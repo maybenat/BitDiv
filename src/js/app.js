@@ -15,7 +15,6 @@ angular.module('app', [
     'ui.validate',
     'oc.lazyLoad',
     'pascalprecht.translate',
-    'highcharts-ng',
 ]);
 
 
