@@ -24,11 +24,15 @@ app
     }   
 
     $scope.d3 = [ 
-      { label: "Apple", data: 40 }, 
-      { label: "Google", data: 10 },
-      { label: "Microsoft", data: 20 },
-      { label: "HP", data: 12 },
-      { label: "GoPro", data: 18 }
+      { label: "Raytheon", data: 33 },
+      { label: "Rockwell Collins", data: 11 },
+      { label: "Honeywell", data: 39 },
+      { label: "GD Corp", data: 32 },
+      { label: "Transdigm Group Incorporated", data: 10 },
+      { label: "United Technologies", data: 103 },
+      { label: "Boeing Company", data: 93 },
+      { label: "Rest of sector", data: 14 },
+      { label: "Lockheed Martin", data: 45 }
     ];
 
     $scope.refreshData = function(){

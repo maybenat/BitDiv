@@ -5,58 +5,29 @@
     <div ng-controller="FlotChartDemoCtrl">
         <div class="row">
             <div class="col-md-6">
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading font-bold">
-                            Views Today
-                        </div>
-                        <div class="panel-body text-center">
-                            <h4><small>last </small>12<small> hrs</small></h4>
-                            <small class="text-muted block">yesterday: 20</small>
-                            <div class="inline">
-                                <div ui-jq="easyPieChart" ui-options="{
-                      percent: 35,
-                      lineWidth: 10,
-                      trackColor: '{{app.color.light}}',
-                      barColor: '{{app.color.success}}',
-                      scaleColor: '{{app.color.light}}',
-                      size: 188,
-                      lineCap: 'butt',
-                      animate: 1000
-                    }">
-                                    <div>
-                                        <span class="h2 m-l-sm step">25</span>
-                                        <div class="text text-sm">today</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-
+                <div class="panel panel-default">
                     <div class="panel-heading font-bold">Stock Price</div>
                     <div class="bg-light dker wrapper m-t-n-xxs">
                         <span class="pull-right">Friday</span>
-                        <span class="h4">$540</span>
+                        <span class="h4">$189.25</span>
                         <div class="text-center m-b-n m-t-sm">
-                            <div ng-init="data2=[50.32,45.23,47.56,36.25,53.85,40.15,41.25,50.15,57.14,36.15,97.26,50.15,45.32,47.19,37.75,25.15,56.34,50.35,47.25,53.15]" ui-jq="sparkline" ui-options="{{data2}}, {type:'line', height:65, width: '100%', lineWidth:2, valueSpots:{'0:':'#fff'}, lineColor:'#fff', spotColor:'#fff', fillColor:'', highlightLineColor:'#fff', spotRadius:3}"></div>
+                            <div ng-init="data2=[183, 185.55, 186.43, 189.29, 190.57, 190.79, 189.88, 186.15, 186.99, 187.12, 186.87, 187.97, 186.6, 185.51, 186.56, 186, 185.56, 187.93, 188.62, 188.67, 189.15, 191.56, 191.1, 190.11]" ui-jq="sparkline" ui-options="{{data2}}, {type:'line', height:65, width: '100%', lineWidth:2, valueSpots:{'0:':'#fff'}, lineColor:'#fff', spotColor:'#fff', fillColor:'', highlightLineColor:'#fff', spotRadius:3}"></div>
 
-                            <div ng-init="data3=[ 10,9,11,10,11,10,12,10,9,10,11,9,8 ]" ui-jq="sparkline" ui-options="{{data3}}, {type:'bar', height:45, barWidth:6, barSpacing:6, barColor:'{{app.color.primary}}'}" class="sparkline inline">loading...</div>
+                            <div ng-init="data3=[183, 185.55, 186.43, 189.29, 190.57, 190.79, 189.88, 186.15, 186.99, 187.12, 186.87, 187.97, 186.6, 185.51, 186.56, 186, 185.56, 187.93, 188.62, 188.67, 189.15, 191.56, 191.1, 190.11]" ui-jq="sparkline" ui-options="{{data3}}, {type:'bar', height:45, barWidth:6, barSpacing:6, barColor:'{{app.color.primary}}'}" class="sparkline inline">loading...</div>
                         </div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <small class="text-muted block">Revenue</small>
-                                <span>$1.5 Bill.</span>
+                                <small class="text-muted block">Revenue (FY 2013)</small>
+                                <span>$45.358 Bill.</span>
                             </div>
                             <div class="col-xs-4">
-                                <small class="text-muted block">Div</small>
-                                <span>$0.25</span>
+                                <small class="text-muted block">Dividend Payout</small>
+                                <span>$6.00/Quarterly</span>
                             </div>
                             <div class="col-xs-4">
-                                <small class="text-muted block">Ex Div Date</small>
+                                <small class="text-muted block">Next Ex Div Date</small>
                                 <span>01/25</span>
                             </div>
                         </div>
@@ -91,7 +62,7 @@
             <div class="col-md-6">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading font-bold">Tech Sector</div>
+                    <div class="panel-heading font-bold">Aerospace-defense Products & Services (Revenue)</div>
                     <div class="panel-body">
                         <div ui-jq="plot" ui-options="
               {{d3}},
@@ -108,27 +79,66 @@
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading font-bold">GOOG</div>
+                    <div class="panel-heading font-bold">News</div>
                     <div class="panel-body">
                         <div class="m-b-md">
-                            <p class="h3 font-thin">Revenue</p>
-                            Avarage in last quarter.
+                            <div>
+                                <p style="float: left;">
+                                    <img src="/img/lmtthumbnail.jpg" height="100px" width="134px" border="5px">
+                                </p>
+                                <p class="h3 font-thin">
+                                    <a href="http://www.reuters.com/article/2014/12/10/us-lockheed- skunkworks-idUSKBN0JO16S20141210U">
+                                        (Reuters) Under pressure, Lockheed opens up about secret weapons unit
+                                    </a>
+                                </p>
+                                Lockheed Martin Corp, the Pentagon's No. 1 weapons supplier, has rarely felt the pressure...
+                            </div>
                         </div>
-                        <div class="row m-b">
-                            <div class="col-xs-6">
-                                <div ng-init="data4 = [ [2, 8], [4, 6], [6, 4], [8, 2], [10, 0], [8, 2], [6, 4], [4, 6], [2,8] ]" ui-jq="sparkline" ui-options="{{data4}}, {type:'bar', height:112, barWidth:6, barSpacing:10, stackedBarColor:['{{app.color.success}}', '#d7e5e8']}" class="sparkline inline"></div>
-                            </div>
-                            <div class="col-xs-6">
-                                Revenue
-                                <div class="h3 text-black m-b">4500.00</div>
-                                Earnings per Share
-                                <div class="h3 text-success">3450.00</div>
-                            </div>
+                        <div class="m-b-md">
+                            <p class="h4 font-thin">
+                                <a href="http://www.nasdaq.com/article/lockheed-martin-wins-3-defense-contacts-worth-122m-analyst-blog-cm421632">
+                                    <br/>(Nasdaq) Lockheed wins 3 defense contracts worth $122M
+                                </a>
+                            </p>
+                        </div>                      
+                        <div class="m-b-md">
+                            <p class="h4 font-thin">
+                                <a href="http://www.pressconnects.com/story/money/2014/12/10/bill-includes-important-lockheed-funding/20189529/">
+                                    (Press & Sun Bulletin) Bill includes $468M for key Lockheed helicopter programs
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading font-bold">
+                        Views Today
+                    </div>
+                    <div class="panel-body text-center">
+                        <h4><small>last </small>12<small> hrs</small></h4>
+                        <div class="inline">
+                            <div ui-jq="easyPieChart" ui-options="{
+                  percent: 35,
+                  lineWidth: 10,
+                  trackColor: '{{app.color.light}}',
+                  barColor: '{{app.color.success}}',
+                  scaleColor: '{{app.color.light}}',
+                  size: 188,
+                  lineCap: 'butt',
+                  animate: 1000
+                }">
+                                <div>
+                                    <span class="h2 m-l-sm step">25</span>
+                                    <div class="text text-sm">today</div>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted block">yesterday: 20</small>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
