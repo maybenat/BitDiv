@@ -1,53 +1,95 @@
-<div class="hbox hbox-auto-xs bg-light " ng-init="
-  app.settings.asideFixed = true;
-  app.settings.asideDock = false;
-  app.settings.container = false;
-  app.hideAside = false;
-  app.hideFooter = true;
-  ">
-    <!-- /column -->
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Your Portfolios </h1>
+    <small class="text-muted"></small>
+</div>
+<div class="wrapper-md">
+    <!-- tab -->
+    <div ng-controller="TabsDemoCtrl">
 
-    <!-- column -->
-    <div class="col">
-        <div class="vbox">
-            <div class="wrapper bg-light lt b-b">
-                <div class="container">
-                    <div ng-controller="TabsParentController">
-                        <tabset>
-                            <tab ng-repeat="workspace in workspaces" heading="{{workspace.name}}" active=workspace.active ng-dblclick="">
-                                <div ng-controller="TabsChildController">
-                                    <div>
-                                        {{$parent.workspace.id}} : {{ $parent.workspace.name}}
-                                        <div ng-controller="TableCtrl">
-                                            <table>
-                                                <tr>
-                                                    <th>Stock</th>
-                                                    <th ng-repeat="key in keys">{{labels[key]}}</th>
-                                                </tr>
-                                                <tr ng-repeat="(stock, data) in tickers">
-                                                    <td>{{stock}}</td>
-                                                    <td ng-repeat="key in keys">{{data[key]}}</td>
-                                                </tr>
-                                            </table>
-                                            <hr>
-                                            <ul class="unstyled">
-                                                <li ng-repeat="stock in stocks">
-                                                    <input type="checkbox" ng-model="stock.checked" ng-click="click(stock)">{{stock.id}}</li>
-                                            </ul>
-                                        </div>
+        <p>
+            <button class="btn btn-default btn-sm" ng-click="tabs[0].active = true">Portfolio 1</button>
+            <button class="btn btn-default btn-sm" ng-click="tabs[1].active = true">Portfolio 2</button>
+            <button class="btn btn-default btn-sm" ng-click="tabs[1].active = true">Portfolio 3</button>
+        </p>
 
-                                    </div>
-                                </div>
-                            </tab>
-                            <tab select="addWorkspace()">
-                                <tab-heading><i class="icon-plus"></i>
-                                </tab-heading>
-                            </tab>
-                        </tabset>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /column -->
+        <tabset class="tab-container">
+            <tab heading="Portfolio 1">Portfolio 1
+                <table class="table table-striped b-t b-light">
+                    <thead>
+                        <tr>
+                            <th style="width:20px;">
+
+                            </th>
+                            <th>ticker</th>
+                            <th>open</th>
+                            <th>last trade</th>
+                            <th>dividend</th>
+                            <th>pays dividend</th>
+
+                            <th style="width:30px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>AA</td>
+                            <td>8.91</td>
+                            <td>8.83</td>
+                            <td>0.12</td>
+
+                            <td>
+                                <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>GOOG</td>
+                            <td>646.98</td>
+                            <td>660.01</td>
+                            <td>0.00</td>
+                            <td>
+                                <a href ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>MSFT</td>
+                            <td>30.38</td>
+                            <td>30.39</td>
+                            <td>0.76</td>
+                            <td>
+                                <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>INTC</td>
+                            <td>26.76</td>
+                            <td>26.69</td>
+                            <td>0.86</td>
+                            <td>
+                                <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+        </tabset>
+
+
     </div>
-    <!-- /hbox layout
+    <!-- / tab -->
+
+</div>
+</div>
+</div>

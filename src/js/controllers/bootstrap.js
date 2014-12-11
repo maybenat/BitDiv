@@ -17,11 +17,11 @@
       }
     ];
 
-    $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+    $scope.items = ['Portfolio 1', 'Portfolio 2', 'Portfolio 3'];
 
     $scope.addItem = function() {
       var newItemNo = $scope.items.length + 1;
-      $scope.items.push('Item ' + newItemNo);
+      $scope.items.push('Portfolio ' + newItemNo);
     };
 
     $scope.status = {
@@ -194,8 +194,8 @@
   ; 
   app.controller('TabsDemoCtrl', ['$scope', function($scope) {
     $scope.tabs = [
-      { title:'Dynamic Title 1', content:'Dynamic content 1' },
-      { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
+      { title:'Portfolio 2', content:'Portfolio 2' },
+      { title:'Portfolio 3', content:'Portfolio 3', disabled: true }
     ];
   }])
   ; 
