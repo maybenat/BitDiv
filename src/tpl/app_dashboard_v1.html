@@ -13,14 +13,14 @@
                 </div>
                 <div class="col-sm-6 text-right hidden-xs">
                     <div class="inline m-r text-left">
-                        <div class="m-b-xs">112 <span class="text-muted">stocks</span>
+                        <div class="m-b-xs">4 <span class="text-muted">stocks</span>
                         </div>
                         <div ng-init="data1=[ 109,105,104,107,109,105,100,105,102,101,99,98 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                         </div>
                         </ul>
                     </div>
                     <div class="inline text-left">
-                        <div class="m-b-xs">$30,000 <span class="text-muted"></span>
+                        <div class="m-b-xs">$2,000 <span class="text-muted"></span>
                         </div>
                         <div ng-init="data2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]" ui-jq="sparkline" ui-options="{{data2}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                         </div>
@@ -119,7 +119,7 @@
                                     <div ng-init="data1=[70,30]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie', height:40, sliceColors:['{{app.color.warning}}','#fff']}" class="sparkline inline"></div>
                                 </div>
                                 <div class="col dk padder-v r-r">
-                                    <div class="text-primary-dk font-thin h1"><span>$12,670</span>
+                                    <div class="text-primary-dk font-thin h1"><span>$670</span>
                                     </div>
                                     <span class="text-muted text-xs">since day 1, 30% of the goal</span>
                                 </div>
@@ -163,18 +163,20 @@
                     <span class="m-b block text-sm text-muted">(updated 1 hour ago)</span>
                     <h4 class="font-thin m-t-none m-b">Reports</h4>
                     <div class="">
+                        <a href = "#/app/chart">
                         <div class="">
-                            <span class="pull-right text-primary">80% match</span>
-                            <span>UNP</span>
+                            <span class="pull-right text-info">90% match</span>
+                            <span>LMT</span>
                         </div>
+                    </a>
                         <progressbar value="80" class="progress-xs m-t-sm bg-white" animate="true" type="primary"></progressbar>
                         <div class="">
-                            <span class="pull-right text-info">65% match</span>
-                            <span>LM</span>
+                            <span class="pull-right text-primary">65% match</span>
+                            <span>UNP</span>
                         </div>
                         <progressbar value="65" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
                         <div class="">
-                            <span class="pull-right text-info">90% match</span>
+                            <span class="pull-right">90% match</span>
                             <span>SJM</span>
                         </div>
                         <progressbar value="90" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
@@ -188,8 +190,8 @@
                             <span>UNP</span>
                         </div>
                         <div class="">
-                            <span class="pull-right text-info">Financial</span>
-                            <span>LM</span>
+                            <span class="pull-right text-info">Aeronautical</span>
+                            <span>LMT</span>
                         </div>
                         <div class="">
                             <span class="pull-right ">Consumer Goods</span>
