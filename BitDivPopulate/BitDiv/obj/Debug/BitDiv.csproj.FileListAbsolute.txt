@@ -1,0 +1,7 @@
+c:\users\thapt_000\documents\visual studio 2012\Projects\BitDiv\BitDiv\bin\Debug\BitDiv.exe.config
+c:\users\thapt_000\documents\visual studio 2012\Projects\BitDiv\BitDiv\bin\Debug\BitDiv.exe
+c:\users\thapt_000\documents\visual studio 2012\Projects\BitDiv\BitDiv\bin\Debug\BitDiv.pdb
+c:\users\thapt_000\documents\visual studio 2012\Projects\BitDiv\BitDiv\obj\Debug\BitDiv.csprojResolveAssemblyReference.cache
+c:\users\thapt_000\documents\visual studio 2012\Projects\BitDiv\BitDiv\obj\Debug\BitDiv.exe
+c:\users\thapt_000\documents\visual studio 2012\Projects\BitDiv\BitDiv\obj\Debug\BitDiv.pdb
+C:\Users\thapt_000\Documents\Visual Studio 2012\Projects\BitDiv\BitDiv\bin\Debug\System.Data.dll
