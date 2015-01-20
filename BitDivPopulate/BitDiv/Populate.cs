@@ -17,12 +17,27 @@ namespace BitDiv
         static string apiCallType = ".csv";
         static string authToken = "?auth_token=hM_FtE8cFi1AC-e3Sufo";
 
+        static string populateSymbolLogPath = "populateSymbolLog.txt";
+
+        static string successCode = "SUCCESS";
+
+        static string downloadCode = "DOWNLOAD";
+        static string populateCode = "POPULATE";
+
         static WebClient client = new WebClient();
         static DBConnect dbconnector = new DBConnect();
 
-        public static void DownloadFile(string remoteFile, string localFile)
+        public static bool DownloadFile(string remoteFile, string localFile)
         {
-            client.DownloadFile(remoteFile, localFile);
+            try
+            {
+                client.DownloadFile(remoteFile, localFile);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
 
         public static string GetFile(string remoteFile)
@@ -48,11 +63,13 @@ namespace BitDiv
                         string fileName = symbol + apiCallType;
 
                         Console.WriteLine("Downloading " + symbol + "...");
-                        DownloadFile(apiCall, fileName);
+                        while (!DownloadFile(apiCall, fileName)) { }
+                        Log(populateSymbolLogPath, symbol + " "+ downloadCode + " " + successCode);
 
                         Console.WriteLine("Writing " + symbol + "...");
                         //populate database with info from the current symbol
                         PopulateSymbol(symbol, fileName);
+                        Log(populateSymbolLogPath, symbol + " " + populateCode + " " + successCode);
                         Console.WriteLine(symbol + " finished!");
                     }
                     catch (Exception e)
@@ -65,19 +82,24 @@ namespace BitDiv
 
         public static void PopulateSymbol(string symbol, string fileName)
         {
-            System.IO.StreamReader file = new System.IO.StreamReader(fileName);
-            string line;
-            //each row is a different date of market info, now iterate through dates
-            while ((line = file.ReadLine()) != null)
+            using (System.IO.StreamReader file = new System.IO.StreamReader(fileName))
             {
-                String[] lineArray = line.Split(',');
-                if (lineArray[0] != "Date")
+                string line;
+                //each row is a different date of market info, now iterate through dates
+                while ((line = file.ReadLine()) != null)
                 {
+                    String[] lineArray = line.Split(',');
+                    if (lineArray[0] == "Date")
+                    {
+                        continue;
+                    }
                     String[] lineArrayReduced = new String[8];
                     Array.Copy(lineArray, lineArrayReduced, 8);
                     //for each date, write the information we want to the database
-                    dbconnector.Insert(symbol, lineArrayReduced);
-                    
+                    if (!dbconnector.Insert(symbol, lineArrayReduced))
+                    {
+                        //retry insertion
+                    }
                 }
             }
         }
@@ -89,6 +111,13 @@ namespace BitDiv
 
             //use the list of tickers to populate the db
             PopulateTable(tickerListLocalPath);
+        }
+
+        static void Log(string path, string message)
+        {
+            using(System.IO.StreamWriter logger = new System.IO.StreamWriter(path)){
+                logger.WriteLine(message);
+            }
         }
     }
 
@@ -165,7 +194,7 @@ namespace BitDiv
         }
 
         //Insert statement
-        public void Insert(string symbol, String[] rowToInsert)
+        public bool Insert(string symbol, String[] rowToInsert)
         {
             string query = "INSERT INTO quandl (symbol, date, open, high, low, close, volume, exdividend, splitratio)" +
                 " VALUES('" + symbol + "'";
@@ -191,34 +220,46 @@ namespace BitDiv
                 catch (Exception e)
                 {
                     Console.WriteLine("Error: " + e.Message);
+                    return false;
                 }
 
                 //close connection
                 this.CloseConnection();
+                return true;
             }
+            return false;
         }
 
         //Update statement
-        public void Update()
+        public bool Update()
         {
             string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
 
             //Open connection
             if (this.OpenConnection())
             {
-                //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                //Assign the connection using Connection
-                cmd.Connection = connection;
+                try
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
 
-                //Execute query
-                cmd.ExecuteNonQuery();
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
 
                 //close connection
                 this.CloseConnection();
+                return true;
             }
+            return false;
         }
 
         //Delete statement
