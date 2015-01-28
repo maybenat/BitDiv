@@ -53,6 +53,7 @@ namespace BitDiv
             string line;
             //read through the file of symbols to make an api call for each one
             InitLogger(populateSymbolLogPath);
+            bool con = false;
             while ((line = file.ReadLine()) != null)
             {
                 String[] lineArray = line.Split(',');
@@ -64,6 +65,10 @@ namespace BitDiv
                         string apiCall = apiCallPrefix + lineArray[0] + apiCallType + authToken;
                         string symbol = lineArray[0].Substring(lineArray[0].IndexOf('/') + 1);
                         if (symbol == "ALTR")
+                        {
+                            con = true;
+                        }
+                        if (con)
                         {
                             string fileName = symbol + apiCallType;
 
@@ -102,10 +107,17 @@ namespace BitDiv
                     }
                     String[] lineArrayReduced = new String[8];
                     Array.Copy(lineArray, lineArrayReduced, 8);
+                    //for (int a = 0; a < lineArrayReduced.Length; a++)
+                    //{
+                    //    if (lineArrayReduced[a] == string.Empty)
+                    //    {
+                    //        lineArrayReduced[a] = null;
+                    //    }
+                    //}
                     //for each date, write the information we want to the database
                     if (!dbconnector.Insert(symbol, lineArrayReduced))
                     {
-                        Log("Fucked up");
+                        Log("Failed insertion for: ");
                         //retry insertion
                     }
                 }
