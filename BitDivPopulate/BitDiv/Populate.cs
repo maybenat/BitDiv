@@ -27,6 +27,8 @@ namespace BitDiv
         static WebClient client = new WebClient();
         static DBConnect dbconnector = new DBConnect();
 
+        static System.IO.StreamWriter logger = null;
+
         public static bool DownloadFile(string remoteFile, string localFile)
         {
             try
@@ -50,6 +52,7 @@ namespace BitDiv
             System.IO.StreamReader file = new System.IO.StreamReader(tickerListLocalPath);
             string line;
             //read through the file of symbols to make an api call for each one
+            InitLogger(populateSymbolLogPath);
             while ((line = file.ReadLine()) != null)
             {
                 String[] lineArray = line.Split(',');
@@ -60,17 +63,20 @@ namespace BitDiv
                         //build quandl api call for the current symbol, and download the info for that symbol
                         string apiCall = apiCallPrefix + lineArray[0] + apiCallType + authToken;
                         string symbol = lineArray[0].Substring(lineArray[0].IndexOf('/') + 1);
-                        string fileName = symbol + apiCallType;
+                        if (symbol == "ALTR")
+                        {
+                            string fileName = symbol + apiCallType;
 
-                        Console.WriteLine("Downloading " + symbol + "...");
-                        while (!DownloadFile(apiCall, fileName)) { }
-                        Log(populateSymbolLogPath, symbol + " "+ downloadCode + " " + successCode);
+                            Console.WriteLine("Downloading " + symbol + "...");
+                            while (!DownloadFile(apiCall, fileName)) { }
+                            Log(symbol + " " + downloadCode + " " + successCode);
 
-                        Console.WriteLine("Writing " + symbol + "...");
-                        //populate database with info from the current symbol
-                        PopulateSymbol(symbol, fileName);
-                        Log(populateSymbolLogPath, symbol + " " + populateCode + " " + successCode);
-                        Console.WriteLine(symbol + " finished!");
+                            Console.WriteLine("Writing " + symbol + "...");
+                            //populate database with info from the current symbol
+                            PopulateSymbol(symbol, fileName);
+                            Log(symbol + " " + populateCode + " " + successCode);
+                            Console.WriteLine(symbol + " finished!");
+                        }
                     }
                     catch (Exception e)
                     {
@@ -78,6 +84,7 @@ namespace BitDiv
                     }
                 }
             }
+            CloseLogger();
         }
 
         public static void PopulateSymbol(string symbol, string fileName)
@@ -98,6 +105,7 @@ namespace BitDiv
                     //for each date, write the information we want to the database
                     if (!dbconnector.Insert(symbol, lineArrayReduced))
                     {
+                        Log("Fucked up");
                         //retry insertion
                     }
                 }
@@ -113,11 +121,23 @@ namespace BitDiv
             PopulateTable(tickerListLocalPath);
         }
 
-        static void Log(string path, string message)
+        static void InitLogger(string path)
         {
-            using(System.IO.StreamWriter logger = new System.IO.StreamWriter(path)){
+            logger = new System.IO.StreamWriter(path);
+        }
+
+        static void Log(string message)
+        {
+            if (logger != null)
+            {
                 logger.WriteLine(message);
             }
+        }
+
+        static void CloseLogger()
+        {
+            logger.Close();
+            logger = null;
         }
     }
 
@@ -220,6 +240,7 @@ namespace BitDiv
                 catch (Exception e)
                 {
                     Console.WriteLine("Error: " + e.Message);
+                    this.CloseConnection();
                     return false;
                 }
 
@@ -252,6 +273,7 @@ namespace BitDiv
                 }
                 catch (Exception e)
                 {
+                    this.CloseConnection();
                     return false;
                 }
 

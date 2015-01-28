@@ -8,3 +8,10 @@ C:\Users\thapt_000\Documents\Visual Studio 2012\Projects\BitDivPopulate\BitDiv\b
 C:\Users\thapt_000\Documents\Visual Studio 2012\Projects\BitDivPopulate\BitDiv\bin\Debug\BitDiv.pdb
 C:\Users\thapt_000\Documents\Visual Studio 2012\Projects\BitDivPopulate\BitDiv\bin\Debug\System.Data.dll
 C:\Users\thapt_000\Documents\Visual Studio 2012\Projects\BitDivPopulate\BitDiv\obj\Debug\BitDivDatabase.csprojResolveAssemblyReference.cache
+D:\git\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.exe.config
+D:\git\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDiv.exe
+D:\git\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDiv.pdb
+D:\git\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.exe
+D:\git\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.pdb
+D:\git\BitDiv\BitDivPopulate\BitDiv\bin\Debug\System.Data.dll
+D:\git\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDivDatabase.csprojResolveAssemblyReference.cache
