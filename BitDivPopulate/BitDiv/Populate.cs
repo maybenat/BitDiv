@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -23,11 +24,14 @@ namespace BitDiv
 
         static string downloadCode = "DOWNLOAD";
         static string populateCode = "POPULATE";
+        static string deleteCode = "DELETE";
 
         static WebClient client = new WebClient();
         static DBConnect dbconnector = new DBConnect();
 
         static System.IO.StreamWriter logger = null;
+
+        static readonly bool cleanupFiles = true;
 
         public static bool DownloadFile(string remoteFile, string localFile)
         {
@@ -47,13 +51,25 @@ namespace BitDiv
             return client.DownloadString(remoteFile);
         }
 
+        public static bool DeleteFile(string localFile)
+        {
+            try
+            {
+                File.Delete(localFile);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static void PopulateTable(string tickerListLocalPath)
         {
             System.IO.StreamReader file = new System.IO.StreamReader(tickerListLocalPath);
             string line;
             //read through the file of symbols to make an api call for each one
             InitLogger(populateSymbolLogPath);
-            bool con = false;
             while ((line = file.ReadLine()) != null)
             {
                 String[] lineArray = line.Split(',');
@@ -64,23 +80,25 @@ namespace BitDiv
                         //build quandl api call for the current symbol, and download the info for that symbol
                         string apiCall = apiCallPrefix + lineArray[0] + apiCallType + authToken;
                         string symbol = lineArray[0].Substring(lineArray[0].IndexOf('/') + 1);
-                        if (symbol == "ALTR")
-                        {
-                            con = true;
-                        }
-                        if (con)
-                        {
-                            string fileName = symbol + apiCallType;
+                        string fileName = symbol + apiCallType;
 
-                            Console.WriteLine("Downloading " + symbol + "...");
-                            while (!DownloadFile(apiCall, fileName)) { }
-                            Log(symbol + " " + downloadCode + " " + successCode);
+                        Console.WriteLine("Downloading " + symbol + "...");
+                        while (!DownloadFile(apiCall, fileName)) { }
+                        Log(symbol + " "+ downloadCode + " " + successCode);
 
-                            Console.WriteLine("Writing " + symbol + "...");
-                            //populate database with info from the current symbol
-                            PopulateSymbol(symbol, fileName);
-                            Log(symbol + " " + populateCode + " " + successCode);
-                            Console.WriteLine(symbol + " finished!");
+                        Console.WriteLine("Writing " + symbol + "...");
+                        //populate database with info from the current symbol
+                        PopulateSymbol(symbol, fileName);
+                        Log(symbol + " " + populateCode + " " + successCode);
+                        Console.WriteLine(symbol + " finished!");
+
+                        if (cleanupFiles)
+                        {
+                            if (DeleteFile(fileName))
+                            {
+                                Log(symbol + " " + deleteCode + " " + successCode);
+                                Console.WriteLine(symbol + " deleted");
+                            }
                         }
                     }
                     catch (Exception e)
@@ -117,8 +135,8 @@ namespace BitDiv
                     //for each date, write the information we want to the database
                     if (!dbconnector.Insert(symbol, lineArrayReduced))
                     {
-                        Log("Failed insertion for: ");
-                        //retry insertion
+                        Log("Insertion failed on " + symbol);
+                        
                     }
                 }
             }
