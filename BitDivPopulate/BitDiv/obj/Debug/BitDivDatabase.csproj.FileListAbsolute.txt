@@ -15,3 +15,10 @@ D:\git\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.exe
 D:\git\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.pdb
 D:\git\BitDiv\BitDivPopulate\BitDiv\bin\Debug\System.Data.dll
 D:\git\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDivDatabase.csprojResolveAssemblyReference.cache
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.exe.config
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDiv.exe
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDiv.pdb
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.exe
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.pdb
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\System.Data.dll
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDivDatabase.csprojResolveAssemblyReference.cache

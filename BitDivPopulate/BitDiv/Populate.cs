@@ -19,6 +19,10 @@ namespace BitDiv
         static string authToken = "?auth_token=hM_FtE8cFi1AC-e3Sufo";
 
         static string populateSymbolLogPath = "populateSymbolLog.txt";
+        static string populateSymbolListLogPath = "populateSymbolLIstLog.txt";
+
+        public static string quandlTableName = "quandl";
+        public static string symbolListTableName = "wiki_eod_symbols";
 
         static string successCode = "SUCCESS";
 
@@ -32,6 +36,7 @@ namespace BitDiv
         static System.IO.StreamWriter logger = null;
 
         static readonly bool cleanupFiles = true;
+        static readonly bool populateSymbolList = true;
 
         public static bool DownloadFile(string remoteFile, string localFile)
         {
@@ -67,46 +72,78 @@ namespace BitDiv
         public static void PopulateTable(string tickerListLocalPath)
         {
             System.IO.StreamReader file = new System.IO.StreamReader(tickerListLocalPath);
-            string line;
-            //read through the file of symbols to make an api call for each one
-            InitLogger(populateSymbolLogPath);
-            while ((line = file.ReadLine()) != null)
+            if (populateSymbolList)
             {
-                String[] lineArray = line.Split(',');
-                if (lineArray[0] != "quandl code")
+                string line;
+                InitLogger(populateSymbolListLogPath);
+                while ((line = file.ReadLine()) != null)
                 {
-                    try
+                    String[] lineArray = line.Split(',');
+                    if (lineArray[0] != "quandl code")
                     {
-                        //build quandl api call for the current symbol, and download the info for that symbol
-                        string apiCall = apiCallPrefix + lineArray[0] + apiCallType + authToken;
-                        string symbol = lineArray[0].Substring(lineArray[0].IndexOf('/') + 1);
-                        string fileName = symbol + apiCallType;
-
-                        Console.WriteLine("Downloading " + symbol + "...");
-                        while (!DownloadFile(apiCall, fileName)) { }
-                        Log(symbol + " "+ downloadCode + " " + successCode);
-
-                        Console.WriteLine("Writing " + symbol + "...");
-                        //populate database with info from the current symbol
-                        PopulateSymbol(symbol, fileName);
-                        Log(symbol + " " + populateCode + " " + successCode);
-                        Console.WriteLine(symbol + " finished!");
-
-                        if (cleanupFiles)
+                        String[] rowToInsert = new String[3];
+                        int comma = line.IndexOf(',');
+                        rowToInsert[0] = line.Substring(0, comma);
+                        rowToInsert[1] = line.Substring(comma+2,line.Length-comma-3);
+                        if (rowToInsert[1].Contains("'"))
                         {
-                            if (DeleteFile(fileName))
-                            {
-                                Log(symbol + " " + deleteCode + " " + successCode);
-                                Console.WriteLine(symbol + " deleted");
-                            }
+                            int quote = rowToInsert[1].IndexOf("'");
+
+                            rowToInsert[1] = rowToInsert[1].Substring(0, quote) + @"\" + rowToInsert[1].Substring(quote);
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Error: " + e.Message);
+                        rowToInsert[2] = line.Substring(lineArray[0].IndexOf('/')+1,comma-lineArray[0].IndexOf('/')-1);
+                        if (!dbconnector.Insert(symbolListTableName, rowToInsert))
+                        {
+                            //"WIKI/ACT,\"Actavis, Inc.\""
+                            Log("failed");
+                        }
                     }
                 }
             }
+            else
+            {
+                string line;
+                //read through the file of symbols to make an api call for each one
+                InitLogger(populateSymbolLogPath);
+                while ((line = file.ReadLine()) != null)
+                {
+                    String[] lineArray = line.Split(',');
+                    if (lineArray[0] != "quandl code")
+                    {
+                        try
+                        {
+                            //build quandl api call for the current symbol, and download the info for that symbol
+                            string apiCall = apiCallPrefix + lineArray[0] + apiCallType + authToken;
+                            string symbol = lineArray[0].Substring(lineArray[0].IndexOf('/') + 1);
+                            string fileName = symbol + apiCallType;
+
+                            Console.WriteLine("Downloading " + symbol + "...");
+                            while (!DownloadFile(apiCall, fileName)) { }
+                            Log(symbol + " " + downloadCode + " " + successCode);
+
+                            Console.WriteLine("Writing " + symbol + "...");
+                            //populate database with info from the current symbol
+                            PopulateSymbol(symbol, fileName);
+                            Log(symbol + " " + populateCode + " " + successCode);
+                            Console.WriteLine(symbol + " finished!");
+
+                            if (cleanupFiles)
+                            {
+                                if (DeleteFile(fileName))
+                                {
+                                    Log(symbol + " " + deleteCode + " " + successCode);
+                                    Console.WriteLine(symbol + " deleted");
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Error: " + e.Message);
+                        }
+                    }
+                }
+            }
+            file.Close();
             CloseLogger();
         }
 
@@ -123,8 +160,12 @@ namespace BitDiv
                     {
                         continue;
                     }
-                    String[] lineArrayReduced = new String[8];
-                    Array.Copy(lineArray, lineArrayReduced, 8);
+                    String[] lineArrayReduced = new String[9];
+                    lineArrayReduced[0] = symbol;
+                    for (int a = 1; a < lineArrayReduced.Length; a++)
+                    {
+                        lineArrayReduced[a] = lineArray[a - 1];
+                    }
                     //for (int a = 0; a < lineArrayReduced.Length; a++)
                     //{
                     //    if (lineArrayReduced[a] == string.Empty)
@@ -133,7 +174,7 @@ namespace BitDiv
                     //    }
                     //}
                     //for each date, write the information we want to the database
-                    if (!dbconnector.Insert(symbol, lineArrayReduced))
+                    if (!dbconnector.Insert(quandlTableName, lineArrayReduced))
                     {
                         Log("Insertion failed on " + symbol);
                         
@@ -147,7 +188,7 @@ namespace BitDiv
             //first get the list of symbols/tickers available on the db
             DownloadFile(tickerListPath, tickerListLocalPath);
 
-            //use the list of tickers to populate the db
+            //use the list of tickers to populate the wiki EOD table
             PopulateTable(tickerListLocalPath);
         }
 
@@ -178,6 +219,9 @@ namespace BitDiv
         private string database;
         private string uid;
         private string password;
+
+        static string quandlTableName = "quandl";
+        static string symbolListTableName = "wiki_eod_symbols";
 
         //Constructor
         public DBConnect()
@@ -223,6 +267,9 @@ namespace BitDiv
                     case 1045:
                         Console.WriteLine("Invalid username/password, please try again");
                         break;
+                    case 1042:
+                        Console.WriteLine("Unable to connect to MySQL host");
+                        break;
                 }
                 return false;
             }
@@ -244,17 +291,23 @@ namespace BitDiv
         }
 
         //Insert statement
-        public bool Insert(string symbol, String[] rowToInsert)
+        public bool Insert(string tableName, String[] rowToInsert)
         {
-            string query = "INSERT INTO quandl (symbol, date, open, high, low, close, volume, exdividend, splitratio)" +
-                " VALUES('" + symbol + "'";
-            for (int a = 0; a < rowToInsert.Length; a++)
+            string query = "INSERT INTO " + tableName;
+            if (tableName == quandlTableName)
+            {
+                query += " (symbol, date, open, high, low, close, volume, exdividend, splitratio)";
+            }
+            else if(tableName == symbolListTableName){
+                query += " (quandl_code, name, symbol)";
+            }
+  
+            query += " VALUES('" + rowToInsert[0] + "'";
+            for (int a = 1; a < rowToInsert.Length; a++)
             {
                 query += ", '" + rowToInsert[a] + "'";
             }
-
             query += ")";
-            //'33')";
 
             //open connection
             if (this.OpenConnection())
