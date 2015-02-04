@@ -53,11 +53,11 @@
                 $error3 = "Someone already has that username. Try another?";
                 //echo '<script type="text/javascript">', 'userExists();', '</script>';
             } else {
-                $statement = $db->prepare ( "INSERT INTO users (login, passwords, lastname, firstname)
+                $statement = $db->prepare ( "INSERT INTO users (email, password, last_name, first_name)
                     values ('$email','$password', '$lname', '$fname')" );
                 $statement->execute ();
 
-                header ( "Location: ./index.html" );
+                header ( "Location: index.html" );
             }
         } catch ( PDOException $e ) {
             echo '<script language="javascript"> alert("Unable to connect to the database") </script>';
