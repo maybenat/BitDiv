@@ -23,7 +23,7 @@
                 $email = $_POST ['username'];
                 $password = $_POST ['password'];
 
-                $statement = $db->prepare ( "SELECT * FROM users WHERE email = '$email' and password = '$password' " );
+                $statement = $db->prepare ( "SELECT uid FROM users WHERE email = '$email' and password = '$password' " );
                 $statement->execute ();
 
                 $result = $statement->fetch ( PDO::FETCH_ASSOC );
@@ -31,6 +31,10 @@
                 if (isset ( $result ) && $result != false) {
                     //$_SESSION ['username'] = $result ["fname"];
                     echo '<script language="javascript"> alert("In the database") </script>';
+                    
+                    // set session cookie with value of uid
+                    setcookie("session", $result, time() + 3600, "/");
+                    
                     // Redirect to Home page
                     header ( "Location: index.html" );
 
@@ -84,9 +88,9 @@
                         <div class="form-group">
                             <div class="col-md-12 control">
                                 <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                    Don't have an account!
+                                    Don't have an account?
                                     <a href="signup.php">
-                                        Sign Up Here
+                                        Sign up here!
                                     </a>
                                 </div>
                             </div>
