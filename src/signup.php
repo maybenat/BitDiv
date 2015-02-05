@@ -108,35 +108,35 @@
                     <div class="form-group">
                         <label for="firstname" class="col-md-3 control-label">First Name</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="firstname" placeholder="First Name" <?php echo 'value="'.$fname.'"'; ?>>
+                            <input type="text" class="form-control" name="firstname" placeholder="First Name" <?php if(isset($fname))echo 'value="'.$fname.'"'; ?>>
                             <?php if(isset($error1)) echo '<p>'.$error1.'<p>'; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-md-3 control-label">Last Name</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="lastname" placeholder="Last Name" <?php echo 'value="'.$lname.'"'; ?>>
+                            <input type="text" class="form-control" name="lastname" placeholder="Last Name" <?php if(isset($lname))echo 'value="'.$lname.'"'; ?>>
                             <?php if(isset($error2)) echo '<p>'.$error2.'<p>'; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-md-3 control-label">Email</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address" <?php echo 'value="'.$email.'"'; ?>>
+                            <input type="text" class="form-control" name="email" placeholder="Email Address" <?php if(isset($email)) echo 'value="'.$email.'"'; ?>>
                             <?php if(isset($error3)) echo '<p>'.$error3.'<p>'; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Password</label>
                         <div class="col-md-9">
-                            <input type="password" class="form-control" name="password1" placeholder="Password" <?php echo 'value="'.$password.'"'; ?>>
+                            <input type="password" class="form-control" name="password1" placeholder="Password" <?php if(isset($password)) echo 'value="'.$password.'"'; ?>>
                             <?php if(isset($error4)) echo '<p>'.$error4.'<p>'; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Repeat Password</label>
                         <div class="col-md-9">
-                            <input type="password" class="form-control" name="password2" placeholder="Password" <?php echo 'value="'.$password2.'"'; ?>>
+                            <input type="password" class="form-control" name="password2" placeholder="Password" <?php if(isset($password2)) echo 'value="'.$password2.'"'; ?>>
                             <?php if(isset($error5)) echo '<p>'.$error5.'<p>'; ?>
                         </div>
                     </div>
