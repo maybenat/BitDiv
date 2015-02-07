@@ -93,9 +93,8 @@ angular.module('app')
                     resolve: {
                         deps: ['uiLoad',
                             function(uiLoad) {
-                                return uiLoad.load('js/controllers/chart.js',
-                                    'js/controllers/highstock.js',
-                                    'js/controllers/chart_2.js');
+                                return uiLoad.load(
+                                    ['js/controllers/highstock.js', 'js/controllers/stock.js', 'js/controllers/chart.js']);
                             }
                         ]
                     }

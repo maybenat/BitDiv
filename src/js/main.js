@@ -12,7 +12,7 @@ angular.module('app')
 
       // config
       $scope.app = {
-        name: 'Angulr',
+        name: 'bitdiv',
         // for chart colors
         color: {
           primary: '#7266ba',
