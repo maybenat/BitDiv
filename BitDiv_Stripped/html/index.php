@@ -16,7 +16,7 @@
 <body>
     <div class="app app-header-fixed">
 
-       <?php include("includes/header.html"); ?>
+       <?php include("header.html"); ?>
 
         <!-- content -->
         <div id="content" class="app-content" role="main">
