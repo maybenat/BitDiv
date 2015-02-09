@@ -16,7 +16,7 @@
 <body>
     <div class="app app-header-fixed">
 
-       <?php include("header.html"); ?>
+       <?php include("header.php"); ?>
 
         <!-- content -->
         <div id="content" class="app-content" role="main">
@@ -24,7 +24,7 @@
 
 
                 <div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
-    app.settings.asideFolded = false; 
+    app.settings.asideFolded = false;
     app.settings.asideDock = false;
   ">
                     <!-- main -->

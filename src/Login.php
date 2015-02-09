@@ -31,10 +31,10 @@
                 if (isset ( $result ) && $result != false) {
                     //$_SESSION ['username'] = $result ["fname"];
                     echo '<script language="javascript"> alert("In the database") </script>';
-                    
+
                     // set session cookie with value of uid
                     setcookie("session", $result, time() + 3600, "/");
-                    
+
                     // Redirect to Home page
                     header ( "Location: index.html" );
 

@@ -105,7 +105,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">
-                            <span class="hidden-sm hidden-md">John.Smith</span> <b class="caret"></b>
+                            <span class="hidden-sm hidden-md"><?php echo "username" ?> </span> <b class="caret"></b>
                         </a>
                         <!-- dropdown -->
                         <ul class="dropdown-menu animated fadeInRight w">
@@ -121,7 +121,7 @@
 
                             <li class="divider"></li>
                             <li>
-                                <a ui-sref="access.signin">Logout</a>
+                                <a href="logout.php">Logout</a>
                             </li>
                         </ul>
                     </li>
