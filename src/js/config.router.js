@@ -138,7 +138,7 @@ angular.module('app')
                 .state('layout', {
                         abstract: true,
                         url: '/layout',
-                        templateUrl: 'tpl/layout.html'
+                        templateUrl: 'tpl/layout.php'
                     })
                     .state('layout.fullwidth', {
                         url: '/fullwidth',
@@ -190,7 +190,7 @@ angular.module('app')
                     .state('apps', {
                         abstract: true,
                         url: '/apps',
-                        templateUrl: 'tpl/layout.html'
+                        templateUrl: 'tpl/layout.php'
                     })
 
             }

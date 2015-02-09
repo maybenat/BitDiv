@@ -1,5 +1,6 @@
   <!-- navbar -->
-  <div data-ng-include=" 'tpl/blocks/header.html' " class="app-header navbar">
+  <div data-ng-include=" 'tpl/blocks/header.php' " class="app-header navbar">
+  <?php include 'tpl/blocks/header.php';?>
   </div>
   <!-- / navbar -->
 
@@ -16,6 +17,6 @@
   <!-- / view -->
   <!-- navbar -->
   <div class="app-footer navbar navbar-fixed-bottom bg-light lt b-t" ng-class="{'m-n': app.hideAside, 'hide': app.hideFooter}" ui-view="footer">
-    
+
   </div>
   <!-- /navbar -->
