@@ -1,3 +1,4 @@
+<?php session_start (); ?>
  <!-- header -->
         <header id="header" class="app-header navbar" role="menu">
             <!-- navbar header -->
@@ -105,7 +106,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">
-                            <span class="hidden-sm hidden-md"><?php echo "username" ?> </span> <b class="caret"></b>
+                            <span class="hidden-sm hidden-md"><?php echo $_SESSION ['fname'] ?> </span> <b class="caret"></b>
                         </a>
                         <!-- dropdown -->
                         <ul class="dropdown-menu animated fadeInRight w">

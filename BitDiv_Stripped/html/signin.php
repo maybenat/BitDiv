@@ -15,19 +15,20 @@
 
 
             if (isset ( $_REQUEST ['Login'] )) {
-                $email = $_POST ['username'];
+                $email = $_POST ['email'];
                 $password = $_POST ['password'];
 
-                //echo '<script language="javascript"> alert("checkpoint 2") </script>';
+                echo '<script language="javascript"> alert("checkpoint 2") </script>';
 
-                $statement = $db->prepare ( "SELECT uid FROM users WHERE email = '$email' and password = '$password' " );
+                $statement = $db->prepare ( "SELECT * FROM users WHERE email = '$email' and password = '$password' " );
                 $statement->execute ();
 
                 $result = $statement->fetch ( PDO::FETCH_ASSOC );
 
                 if (isset ( $result ) && $result != false) {
-                    //$_SESSION ['username'] = $result ["fname"];
-                    echo '<script language="javascript"> alert("In the database") </script>';
+                    $_SESSION ['fname'] = $result ["first_name"];
+
+                    $result["first_name"];
 
 
                     // Redirect to Home page

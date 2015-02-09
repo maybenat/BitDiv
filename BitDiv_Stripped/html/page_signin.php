@@ -1,3 +1,4 @@
+<?php include 'signin.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,6 @@
   <link rel="stylesheet" href="../bower_components/simple-line-icons/css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <link rel="stylesheet" href="css/app.css" type="text/css" />
-
-<?php include 'signin.php' ?>
 
 </head>
 <body>
@@ -29,10 +28,10 @@
         </div>
         <div class="list-group list-group-sm">
           <div class="list-group-item">
-            <input type="email" placeholder="Email" class="form-control no-border" required>
+            <input type="email" name="email" placeholder="Email" class="form-control no-border" required>
           </div>
           <div class="list-group-item">
-           <input type="password" placeholder="Password" class="form-control no-border" required>
+           <input type="password" name="password" placeholder="Password" class="form-control no-border" required>
          </div>
        </div>
        <button type="submit" name="Login" class="btn btn-lg btn-primary btn-block">Log in</button>
