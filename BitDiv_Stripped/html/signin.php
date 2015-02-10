@@ -1,10 +1,11 @@
 <?php
     include_once 'data/config.php';
 
-    session_name('Private'); 
+    session_name('Private');
     session_start ();
     $email = "";
     $password = "";
+
     //echo '<script language="javascript"> alert("checkpoint 1") </script>';
     if (! empty ( $_POST )) {
 
@@ -43,6 +44,7 @@
                     exit ();
                 } else {
                     unset ( $_SESSION ['email'] );
+                    $_SESSION['login_error'] = "The email or password you entered is incorrect.";
                     echo '<script language="javascript"> alert(wrong) </script>';
                     header ( "Location: page_signin.php" );
 

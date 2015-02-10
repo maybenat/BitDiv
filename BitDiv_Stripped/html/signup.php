@@ -7,7 +7,7 @@
     //$error1 = $error2 = $error3 = $error4 = $error5 = "";
 
     if (! empty ( $_POST )) {
-        session_name('Private'); 
+        session_name('Private');
         session_start ();
         // set variable
         if (! empty ( $_POST ['firstname'] )) {

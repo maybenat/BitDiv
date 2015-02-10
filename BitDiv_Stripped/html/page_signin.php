@@ -33,16 +33,23 @@
           <div class="list-group-item">
            <input type="password" name="password" placeholder="Password" class="form-control no-border" required>
          </div>
-       </div>
-       <button type="submit" name="Login" class="btn btn-lg btn-primary btn-block">Log in</button>
-       <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
-       <div class="line line-dashed"></div>
-       <p class="text-center"><small>Need an account?</small></p>
-       <a href="page_signup.php" class="btn btn-lg btn-default btn-block">Create an account</a>
-     </form>
-   </div>
 
- </div>
+         <?php if(isset($_SESSION['login_error'])) { echo'
+         <div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> '.$_SESSION['login_error'].'
+         </div>';}?>
+
+      </div>
+      <button type="submit" name="Login" class="btn btn-lg btn-primary btn-block">Log in</button>
+      <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
+      <div class="line line-dashed"></div>
+      <p class="text-center"><small>Need an account?</small></p>
+      <a href="page_signup.php" class="btn btn-lg btn-default btn-block">Create an account</a>
+    </form>
+  </div>
+
+</div>
 </div>
 
 
