@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <script src="js/bloodhound.js"></script>
 <script src="js/bloodhound.min.js"></script>
 <script src="js/typeahead.bundle.js"></script>
@@ -116,7 +115,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">
-                    <span class="hidden-sm hidden-md"><?php echo $_SESSION ['fname']; ?></span> <b class="caret"></b>
+                    <span class="hidden-sm hidden-md"><?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?></span> <b class="caret"></b>
                 </a>
                 <!-- dropdown -->
                 <ul class="dropdown-menu animated fadeInRight w">

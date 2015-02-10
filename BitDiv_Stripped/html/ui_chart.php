@@ -1,3 +1,5 @@
+<?php include 'includes/session.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +26,7 @@
 <body>
 <div class="app app-header-fixed  ">
 
- <?php include("header.html"); ?>
+ <?php include("header.php"); ?>
 
   
   <!-- content -->

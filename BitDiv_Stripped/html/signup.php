@@ -7,6 +7,7 @@
     //$error1 = $error2 = $error3 = $error4 = $error5 = "";
 
     if (! empty ( $_POST )) {
+        session_name('Private'); 
         session_start ();
         // set variable
         if (! empty ( $_POST ['firstname'] )) {
@@ -55,11 +56,22 @@
                 $error3 = "An account with the e-mail provided already exists. Try <a href=\"login.php\">logging in</a> here.";
                 //echo '<script type="text/javascript">', 'userExists();', '</script>';
             } else {
-                $statement = $db->prepare ( "INSERT INTO users (email, password, last_name, first_name, created)
-                    values ('$email', '$password', '$lname', '$fname', NOW())" );
+                $statement = $db->prepare ( "INSERT INTO users (email, password, last_name, first_name, created, first_login)
+                    VALUES ('$email', '$password', '$lname', '$fname', NOW(), 1)" );
                 $statement->execute ();
 
-                header ( "Location: page_signin.php" );
+                $statement = $db->prepare ( "SELECT * FROM users WHERE email = '$email' AND password = '$password' " );
+                $statement->execute ();
+
+                $result = $statement->fetch ( PDO::FETCH_ASSOC );
+
+                    session_regenerate_id();
+                    $_SESSION['first_name'] = $fname;
+                    $_SESSION['last_name'] = $lname;
+                    $_SESSION['uid'] = $result['uid'];
+                    $_SESSION['first_login'] = 1;
+
+                header ( "Location: user_setup.php" );
                 exit;
             }
         } catch ( PDOException $e ) {

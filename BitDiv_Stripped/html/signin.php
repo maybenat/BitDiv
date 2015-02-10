@@ -1,6 +1,7 @@
 <?php
     include_once 'data/config.php';
 
+    session_name('Private'); 
     session_start ();
     $email = "";
     $password = "";
@@ -26,10 +27,15 @@
                 $result = $statement->fetch ( PDO::FETCH_ASSOC );
 
                 if (isset ( $result ) && $result != false) {
-                    $_SESSION ['fname'] = $result ["first_name"];
-
-                    $result["first_name"];
-
+                    $_SESSION['first_name'] = $result['first_name'];
+                    $_SESSION['last_name'] = $result['last_name'];
+                    $_SESSION['uid'] = $result['uid'];
+                    $_SESSION['age'] = $result['age'];
+                    $_SESSION['funding'] = $result['funding'];
+                    $_SESSION['risk'] = $result['risk'];
+                    $_SESSION['reinvest'] = $result['reinvest'];
+                    $_SESSION['desired_monthly_payout'] = $result['desired_monthly_payout'];
+                    $_SESSION['first_login'] = $result['first_login'];
 
                     // Redirect to Home page
                     header ( "Location: index.php" );
