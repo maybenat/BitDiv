@@ -37,6 +37,9 @@
                     exit ();
                 } else {
                     unset ( $_SESSION ['email'] );
+                    echo '<script language="javascript"> alert(wrong) </script>';
+                    header ( "Location: page_signin.php" );
+
                 }
             }
             $db->disconnect();

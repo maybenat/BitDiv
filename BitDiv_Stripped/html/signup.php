@@ -8,7 +8,6 @@
 
     if (! empty ( $_POST )) {
         session_start ();
-        echo '<!-- hello! -->';
         // set variable
         if (! empty ( $_POST ['firstname'] )) {
             $fname = $_SESSION ['firstname'] = $_POST ['firstname'];
