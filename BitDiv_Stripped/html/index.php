@@ -70,7 +70,7 @@
                                     <h4 class="font-thin m-t-none m-b">Reports</h4>
                                     <div class="">
                                         <div class="m-b">
-                                            <a href="ui_chart.html">
+                                            <a href="ui_chart.php">
                                                 <span class="pull-right text-primary">60%</span>
                                                 <span>LMT</span>
                                             </a>
