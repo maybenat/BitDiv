@@ -132,7 +132,7 @@
 
                     <li class="divider"></li>
                     <li>
-                        <a ui-sref="access.signin">Logout</a>
+                        <a href="logout.php">Logout</a>
                     </li>
                 </ul>
             </li>
