@@ -1,33 +1,25 @@
 <?php
     include_once 'data/config.php';
 
-    session_name('Private');
-    session_start ();
-    $email = "";
-    $password = "";
-
-    //echo '<script language="javascript"> alert("checkpoint 1") </script>';
-    if (! empty ( $_POST )) {
-
-
+    if(!empty($_POST)) {
         try {
             $db = new PDO ( "mysql:host=$host;dbname=$dbname;charset=utf8", $user, $dbPassword );
             $db->setAttribute ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             $db->setAttribute ( PDO::ATTR_EMULATE_PREPARES, false );
 
+            if(isset($_REQUEST['Login'])) {
+                $email = $_POST['email'];
+                $password = $_POST['password'];
 
-            if (isset ( $_REQUEST ['Login'] )) {
-                $email = $_POST ['email'];
-                $password = $_POST ['password'];
+                $statement = $db->prepare("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
+                $statement->execute();
 
-                echo '<script language="javascript"> alert("checkpoint 2") </script>';
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-                $statement = $db->prepare ( "SELECT * FROM users WHERE email = '$email' and password = '$password' " );
-                $statement->execute ();
+                if(isset($result) && $result != false) {
 
-                $result = $statement->fetch ( PDO::FETCH_ASSOC );
-
-                if (isset ( $result ) && $result != false) {
+                    session_name('Private');
+                    session_start();
                     $_SESSION['first_name'] = $result['first_name'];
                     $_SESSION['last_name'] = $result['last_name'];
                     $_SESSION['uid'] = $result['uid'];
@@ -37,22 +29,22 @@
                     $_SESSION['reinvest'] = $result['reinvest'];
                     $_SESSION['desired_monthly_payout'] = $result['desired_monthly_payout'];
                     $_SESSION['first_login'] = $result['first_login'];
+                    session_write_close();
 
                     // Redirect to Home page
-                    header ( "Location: index.php" );
-
-                    exit ();
+                    header("Location: index.php");
+                    exit;
                 } else {
-                    unset ( $_SESSION ['email'] );
-                    $_SESSION['login_error'] = "The email or password you entered is incorrect.";
-                    echo '<script language="javascript"> alert(wrong) </script>';
-                    header ( "Location: page_signin.php" );
-
+                    $login_error = "The email or password you entered is incorrect.";
+                    return;
+                    //echo '<script language="javascript"> alert(wrong) </script>';
+                    //header("Location: page_signin.php");
+                    //exit;
                 }
             }
             $db->disconnect();
-        } catch ( PDOException $e ) {
+        } catch(PDOException $e) {
             echo '<script language="javascript"> alert("Unable to connect to the database") </script>';
         }
     }
-    ?>
+?>

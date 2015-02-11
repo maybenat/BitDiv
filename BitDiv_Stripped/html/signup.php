@@ -1,32 +1,29 @@
-    <?php
+<?php
     include 'data/config.php';
 
-// Start/resume a session.
     //$email = $lname = $fname = $password = "";
-// Error checker
+    // Error checker
     //$error1 = $error2 = $error3 = $error4 = $error5 = "";
 
-    if (! empty ( $_POST )) {
-        session_name('Private');
-        session_start ();
+    if(!empty($_POST)) {
         // set variable
         if (! empty ( $_POST ['firstname'] )) {
-            $fname = $_SESSION ['firstname'] = $_POST ['firstname'];
+            $fname = $_POST ['firstname'];
         } else {
             $error1 = "Please provide your first name.";
         }
         if (! empty ( $_POST ['lastname'] )) {
-            $lname = $_SESSION ['lastname'] = $_POST ['lastname'];
+            $lname = $_POST ['lastname'];
         } else {
             $error2 = "Please provide your last name.";
         }
         if (! empty ( $_POST ['email'] )) {
-            $email = $_SESSION ['email'] = $_POST ['email'];
+            $email = $_POST ['email'];
         } else {
             $error3 = "Please provide your e-mail.";
         }
         if (! empty ( $_POST ['password1'] )) {
-            $password = $_SESSION ['password1'] = $_POST ['password1'];
+            $password = $_POST ['password1'];
         } else {
             $error4 = "Please provide a password.";
         }
@@ -40,7 +37,7 @@
                 $error5 = "Passwords do not match.";
             }
         }
-        session_write_close();
+
         if(!(isset($error1) || isset($error2) || isset($error3) || isset($error4) || isset($error5))) {
         try {
         // connect to DB
@@ -57,7 +54,7 @@
                 //echo '<script type="text/javascript">', 'userExists();', '</script>';
             } else {
                 $statement = $db->prepare ( "INSERT INTO users (email, password, last_name, first_name, created, first_login)
-                    VALUES ('$email', '$password', '$lname', '$fname', NOW(), 1)" );
+                    VALUES ('$email', '$password', '$lname', '$fname', NOW(), DEFAULT)" );
                 $statement->execute ();
 
                 $statement = $db->prepare ( "SELECT * FROM users WHERE email = '$email' AND password = '$password' " );
@@ -65,11 +62,14 @@
 
                 $result = $statement->fetch ( PDO::FETCH_ASSOC );
 
+                    session_name('Private');
+                    session_start();
                     session_regenerate_id();
                     $_SESSION['first_name'] = $fname;
                     $_SESSION['last_name'] = $lname;
                     $_SESSION['uid'] = $result['uid'];
-                    $_SESSION['first_login'] = 1;
+                    $_SESSION['first_login'] = 1; // DEFAULT
+                    session_write_close();
 
                 header ( "Location: user_setup.php" );
                 exit;
@@ -79,4 +79,4 @@
         }
     }
     }
-    ?>
+?>

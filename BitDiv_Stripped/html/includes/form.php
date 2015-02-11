@@ -1,6 +1,6 @@
 <?php
 
-  include '../data/config.php';
+  include 'data/config.php';
 
   // current form page
   if(!isset($form_page)) {
@@ -9,6 +9,7 @@
   // total number of form pages
   $NUM_PAGES = 3;
 
+  // risk "enum"
   $RISK = array (
     'high' => 0,
     'med'  => 1,
@@ -19,10 +20,7 @@
     return;
   }
 
-  if(!isset($percent_complete)) {
-    $percent_complete = 5;
-  }
-
+  session_name('Private');
   session_start();
 
   // store posted values into session variable
@@ -42,9 +40,13 @@
     // user has completed profile setup
     $_SESSION['first_login'] = 0;
 
+    // done writing session, close session
+    session_write_close();
+
     try {
+
       // write session variables to database
-      $db = new PDO('mysql:host=$host;dbname=$dbname;charset=utf8', $user, $dbPassword);
+      $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
@@ -58,16 +60,15 @@
         .' WHERE uid='.$_SESSION['uid'];
 
       $statement = $db->prepare($sql);
-      $statement->execute ();
+      $statement->execute();
 
     } catch(PDOException $e) {
-      echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database") </script></head><body></body></html>';
+      echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database: '.$e.'") </script></head><body></body></html>';
       exit;
     }
 
     // TODO: redirect to "profile finished, welcome page"?
 
-    session_write_close();
     header('Location: http://'.$_SERVER['SERVER_NAME'].substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/') + 1));
     exit;
   } else if(isset($_POST['prev2'])) {

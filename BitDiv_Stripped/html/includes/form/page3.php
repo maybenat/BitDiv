@@ -2,7 +2,7 @@
 <?php
 
   // user risk value
-  if(!isset($_SESSION['reinvest'])) {
+  if(!isset($_SESSION['reinvest']) || empty($_SESSION['reinvest'])) {
     $_SESSION['reinvest'] = 0;
   }
 

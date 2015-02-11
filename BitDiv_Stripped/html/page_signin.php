@@ -1,4 +1,4 @@
-<?php include 'signin.php' ?>
+<?php include 'signin.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,17 +28,17 @@
         </div>
         <div class="list-group list-group-sm">
           <div class="list-group-item">
-            <input type="email" name="email" placeholder="Email" class="form-control no-border" required>
+            <input type="email" name="email" placeholder="Email" class="form-control no-border" required <?php if(isset($email)) echo 'value="'.$email.'"'; ?>>
           </div>
           <div class="list-group-item">
            <input type="password" name="password" placeholder="Password" class="form-control no-border" required>
          </div>
 
-         <?php if(isset($_SESSION['login_error'])) { echo'
+         <?php if(isset($login_error)) { echo '
          <div class="alert alert-danger" role="alert">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <span class="sr-only">Error:</span> '.$_SESSION['login_error'].'
-         </div>';}?>
+          <span class="sr-only">Error:</span> '.$login_error.'
+         </div>'; } ?>
 
       </div>
       <button type="submit" name="Login" class="btn btn-lg btn-primary btn-block">Log in</button>
@@ -55,8 +55,6 @@
 
 </div>
 
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="js/ui-load.js"></script>
 <script src="js/ui-jp.config.js"></script>
 <script src="js/ui-jp.js"></script>

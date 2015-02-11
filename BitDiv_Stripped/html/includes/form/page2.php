@@ -2,8 +2,8 @@
 <?php
 
   // user risk value
-  if(!isset($_SESSION['risk'])) {
-    $_SESSION['risk'] = $RISK['med'];
+  if(!isset($_SESSION['risk']) || empty($_SESSION['risk'])) {
+    $_SESSION['risk'] = (int)$RISK['med'];
   }
 
 ?>
