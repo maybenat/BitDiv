@@ -25,9 +25,19 @@
 <?php include 'header.php'; ?>
 
     <!-- content -->
-
-<a href="user_setup.php">Go to profile setup</a>
-
+    <div class="container">
+      <div class="m-b-lg">
+        <p><a href="user_setup.php">Go to profile setup</a></p>
+        <p>$_SESSION variables: </p>
+        <ul>
+<?php
+  foreach($_SESSION as $key => $value) {
+    echo '        <li>'.$key.': '.$value.'</li>';
+  }
+?>
+        </ul>
+      </div>
+    </div>
     <!-- / content -->
 
   </div>

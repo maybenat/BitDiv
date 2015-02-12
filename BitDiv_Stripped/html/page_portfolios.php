@@ -1,5 +1,7 @@
 <?php include 'includes/session.php'; ?>
 
+<?php include 'includes/portfolio_populate.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +27,82 @@
 <?php include 'header.php'; ?>
 
     <!-- content -->
+    <div class="container">
+      <div class="m-b-lg">
 
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#info-tab" data-toggle="tab">Portfolio 1<i class="fa"></i></a></li>
-        <li><a href="#address-tab" data-toggle="tab">Portfolio 2<i class="fa"></i></a></li>
-      </ul>
+<?php
+  //print_r($user_stocks);
 
+  // TODO: implement column 'number_portfolios' to be stored in users table
+  // currently static 3 portfolios
+  session_name('Private');
+  session_start();
+  $_SESSION['number_portfolios'] = 3;
+  session_write_close();
+
+  echo '      <ul class="nav nav-tabs">', PHP_EOL;
+
+  // print tabs for each portfolio
+  // tabs labeled with id=portfolio{i}
+  echo '        <li class="active"><a href="#portfolio1" data-toggle="tab">Portfolio 1<i class="fa"></i></a></li>', PHP_EOL;
+  for($i = 2; $i <= $_SESSION['number_portfolios']; $i++) {
+    echo '        <li><a href="#portfolio'.$i.'" data-toggle="tab">Portfolio '.$i.'<i class="fa"></i></a></li>', PHP_EOL;
+  }
+
+  // add tab for new portfolio, id=portfolio_new
+  echo '        <li><a href="#portfolio_new" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
+
+
+  echo '      </ul>', PHP_EOL;
+
+  echo '      <div class="tab-content">', PHP_EOL;
+
+  // print tables for each portfolio, populate with stocks associated with portfolio
+  for($i = 1; $i <= $_SESSION['number_portfolios']; $i++) {
+
+    $active = $i == 1 ? ' active' : '';
+    echo '        <div class="tab-pane'.$active.'" id="portfolio'.$i.'">', PHP_EOL;
+
+
+        // identify columns
+        echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+        echo '            <h1 class="m-n font-thin h3">ticker / number shares / price / date purchased</h1>', PHP_EOL;
+        echo '          </div>', PHP_EOL;
+
+
+    // enumerate stocks in portfolio
+    // key->ticker, value->db_row
+    $num_stocks = 0;
+    foreach($_SESSION['user_stocks'] as $key => $value) {
+      if($value['portfolio'] == $i) {
+        echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+        echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$value['number_shares'].' / '.$value['price'].' / '.$value['date_purchased'].'</h1>', PHP_EOL;
+        echo '          </div>', PHP_EOL;
+        $num_stocks++;
+      }
+    }
+
+    if($num_stocks == 0) {
+      echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+      echo '            <h1 class="m-n font-thin h3">No stocks to show</h1>', PHP_EOL;
+      echo '          </div>', PHP_EOL;
+    }
+
+    echo '        </div>', PHP_EOL;
+  }
+
+  // TODO: implement new portfolio
+  echo '        <div class="tab-pane" id="portfolio_new">', PHP_EOL;
+  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+  echo '            <h1 class="m-n font-thin h3">TODO: Implement New Portfolio function in script at bottom of page.</h1>', PHP_EOL;
+  echo '          </div>', PHP_EOL;
+  echo '        </div>', PHP_EOL;
+
+  echo '      </div>', PHP_EOL;
+?>
+
+      </div>
+    </div>
     <!-- / content -->
 
   </div>

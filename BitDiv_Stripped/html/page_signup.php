@@ -40,7 +40,7 @@
            <input type="password" placeholder="Password" name="password1" class="form-control no-border"  required>
          </div>
          <div class="list-group-item">
-         <input type="password" placeholder="Password agian" name="password2" class="form-control no-border"  required>
+         <input type="password" placeholder="Password again" name="password2" class="form-control no-border"  required>
          </div>
        </div>
        <div class="checkbox m-b-md m-t-none">
