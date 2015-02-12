@@ -175,7 +175,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="ui_chart.php">
+                        <a href="page_portfolios.php">
                             <i class="fa fa-money"></i>
                             <span>My Portfolios</span>
                         </a>
@@ -187,7 +187,7 @@
                         <span>Your Stuff</span>
                     </li>
                     <li>
-                        <a href="page_profile.html">
+                        <a href="page_profile.php">
                             <i class="icon-user icon text-success-lter"></i>
                             <span>Profile</span>
                         </a>
