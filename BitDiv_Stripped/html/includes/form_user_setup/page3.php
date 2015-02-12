@@ -3,7 +3,10 @@
 
   // user risk value
   if(!isset($_SESSION['reinvest']) || empty($_SESSION['reinvest'])) {
+    session_name('Private');
+    session_start();
     $_SESSION['reinvest'] = 0;
+    session_write_close();
   }
 
 ?>

@@ -9,6 +9,9 @@
   // total number of form pages
   $NUM_PAGES = 3;
 
+  // form progress bar completion
+  $percent_complete = 5;
+
   // risk "enum"
   $RISK = array (
     'high' => 0,
@@ -95,9 +98,6 @@
 
   // for progress bar
   $percent_complete = 100*($form_page - 1)/$NUM_PAGES;
-  if($percent_complete < 5) {
-    $percent_complete = 5;
-  }
 
   session_write_close();
   return;

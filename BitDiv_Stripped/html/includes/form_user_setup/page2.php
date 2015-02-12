@@ -3,7 +3,10 @@
 
   // user risk value
   if(!isset($_SESSION['risk']) || empty($_SESSION['risk'])) {
+    session_name('Private');
+    session_start();
     $_SESSION['risk'] = (int)$RISK['med'];
+    session_write_close();
   }
 
 ?>
