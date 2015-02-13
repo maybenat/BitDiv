@@ -35,7 +35,7 @@
       
 
 <div class="bg-light lter b-b wrapper-md">
-  <h1 class="m-n font-thin h3">AAPL (Apple)</h1>
+  <h1 class="m-n font-thin h3">GOOG (Google, Inc.)</h1>
 </div>
 <div class="wrapper-md">
  <!--  <div ng-controller="FlotChartDemoCtrl">
