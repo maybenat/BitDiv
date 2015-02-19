@@ -24,6 +24,11 @@ var organizationName;
 function getStockData(stockCode) {
 
     // Get stock data
+    //var json = $.getJSON("get_stock_data.php?q="+stockCode, function(data) {
+        //console.log("got JSON");
+    //    console.log("got stock data");
+    //    console.log(data);
+    //})
     var json = $.getJSON("http://www.quandl.com/api/v1/datasets/WIKI/" + stockCode + ".json?collapse=daily&auth_token=hM_FtE8cFi1AC-e3Sufo", function() {
         console.log("success");
     })
