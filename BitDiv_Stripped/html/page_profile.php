@@ -25,17 +25,36 @@
 <?php include 'header.php'; ?>
 
     <!-- content -->
-    <div class="container">
-      <div class="m-b-lg">
-        <p><a href="user_setup.php">Go to profile setup</a></p>
-        <p>$_SESSION variables: </p>
-        <ul>
+    <div id="content" class="app-content" role="main">
+      <div class="app-content-body ">
+
+        <div class="hbox hbox-auto-xs hbox-auto-sm">
+
+        <div class="bg-light lter b-b wrapper-md">
+          <h1 class="m-n font-thin h3">My Profile</h1>
+        </div>
+
+        <div class="wrapper-md">
+          <p><a href="user_setup.php">Go to profile setup</a></p>
+          <p>$_SESSION variables: </p>
+          <ul>
 <?php
   foreach($_SESSION as $key => $value) {
-    echo '        <li>'.$key.': '.$value.'</li>';
+    if($key != 'user_stocks') {
+      echo '          <li>'.$key.': '.$value.'</li>';
+    }
   }
+  echo 'user_stocks: ';
+  print_r($_SESSION['user_stocks']);
 ?>
-        </ul>
+          </ul>
+
+        </div>
+
+<?php include 'right_column.php'; ?>
+
+        </div>
+
       </div>
     </div>
     <!-- / content -->

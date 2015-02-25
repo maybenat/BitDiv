@@ -27,18 +27,19 @@
 <?php include 'header.php'; ?>
 
     <!-- content -->
-    <div class="container">
-      <div class="m-b-lg">
+    <div id="content" class="app-content" role="main">
+      <div class="app-content-body ">
+
+        <div class="hbox hbox-auto-xs hbox-auto-sm">
+
+        <div class="bg-light lter b-b wrapper-md">
+          <h1 class="m-n font-thin h3">My Portfolios</h1>
+        </div>
+
+        <div class="wrapper-md">
 
 <?php
   //print_r($user_stocks);
-
-  // TODO: implement column 'number_portfolios' to be stored in users table
-  // currently static 3 portfolios
-  session_name('Private');
-  session_start();
-  $_SESSION['number_portfolios'] = 3;
-  session_write_close();
 
   echo '      <ul class="nav nav-tabs">', PHP_EOL;
 
@@ -100,6 +101,12 @@
 
   echo '      </div>', PHP_EOL;
 ?>
+
+        </div>
+
+<?php include 'right_column.php'; ?>
+
+        </div>
 
       </div>
     </div>

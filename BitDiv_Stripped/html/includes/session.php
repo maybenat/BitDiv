@@ -20,15 +20,17 @@
 
   // if there is no valid session, direct to login page
   if(!isset($_SESSION['uid']) || empty($_SESSION['uid'])) {
-    session_write_close(); 
+    session_write_close();
     header('Location: http://'.$_SERVER['SERVER_NAME'].substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/') + 1).'page_signin.php');
     exit;
   // otherwise, if user has not completed profile and is not in process of completing profile, direct to user setup page
   } else if($_SESSION['first_login'] && substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['SCRIPT_NAME'], '/') + 1) != $USER_SETUP) {
-    session_write_close(); 
+    session_write_close();
     header('Location: http://'.$_SERVER['SERVER_NAME'].substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/') + 1).'user_setup.php');
     exit;
   }
   session_write_close();
+
+  //echo $current_page = hash('md5', $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
 
 ?>

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../bower_components/simple-line-icons/css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <link rel="stylesheet" href="css/app.css" type="text/css" />
-
+ 
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
@@ -159,77 +159,9 @@
                         </div>
                     </div>
                     <!-- / main -->
-                    <!-- right col -->
-                    <div class="col w-md bg-white-only b-l bg-auto no-border-xs">
-                        <div class="nav-tabs-alt">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li class="active"><a href="#trans" data-toggle="tab"><i class="glyphicon glyphicon-transfer text-md text-muted wrapper-sm"></i></a>
-                                </li>
-                                <li><a href="#follow" data-toggle="tab"><i class="glyphicon glyphicon-user text-md text-muted wrapper-sm"></i></a>
-                                </li>
 
+<?php include 'right_column.php'; ?>
 
-                            </ul>
-                        </div>
-                        <div class="tab-content">
-
-                            <div class="tab-pane active" id="trans">
-                                <div class="wrapper-md">
-                                    <div class="m-b-sm text-md">Transaction</div>
-                                    <ul class="list-group list-group-sm list-group-sp list-group-alt auto m-t">
-                                        <li class="list-group-item">
-                                            <span class="text-muted">Bought GOOG</span>
-                                            <span class="block text-md text-info">Portfolio A: 10 shares @ 500.00</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="text-muted">Bought MSFT</span>
-                                            <span class="block text-md text-primary">Portfolio B:  12 shares @ 120.00</span>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="follow">
-                                <div class="wrapper-md">
-                                    <div class="m-b-sm text-md">Who to follow</div>
-                                    <ul class="list-group no-bg no-borders pull-in">
-                                        <li class="list-group-item">
-                                            <a herf class="pull-left thumb-sm avatar m-r">
-                                                <i class="on b-white bottom"></i>
-                                            </a>
-                                            <div class="clear">
-                                                <div><a href>The Advisor Profile</a>
-                                                </div>
-                                                <small class="text-muted">advisor</small>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a herf class="pull-left thumb-sm avatar m-r">
-                                                <i class="on b-white bottom"></i>
-                                            </a>
-                                            <div class="clear">
-                                                <div><a href>Karl Tharp</a>
-                                                </div>
-                                                <small class="text-muted">High Risk</small>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                                    <div class="text-center">
-                                        <a href class="btn btn-sm btn-primary padder-md m-b">More Connections</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="padder-md">
-
-                        </div>
-
-
-
-                    </div>
-                    <!-- / right col -->
                 </div>
 
 
@@ -241,7 +173,6 @@
 
         </div>
 
-        
         <script src="js/ui-load.js"></script>
         <script src="js/ui-jp.config.js"></script>
         <script src="js/ui-jp.js"></script>

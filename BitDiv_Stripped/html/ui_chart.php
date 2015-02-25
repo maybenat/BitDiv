@@ -16,23 +16,21 @@
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
-
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
 <script src="js/algs.js"></script>
 <script src="js/stock.js"></script>
 
-
 </head>
 <body>
-<div class="app app-header-fixed  ">
+  <div class="app app-header-fixed">
 
- <?php include("header.php"); ?>
+<?php include("header.php"); ?>
 
-  
-  <!-- content -->
-  <div id="content" class="app-content" role="main">
-    <div class="app-content-body ">
-      
+    <!-- content -->
+    <div id="content" class="app-content" role="main">
+      <div class="app-content-body">
+
+        <div class="hbox hbox-auto-xs hbox-auto-sm">
 
 <div class="bg-light lter b-b wrapper-md">
   <h1 class="m-n font-thin h3">GOOG (Google, Inc.)</h1>
@@ -66,10 +64,9 @@
                 <input type="text" placeholder="" id="stockCode" />
 
                 <button type="button" class="btn btn-warning" onClick="getValue()">Go</button>
+            </form>
         </div>
-        </form>
     </div>
-</div>
 </div>
 
 <div class="container" id="main">
@@ -89,12 +86,12 @@
 
 </div>
 
-  </div>
-      <div class="container">
+<div class="container">
 
   <div class="row">
     <div class="col-lg-4">
       <div class="panel panel-default">
+
         <div class="panel-heading font-bold">
           Popularity Rating
         </div>
@@ -140,31 +137,33 @@
                 <span class="h2 m-l-sm step">25</span>
               </div>
             </div>
-          </div
+          </div>
+
         </div>
         <div class="panel-footer"><small>all time views</small></div>
       </div>
     </div>
-    <div class="col-lg-4">
-      
-  </div>
-</div>
-
+    <div class="col-lg-4"></div>
 
     </div>
   </div>
-  <!-- / content -->
-
-
 </div>
 
+<?php include 'right_column.php'; ?>
 
-<script src="js/ui-load.js"></script>
-<script src="js/ui-jp.config.js"></script>
-<script src="js/ui-jp.js"></script>
-<script src="js/ui-nav.js"></script>
-<script src="js/ui-toggle.js"></script>
+        </div>
 
+      </div>
+    </div>
+    <!-- / content -->
+
+  </div>
+
+  <script src="js/ui-load.js"></script>
+  <script src="js/ui-jp.config.js"></script>
+  <script src="js/ui-jp.js"></script>
+  <script src="js/ui-nav.js"></script>
+  <script src="js/ui-toggle.js"></script>
 
 </body>
 </html>
