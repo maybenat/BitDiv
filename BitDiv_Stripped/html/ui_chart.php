@@ -36,23 +36,6 @@
   <h1 class="m-n font-thin h3">GOOG (Google, Inc.)</h1>
 </div>
 <div class="wrapper-md">
- <!--  <div ng-controller="FlotChartDemoCtrl">
-    <div class="row">
-      <div class="container" id="main">
-    <div id="container" style="height: 500px; min-width: 310px"></div>
-    <p></p>
-    <table id="table" class="table table-bordered table-hover">
-        <tr>
-            <th>
-                <center>
-                    <h5>Headlines from <span id="date">today.</span></h5>
-                </center>
-            </th>
-        </tr>
-    </table>
-
-    <div class="text-center" id="wat"></div> -->
-<div class="loading">Loading;</div>
 
 <div class="content">
     <div class="container">
@@ -69,8 +52,8 @@
     </div>
 </div>
 
-<div class="container" id="main">
-    <div id="container" style="height: 500px; min-width: 310px"></div>
+<div class="container">
+    <div id="container" style="height: 500px; width: 100px"></div>
     <p></p>
     <table id="table" class="table table-bordered table-hover">
         <tr>
@@ -82,7 +65,7 @@
         </tr>
     </table>
 
-    <div class="text-center" id="wat"></div>
+    <!-- <div class="container" id="wat"></div> -->
 
 </div>
 

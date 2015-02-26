@@ -25,7 +25,7 @@ function getStockData(stockCode) {
 
     // Get stock data
     //var json = $.getJSON("get_stock_data.php?q="+stockCode, function(data) {
-        //console.log("got JSON");
+    //console.log("got JSON");
     //    console.log("got stock data");
     //    console.log(data);
     //})
@@ -72,6 +72,7 @@ function getStockData(stockCode) {
         // Create the chart
         $('#container').highcharts('StockChart', {
             chart: {
+                width: 900,
                 zoomType: 'xy',
                 panning: true,
                 panKey: 'shift',
@@ -257,7 +258,8 @@ Highcharts.createElement('link', {
 
 Highcharts.theme = {
     colors: ["#7cb5ec", "#f7a35c", "#90ee7e", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
-        "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+        "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"
+    ],
     chart: {
         backgroundColor: null,
         style: {
@@ -312,7 +314,7 @@ Highcharts.theme = {
 
     // General
     background2: '#F0F0EA'
-    
+
 };
 
 // Apply the theme
