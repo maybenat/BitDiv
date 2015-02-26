@@ -126,7 +126,7 @@
                         </a>
                     </li>
                     <li>
-                        <a ui-sref="app.page.profile">Profile</a>
+                        <a ui-sref="page_profile.php">Profile</a>
                     </li>
 
                     <li class="divider"></li>
