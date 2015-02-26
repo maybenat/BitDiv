@@ -19,17 +19,17 @@
                     <p>Add shares of this stock to your portfolio.</p>
 
             <div class="form-group">
-              <form action="includes/form_transaction.php" method="post">
+              <form action="includes/form_transaction.php?referer=<?php echo $current_page_url; ?>" method="post">
                     <p>Stock purchased:</p>
-                    <input type="text" name="ticker" placeholder="ticker" class="form-control" required value="LMT" />
+                    <input type="text" name="ticker" placeholder="ticker" class="form-control" required value="" />
                     <p class="m-t">Shares purchased:</p>
                     <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
                     <p class="m-t">Price at time of purchase:</p>
-                    <input type="currency" name="price" placeholder="price" class="form-control" required value="$185.18" /> <!-- fix input type/view -->
+                    <input type="currency" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
 
                     <p class="m-t">Date purchased:</p>
                     <div class="input-group date" id="datetimepicker1">
-                      <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="12/15/2014" />
+                      <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="" />
                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
 

@@ -31,6 +31,6 @@
   }
   session_write_close();
 
-  //echo $current_page = hash('md5', $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+  $current_page_url = urlencode('http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
 
 ?>
