@@ -1,5 +1,10 @@
 <script type="text/javascript" src="js/bootstrap.js"></script> 
 <script type="text/javascript" src="js/typeahead.js"></script> 
+
+<script src="http://code.highcharts.com/stock/highstock.js"></script>
+<script src="js/algs.js"></script>
+<script src="js/stock.js"></script>
+
 <style>
 h1{
 font-size: 20px;
@@ -106,12 +111,12 @@ $('input.typeahead-devs').typeahead({
         <!-- / link and dropdown -->
 
         <!-- search form -->
-        <form class="navbar-form navbar-form-sm navbar-left shift" method="POST" action="#">
+        <form class="navbar-form navbar-form-sm navbar-left shift">
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" name="accounts" class="typeahead-devs input-sm bg-light no-border rounded padder" placeholder="Search stocks...">
+                    <input type="text" id="stockCode" class="typeahead-devs input-sm bg-light no-border rounded padder" placeholder="Search stocks...">
                     <span class="input-group-btn">
-                <button type="submit" class="btn btn-large bg-light rounded"><i class="fa fa-search"></i></button>
+                <button type="submit" onClick="getValue()" class="btn btn-large bg-light rounded"><i class="fa fa-search"></i></button>
               </span>
                 </div>
             </div>

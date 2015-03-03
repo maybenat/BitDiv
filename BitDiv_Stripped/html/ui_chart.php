@@ -16,9 +16,6 @@
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
-<script src="http://code.highcharts.com/stock/highstock.js"></script>
-<script src="js/algs.js"></script>
-<script src="js/stock.js"></script>
 
 </head>
 <body>
@@ -39,16 +36,16 @@
 
 <div class="content">
     <div class="container">
-        <div class="col-sm-12">
+<!--         <div class="col-sm-12">
             <h3>Testing Database</h3>
-        </div>
-        <div class="col-sm-12">
-            <form class="form-inline" role="form">
+        </div> -->
+        <!-- <div class="col-sm-12"> -->
+            <!-- <form class="form-inline" role="form">
                 <input type="text" placeholder="" id="stockCode" />
 
                 <button type="button" class="btn btn-warning" onClick="getValue()">Go</button>
-            </form>
-        </div>
+            </form> -->
+        <!-- </div> -->
     </div>
 </div>
 
