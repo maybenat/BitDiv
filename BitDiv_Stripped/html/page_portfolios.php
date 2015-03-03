@@ -20,6 +20,38 @@
   <script src="http://code.highcharts.com/stock/highstock.js"></script>
   <script src="js/algs.js"></script>
   <script src="js/stock.js"></script>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/ddaccordion.js">
+    /***********************************************
+     * Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+     * Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+     * This notice must stay intact for legal use
+     ***********************************************/
+  </script>
+
+  <script type="text/javascript">
+    ddaccordion.init({
+      headerclass: "expandable", //Shared CSS class name of headers group that are expandable
+      contentclass: "categoryitems", //Shared CSS class name of contents group
+      revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+      mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+      collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+      defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+      onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+      animatedefault: false, //Should contents open by default be animated into view?
+      persiststate: true, //persist state of opened contents within browser session?
+      toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+      togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+      animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+      oninit:function(headers, expandedindices) { //custom code to run when headers have initalized
+        //do nothing
+      },
+      onopenclose:function(header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
+        //do nothing
+      }
+    })
+  </script>
 </head>
 <body>
   <div class="app app-header-fixed">
@@ -28,7 +60,7 @@
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
-      <div class="app-content-body ">
+      <div class="app-content-body">
 
         <div class="hbox hbox-auto-xs hbox-auto-sm">
 
@@ -37,6 +69,9 @@
         </div>
 
         <div class="wrapper-md">
+
+                            <div class="panel hbox hbox-auto-xs no-border">
+                                <div class="col wrapper">
 
 <?php
   //print_r($user_stocks);
@@ -66,8 +101,9 @@
 
 
         // identify columns
-        echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
-        echo '            <h1 class="m-n font-thin h3">ticker / number shares / price / date purchased</h1>', PHP_EOL;
+        echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
+        echo '            <h1 class="m-n font-thin h3">Portfolio '.$i.'</h1>', PHP_EOL;
+        echo '            <small class="text-muted">ticker / number shares / price / date purchased</small>', PHP_EOL;
         echo '          </div>', PHP_EOL;
 
 
@@ -76,16 +112,17 @@
     $num_stocks = 0;
     foreach($_SESSION['user_stocks'] as $key => $value) {
       if($value['portfolio'] == $i) {
-        echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+        echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
         echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$value['number_shares'].' / '.$value['price'].' / '.$value['date_purchased'].'</h1>', PHP_EOL;
         echo '          </div>', PHP_EOL;
+        echo '          <div class="categoryitems">'.$key.'.</div>', PHP_EOL;
         $num_stocks++;
       }
     }
 
     if($num_stocks == 0) {
       echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
-      echo '            <h1 class="m-n font-thin h3">No stocks to show</h1>', PHP_EOL;
+      echo '            <h4 class="m-n font-thin h4">No stocks to show</h4>', PHP_EOL;
       echo '          </div>', PHP_EOL;
     }
 
@@ -102,6 +139,9 @@
   echo '      </div>', PHP_EOL;
 ?>
 
+                                </div>
+                            </div>
+
         </div>
 
 <?php include 'right_column.php'; ?>
@@ -113,50 +153,6 @@
     <!-- / content -->
 
   </div>
-
-  <script>
-$(document).ready(function() {
-    $('#accountForm')
-        .formValidation({
-            excluded: [':disabled'],
-            ...
-        })
-
-        // Called when a field is invalid
-        .on('err.field.fv', function(e, data) {
-            // data.element --> The field element
-
-            var $tabPane = data.element.parents('.tab-pane'),
-                tabId    = $tabPane.attr('id');
-
-            $('a[href="#' + tabId + '"][data-toggle="tab"]')
-                .parent()
-                .find('i')
-                .removeClass('fa-check')
-                .addClass('fa-times');
-        })
-
-        // Called when a field is valid
-        .on('success.field.fv', function(e, data) {
-            // data.fv      --> The FormValidation instance
-            // data.element --> The field element
-
-            var $tabPane = data.element.parents('.tab-pane'),
-                tabId    = $tabPane.attr('id'),
-                $icon    = $('a[href="#' + tabId + '"][data-toggle="tab"]')
-                            .parent()
-                            .find('i')
-                            .removeClass('fa-check fa-times');
-
-            // Check if the submit button is clicked
-            if (data.fv.getSubmitButton()) {
-                // Check if all fields in tab are valid
-                var isValidTab = data.fv.isValidContainer($tabPane);
-                $icon.addClass(isValidTab ? 'fa-check' : 'fa-times');
-            }
-        });
-});
-  </script>
 
   <script src="js/ui-load.js"></script>
   <script src="js/ui-jp.config.js"></script>

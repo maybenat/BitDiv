@@ -25,7 +25,10 @@
                     <p class="m-t">Shares purchased:</p>
                     <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
                     <p class="m-t">Price at time of purchase:</p>
-                    <input type="currency" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
+                    </div>
 
                     <p class="m-t">Date purchased:</p>
                     <div class="input-group date" id="datetimepicker1">
