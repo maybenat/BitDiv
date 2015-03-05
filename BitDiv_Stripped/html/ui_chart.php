@@ -14,21 +14,25 @@
   <link rel="stylesheet" href="css/app.css" type="text/css" />
  
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+ -->
 
 <style>
 
 
 .loading {
-   opacity:0.9;*/
-   -moz-opacity:0.9;*/
-   filter:alpha(opacity=9);*/
-    position:absolute;
+    opacity:0.45;
+/*   -moz-opacity:0.45;
+*/   filter:alpha(opacity=0.45);
+    position:center;
     width:900px;
     x-padding: 20px;
 }
 
-
+.table {
+    width:700px;
+    x-padding: 20px;
+}
 
 </style>
 
@@ -52,8 +56,8 @@
     <div class="container">
 
         <div class="col-sm-12">
-<!--                   <center><div class="loading"><img src="img/load.GIF" alt="Be patient..." /><p>Data Loading...</div></center>
- -->
+                  <!-- <div class="loading"><img src="img/load.GIF" /><img src="img/load.GIF" /><p></div> -->
+
         </div>
         <!-- <div class="col-sm-12"> -->
             <!-- <form class="form-inline" role="form">
@@ -66,10 +70,11 @@
 </div>
 
 <div class="container">
-                    <div class="loading"><img src="img/load.GIF" alt="Be patient..." /><img src="img/load.GIF" alt="Be patient..." /><h1>Crunching Numbers...</h1></div>
+                    <div class="loading"><img src="img/load.GIF" alt="" /><img src="img/load.GIF" alt="Be patient..." /><h1>Loading Data....</h1></div>
 
     <div id="container" style="height: 500px; width: 100px"></div>
     <p></p>
+
     <table id="table" class="table table-bordered table-hover">
         <tr>
             <th>
@@ -83,6 +88,72 @@
     <!-- <div class="container" id="wat"></div> -->
 
 </div>
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="panel panel-default">
+
+        <div class="panel-heading font-bold">
+          Dividend Payout
+        </div>
+        <div class="panel-body text-center">
+          <div class="inline">
+            <div ui-jq="easyPieChart" ui-options="{
+                      percent: 75,
+                      lineWidth: 10,
+                      trackColor: '#e8eff0',
+                      barColor: '#fad733',
+                      scaleColor: '#e8eff0',
+                      size: 188,
+                      lineCap: 'butt'
+                    }">
+              <div>
+                <span class="h2 m-l-sm step">75 %</span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer"><small>% of viewers today</small></div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading font-bold">
+          Safety Rating
+        </div>
+        <div class="panel-body text-center">
+          <div class="inline">
+            <div ui-jq="easyPieChart"  ui-options="{
+                      percent: 25,
+                      lineWidth: 10,
+                      trackColor: '#e8eff0',
+                      barColor: '#27c24c',
+                      scaleColor: '#e8eff0',
+                      size: 188,
+                      lineCap: 'butt',
+                      animate: 1000
+                    }">
+              <div>
+                <span class="h2 m-l-sm step">25</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="panel-footer"><small>all time views</small></div>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+
+    </div>
+</div>
+
+<!-- <div class="container"> -->
+      <!-- <div id="container2"></div> -->
+
+<!-- </div> -->
 
 <div class="container">
 
@@ -146,6 +217,8 @@
     </div>
   </div>
 </div>
+
+
 
 <?php include 'right_column.php'; ?>
 

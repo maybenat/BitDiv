@@ -1,10 +1,11 @@
 $(".loading").hide();
 $(".error").hide();
 
-
 function getValue() {
     stockCode = $("#stockCode").val().toUpperCase();
+    console.log("THIS IS SO STUPID");
     getStockData(stockCode);
+    console.log(stockCode);
 };
 
 
@@ -176,6 +177,60 @@ function getStockData(stockCode) {
             }]
         });
 
+        // $('#container2').highcharts({
+
+        //     chart: {
+        //         type: 'bubble',
+        //         zoomType: 'xy',
+        //         width: 700,
+        //     },
+
+        //     title: {
+        //         text: 'Dividend Bubbles'
+        //     },
+
+        //     series: [{
+        //         data: [
+        //             [97, 36, 79],
+        //             [94, 74, 60],
+        //             [68, 76, 58],
+        //             [64, 87, 56],
+        //             [68, 27, 73],
+        //             [74, 99, 42],
+        //             [7, 93, 87],
+        //             [51, 69, 40],
+        //             [38, 23, 33],
+        //             [57, 86, 31]
+        //         ]
+        //     }, {
+        //         data: [
+        //             [25, 10, 87],
+        //             [2, 75, 59],
+        //             [11, 54, 8],
+        //             [86, 55, 93],
+        //             [5, 3, 58],
+        //             [90, 63, 44],
+        //             [91, 33, 17],
+        //             [97, 3, 56],
+        //             [15, 67, 48],
+        //             [54, 25, 81]
+        //         ]
+        //     }, {
+        //         data: [
+        //             [47, 47, 21],
+        //             [20, 12, 4],
+        //             [6, 76, 91],
+        //             [38, 30, 60],
+        //             [57, 98, 64],
+        //             [61, 17, 80],
+        //             [83, 60, 13],
+        //             [67, 78, 75],
+        //             [64, 12, 10],
+        //             [30, 77, 82]
+        //         ]
+        //     }]
+        // });
+
         // Get today's date
         var d = new Date();
 
@@ -198,7 +253,6 @@ function getArticles(date) {
 
     // Get articles
     var articleJson = $.getJSON("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + organizationName + "&begin_date=" + date + "&end_date=" + date + "&api-key=1978a642927f7f7aa19dae13031368b3:17:69577800");
-    $(".loading").show();
 
     articleJson.complete(function() {
         // Delete existing article rows
@@ -207,7 +261,6 @@ function getArticles(date) {
                 return true
             }
         }).remove();
-        $(".loading").hide();
         console.log("Articles complete.");
         var articles = articleJson.responseJSON.response.docs;
         console.log(articles);
@@ -237,7 +290,9 @@ function formatPubDate(date) {
     return date[0];
 }
 
+
 getStockData("GOOG");
+
 /**
  * Grid-light theme for Highcharts JS
  * @author Torstein Honsi
