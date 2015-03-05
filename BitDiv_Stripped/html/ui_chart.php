@@ -16,13 +16,27 @@
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
+<style>
+
+
+.loading {
+   opacity:0.9;*/
+   -moz-opacity:0.9;*/
+   filter:alpha(opacity=9);*/
+    position:absolute;
+    width:900px;
+    x-padding: 20px;
+}
+
+
+
+</style>
 
 </head>
 <body>
   <div class="app app-header-fixed">
 
 <?php include("header.php"); ?>
-
     <!-- content -->
     <div id="content" class="app-content" role="main">
       <div class="app-content-body">
@@ -30,15 +44,17 @@
         <div class="hbox hbox-auto-xs hbox-auto-sm">
 
 <div class="bg-light lter b-b wrapper-md">
-  <h1 class="m-n font-thin h3">GOOG (Google, Inc.)</h1>
+  <h1 class="m-n font-thin h3"><span id="currentName"></h1>
 </div>
 <div class="wrapper-md">
 
 <div class="content">
     <div class="container">
-<!--         <div class="col-sm-12">
-            <h3>Testing Database</h3>
-        </div> -->
+
+        <div class="col-sm-12">
+<!--                   <center><div class="loading"><img src="img/load.GIF" alt="Be patient..." /><p>Data Loading...</div></center>
+ -->
+        </div>
         <!-- <div class="col-sm-12"> -->
             <!-- <form class="form-inline" role="form">
                 <input type="text" placeholder="" id="stockCode" />
@@ -50,6 +66,8 @@
 </div>
 
 <div class="container">
+                    <div class="loading"><img src="img/load.GIF" alt="Be patient..." /><img src="img/load.GIF" alt="Be patient..." /><h1>Crunching Numbers...</h1></div>
+
     <div id="container" style="height: 500px; width: 100px"></div>
     <p></p>
     <table id="table" class="table table-bordered table-hover">

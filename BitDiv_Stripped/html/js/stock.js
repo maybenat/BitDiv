@@ -1,23 +1,13 @@
 $(".loading").hide();
 $(".error").hide();
 
-// Stock list array for autocomplete drop down list
-var stockCodeList = [];
-var json = $.getJSON("tickers.json");
-
-json.complete(function() {
-    var stockCodes = json.responseJSON;
-    for (var i = 0; i < stockCodes.length; i++) {
-        stockCodeList.push(stockCodes[i]["Ticker"]);
-    }
-    console.log(stockCodeList);
-});
-
 
 function getValue() {
     stockCode = $("#stockCode").val().toUpperCase();
     getStockData(stockCode);
 };
+
+
 
 var organizationName;
 
@@ -31,6 +21,7 @@ function getStockData(stockCode) {
     //})
     var json = $.getJSON("http://www.quandl.com/api/v1/datasets/WIKI/" + stockCode + ".json?collapse=daily&auth_token=hM_FtE8cFi1AC-e3Sufo", function() {
         console.log("success");
+        console.log(stockCode);
     })
 
     .fail(function() {
@@ -57,6 +48,9 @@ function getStockData(stockCode) {
         organization = organization.split("(");
         organizationName = organization[0].replace(/ /g, "%20"); // eg. Apple Inc.
         organizationCode = organization[1].replace(")", ""); // eg. AAPL
+
+
+        $('#currentName').html(organization[0], ".");
 
 
         // Push closing price and date to price array
@@ -93,7 +87,7 @@ function getStockData(stockCode) {
 
 
             title: {
-                text: organization[0]
+                // text: organization[0]
             },
 
             yAxis: [{
