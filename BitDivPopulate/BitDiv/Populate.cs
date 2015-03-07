@@ -31,12 +31,12 @@ namespace BitDiv
         static string deleteCode = "DELETE";
 
         static WebClient client = new WebClient();
-        static DBConnect dbconnector = new DBConnect();
+        static DBConnect dbconnector = new DBConnect("eng");
 
         static System.IO.StreamWriter logger = null;
 
         static readonly bool cleanupFiles = true;
-        static readonly bool populateSymbolList = true;
+        static readonly bool populateSymbolList = false;
 
         public static bool DownloadFile(string remoteFile, string localFile)
         {
@@ -94,7 +94,6 @@ namespace BitDiv
                         rowToInsert[2] = line.Substring(lineArray[0].IndexOf('/')+1,comma-lineArray[0].IndexOf('/')-1);
                         if (!dbconnector.Insert(symbolListTableName, rowToInsert))
                         {
-                            //"WIKI/ACT,\"Actavis, Inc.\""
                             Log("failed");
                         }
                     }
@@ -151,6 +150,7 @@ namespace BitDiv
         {
             using (System.IO.StreamReader file = new System.IO.StreamReader(fileName))
             {
+                int duplicateEntryCount = 0;
                 string line;
                 //each row is a different date of market info, now iterate through dates
                 while ((line = file.ReadLine()) != null)
@@ -176,8 +176,20 @@ namespace BitDiv
                     //for each date, write the information we want to the database
                     if (!dbconnector.Insert(quandlTableName, lineArrayReduced))
                     {
-                        Log("Insertion failed on " + symbol);
-                        
+                        if (dbconnector.errorMessage.Substring(0,15).Equals("Duplicate entry"))
+                        {
+                            if (++duplicateEntryCount > 100)
+                            {
+                                Console.Write("100 consecutive duplicate entries, moving to next symbol\n");
+                                Log("100 consecutive duplicate entries, moving to next symbol\n");
+                                break;
+                            }
+                        }
+                        Log("Insertion failed on " + symbol);  
+                    }
+                    else
+                    {
+                        duplicateEntryCount = 0;
                     }
                 }
             }

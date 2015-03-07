@@ -15,22 +15,46 @@ namespace BitDiv
         private string uid;
         private string password;
 
+        public string errorMessage;
+
         static string quandlTableName = "quandl";
         static string symbolListTableName = "wiki_eod_symbols";
 
         //Constructor
         public DBConnect()
         {
-            Initialize();
+            //server = "localhost";
+            //database = "bitdiv";
+            //uid = "root";
+            //password = "root";
+            Initialize("localhost", "bitdiv", "root", "root");
+        }
+
+        public DBConnect(string dbName)
+        {
+            if (dbName == "eng")
+            {
+                Initialize("mysql.eng.utah.edu", "tharp", "tharp", "wHP8+xPvw5");
+            }
+            else if (dbName == symbolListTableName)
+            {
+
+            }
+        }
+
+        public DBConnect(string _server, string _database, string _uid, string _password)
+        {
+            Initialize(_server, _database, _uid, _password);
         }
 
         //Initialize values
-        private void Initialize()
+        private void Initialize(string _server, string _database, string _uid, string _password)
         {
-            server = "localhost";
-            database = "bitdiv";
-            uid = "root";
-            password = "root";
+
+            server = _server;
+            database = _database;
+            uid = _uid;
+            password = _password;
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -48,8 +72,6 @@ namespace BitDiv
             }
             catch (MySqlException ex)
             {
-                //When handling errors, you can your application's response based 
-                //on the error number.
                 //The two most common error numbers when connecting are as follows:
                 //0: Cannot connect to server.
                 //1045: Invalid user name and/or password.
@@ -88,6 +110,7 @@ namespace BitDiv
         //Insert statement
         public bool Insert(string tableName, String[] rowToInsert)
         {
+            errorMessage = "";
             string query = "INSERT INTO " + tableName;
             if (tableName == quandlTableName)
             {
@@ -118,8 +141,9 @@ namespace BitDiv
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Error: " + e.Message);
+                    //Console.WriteLine("Error: " + e.Message);
                     this.CloseConnection();
+                    errorMessage = e.Message;
                     return false;
                 }
 
