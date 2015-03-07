@@ -52,6 +52,12 @@
       }
     })
   </script>
+  <style>
+  .fixed {
+    position: fixed;
+    width: 100%;
+  }
+  </style>
 </head>
 <body>
   <div class="app app-header-fixed">
@@ -108,21 +114,39 @@
 
 
     // enumerate stocks in portfolio
-    // key->ticker, value->db_row
     $num_stocks = 0;
-    foreach($_SESSION['user_stocks'] as $key => $value) {
-      if($value['portfolio'] == $i) {
-        echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
-        echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$value['number_shares'].' / '.$value['price'].' / '.$value['date_purchased'].'</h1>', PHP_EOL;
-        echo '          </div>', PHP_EOL;
-        echo '          <div class="categoryitems">'.$key.'.</div>', PHP_EOL;
-        $num_stocks++;
+
+    // key => value
+    // ticker => (stock_id => params)
+    foreach($_SESSION['user_stocks'][$i] as $key => $value) {
+
+      $total_num_shares = 0;
+      $original_investment = 0;
+      foreach($value as $sid => $sparams) {
+        $original_investment += $sparams['number_shares']*$sparams['price'];
+        $total_num_shares += $sparams['number_shares'];
       }
+
+      echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
+      echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' / '.$original_investment.'</h1>', PHP_EOL;
+      echo '          </div>', PHP_EOL;
+      echo '          <div class="categoryitems">', PHP_EOL;
+
+      // stock ticker => stock_id
+      foreach($value as $sid => $sparams) {
+
+        echo '            <p>'.$key.' / '.$sparams['number_shares'].' / '.$sparams['price'].' / '.$sparams['date_purchased'].'</p>', PHP_EOL;
+
+      }
+
+      echo '          </div>', PHP_EOL;
+
+      $num_stocks++;
     }
 
     if($num_stocks == 0) {
       echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
-      echo '            <h4 class="m-n font-thin h4">No stocks to show</h4>', PHP_EOL;
+      echo '            <h4 class="m-n font-thin h4">No stocks to show.</h4>', PHP_EOL;
       echo '          </div>', PHP_EOL;
     }
 
