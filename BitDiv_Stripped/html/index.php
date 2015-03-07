@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="css/app.css" type="text/css" />
  
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
 </head>
 

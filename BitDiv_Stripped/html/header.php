@@ -241,7 +241,9 @@ $('input.typeahead-devs').typeahead({
 
 
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
-<!-- <script src="http://code.highcharts.com/highcharts-more.js"></script> -->
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
+<script src="http://code.highcharts.com/modules/heatmap.js"></script>
+
 
 
 <script src="js/algs.js"></script>
