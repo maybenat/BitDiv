@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBConnect.cs" />
     <Compile Include="Populate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
