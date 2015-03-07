@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../bower_components/simple-line-icons/css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <link rel="stylesheet" href="css/app.css" type="text/css" />
- 
+
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
  -->

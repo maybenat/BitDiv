@@ -158,11 +158,11 @@ $('input.typeahead-devs').typeahead({
 
                     <li>
                         <a href>
-                            <span>Settings</span>
+                            <span> <a href="user_setup.php">Settings</a> </span>
                         </a>
                     </li>
                     <li>
-                        <a ui-sref="app.page.profile">Profile</a>
+                        <a href="page_profile.php">Profile</a>
                     </li>
 
                     <li class="divider"></li>
