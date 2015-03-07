@@ -40,6 +40,10 @@
               <table class="table table-user-information">
                 <tbody>
                   <tr>
+                    <td>Email:</td>
+                    <td><?php echo $_SESSION['email']; ?></td>
+                  </tr>
+                  <tr>
                     <td>First Name:</td>
                     <td><?php echo $_SESSION['first_name']; ?></td>
                   </tr>

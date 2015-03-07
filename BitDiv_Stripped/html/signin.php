@@ -20,6 +20,7 @@
 
                     session_name('Private');
                     session_start();
+                    $_SESSION['email'] = $result['email'];
                     $_SESSION['first_name'] = $result['first_name'];
                     $_SESSION['last_name'] = $result['last_name'];
                     $_SESSION['uid'] = $result['uid'];
@@ -37,7 +38,7 @@
                 } else {
                     $login_error = "The email or password you entered is incorrect.";
                     return;
-                    //echo '<script language="javascript"> alert(wrong) </script>';
+                    //
                     //header("Location: page_signin.php");
                     //exit;
                 }
