@@ -8,8 +8,8 @@
   session_start();
   $_SESSION['number_portfolios'] = 3;
   session_write_close();
-
-  if(!isset($_SESSION['user_stocks'])) {
+{
+  //if(!isset($_SESSION['user_stocks'])) {
     try {
 
       // write session variables to database
@@ -23,7 +23,7 @@
       // find all user stocks
       $user_stocks = array();
       while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        $user_stocks[$row['ticker']] = $row;
+        $user_stocks[$row['portfolio']][$row['ticker']][$row['stock_id']] = $row;
       }
 
       // save to session

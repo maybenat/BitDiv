@@ -24,14 +24,14 @@
 <body>
   <div class="app app-header-fixed">
 
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <!-- content -->
     <div class="container w-xxl w-auto-xs">
       <div class="m-b-lg">
         <form name="form" class="form-validation" method="post" action="user_setup.php">
 
-<?php include 'includes/form_user_setup/page'.$form_page.'.php'; ?>
+          <?php include 'includes/form_user_setup/page'.$form_page.'.php'; ?>
 
           <button type="submit" name="prev<?php echo $form_page; ?>" class="btn btn-lg <?php if($form_page == 1) echo 'hidden'; ?>">Previous</button>
           <button type="submit" name="next<?php echo $form_page; ?>" class="btn btn-lg btn-primary"><?php if($form_page == $NUM_PAGES) echo 'Finish'; else echo 'Next'; ?></button>
@@ -40,8 +40,8 @@
           <div class="progress-xs progress ng-isolate-scope" type="success" value="steps.percent">
             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo $percent_complete; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percent_complete; ?>%;" aria-valuetext="<?php echo $percent_complete; ?>%">
             </div>
-          
-</div>
+
+          </div>
 
         </form>
       </div>
