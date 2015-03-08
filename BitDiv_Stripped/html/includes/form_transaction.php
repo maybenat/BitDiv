@@ -10,6 +10,12 @@
   // determine where user is coming from, to redirect back
   $referer_url = $_GET['referer']; //urldecode($referer);
 
+  if($_GET['act'] == 'sell') {
+    // not implemented
+    header('Location: '.$referer_url);
+    exit;
+  }
+
   session_name('Private');
   session_start();
 

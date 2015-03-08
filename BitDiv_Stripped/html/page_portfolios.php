@@ -92,7 +92,7 @@
   }
 
   // add tab for new portfolio, id=portfolio_new
-  echo '        <li><a href="#portfolio_new" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
+  //echo '        <li><a href="includes/new_portfolio.php" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
 
 
   echo '      </ul>', PHP_EOL;
@@ -105,11 +105,20 @@
     $active = $i == 1 ? ' active' : '';
     echo '        <div class="tab-pane'.$active.'" id="portfolio'.$i.'">', PHP_EOL;
 
+    $num_stocks = 0;
+    $total_invested = 0;
+    foreach($_SESSION['user_stocks'][$i] as $key => $value) {
+      $num_stocks++;
+      foreach($value as $sid => $sparams) {
+        $total_invested += $sparams['number_shares']*$sparams['price'];
+      }
+    }
 
         // identify columns
         echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
         echo '            <h1 class="m-n font-thin h3">Portfolio '.$i.'</h1>', PHP_EOL;
-        echo '            <small class="text-muted">ticker / number shares / price / date purchased</small>', PHP_EOL;
+        echo '            <p><small>'.$num_stocks.' stocks, $'.$total_invested.' invested</small></p>', PHP_EOL;
+        //echo '            <p><small class="text-muted">ticker / number shares / price / date purchased</small></p>', PHP_EOL;
         echo '          </div>', PHP_EOL;
 
 
@@ -127,17 +136,83 @@
         $total_num_shares += $sparams['number_shares'];
       }
 
+
+/*
+Route::get('fetch', function() {
+  $stock = Input::get('stock');
+  $cache_key = 'stock_data' . date('Y-m-d') . $stock;
+  $data = Cache::get($cache_key);
+
+  if(!$data) {
+    $resource = "https://query.yahooapis.com/v1/public/yql?q=";
+    $resource .= urlencode("select * from yahoo.finance.quotes ");
+    $resource .= urlencode("where symbol in ('$stock')");
+    $resource .= "&format=json&diagnostics=true";
+    $resource .= "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+
+    try {
+      $data = file_get_contents($resource);
+    } catch(Exception $e) {
+      $data = json_encode(['error' => $e->getMessage()]);
+    }
+
+  }
+*/
+
+
       echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
-      echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' / '.$original_investment.'</h1>', PHP_EOL;
+      echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
       echo '          </div>', PHP_EOL;
       echo '          <div class="categoryitems">', PHP_EOL;
+      echo '          <div class="row">', PHP_EOL;
+      echo '            <div class="container">', PHP_EOL;
+      echo '            <div class="col-lg-3">', PHP_EOL;
+      echo '              <strong>Purchase history</strong>', PHP_EOL;
 
       // stock ticker => stock_id
       foreach($value as $sid => $sparams) {
 
-        echo '            <p>'.$key.' / '.$sparams['number_shares'].' / '.$sparams['price'].' / '.$sparams['date_purchased'].'</p>', PHP_EOL;
+        echo '            <p>'.$key.' / '.$sparams['number_shares'].' shares / $'.$sparams['price'].' / '.$sparams['date_purchased'].'</p>', PHP_EOL;
 
       }
+
+      echo '            </div>', PHP_EOL;
+      echo '            <div class="col-lg-9">', PHP_EOL;
+
+      // sell/remove stocks form
+      echo '            <ul class="nav nav-pills nav-stacked">', PHP_EOL;
+      echo '              <li><a href="#sell_'.$key.'" data-toggle="tab">Sell<i class="fa"></i></a></li>', PHP_EOL;
+      echo '              <li><a href="#remove_'.$key.'" data-toggle="tab">Remove<i class="fa"></i></a></li>', PHP_EOL;
+      echo '            </ul>', PHP_EOL;
+      echo '            <div class="tab-content">', PHP_EOL;
+      echo '              <div class="tab-pane" id="sell_'.$key.'">', PHP_EOL;
+      echo '                <p>Sell shares of this stock and register sale with portfolio.</p>', PHP_EOL;
+?>
+                <div class="form-group">
+                  <form action="includes/form_transaction.php?act=sell&referer=<?php echo $current_page_url; ?>" method="post">
+                    <p class="m-t">Shares sold:</p>
+                    <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
+                    <p class="m-t">Price at time of sale:</p>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="number" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
+                    </div>
+                    <button name="submit" value="<?php echo $sid; ?>" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
+                    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
+                  </form>
+                </div>
+
+<?php
+      echo '              </div>', PHP_EOL;
+      echo '              <div class="tab-pane" id="remove_'.$key.'">', PHP_EOL;
+      echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
+      echo '              </div>', PHP_EOL;
+      echo '            </div>', PHP_EOL;
+
+
+      echo '            </div>', PHP_EOL;
+      echo '            </div>', PHP_EOL;
+      echo '          </div>', PHP_EOL;
 
       echo '          </div>', PHP_EOL;
 
@@ -156,7 +231,7 @@
   // TODO: implement new portfolio
   echo '        <div class="tab-pane" id="portfolio_new">', PHP_EOL;
   echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
-  echo '            <h1 class="m-n font-thin h3">TODO: Implement New Portfolio function in script at bottom of page.</h1>', PHP_EOL;
+  //echo '            <h1 class="m-n font-thin h3">TODO: Implement New Portfolio function in script at bottom of page.</h1>', PHP_EOL;
   echo '          </div>', PHP_EOL;
   echo '        </div>', PHP_EOL;
 
