@@ -38,7 +38,7 @@
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                     <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
-                                    <small class="text-muted">Welcome back,</small>
+                                    <small class="text-muted">Welcome back, <?php echo $_SESSION['first_name']; ?>!</small>
                                 </div>
                                 <div class="col-sm-6 text-right hidden-xs">
                                     <div class="inline m-r text-left">

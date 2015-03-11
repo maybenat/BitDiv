@@ -28,7 +28,7 @@
                     <p class="m-t">Price at time of purchase:</p>
                     <div class="input-group">
                       <span class="input-group-addon">$</span>
-                      <input type="number" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
+                      <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
                   </div>
 
                   <p class="m-t">Date purchased:</p>

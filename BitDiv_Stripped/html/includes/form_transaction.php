@@ -10,8 +10,11 @@
   // determine where user is coming from, to redirect back
   $referer_url = $_GET['referer']; //urldecode($referer);
 
+  $transfer = 0; // 0 for purchase, 1 for sell
+
   if($_GET['act'] == 'sell') {
     // not implemented
+    $transfer = 1;
     header('Location: '.$referer_url);
     exit;
   }
@@ -26,17 +29,6 @@
   $date_purchased = date('Y-m-d', strtotime($_POST['date_purchased']));
   $portfolio = $_POST['portfolio'];
 
-  // update $_SESSION to add new stock
-  $_SESSION['user_stocks'][$ticker] =
-    array(
-      'uid' => $uid,
-      'ticker' => $ticker,
-      'number_shares' => $number_shares,
-      'price' => $price,
-      'date_purchased' => $date_purchased,
-      'portfolio' => $portfolio,
-    );
-
   try {
 
     // write parameters for new stock to database
@@ -50,16 +42,31 @@
       .'number_shares='.$number_shares.', '
       .'price='.$price.', '
       .'date_purchased=\''.$date_purchased.'\', '
-      .'portfolio='.$portfolio
+      .'portfolio='.$portfolio.', '
+      .'transfer='.$transfer
       .';';
 
     $statement = $db->prepare($sql);
     $statement->execute();
+    $stock_id = $db->lastInsertId();
 
   } catch(PDOException $e) {
     echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database: '.$e.'") </script></head><body></body></html>';
     exit;
   }
+
+  // update $_SESSION to add new stock
+  $_SESSION['user_stocks'][$portfolio][$ticker][$stock_id] =
+    array(
+      'uid' => $uid,
+      'ticker' => $ticker,
+      'number_shares' => $number_shares,
+      'price' => $price,
+      'date_purchased' => $date_purchased,
+      'portfolio' => $portfolio,
+      'stock_id' => $stock_id,
+      'transfer' => $transfer,
+    );
 
   header('Location: '.$referer_url);
   exit;

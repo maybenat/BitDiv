@@ -110,14 +110,18 @@
     foreach($_SESSION['user_stocks'][$i] as $key => $value) {
       $num_stocks++;
       foreach($value as $sid => $sparams) {
-        $total_invested += $sparams['number_shares']*$sparams['price'];
+        if($sparams['transfer']) {
+          //$total_invested -= $sparams['number_shares'];
+        } else {
+          $total_invested += $sparams['number_shares']*$sparams['price'];
+        }
       }
     }
 
         // identify columns
         echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
         echo '            <h1 class="m-n font-thin h3">Portfolio '.$i.'</h1>', PHP_EOL;
-        echo '            <p><small>'.$num_stocks.' stocks, $'.$total_invested.' invested</small></p>', PHP_EOL;
+        echo '            <p><small>'.$num_stocks.' stocks, $'.number_format((float)$total_invested, 2, '.', '').' invested</small></p>', PHP_EOL;
         //echo '            <p><small class="text-muted">ticker / number shares / price / date purchased</small></p>', PHP_EOL;
         echo '          </div>', PHP_EOL;
 
@@ -132,8 +136,12 @@
       $total_num_shares = 0;
       $original_investment = 0;
       foreach($value as $sid => $sparams) {
-        $original_investment += $sparams['number_shares']*$sparams['price'];
-        $total_num_shares += $sparams['number_shares'];
+        if($sparams['transfer']) {
+          $total_num_shares -= $sparams['number_shares'];
+        } else {
+          $original_investment += $sparams['number_shares']*$sparams['price'];
+          $total_num_shares += $sparams['number_shares'];
+        }
       }
 
 
@@ -171,8 +179,10 @@ Route::get('fetch', function() {
 
       // stock ticker => stock_id
       foreach($value as $sid => $sparams) {
-
-        echo '            <p>'.$key.' / '.$sparams['number_shares'].' shares / $'.$sparams['price'].' / '.$sparams['date_purchased'].'</p>', PHP_EOL;
+        $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
+        $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
+        $sprice = number_format((float)$sparams['price'], 2, '.', '');
+        echo '            <div class="'.$color.'">'.$transfer.': '.$key.' / '.$sparams['number_shares'].' shares / $'.$sprice.' / '.$sparams['date_purchased'].'</div>', PHP_EOL;
 
       }
 
