@@ -10,15 +10,6 @@
   // determine where user is coming from, to redirect back
   $referer_url = $_GET['referer']; //urldecode($referer);
 
-  $transfer = 0; // 0 for purchase, 1 for sell
-
-  if($_GET['act'] == 'sell') {
-    // not implemented
-    $transfer = 1;
-    header('Location: '.$referer_url);
-    exit;
-  }
-
   session_name('Private');
   session_start();
 
@@ -28,6 +19,17 @@
   $price = $_POST['price'];
   $date_purchased = date('Y-m-d', strtotime($_POST['date_purchased']));
   $portfolio = $_POST['portfolio'];
+  $transfer = 0; // 0 for purchase, 1 for sell
+
+  if($_GET['act'] == 'sell') {
+
+    $transfer = 1;
+    $ticker = $_GET['ticker'];
+    $portfolio = $_GET['portfolio'];
+
+    //header('Location: '.$referer_url);
+    //exit;
+  }
 
   try {
 

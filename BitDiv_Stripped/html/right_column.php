@@ -33,7 +33,7 @@
 
                   <p class="m-t">Date purchased:</p>
                   <div class="input-group date" id="datetimepicker1">
-                      <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="" />
+                      <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="<?php echo date('m/d/Y'); ?>" />
                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
 
