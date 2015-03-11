@@ -191,11 +191,11 @@ Route::get('fetch', function() {
 
       // sell/remove stocks form
       echo '            <ul class="nav nav-pills nav-stacked">', PHP_EOL;
-      echo '              <li><a href="#sell_'.$key.'" data-toggle="tab">Sell<i class="fa"></i></a></li>', PHP_EOL;
-      echo '              <li><a href="#remove_'.$key.'" data-toggle="tab">Remove<i class="fa"></i></a></li>', PHP_EOL;
+      echo '              <li><a href="#sell_'.$key.$i.'" data-toggle="tab">Sell<i class="fa"></i></a></li>', PHP_EOL;
+      echo '              <li><a href="#remove_'.$key.$i.'" data-toggle="tab">Remove<i class="fa"></i></a></li>', PHP_EOL;
       echo '            </ul>', PHP_EOL;
       echo '            <div class="tab-content">', PHP_EOL;
-      echo '              <div class="tab-pane" id="sell_'.$key.'">', PHP_EOL;
+      echo '              <div class="tab-pane" id="sell_'.$key.$i.'">', PHP_EOL;
       echo '                <p>Sell shares of this stock and register sale with portfolio.</p>', PHP_EOL;
 ?>
                 <div class="form-group">
@@ -219,7 +219,7 @@ Route::get('fetch', function() {
 
 <?php
       echo '              </div>', PHP_EOL;
-      echo '              <div class="tab-pane" id="remove_'.$key.'">', PHP_EOL;
+      echo '              <div class="tab-pane" id="remove_'.$key.$i.'">', PHP_EOL;
       echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
       echo '              </div>', PHP_EOL;
       echo '            </div>', PHP_EOL;
