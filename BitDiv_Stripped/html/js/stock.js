@@ -18,12 +18,14 @@ function getStockData(stockCode) {
     //    console.log("got stock data");
     //    console.log(data);
     //})
-    var json = $.getJSON("http://www.quandl.com/api/v1/datasets/WIKI/" + stockCode + ".json?collapse=daily&auth_token=hM_FtE8cFi1AC-e3Sufo", function() {
-        console.log("success quandl");
-    })
+
 
     var json2 = $.getJSON("http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22" + stockCode + "%22)&env=store://datatables.org/alltableswithkeys&format=json", function() {
         console.log("success yahoo");
+    })
+
+    var json = $.getJSON("http://www.quandl.com/api/v1/datasets/WIKI/" + stockCode + ".json?collapse=daily&auth_token=hM_FtE8cFi1AC-e3Sufo", function() {
+        console.log("success quandl");
     })
 
     .fail(function() {
@@ -161,18 +163,23 @@ function getStockData(stockCode) {
         priceChange200 = priceChange200.toFixed(2);
 
 
-        if (divYield === null || divPay === null || divPay === undefined || divYield === undefined) {
+        if (divYield === null || divPay === null || divPay === undefined || divYield === undefined || isNaN(divPay) || isNaN(divYield)) {
             divYield = 0.0;
             divPay = 0.0;
+        }
+
+        if (divDate === null || exDivDate === null) {
+            divDate = "NA";
+            exDivDate = "NA";
         }
 
         divPerQuart = (divPay / 4);
 
         $('#currentName').html(organization[0], ".");
-        $('#divYield').html("Dividend Yield: " + divYield + "%" + "\n");
-        $('#divPayout').html("Dividend Payout: " + "$ " + divPerQuart);
-        $('#divdat').html("Payout On: " + divDate);
-        $('#exDivDate').html("Must own by: " + exDivDate);
+        $('#divYield').html("Dividend Yield: " + divYield + "%" + "<br>");
+        $('#divPayout').html("Dividend Payout: " + "$ " + divPerQuart + "<br>");
+        $('#divdat').html("Payout On: " + divDate + "<br>");
+        $('#exDivDate').html("Must own by: " + exDivDate + "<br>");
 
 
 
@@ -268,19 +275,27 @@ function getStockData(stockCode) {
                 algorithm: 'MACD'
 
             }, {
-                name: '10-day EMA',
+                name: '5-day EMA',
                 linkedTo: 'primary',
                 showInLegend: true,
                 type: 'trendline',
                 algorithm: 'EMA',
-                periods: 10
+                periods: 5
             }, {
-                name: '50-day EMA',
+                name: '20-day EMA',
                 linkedTo: 'primary',
                 showInLegend: true,
                 type: 'trendline',
                 algorithm: 'EMA',
-                periods: 50
+                periods: 20
+            }, {
+                name: '75-day SMA',
+                linkedTo: 'primary',
+                showInLegend: true,
+                type: 'trendline',
+                algorithm: 'SMA',
+                visible: false,
+                periods: 75
             }, {
                 name: 'Histogram',
                 linkedTo: 'primary',
@@ -308,7 +323,7 @@ function getStockData(stockCode) {
             },
 
             title: {
-                text: 'Bubble Size = Market Cap. X Axis Current Price. Y Axis Price Change Current'
+                text: 'Bubble Size = Market Cap.'
             },
             xAxis: [{
                 title: {
@@ -649,8 +664,9 @@ function formatPubDate(date) {
     return date[0];
 }
 
-
 getStockData("LMT");
+
+
 
 /**
  * Grid-light theme for Highcharts JS
