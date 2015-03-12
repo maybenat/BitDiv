@@ -310,7 +310,16 @@ function getStockData(stockCode) {
             title: {
                 text: 'Bubble Size = Market Cap. X Axis Current Price. Y Axis Price Change Current'
             },
-
+            xAxis: [{
+                title: {
+                    text: 'Price Change Current'
+                }
+            }],
+            yAxis: [{
+                title: {
+                    text: 'Current Price'
+                }
+            }],
             series: [{
                 name: stockCode,
                 data: [
@@ -336,14 +345,12 @@ function getStockData(stockCode) {
                 data: [
                     [0.16, 46.13, 182.81]
                 ]
-            },
-            {
+            }, {
                 name: "FB",
                 data: [
                     [0.92, 78.49, 219.67]
                 ]
-            },
-            {
+            }, {
                 name: "GPRO",
                 data: [
                     [0.66, 38.83, 5.01]
