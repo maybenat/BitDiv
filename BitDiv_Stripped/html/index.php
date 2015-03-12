@@ -42,13 +42,13 @@
                                 </div>
                                 <div class="col-sm-6 text-right hidden-xs">
                                     <div class="inline m-r text-left">
-                                        <div class="m-b-xs">6 <span class="text-muted">stocks</span>
+                                        <div class="m-b-xs">4 <span class="text-muted">stocks</span>
                                         </div>
                                         <div ui-jq="sparkline" ui-options="[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                                         </div>
                                     </div>
                                     <div class="inline text-left">
-                                        <div class="m-b-xs">$10,012 <span class="text-muted">invested</span>
+                                        <div class="m-b-xs">$43,913.16 <span class="text-muted">invested</span>
                                         </div>
                                         <div ui-jq="sparkline" ui-options="[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                                         </div>
@@ -57,7 +57,89 @@
                             </div>
                         </div>
                         <div class="wrapper-md" ng-controller="FlotChartDemoCtrl">
+                            <div class="panel wrapper">
+                                <div class="row">
+                                    <div class="col-md-12 b-r b-light no-border-xs">
+                                        <h4 class="font-thin m-t-none m-b-md text-muted">Your Portfolios:</h4>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Portfolio</th>
+                                                    <th>Net Change</th>
+                                                    <th>Percent Change</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="active">
+                                                    <td class="success">Portfolio 1</td>
+                                                    <td>+$5771.65</td>
+                                                    <td>+13.1%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="danger">Portfolio 2</td>
+                                                    <td>-$177.00</td>
+                                                    <td>-10.3%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="info">Portfolio 3</td>
+                                                    <td >+$0.00</td>
+                                                    <td >+0.0%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="panel wrapper">
+                                <div id="containerdivpayout"></div>
+                            </div>
+
+                            <div class="panel wrapper">
+                                <div id="containerdivpayoutpie"></div>
+                            </div>
+                            <div class="panel wrapper">
+                                <div id="containerholdings"></div>
+                            </div>
+
+                            <div class="panel wrapper">
+                                <div class="row">
+                                    <div class="col-md-12 b-r b-light no-border-xs">
+                                        <h4 class="font-thin m-t-none m-b-md text-muted">Recommendations for you:</h4>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Symbol</th>
+                                                    <th>Annual Div Payout</th>
+                                                    <th>Percent Match</th>
+                                                    <th>Based On</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="success">
+                                                    <td>RDS</td>
+                                                    <td>$3.76</td>
+                                                    <td>80%</td>
+                                                    <td>EV/EBITDA, Altman-Z</td>
+                                                </tr>
+                                                <tr class="success">
+                                                    <td>GS</td>
+                                                    <td>$2.40</td>
+                                                    <td>70%</td>
+                                                    <td>EV/EBITDA, P/E</td>
+                                                </tr>
+                                                <tr class="info">
+                                                    <td>AXP</td>
+                                                    <td>$1.04</td>
+                                                    <td>50%</td>
+                                                    <td>Beta, MACD</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--
                             <div class="panel hbox hbox-auto-xs no-border">
                                 <div class="col wrapper">
                                     <i class="fa fa-circle-o text-info m-r-sm pull-right"></i>
@@ -95,66 +177,8 @@
 
                                 </div>
                             </div>
+                        -->
                             <!-- / service -->
-
-                            <!-- tasks -->
-                            <div class="panel wrapper">
-                                <div class="row">
-                                    <div class="col-md-6 b-r b-light no-border-xs">
-
-                                        <h4 class="font-thin m-t-none m-b-md text-muted">Dividend Payouts</h4>
-                                        <div class=" m-b">
-                                            <div class="m-b">
-                                                <span class="label text-base bg-warning pos-rlt m-r"><i class="arrow right arrow-warning"></i> 02/20</span>
-                                                <a href>BLAH</a>
-                                            </div>
-                                            <div class="m-b">
-                                                <span class="label text-base bg-info pos-rlt m-r"><i class="arrow right arrow-info"></i> 03/12</span>
-                                                <a href>LMT</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="row row-sm">
-                                            <div class="col-xs-6 text-center">
-                                                <div ui-jq="easyPieChart" ui-options="{
-                    percent: 75,
-                    lineWidth: 4,
-                    trackColor: '#e8eff0',
-                    barColor: '#7266ba',
-                    scaleColor: false,
-                    size: 115,
-                    rotate: 90,
-                    lineCap: 'butt'
-                  }" class="inline m-t">
-                                                    <div>
-                                                        <span class="text-primary h4">75%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="text-muted font-bold text-xs m-t m-b">of total invested</div>
-                                            </div>
-                                            <div class="col-xs-6 text-center">
-                                                <div ui-jq="easyPieChart" ui-options="{
-                    percent: 50,
-                    lineWidth: 4,
-                    trackColor: '#e8eff0',
-                    barColor: '#23b7e5',
-                    scaleColor: false,
-                    size: 115,
-                    rotate: 180,
-                    lineCap: 'butt'
-                  }" class="inline m-t">
-                                                    <div>
-                                                        <span class="text-info h4">50%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="text-muted font-bold text-xs m-t m-b">Dividend Paying</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                     <!-- / main -->
@@ -181,3 +205,165 @@
 </body>
 
 </html>
+
+<script>
+$(function () {
+    $('#containerdivpayout').highcharts({
+        chart: {
+            type: 'column',
+            //width: 780
+        },
+        title: {
+            text: 'Portfolio 1 Dividend Payout History'
+        },
+        xAxis: {
+            categories: [
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec',
+                'Jan',
+                'Feb',
+                'Mar'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Payout amount per share ($)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>${point.y:.2f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'KO',
+            data: [.33, 0, 0,.30, 0, .30, 0, 0, .30, 0, 0, 0]
+
+        }, {
+            name: 'RGR',
+            data: [0, .49, 0,0, .45, 0, 0, .14, 0, 0, 0, .17]
+
+        }, {
+            name: 'UNP',
+            data: [0,0,0,.46,0,0,.50,0,0,.50,0,.55]
+        }]
+    });
+});
+
+$(function () {
+    $('#containerdivpayoutpie').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Portfolio 1 Dividend Payout Goal'
+        },
+        subtitle: {
+            text: '$576.60 of $600.00 (96%)'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>${point.y:.2f}</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Payout amount',
+            data: [
+                ['RGR',   268.6],
+                ['KO',       132],
+                {
+                    name: 'Not yet earning',
+                    y: 23.4,
+                    sliced: true,
+                    selected: true
+                },
+                ['UNP',    176]
+            ]
+        }]
+    });
+});
+    
+$(function () {
+    $('#containerholdings').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Portfolio 1 Holdings'
+        },
+        subtitle: {
+            text: '$43,913.16 of available $50,000.00 invested'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>${point.y:.2f}</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Amount: ',
+            data: [
+                ['RGR',   20619],
+                ['TSLA', 10081.76],
+                ['KO',       4006],
+                {
+                    name: 'Not yet invested',
+                    y: 6086.84,
+                    sliced: true,
+                    selected: true
+                },
+                ['UNP',    9206.]
+            ]
+        }]
+    });
+});
+
+
+
+
+</script>

@@ -240,7 +240,7 @@ Route::get('fetch', function() {
 
       echo ' ('.$_SESSION['user_stocks_db_info'][$key]->Name.')</h1>', PHP_EOL;
       echo '            <p><strong>'.$total_num_shares.'</strong> shares for '.$current_value_str.' value</p>', PHP_EOL;
-      echo '            <p>Historical '.$change_value_str.' from original investments</p>', PHP_EOL;
+      echo '            <p>Total '.$change_value_str.' from original investments</p>', PHP_EOL;
 ?>
 
   </div>
