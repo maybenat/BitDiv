@@ -3,7 +3,6 @@ $(".error").hide();
 
 function getValue() {
     stockCode = $("#stockCode").val().toUpperCase();
-    console.log("THIS IS SO STUPID");
     getStockData(stockCode);
 };
 
@@ -23,8 +22,7 @@ function getStockData(stockCode) {
         console.log("success quandl");
     })
 
-    var json2 = $.getJSON("http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+stockCode+"%22)&env=store://datatables.org/alltableswithkeys&format=json", function()
-    {
+    var json2 = $.getJSON("http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22" + stockCode + "%22)&env=store://datatables.org/alltableswithkeys&format=json", function() {
         console.log("success yahoo");
     })
 
@@ -44,7 +42,7 @@ function getStockData(stockCode) {
 
     json.complete(function() {
         $(".loading").hide();
-        console.log("Stock price data complete.");
+        console.log(json2);
 
         stockData = json.responseJSON.data;
 
@@ -53,8 +51,115 @@ function getStockData(stockCode) {
         organizationName = organization[0].replace(/ /g, "%20"); // eg. Apple Inc.
         organizationCode = organization[1].replace(")", ""); // eg. AAPL
 
+        peGRatio = json2.responseJSON.query.results.quote.PEGRatio;
+        peGRatio = parseFloat(peGRatio);
+        console.log("PEGRATIO", peGRatio);
+
+        peRatio = json2.responseJSON.query.results.quote.PERatio;
+        peRatio = parseFloat(peRatio);
+        console.log("PE RATIO", peRatio);
+
+        EPS = json2.responseJSON.query.results.quote.EarningsShare;
+        EPS = parseFloat(EPS);
+
+        // bid = json2.responseJSON.query.results.quote.Ask;
+        // bid = parseFloat(bid);
+        bid = stockData[0][4];
+        console.log("PRICE", bid);
+
+        currentEarnings = json2.responseJSON.query.results.quote.EPSEstimateCurrentYear;
+        currentEarnings = parseFloat(currentEarnings);
+
+        nextYear = json2.responseJSON.query.results.quote.EPSEstimateNextYear;
+        nextYear = parseFloat(nextYear);
+
+
+        meanEPS = ((currentEarnings + nextYear) / 2.0);
+
+        forwardPE = (bid / meanEPS);
+        forwardPE = forwardPE.toFixed(2);
+        console.log("FORWARD", forwardPE);
+
+        divYield = json2.responseJSON.query.results.quote.DividendYield;
+        divYield = parseFloat(divYield);
+
+        divPay = json2.responseJSON.query.results.quote.DividendShare;
+        divPay = parseFloat(divPay);
+        console.log("DIV PAY", divPay)
+
+        exDivDate = json2.responseJSON.query.results.quote.ExDividendDate;
+
+        divDate = json2.responseJSON.query.results.quote.DividendPayDate;
+
+        ebitda = json2.responseJSON.query.results.quote.EBITDA;
+        ebitda = parseFloat(ebitda);
+        console.log("EBIT", ebitda);
+
+
+        priceChange = json2.responseJSON.query.results.quote.PercentChange;
+        priceChange = parseFloat(priceChange);
+
+        fiftyDay = json2.responseJSON.query.results.quote.PercentChangeFromFiftydayMovingAverage;
+        fiftyDay = parseFloat(fiftyDay);
+
+        twoHundredDay = json2.responseJSON.query.results.quote.PercentChangeFromTwoHundreddayMovingAverage;
+        twoHundredDay = parseFloat(twoHundredDay);
+
+        volumeChangeDay = stockData[0][5];
+        volumeChangeDay2 = stockData[1][5];
+        volumePercentToday = (volumeChangeDay - volumeChangeDay2) / volumeChangeDay2;
+        volumePercentToday = volumePercentToday * 100;
+        volumePercentToday = volumePercentToday.toFixed(2);
+
+
+        volumeChangeWeek2 = stockData[6][5];
+        volumePercentWeek = (volumeChangeDay - volumeChangeWeek2) / volumeChangeWeek2;
+        volumePercentWeek = volumePercentWeek * 100;
+        volumePercentWeek = volumePercentWeek.toFixed(2);
+
+
+        volumeChangeMonth2 = stockData[6][5];
+        volumePercentMonth = (volumeChangeDay - volumeChangeMonth2) / volumeChangeMonth2;
+        volumePercentMonth = volumePercentMonth * 100;
+        volumePercentMonth = volumePercentMonth.toFixed(2);
+
+
+        volumeChange200 = stockData[200][5];
+        volumeChange200 = (volumeChangeDay - volumeChange200) / volumeChange200;
+        volumeChange200 = volumeChange200 * 100;
+        volumeChange200 = volumeChange200.toFixed(2);
+
+        priceChange2 = stockData[30][4];
+        priceChangeMonth = (bid - priceChange2) / priceChange2;
+        priceChangeMonth = priceChangeMonth * 100;
+        priceChangeMonth = priceChangeMonth.toFixed(2);
+
+
+        priceWeek = stockData[6][4];
+        priceChangeWeek = (bid - priceWeek) / priceWeek;
+        priceChangeWeek = priceChangeWeek * 100;
+        priceChangeWeek = priceChangeWeek.toFixed(2);
+
+
+        priceChange200 = stockData[200][4];
+        priceChange200 = (bid - priceChange200) / priceChange200;
+        priceChange200 = priceChange200 * 100;
+        priceChange200 = priceChange200.toFixed(2);
+
+
+        if (divYield === null || divPay === null || divPay === undefined || divYield === undefined) {
+            divYield = 0.0;
+            divPay = 0.0;
+        }
+
+        divPerQuart = (divPay / 4);
 
         $('#currentName').html(organization[0], ".");
+        $('#divYield').html("Dividend Yield: " + divYield + "%" + "\n");
+        $('#divPayout').html("Dividend Payout: " + "$ " + divPerQuart);
+        $('#divdat').html("Payout On: " + divDate);
+        $('#exDivDate').html("Must own by: " + exDivDate);
+
 
 
         // Push closing price and date to price array
@@ -189,51 +294,137 @@ function getStockData(stockCode) {
             },
 
             title: {
-                text: 'Dividend Bubbles'
+                text: 'P/E Ratio & Price'
             },
 
             series: [{
+                name: stockCode + " P/E Ratio vs Bid. r = dividend payout",
                 data: [
-                    [97, 36, 79],
-                    [94, 74, 60],
-                    [68, 76, 58],
-                    [64, 87, 56],
-                    [68, 27, 73],
-                    [74, 99, 42],
-                    [7, 93, 87],
-                    [51, 69, 40],
-                    [38, 23, 33],
-                    [57, 86, 31]
+                    [peGRatio, bid, divPay],
                 ]
             }, {
+                name: "LMT",
                 data: [
-                    [25, 10, 87],
-                    [2, 75, 59],
-                    [11, 54, 8],
-                    [86, 55, 93],
-                    [5, 3, 58],
-                    [90, 63, 44],
-                    [91, 33, 17],
-                    [97, 3, 56],
-                    [15, 67, 48],
-                    [54, 25, 81]
+                    [ebitda, bid, divPay],
                 ]
             }, {
+                name: "T",
                 data: [
-                    [47, 47, 21],
-                    [20, 12, 4],
-                    [6, 76, 91],
-                    [38, 30, 60],
-                    [57, 98, 64],
-                    [61, 17, 80],
-                    [83, 60, 13],
-                    [67, 78, 75],
-                    [64, 12, 10],
-                    [30, 77, 82]
+                    [forwardPE, bid, divPay]
                 ]
             }]
         });
 
+
+        $('#safety').highcharts({
+
+                chart: {
+                    type: 'gauge',
+                    width: 300,
+                    height: 300,
+                    plotBackgroundColor: null,
+                    plotBackgroundImage: null,
+                    plotBorderWidth: 0,
+                    plotShadow: false
+                },
+
+                title: {
+                    text: 'Safety'
+                },
+
+                pane: {
+                    startAngle: -150,
+                    endAngle: 150,
+                    background: [{
+                        backgroundColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, '#FFF'],
+                                [1, '#333']
+                            ]
+                        },
+                        borderWidth: 0,
+                        outerRadius: '109%'
+                    }, {
+                        backgroundColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, '#333'],
+                                [1, '#FFF']
+                            ]
+                        },
+                        borderWidth: 1,
+                        outerRadius: '107%'
+                    }, {
+                        // default background
+                    }, {
+                        backgroundColor: '#DDD',
+                        borderWidth: 0,
+                        outerRadius: '105%',
+                        innerRadius: '103%'
+                    }]
+                },
+
+                // the value axis
+                yAxis: {
+                    min: 0,
+                    max: 5,
+
+                    minorTickInterval: 'auto',
+                    minorTickWidth: 1,
+                    minorTickLength: .110,
+                    minorTickPosition: 'inside',
+                    minorTickColor: '#666',
+
+                    tickPixelInterval: 30,
+                    tickWidth: 2,
+                    tickPosition: 'inside',
+                    tickLength: 10,
+                    tickColor: '#666',
+                    labels: {
+                        step: 2,
+                        rotation: 'auto'
+                    },
+                    title: {
+                        text: 'safety'
+                    },
+                    plotBands: [{
+                        from: 0,
+                        to: 0.8,
+                        color: '#55BF3B' // green
+                    }, {
+                        from: 0.8,
+                        to: 3.5,
+                        color: '#DDDF0D' // yellow
+                    }, {
+                        from: 3.5,
+                        to: 5.0,
+                        color: '#DF5353' // red
+                    }]
+                },
+
+                series: [{
+                    name: 'Safety',
+                    data: [peGRatio]
+                }]
+
+            },
+            // Add some life
+            function(chart) {
+                if (!chart.renderer.forExport) {
+
+                }
+            });
 
         $('#container3').highcharts({
 
@@ -246,22 +437,23 @@ function getStockData(stockCode) {
 
 
             title: {
-                text: 'Weekly Change Heatmap'
+                text: 'The Change Heatmap'
             },
 
             xAxis: {
-                categories: ['Volume Change', 'Price Change', 'Yearly Change', 'Exp Moving Avg', 'Simple MA', 'MACD Histogram']
+                categories: ['Price Change', 'Volume Change', 'MA Change']
             },
 
             yAxis: {
-                categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                categories: ['Today', 'Weekly', 'Monthly', '200 Day'],
                 title: null
             },
 
             colorAxis: {
-                min: 0,
-                minColor: '#FFFFFF',
-                maxColor: Highcharts.getOptions().colors[0]
+                min: -1,
+                max: 1,
+                minColor: '#ef8a62',
+                maxColor: '#67a9cf'
             },
 
             legend: {
@@ -273,71 +465,37 @@ function getStockData(stockCode) {
                 symbolHeight: 280
             },
 
-            tooltip: {
-                formatter: function() {
-                    return '<b>' + this.series.xAxis.categories[this.point.x] + '</b> sold <br><b>' +
-                        this.point.value + '</b> items on <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
-                }
-            },
+            // tooltip: {
+            //     formatter: function() {
+            //         return '<b>' + this.series.xAxis.categories[this.point.x] + '</b> sold <br><b>' +
+            //             this.point.value + '</b> items on <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+            //     }
+            // },
 
             series: [{
-                name: 'Sales per employee',
+                name: 'Percentage Change',
                 borderWidth: 1,
                 data: [
-                    [0, 0, 10],
-                    [0, 1, 19],
-                    [0, 2, 8],
-                    [0, 3, 24],
-                    [0, 4, 67],
-                    [1, 0, 92],
-                    [1, 1, 58],
-                    [1, 2, 78],
-                    [1, 3, 117],
-                    [1, 4, 48],
-                    [2, 0, 35],
-                    [2, 1, 15],
-                    [2, 2, 123],
-                    [2, 3, 64],
-                    [2, 4, 52],
-                    [3, 0, 72],
-                    [3, 1, 132],
-                    [3, 2, 114],
-                    [3, 3, 19],
-                    [3, 4, 16],
-                    [4, 0, 38],
-                    [4, 1, 5],
-                    [4, 2, 8],
-                    [4, 3, 117],
-                    [4, 4, 115],
-                    [5, 0, 88],
-                    [5, 1, 32],
-                    [5, 2, 12],
-                    [5, 3, 6],
-                    [5, 4, 120],
-                    [6, 0, 13],
-                    [6, 1, 44],
-                    [6, 2, 88],
-                    [6, 3, 98],
-                    [6, 4, 96],
-                    [7, 0, 31],
-                    [7, 1, 1],
-                    [7, 2, 82],
-                    [7, 3, 32],
-                    [7, 4, 30],
-                    [8, 0, 85],
-                    [8, 1, 97],
-                    [8, 2, 123],
-                    [8, 3, 64],
-                    [8, 4, 84],
-                    [9, 0, 47],
-                    [9, 1, 114],
-                    [9, 2, 31],
-                    [9, 3, 48],
-                    [9, 4, 91]
+                    // [0, priceChange, 10],
+                    // [0, volumePercentToday, 1],
+                    // [0, fiftyDay, 1],
+                    // [0, priceChangeYear, 1],
+                    // [0, volumePercentWeek, 1]
+                    [0, 0, priceChange],
+                    [0, 1, priceChangeWeek],
+                    [0, 2, priceChangeMonth],
+                    [0, 3, priceChange200],
+                    [1, 0, volumePercentToday],
+                    [1, 1, volumePercentWeek],
+                    [1, 2, volumePercentMonth],
+                    [1, 3, volumeChange200],
+                    [2, 2, fiftyDay],
+                    [2, 3, twoHundredDay]
+
                 ],
                 dataLabels: {
                     enabled: true,
-                    color: '#000000'
+                    color: '#ffffff'
                 }
             }]
 
@@ -403,7 +561,7 @@ function formatPubDate(date) {
 }
 
 
-getStockData("GOOG");
+getStockData("LMT");
 
 /**
  * Grid-light theme for Highcharts JS

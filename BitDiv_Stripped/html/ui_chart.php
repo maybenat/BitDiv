@@ -95,27 +95,21 @@
       <div class="panel panel-default">
 
         <div class="panel-heading font-bold">
-          Dividend Payout
+          Dividend Information
         </div>
-        <div class="panel-body text-center">
+        <div class="panel-body">
           <div class="inline">
-            <div ui-jq="easyPieChart" ui-options="{
-                      percent: 75,
-                      lineWidth: 10,
-                      trackColor: '#e8eff0',
-                      barColor: '#fad733',
-                      scaleColor: '#e8eff0',
-                      size: 188,
-                      lineCap: 'butt'
-                    }">
-              <div>
-                <span class="h2 m-l-sm step">75 %</span>
+            <div>
+                <span class="h2 m-l-sm step"><span id="exDivDate"></span>
+                <span class="h2 m-l-sm step"><span id="divdat"></span>
+                <span class="h3 m-l-sm step"><span id="divPayout"></span>
+                <span class="h3 m-l-sm step"><span id="divYield"></span>
 
-              </div>
+
             </div>
           </div>
         </div>
-        <div class="panel-footer"><small>% of viewers today</small></div>
+        <div class="panel-footer"><small></small></div>
       </div>
     </div>
     <div class="col-lg-4">
@@ -125,24 +119,14 @@
         </div>
         <div class="panel-body text-center">
           <div class="inline">
-            <div ui-jq="easyPieChart"  ui-options="{
-                      percent: 25,
-                      lineWidth: 10,
-                      trackColor: '#e8eff0',
-                      barColor: '#27c24c',
-                      scaleColor: '#e8eff0',
-                      size: 188,
-                      lineCap: 'butt',
-                      animate: 1000
-                    }">
+                  <div id="safety">
               <div>
-                <span class="h2 m-l-sm step">25</span>
               </div>
             </div>
           </div>
 
         </div>
-        <div class="panel-footer"><small>all time views</small></div>
+        <div class="panel-footer"><small>Is the stock overvalued right now?</small></div>
       </div>
     </div>
     <div class="col-lg-4"></div>
