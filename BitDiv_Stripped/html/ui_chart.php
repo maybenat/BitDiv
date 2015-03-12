@@ -43,7 +43,7 @@
 <?php include("header.php"); ?>
     <!-- content -->
     <div id="content" class="app-content" role="main">
-      <div class="app-content-body">
+      <div class="app-content-body-fixed">
 
         <div class="hbox hbox-auto-xs hbox-auto-sm">
 
@@ -52,7 +52,7 @@
 </div>
 <div class="wrapper-md">
 
-<div class="content">
+<div class="content-fixed">
     <div class="container">
 
         <div class="col-sm-12">
@@ -135,11 +135,12 @@
 </div>
 
 <div class="container">
-      <div id="container2"></div>
-
+      <div id="pie"></div>
 </div>
 
-
+<div class="container">
+      <div id="container2"></div>
+</div>
 
 <div class="container">
       <div id="container3"></div>

@@ -78,6 +78,7 @@ function getStockData(stockCode) {
 
         forwardPE = (bid / meanEPS);
         forwardPE = forwardPE.toFixed(2);
+        forwardPE = parseFloat(forwardPE);
         console.log("FORWARD", forwardPE);
 
         divYield = json2.responseJSON.query.results.quote.DividendYield;
@@ -95,6 +96,10 @@ function getStockData(stockCode) {
         ebitda = parseFloat(ebitda);
         console.log("EBIT", ebitda);
 
+        marketCap = json2.responseJSON.query.results.quote.MarketCapitalization;
+        marketCap = parseFloat(marketCap);
+        console.log("marketCap", marketCap);
+
 
         priceChange = json2.responseJSON.query.results.quote.PercentChange;
         priceChange = parseFloat(priceChange);
@@ -104,6 +109,15 @@ function getStockData(stockCode) {
 
         twoHundredDay = json2.responseJSON.query.results.quote.PercentChangeFromTwoHundreddayMovingAverage;
         twoHundredDay = parseFloat(twoHundredDay);
+
+
+        bookValue = json2.responseJSON.query.results.quote.BookValue;
+        bookValue = parseFloat(bookValue);
+
+
+        pbv = (bid / bookValue);
+        pbv = pbv.toFixed(2);
+        pbv = parseFloat(pbv);
 
         volumeChangeDay = stockData[0][5];
         volumeChangeDay2 = stockData[1][5];
@@ -254,19 +268,19 @@ function getStockData(stockCode) {
                 algorithm: 'MACD'
 
             }, {
-                name: '5-day EMA',
+                name: '10-day EMA',
                 linkedTo: 'primary',
                 showInLegend: true,
                 type: 'trendline',
                 algorithm: 'EMA',
-                periods: 5
+                periods: 10
             }, {
-                name: '20-day EMA',
+                name: '50-day EMA',
                 linkedTo: 'primary',
                 showInLegend: true,
                 type: 'trendline',
                 algorithm: 'EMA',
-                periods: 20
+                periods: 50
             }, {
                 name: 'Histogram',
                 linkedTo: 'primary',
@@ -294,27 +308,95 @@ function getStockData(stockCode) {
             },
 
             title: {
-                text: 'P/E Ratio & Price'
+                text: 'Bubble Size = Market Cap. X Axis Current Price. Y Axis Price Change Current'
             },
 
             series: [{
-                name: stockCode + " P/E Ratio vs Bid. r = dividend payout",
+                name: stockCode,
                 data: [
-                    [peGRatio, bid, divPay],
+                    [priceChange, bid, marketCap],
                 ]
             }, {
-                name: "LMT",
+                name: "GOOG",
                 data: [
-                    [ebitda, bid, divPay],
+                    [1.48, 552.66, 376.15],
                 ]
             }, {
-                name: "T",
+                name: "MSFT",
                 data: [
-                    [forwardPE, bid, divPay]
+                    [-0.62, 41.35, 339.27]
+                ]
+            }, {
+                name: "AMZN",
+                data: [
+                    [6.20, 372.57, 173.02]
+                ]
+            }, {
+                name: "ORCL",
+                data: [
+                    [0.16, 46.13, 182.81]
+                ]
+            },
+            {
+                name: "FB",
+                data: [
+                    [0.92, 78.49, 219.67]
+                ]
+            },
+            {
+                name: "GPRO",
+                data: [
+                    [0.66, 38.83, 5.01]
                 ]
             }]
         });
 
+        $('#pie').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                width: 450,
+                height: 450
+            },
+            title: {
+                text: 'Get to know the company'
+            },
+            tooltip: {
+                pointFormat: '{point.name}: <b>{point.y:.1f}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y:.1f}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Share',
+                data: [
+                    ['Dividend Payout', divPay],
+                    ['p/e growth', peGRatio], {
+                        name: 'Dividend Yield',
+                        y: divYield,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['EBITDA', ebitda],
+                    ['Price', bid],
+                    ['Forward P/E', forwardPE],
+                    ['Price/BV', pbv]
+
+                ]
+            }]
+        });
 
         $('#safety').highcharts({
 
@@ -378,7 +460,7 @@ function getStockData(stockCode) {
                 // the value axis
                 yAxis: {
                     min: 0,
-                    max: 5,
+                    max: 20,
 
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
@@ -400,15 +482,15 @@ function getStockData(stockCode) {
                     },
                     plotBands: [{
                         from: 0,
-                        to: 0.8,
+                        to: 2.9,
                         color: '#55BF3B' // green
                     }, {
-                        from: 0.8,
-                        to: 3.5,
+                        from: 2.9,
+                        to: 12.5,
                         color: '#DDDF0D' // yellow
                     }, {
-                        from: 3.5,
-                        to: 5.0,
+                        from: 12.5,
+                        to: 20.0,
                         color: '#DF5353' // red
                     }]
                 },
