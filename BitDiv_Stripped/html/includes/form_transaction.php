@@ -10,6 +10,15 @@
   // determine where user is coming from, to redirect back
   $referer_url = $_GET['referer']; //urldecode($referer);
 
+  $transfer = 0; // 0 for purchase, 1 for sell
+
+  if($_GET['act'] == 'sell') {
+    // not implemented
+    $transfer = 1;
+    header('Location: '.$referer_url);
+    exit;
+  }
+
   session_name('Private');
   session_start();
 
@@ -30,7 +39,6 @@
     //header('Location: '.$referer_url);
     //exit;
   }
-
   try {
 
     // write parameters for new stock to database

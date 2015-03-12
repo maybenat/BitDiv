@@ -65,6 +65,7 @@
                     session_name('Private');
                     session_start();
                     session_regenerate_id();
+                    $_SESSION['email'] = $email;
                     $_SESSION['first_name'] = $fname;
                     $_SESSION['last_name'] = $lname;
                     $_SESSION['uid'] = $result['uid'];

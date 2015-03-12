@@ -36,7 +36,7 @@
       contentclass: "categoryitems", //Shared CSS class name of contents group
       revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
       mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-      collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+      collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
       defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
       onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
       animatedefault: false, //Should contents open by default be animated into view?
@@ -174,7 +174,7 @@ Route::get('fetch', function() {
       echo '          <div class="categoryitems">', PHP_EOL;
       echo '          <div class="row">', PHP_EOL;
       echo '            <div class="container">', PHP_EOL;
-      echo '            <div class="col-lg-4">', PHP_EOL;
+      echo '            <div class="col-lg-3">', PHP_EOL;
       echo '              <strong>Purchase history</strong>', PHP_EOL;
 
       // stock ticker => stock_id
@@ -182,12 +182,12 @@ Route::get('fetch', function() {
         $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
         $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
         $sprice = number_format((float)$sparams['price'], 2, '.', '');
-        echo '            <div class="'.$color.'">'.$transfer.' '.$key.': <strong>'.$sparams['number_shares'].' shares</strong> at <strong>$'.$sprice.'</strong> on <strong>'.$sparams['date_purchased'].'</strong></div>', PHP_EOL;
+        echo '            <div class="'.$color.'">'.$transfer.': '.$key.' / '.$sparams['number_shares'].' shares / $'.$sprice.' / '.$sparams['date_purchased'].'</div>', PHP_EOL;
 
       }
 
       echo '            </div>', PHP_EOL;
-      echo '            <div class="col-lg-4">', PHP_EOL;
+      echo '            <div class="col-lg-9">', PHP_EOL;
 
       // sell/remove stocks form
       echo '            <ul class="nav nav-pills nav-stacked">', PHP_EOL;
@@ -199,18 +199,13 @@ Route::get('fetch', function() {
       echo '                <p>Sell shares of this stock and register sale with portfolio.</p>', PHP_EOL;
 ?>
                 <div class="form-group">
-                  <form action="includes/form_transaction.php?act=sell<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
+                  <form action="includes/form_transaction.php?act=sell&referer=<?php echo $current_page_url; ?>" method="post">
                     <p class="m-t">Shares sold:</p>
                     <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
                     <p class="m-t">Price at time of sale:</p>
                     <div class="input-group">
                       <span class="input-group-addon">$</span>
-                      <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
-                    </div>
-                    <p class="m-t">Date of sale:</p>
-                    <div class="input-group date">
-                      <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="<?php echo date('m/d/Y'); ?>" />
-                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                      <input type="number" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
                     </div>
                     <button name="submit" value="<?php echo $sid; ?>" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
                     <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
