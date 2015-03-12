@@ -22,13 +22,13 @@
         <div class="form-group">
           <form action="includes/form_transaction.php?referer=<?php echo $current_page_url; ?>" method="post">
             <p>Stock purchased:</p>
-            <input type="text" name="ticker" placeholder="ticker" class="form-control" required value="" />
+            <input type="text" name="ticker" placeholder="ticker" class="form-control" required value="AAPL" />
             <p class="m-t">Shares purchased:</p>
             <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
             <p class="m-t">Price at time of purchase:</p>
             <div class="input-group">
               <span class="input-group-addon">$</span>
-              <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
+              <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="124.75" /> <!-- fix input type/view -->
             </div>
 
             <p class="m-t">Date purchased:</p>

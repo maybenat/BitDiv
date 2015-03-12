@@ -138,9 +138,10 @@
       foreach($value as $sid => $sparams) {
         if($sparams['transfer']) {
           $total_num_shares -= $sparams['number_shares'];
+          $original_investment -= $sparams['number_shares']*$sparams['price'];
         } else {
-          $original_investment += $sparams['number_shares']*$sparams['price'];
           $total_num_shares += $sparams['number_shares'];
+          $original_investment += $sparams['number_shares']*$sparams['price'];
         }
       }
 
@@ -167,9 +168,64 @@ Route::get('fetch', function() {
   }
 */
 
+  if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
+    echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+  } else {
+    echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
+  }
+?>
 
-      echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
-      echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
+<div class="row">
+  <div class="col-lg-3">
+
+<?php
+      $current_value = (float)($total_num_shares*$_SESSION['user_stocks_db_info'][$key]->Open);
+      if($current_value < 0) {
+        $current_value_str = '<strong class="text-danger">-$'.number_format(abs($current_value), 2, '.', '').'</strong>';
+      } else {
+        $current_value_str = '<strong class="text-success">$'.number_format($current_value, 2, '.', '').'</strong>';
+      }
+      $change_value = $current_value - $original_investment;
+      if($change_value < 0) {
+        $change_value_str = '<strong class="text-danger">-$'.number_format(abs($change_value), 2, '.', '').'</strong> loss';
+      } else {
+        $change_value_str = '<strong class="text-success">+$'.number_format($change_value, 2, '.', '').'</strong> profit';
+      }
+      //$current_value_str = number_format($current_value, 2, '.', '');
+      //echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
+      echo '            <h1 class="m-n font-thin h3">'.$key;
+
+  if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
+    echo '</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
+    echo '</div></div></div>';
+    continue;
+  }
+
+      echo ' ('.$_SESSION['user_stocks_db_info'][$key]->Name.')</h1>', PHP_EOL;
+      echo '            <p><strong>'.$total_num_shares.'</strong> shares for '.$current_value_str.' value</p>', PHP_EOL;
+      echo '            <p>Historical '.$change_value_str.' from original investments</p>', PHP_EOL;
+?>
+
+  </div>
+  <div class="col-lg-3">
+
+<?php
+  if($_SESSION['user_stocks_db_info'][$key]->Change < 0) {
+    echo '<p class="text-danger"><span class="glyphicon glyphicon-arrow-down"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
+      .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
+  } else {
+    echo '<p class="text-success"><span class="glyphicon glyphicon-arrow-up"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
+      .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
+  }
+
+  echo '<p>Div & Yield: ', PHP_EOL;
+  echo '<strong>'.$_SESSION['user_stocks_db_info'][$key]->DividendShare.' ('.$_SESSION['user_stocks_db_info'][$key]->DividendYield.')</strong></p>', PHP_EOL;
+?>
+
+  </div>
+</div>
+
+<?php
       echo '          </div>', PHP_EOL;
       echo '          <div class="categoryitems">', PHP_EOL;
       echo '          <div class="row">', PHP_EOL;
