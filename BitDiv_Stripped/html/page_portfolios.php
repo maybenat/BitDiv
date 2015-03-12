@@ -168,11 +168,11 @@ Route::get('fetch', function() {
   }
 */
 
-  if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
-    echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
-  } else {
+  //if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
+  //  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+  //} else {
     echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
-  }
+  //}
 ?>
 
 <div class="row">
@@ -198,6 +198,43 @@ Route::get('fetch', function() {
   if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
     echo '</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
     echo '</div></div></div>';
+
+      //echo '          </div>', PHP_EOL;
+      echo '          <div class="categoryitems">', PHP_EOL;
+      echo '          <div class="row">', PHP_EOL;
+      echo '            <div class="container">', PHP_EOL;
+      echo '            <div class="col-lg-4">', PHP_EOL;
+
+      echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
+?>
+
+                <div class="form-group">
+                  <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
+                    <select name="stock_id" class="form-control">
+<?php
+  foreach($value as $sid => $sparams) { 
+        $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
+        $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
+        $sprice = number_format((float)$sparams['price'], 2, '.', '');
+        echo '                      <option value="'.$sparams['stock_id'].'">'.$transfer.' '.$key.': '.$sparams['number_shares'].' shares at $'.$sprice.' on '.$sparams['date_purchased'].'</option>', PHP_EOL;
+  }
+?>
+                    </select>
+                    <button name="remove" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
+                    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
+                  </form>
+                </div>
+
+            </div>
+            </div>
+          </div>
+        </div>
+<?php
+
+
+
+
+
     continue;
   }
 
@@ -218,8 +255,12 @@ Route::get('fetch', function() {
       .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
   }
 
+  $div_share = $_SESSION['user_stocks_db_info'][$key]->DividendShare;
+  if(!$div_share) { $div_share = '0.00'; }
+  $div_yield = $_SESSION['user_stocks_db_info'][$key]->DividendYield;
+  if(!$div_yield) { $div_yield = '0.00'; }
   echo '<p>Div & Yield: ', PHP_EOL;
-  echo '<strong>'.$_SESSION['user_stocks_db_info'][$key]->DividendShare.' ('.$_SESSION['user_stocks_db_info'][$key]->DividendYield.')</strong></p>', PHP_EOL;
+  echo '<strong>'.$div_share.' ('.$div_yield.'%)</strong></p>', PHP_EOL;
 ?>
 
   </div>
@@ -268,7 +309,7 @@ Route::get('fetch', function() {
                       <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="<?php echo date('m/d/Y'); ?>" />
                       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
-                    <button name="submit" value="<?php echo $sid; ?>" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
+                    <button name="sell" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
                     <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
                   </form>
                 </div>
@@ -277,6 +318,26 @@ Route::get('fetch', function() {
       echo '              </div>', PHP_EOL;
       echo '              <div class="tab-pane" id="remove_'.$key.$i.'">', PHP_EOL;
       echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
+?>
+
+                <div class="form-group">
+                  <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
+                    <select name="stock_id" class="form-control">
+<?php
+  foreach($value as $sid => $sparams) { 
+        $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
+        $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
+        $sprice = number_format((float)$sparams['price'], 2, '.', '');
+        echo '                      <option value="'.$sparams['stock_id'].'">'.$transfer.' '.$key.': '.$sparams['number_shares'].' shares at $'.$sprice.' on '.$sparams['date_purchased'].'</option>', PHP_EOL;
+  }
+?>
+                    </select>
+                    <button name="remove" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
+                    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
+                  </form>
+                </div>
+
+<?php
       echo '              </div>', PHP_EOL;
       echo '            </div>', PHP_EOL;
 

@@ -20,8 +20,14 @@
   $date_purchased = date('Y-m-d', strtotime($_POST['date_purchased']));
   $portfolio = $_POST['portfolio'];
   $transfer = 0; // 0 for purchase, 1 for sell
+  $sql = '';
 
-  if($_GET['act'] == 'sell') {
+  if($_GET['act'] == 'remove') {
+
+    $sql = 'DELETE FROM user_stocks WHERE stock_id = '.$_POST['stock_id'].';';
+
+  } else {
+    if($_GET['act'] == 'sell') {
 
     $transfer = 1;
     $ticker = $_GET['ticker'];
@@ -29,13 +35,7 @@
 
     //header('Location: '.$referer_url);
     //exit;
-  }
-  try {
-
-    // write parameters for new stock to database
-    $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    }
 
     $sql = 'INSERT INTO user_stocks SET '
       .'uid='.$uid.', '
@@ -46,6 +46,14 @@
       .'portfolio='.$portfolio.', '
       .'transfer='.$transfer
       .';';
+  }
+
+  try {
+
+    // write parameters for new stock to database
+    $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
     $statement = $db->prepare($sql);
     $statement->execute();
@@ -56,18 +64,22 @@
     exit;
   }
 
-  // update $_SESSION to add new stock
-  $_SESSION['user_stocks'][$portfolio][$ticker][$stock_id] =
-    array(
-      'uid' => $uid,
-      'ticker' => $ticker,
-      'number_shares' => $number_shares,
-      'price' => $price,
-      'date_purchased' => $date_purchased,
-      'portfolio' => $portfolio,
-      'stock_id' => $stock_id,
-      'transfer' => $transfer,
+  // update $_SESSION to remove or add new stock
+  if($_GET['act'] == 'remove') {
+    unset($_SESSION['user_stocks'][$portfolio][$ticker][$stock_id]);
+  } else {
+    $_SESSION['user_stocks'][$portfolio][$ticker][$stock_id] =
+      array(
+        'uid' => $uid,
+        'ticker' => $ticker,
+        'number_shares' => $number_shares,
+        'price' => $price,
+        'date_purchased' => $date_purchased,
+        'portfolio' => $portfolio,
+        'stock_id' => $stock_id,
+        'transfer' => $transfer,
     );
+  }
 
   header('Location: '.$referer_url);
   exit;

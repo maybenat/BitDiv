@@ -53,11 +53,11 @@
   $YBASE_URL = "https://query.yahooapis.com/v1/public/yql";
 
   // construct list of tickers for query
-  $query_tickers = '';
+  $query_tickers = '"null"';
   foreach($stock_list as $ticker) {
-    $query_tickers .= '"'.$ticker.'",';
+    $query_tickers .= ',"'.$ticker.'"';
   }
-  $query_tickers = substr($query_tickers, 0, -1);
+  //$query_tickers = substr($query_tickers, 0, -1);
   //echo $query_tickers;
 
   // Form YQL query and build URI to YQL Web service
