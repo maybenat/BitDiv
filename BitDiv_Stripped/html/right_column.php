@@ -28,18 +28,20 @@
             <p class="m-t">Price at time of purchase:</p>
             <div class="input-group">
               <span class="input-group-addon">$</span>
-              <input type="number" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
+              <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
             </div>
 
             <p class="m-t">Date purchased:</p>
             <div class="input-group date" id="datetimepicker1">
-              <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="" />
+              <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="<?php echo date('m/d/Y'); ?>" />
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
 
             <p class="m-t"></p>
             <select name="portfolio" class="form-control">
               <option value="1">Portfolio 1</option>
+              <option value="2">Portfolio 2</option>
+              <option value="3">Portfolio 3</option>
             </select>
 
             <p class="m-t"></p>
