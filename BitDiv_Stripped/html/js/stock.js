@@ -189,7 +189,7 @@ function getStockData(stockCode) {
         // Create the chart
         $('#container').highcharts('StockChart', {
             chart: {
-                width: 900,
+                width: 780,
                 zoomType: 'xy',
                 panning: true,
                 panKey: 'shift',
