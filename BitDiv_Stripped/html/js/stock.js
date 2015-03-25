@@ -1,8 +1,12 @@
 $(".loading").hide();
 $(".error").hide();
 
-function getValue() {
-    stockCode = $("#stockCode").val().toUpperCase();
+
+
+function getValue(stockCode) {
+    //stockCode = $("#stockCode").val().toUpperCase();
+    // var javaScriptVar = "?php echo json_encode($somevar); ?>;";
+    // console.log(javaScriptVar);
     getStockData(stockCode);
 };
 
@@ -134,7 +138,7 @@ function getStockData(stockCode) {
         volumePercentWeek = volumePercentWeek.toFixed(2);
 
 
-        volumeChangeMonth2 = stockData[6][5];
+        volumeChangeMonth2 = stockData[30][5];
         volumePercentMonth = (volumeChangeDay - volumeChangeMonth2) / volumeChangeMonth2;
         volumePercentMonth = volumePercentMonth * 100;
         volumePercentMonth = volumePercentMonth.toFixed(2);
@@ -377,9 +381,7 @@ function getStockData(stockCode) {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false,
-                width: 450,
-                height: 450
+                plotShadow: false
             },
             title: {
                 text: 'Get to know the company'
@@ -424,8 +426,6 @@ function getStockData(stockCode) {
 
                 chart: {
                     type: 'gauge',
-                    width: 300,
-                    height: 300,
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
@@ -663,8 +663,6 @@ function formatPubDate(date) {
     date = date.split("T");
     return date[0];
 }
-
-getStockData("LMT");
 
 
 
