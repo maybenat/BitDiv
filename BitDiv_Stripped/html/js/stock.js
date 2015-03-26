@@ -2,7 +2,6 @@ $(".loading").hide();
 $(".error").hide();
 
 
-
 function getValue(stockCode) {
     //stockCode = $("#stockCode").val().toUpperCase();
     // var javaScriptVar = "?php echo json_encode($somevar); ?>;";
@@ -22,7 +21,7 @@ function slides() {
         animate: true,
         value: 30,
 
-        min: 1,
+        min: 0,
         max: 1000,
         step: 1,
         slide: function(event, ui) {
@@ -36,8 +35,8 @@ function slides() {
         animate: true,
         value: bid,
 
-        min: 1,
-        max: bid*2,
+        min: 0,
+        max: bid * 2,
         step: 1,
 
         slide: function(event, ui) {
@@ -257,14 +256,45 @@ function getStockData(stockCode) {
         $('#currentName').html(organization[0], ".");
         $('#divYield').html("Dividend Yield: " + divYield + "%" + "<br>");
         $('#divPayout').html("Dividend Payout: " + "$ " + divPerQuart + "<br>");
-        $('#divdat').html("Payout On: " + divDate + "<br>");
-        $('#exDivDate').html("Must own by: " + exDivDate + "<br>");
+
+        var now = new Date();
+        var todayUTC = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+        todayUTC = todayUTC.toISOString().slice(0, 10).replace(/-/g, '-');
+        var date = divDate;
+
+
+        var date2 = exDivDate;
+
+
+        console.log(now);
+        console.log(date);
+        console.log(date2);
+
+        if (date < todayUTC || date === 'NA') {
+
+            $('#divdat').html("Payout On: " + divDate + "<p class='text-danger'><span class='glyphicon glyphicon-remove'></span>" + "<br>");
+
+
+        } else {
+            $('#divdat').html("Payout On: " + divDate + "<br>" + "<p class='text-success'><span class='glyphicon glyphicon-ok'></span>" + "<br>");
+
+        }
+        if (date2 < todayUTC || date === 'NA') {
+
+            $('#exDivDate').html("Must own by: " + exDivDate + "<p class='text-danger'><span class='glyphicon glyphicon-remove'></span>" + "<br>");
+
+
+        } else {
+            $('#exDivDate').html("Must own by: " + exDivDate + "<br>" + "<p class='text-success'><span class='glyphicon glyphicon-ok'></span>" + "<br>");
+
+        }
+
 
         if (priceChange < 0) {
             $('#currentPrice').html("<p class='text-danger'><span class='glyphicon glyphicon-arrow-down'></span><strong>" + priceChange + "   (" + bid + ")");
 
         } else {
-                    $('#currentPrice').html("<p class='text-success'><span class='glyphicon glyphicon-arrow-up'></span><strong>" + priceChange + "  (" + bid + ")");
+            $('#currentPrice').html("<p class='text-success'><span class='glyphicon glyphicon-arrow-up'></span><strong>" + priceChange + "  (" + bid + ")");
 
         }
 
@@ -377,13 +407,21 @@ function getStockData(stockCode) {
                 algorithm: 'EMA',
                 periods: 20
             }, {
-                name: '75-day SMA',
+                name: '50-day EMA',
+                linkedTo: 'primary',
+                showInLegend: true,
+                type: 'trendline',
+                algorithm: 'EMA',
+                visible: false,
+                periods: 50
+            }, {
+                name: '200-day SMA',
                 linkedTo: 'primary',
                 showInLegend: true,
                 type: 'trendline',
                 algorithm: 'SMA',
                 visible: false,
-                periods: 75
+                periods: 200
             }, {
                 name: 'Histogram',
                 linkedTo: 'primary',
@@ -463,46 +501,34 @@ function getStockData(stockCode) {
 
         $('#pie').highcharts({
             chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
+                type: 'column'
             },
             title: {
                 text: 'Get to know the company'
             },
-            tooltip: {
-                pointFormat: '{point.name}: <b>{point.y:.1f}</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.y:.1f}',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Share',
-                data: [
-                    ['Dividend Payout', divPay],
-                    ['p/e growth', peGRatio], {
-                        name: 'Dividend Yield',
-                        y: divYield,
-                        sliced: true,
-                        selected: true
-                    },
-                    ['EBITDA', ebitda],
-                    ['Price', bid],
-                    ['Forward P/E', forwardPE],
-                    ['Price/BV', pbv]
 
-                ]
+            series: [{
+                name: 'Dividend Payout',
+                data: [divPay]
+            }, {
+                name: 'p/e growth',
+                data: [peGRatio]
+            }, {
+                name: 'EBITDA',
+                data: [peGRatio]
+            }, {
+                name: 'Price',
+                data: [bid]
+            }, {
+                name: 'Forward P/E',
+                data: [forwardPE]
+            }, 
+            {
+                name: 'P/E',
+                data: [peRatio]
+            }, {
+                name: 'Price/BV',
+                data: [pbv]
             }]
         });
 
