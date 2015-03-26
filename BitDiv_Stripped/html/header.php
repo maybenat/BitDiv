@@ -53,7 +53,7 @@ $('input.typeahead-devs').typeahead({
         <button class="pull-right visible-xs" ui-toggle="off-screen" target=".app-aside" ui-scroll="app">
             <i class="glyphicon glyphicon-align-justify"></i>
         </button>
-        <a href="#/" class="navbar-brand text-lt">
+        <a href="index.php" class="navbar-brand text-lt">
             <i class="fa fa-area-chart"></i>
             <span class="hidden-folded m-l-xs">bitdiv</span>
         </a>
@@ -74,7 +74,7 @@ $('input.typeahead-devs').typeahead({
 
         <!-- link and dropdown -->
         <ul class="nav navbar-nav hidden-sm">
-            <li class="dropdown pos-stc">
+           <!--  <li class="dropdown pos-stc">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                     <span>Help</span>
                     <span class="caret"></span>
@@ -98,7 +98,7 @@ $('input.typeahead-devs').typeahead({
 
                             </div>
 
-            </li>
+            </li> -->
 
         </ul>
         <!-- / link and dropdown -->
@@ -209,27 +209,27 @@ $('input.typeahead-devs').typeahead({
                     <li class="line dk"></li>
 
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                        <span>Components</span>
+                        <span>Your Items</span>
                     </li>
-
+<!-- 
                     <li>
                         <a href="ui_chart.php">
                             <i class="glyphicon glyphicon-signal"></i>
                             <span>Research Center</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="page_portfolios.php">
                             <i class="fa fa-money"></i>
                             <span>My Portfolios</span>
                         </a>
                     </li>
-
+<!-- 
                     <li class="line dk hidden-folded"></li>
 
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span>Your Stuff</span>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="page_profile.php">
                             <i class="icon-user icon text-success-lter"></i>
