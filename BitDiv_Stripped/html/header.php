@@ -208,48 +208,9 @@
 
               <li class="line dk"></li>
 
-              <<<<<<< HEAD
               <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                <span>Components</span>
+                <span>Your Items</span>
               </li>
-
-              <li>
-                <a href="ui_chart.php">
-                  <i class="glyphicon glyphicon-signal"></i>
-                  <span>Research Center</span>
-                </a>
-              </li>
-              <li>
-                <a href="page_portfolios.php">
-                  <i class="fa fa-money"></i>
-                  <span>My Portfolios</span>
-                </a>
-              </li>
-
-              <li class="line dk hidden-folded"></li>
-
-              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                <span>Your Stuff</span>
-              </li>
-              <li>
-                <a href="page_profile.php">
-                  <i class="icon-user icon text-success-lter"></i>
-                  <span>Profile</span>
-                </a>
-              </li>
-              <li>
-                <a href="page_friend.php">
-                  <i class="icon-user icon text-success-lter"></i>
-                  <span>Friends</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <!-- nav -->
-          =======
-          <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-            <span>Your Items</span>
-          </li>
 <!--
                     <li>
                         <a href="ui_chart.php">
@@ -275,10 +236,15 @@
                           <span>Profile</span>
                         </a>
                       </li>
+                      <li>
+                        <a href="page_friend.php">
+                          <i class="icon-user icon text-success-lter"></i>
+                          <span>Following</span>
+                        </a>
+                      </li>
                     </ul>
                   </nav>
                   <!-- nav -->
-                  >>>>>>> origin/master
                 </div>
               </div>
             </aside>
