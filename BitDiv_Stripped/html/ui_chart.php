@@ -1,5 +1,6 @@
 <?php include 'includes/session.php'; ?>
 
+<?php include 'includes/portfolio_populate.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,204 @@ x-padding: 20px;
   x-padding: 20px;
 }
 
+.price-box {
+  margin: 0 auto;
+  background: #E9E9E9;
+  border-radius: 10px;
+  padding: 40px 15px;
+  /*width: 500px;*/
+}
+
+.ui-widget-content {
+  border: 1px solid #bdc3c7;
+  background: #e1e1e1;
+  color: #222222;
+  margin-top: 4px;
+}
+
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 7.2em;
+  height: 2.7em;
+  cursor: default;
+  margin: 0 -40px auto !important;
+  text-align: center; 
+  line-height: 30px;
+  color: #FFFFFF;
+  font-size: 12px;
+}
+
+.ui-slider .ui-slider-handle .glyphicon {
+  color: #FFFFFF;
+  margin: 0 1px; 
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.ui-corner-all {
+  border-radius: 20px;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -.9em;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  border: 1px solid #f9f9f9;
+  background: #3498db;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  margin-left: -0.5em;
+}
+
+.ui-slider .ui-slider-handle {
+  cursor: pointer;
+}
+
+.ui-slider a,
+.ui-slider a:focus {
+  cursor: pointer;
+  outline: none;
+}
+
+.price, .lead p {
+  font-weight: 600;
+  font-size: 32px;
+  display: inline-block;
+  line-height: 60px;
+  border:0;
+  width: 245px;
+}
+
+h4.great {
+  background: #00ac98;
+  margin: 0 0 25px -60px;
+  padding: 7px 15px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  display: inline-block;
+  -moz-box-shadow:    2px 4px 5px 0 #ccc;
+    -webkit-box-shadow: 2px 4px 5px 0 #ccc;
+    box-shadow:         2px 4px 5px 0 #ccc;
+}
+
+.total {
+  border-bottom: 1px solid #7f8c8d;
+  /*display: inline;
+  padding: 10px 5px;*/
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.total:before {
+  content: "";
+  display: inline;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 3px;
+  background: #7f8c8d;
+  opacity: 0.5;
+}
+
+.price-slider {
+  margin-bottom: 70px;
+}
+
+.price-slider span {
+  font-weight: 200;
+  display: inline-block;
+  color: #7f8c8d;
+  font-size: 16px;
+}
+
+.form-pricing {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.price-form {
+  background: #ffffff;
+  padding: 5px;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  /*-moz-box-shadow:    0 5px 5px 0 #ccc;
+    -webkit-box-shadow: 0 5px 5px 0 #ccc;
+    box-shadow:         0 5px 5px 0 #ccc;*/
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-group span.price {
+  font-weight: 200;
+  display: inline-block;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.help-text {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #737373;
+  /*position: absolute;*/
+  /*margin-left: 20px;*/
+  font-weight: 200;
+  /*text-align: right;*/
+  width: 188px;
+}
+
+.price-form label {
+  font-weight: 200;
+  font-size: 21px;
+}
+
+img.payment {
+  display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.ui-slider-range-min {
+  background: #2980b9;
+}
+
+.active-month,
+.active-term {
+  background: #3276b1;
+}
+
+/* HR */
+
+hr.style {
+  margin-top: 0;
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+
+
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px; /* negative of the offset - height of link element */
+    right: 10px; /* padding from the left side of the window */
+}
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 18px; /* height of link element */
+    right: 10px; /* padding from the left side of the window */
+}
+
+
 </style>
 
 </head>
@@ -43,11 +242,11 @@ x-padding: 20px;
   <?php
 
   // The value of the variable name is found
-  $somevar = $_GET["stocks"];
+  $key = $_GET["stocks"];
   ?>
   <script type="text/javascript">
   window.onload = function() {
-    var javaScriptVar = "<?php print $somevar ?>";
+    var javaScriptVar = "<?php print $key ?>";
     console.log(javaScriptVar);
   getValue(javaScriptVar);
 };</script>
@@ -61,7 +260,7 @@ x-padding: 20px;
         <div class="hbox hbox-auto-xs hbox-auto-sm">
 
           <div class="bg-light lter b-b wrapper-md">
-            <h1 class="m-n font-thin h3"><span id="currentName"></h1>
+            <h1 class="m-n font-thin h3"><span id="currentName"></h1><span id="currentPrice">
           </div>
           <div class="wrapper-md-fixed">
 
@@ -69,16 +268,9 @@ x-padding: 20px;
               <div class="container">
 
                 <div class="col-sm-12">
-                  <!-- <div class="loading"><img src="img/load.GIF" /><img src="img/load.GIF" /><p></div> -->
 
                 </div>
-                <!-- <div class="col-sm-12"> -->
-            <!-- <form class="form-inline" role="form">
-                <input type="text" placeholder="" id="stockCode" />
 
-                <button type="button" class="btn btn-warning" onClick="getValue()">Go</button>
-              </form> -->
-              <!-- </div> -->
             </div>
           </div>
 
@@ -139,48 +331,85 @@ $('[data-toggle="popover"]').popover();
                                 </div>
                             </div>
 
-             <!--  <div class="col-lg-4">
-                <div class="panel panel-default">
-
-                  <div class="panel-heading font-bold">
-                    Dividend Information
-                  </div>
-                  <div class="panel-body">
-                    <div class="inline">
-                      <div>
-                        <span class="h2 m-l-sm step"><span id="exDivDate"></span>
-                        <span class="h2 m-l-sm step"><span id="divdat"></span>
-                        <span class="h3 m-l-sm step"><span id="divPayout"></span>
-                        <span class="h3 m-l-sm step"><span id="divYield"></span>
-
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel-footer"><small></small></div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading font-bold">
-                    Safety Rating
-                  </div>
-                  <div class="panel-body text-center">
-                    <div class="inline">
-                      <div id="safety">
-                        <div>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="panel-footer"><small>Is the stock overvalued right now?</small></div>
-                </div>
-              </div>
-              <div class="col-lg-4"></div>
-
-            </div> -->
+          
           </div>
+          <div class="container">
+      <div class="price-box">
+        <div class="row">
+          <div class="col-sm-4">
+                <form class="form-horizontal form-pricing" role="form">
+
+                  <div class="price-slider">
+                    <h4 class="great">Shares</h4>
+                    <span>Minimum 1 is required</span>
+                    <div class="col-sm-12">
+                      <div id="slider_amirol"></div>
+                       <input name="sliderVal" type="hidden" id="sliderVal" readonly="readonly" />
+
+                    </div>
+                  </div>
+                  <div class="price-slider">
+                    <h4 class="great">Price</h4>
+                    <div class="col-sm-12">
+                      <div id="slider_amirol2"></div>
+                      <input name="sliderVal2" type="hidden" id="sliderVal2" readonly="readonly" />
+                    </div>
+                  </div>
+                  
+              </div>
+              <div class="col-md-3">
+                <div class="price-form">
+
+                  <div class="form-group">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="amount_amirol">Amount Paid ($): </label>
+                          <span class="help-text">Monthly or Reinvest</span>
+                        </div>
+                        <div class="col-sm-12">
+                            <input type="hidden" id="amount_amirol" class="form-control">
+                            <!-- <p class="price lead" id="total"></p> -->
+                            <input class="price lead" name="totalprice" type="text" id="total" disabled="disabled" style="" />
+                        </div>
+                    </div>
+                    </div>
+                       <div class="form-group">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="amount_amirol" class="control-label">Total Investment ($): </label>
+                          <span class="help-text">Monthly or Reinvest</span>
+                        </div>
+                        <div class="col-sm-12">
+                            <input type="hidden" id="amount_amirol" class="form-control">
+                            <!-- <p class="price lead" id="total"></p> -->
+                            <input class="price lead" name="totalprice12" type="text" id="total12" disabled="disabled" style="" />
+                        </div>
+
+                    </div>
+                    </div>
+    <div class="form-group">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="amount_amirol" class="control-label">Shares Needed ($): </label>
+                          <span class="help-text">Monthly or Reinvest</span>
+                        </div>
+                        <div class="col-sm-12">
+                            <input type="hidden" id="amount_amirol" class="form-control">
+                            <!-- <p class="price lead" id="total"></p> -->
+                            <input class="price lead" name="shares" type="text" id="shares" disabled="disabled" style="" />
+                        </div>
+                        
+                    </div>
+                    </div>
+                  </div>
+
+                </form>
+            </div>
+        </div>
+
+          </div>
+
+      </div>
 
 
         <div class="panel wrapper">
@@ -262,7 +491,19 @@ $('[data-toggle="popover"]').popover();
     </div>
   </div>
 </div>
+<span id="top-link-block" class="hidden">
+    <a href="#top" class="well well-sm"  onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <i class="glyphicon glyphicon-chevron-up"></i> Top
+    </a>
+</span>
 
+<script type="text/javascript">
+if ( ($(window).height() + 100) < $(document).height() ) {
+    $('#top-link-block').removeClass('hidden').affix({
+        // how far to scroll down before link "slides" into view
+        offset: {top:100}
+    });
+}</script>
 
 
 <?php include 'right_column.php'; ?>
@@ -270,12 +511,13 @@ $('[data-toggle="popover"]').popover();
 </div>
 </div>
 
-  
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 <script src="js/ui-load.js"></script>
 <script src="js/ui-jp.config.js"></script>
 <script src="js/ui-jp.js"></script>
 <script src="js/ui-nav.js"></script>
 <script src="js/ui-toggle.js"></script>
+
 
 </body>
 </html>
