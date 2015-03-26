@@ -131,7 +131,6 @@ $('input.typeahead-devs').typeahead({
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                     <i class="icon-bell fa-fw"></i>
                     <span class="visible-xs-inline">Notifications</span>
-                    <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
                 </a>
                 <!-- dropdown -->
                 <div class="dropdown-menu w-xl animated fadeInUp">
