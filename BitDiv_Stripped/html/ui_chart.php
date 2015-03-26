@@ -266,7 +266,7 @@ hr.style {
 
             <div class="content-fixed">
                <div class="row text-center">
-      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal">Before you begin. What should I look for?</a>
+      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal">What should I look for?</a>
   </div>
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog">
@@ -276,7 +276,7 @@ hr.style {
         <h4 class="modal-title" id="myModalLabel">Getting Started</h4>
       </div>
       <div class="modal-body">
-                <h1>Some useful tips</h3>
+                <h3>Some useful tips</h3>
                   <p> 1. Drag on the graph to zoom in. </p>
                   <p> 2. Toggle different moving averages </p>
                   <p> 3. Compare how the moving averages and MACD indicate trends in the price. </p>

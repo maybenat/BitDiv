@@ -286,10 +286,10 @@ function getStockData(stockCode) {
 
 
         if (priceChange < 0) {
-            $('#currentPrice').html("<p class='text-danger'><span class='glyphicon glyphicon-arrow-down'></span><strong>" + priceChange + "   (" + bid + ")");
+            $('#currentPrice').html("<p class='text-danger'><span class='glyphicon glyphicon-arrow-down'></span><strong>" + priceChange + "%   (" + bid + ")");
 
         } else {
-            $('#currentPrice').html("<p class='text-success'><span class='glyphicon glyphicon-arrow-up'></span><strong>" + priceChange + "  (" + bid + ")");
+            $('#currentPrice').html("<p class='text-success'><span class='glyphicon glyphicon-arrow-up'></span><strong>" + priceChange + "%  (" + bid + ")");
 
         }
 
