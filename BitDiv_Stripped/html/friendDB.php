@@ -24,7 +24,7 @@ if(true) {
         }
         $db = null;
     } catch(PDOException $e) {
-        echo '<script language="javascript"> alert("Unable to connect to the database111") </script>';
+        echo '<script language="javascript"> alert("Unable to connect to the database in file friendDB.php") </script>';
     }
 }
 ?>

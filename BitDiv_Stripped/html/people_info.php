@@ -3,7 +3,9 @@ include_once 'data/config.php';
 if(isset($_GET["email"]))
 {
     $emailkey = $_GET["email"];
+    $following = $_GET['following'] == 1 ? "unfollow" : "follow";
 }
+
 
 if(true) {
     try {

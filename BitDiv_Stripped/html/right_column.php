@@ -100,7 +100,7 @@
             foreach ($peopleList as $key => $val )
             {
               echo "<li class=\"list-group-item\">
-              <div class=\"clear\"><a href=\"page_people.php?email=$key\">$val</a></div>
+              <div class=\"clear\"><a href=\"page_people.php?email=$key&following=0\">$val</a></div>
               <small class=\"text-muted\">";
                 switch ($riskList[$key]) {
                   case 0: echo "High Risk</small></li>"; break;
