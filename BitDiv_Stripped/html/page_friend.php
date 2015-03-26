@@ -35,9 +35,10 @@
                 <tbody>
                   <?php include 'friendDB.php';?>
                   <?php foreach ($friendList as $key => $value) {
+                    $email = $value['email'];
                     echo "<tr>";
                     foreach ($value as $key => $info) {
-                      print_r("<td> $info </td>");
+                      print_r("<td><a href=\"page_people.php?email=$email&following=1\"> $info </a></td>");
                     }
                     echo "</tr>";
                   } ?>

@@ -24,6 +24,7 @@
 
     <?php include 'header.php'; ?>
     <?php include 'people_info.php'; ?>
+    <?php include 'follow.php' ?>
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
@@ -33,9 +34,25 @@
 
           <div class="bg-light lter b-b wrapper-md">
             <h1 class="m-n font-thin h3">
-            <?php echo "$firstname $lastname" ;; ?>
+              <?php echo "$firstname $lastname" ;; ?>
+              <button type="submit" class="btn btn-default" value=<?php echo $following; ?>><?php echo $following; ?></button>
             </h1>
           </div>
+
+          <script type="text/javascript">
+            $(document).ready(function(){
+              $('button').click(function(){
+                var clickBtnValue = $(this).val();
+                //alert(clickBtnValue);
+                var ajaxurl = 'follow.php',
+                data =  {'action': clickBtnValue};
+                $.post(ajaxurl, data, function (response) {
+                  alert(response)
+                });
+              });
+            });
+          </script>
+
 
           <div class="wrapper-md">
             <div class=" col-md-9 col-lg-9 ">

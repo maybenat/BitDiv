@@ -212,7 +212,7 @@ Route::get('fetch', function() {
                   <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
                     <select name="stock_id" class="form-control">
 <?php
-  foreach($value as $sid => $sparams) { 
+  foreach($value as $sid => $sparams) {
         $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
         $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
         $sprice = number_format((float)$sparams['price'], 2, '.', '');
@@ -324,7 +324,7 @@ Route::get('fetch', function() {
                   <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
                     <select name="stock_id" class="form-control">
 <?php
-  foreach($value as $sid => $sparams) { 
+  foreach($value as $sid => $sparams) {
         $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
         $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
         $sprice = number_format((float)$sparams['price'], 2, '.', '');

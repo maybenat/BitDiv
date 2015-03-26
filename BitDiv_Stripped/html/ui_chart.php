@@ -265,6 +265,41 @@ hr.style {
           <div class="wrapper-md-fixed">
 
             <div class="content-fixed">
+               <div class="row text-center">
+      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal">What should I look for?</a>
+  </div>
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Getting Started</h4>
+      </div>
+      <div class="modal-body">
+                <h3>Some useful tips</h3>
+                  <p> 1. Drag on the graph to zoom in. </p>
+                  <p> 2. Toggle different moving averages </p>
+                  <p> 3. Compare how the moving averages and MACD indicate trends in the price. </p>
+                  <p> 4. Click on the price in order to fetch relevant news related to the stock. See how reactionary the markets are by clicking on low and high points! </p>
+
+        <h3>Moving Average Crossovers</h3>
+        <p>Price moves from one side of a moving average and closes on the other.</p>
+        <img src = "img/avg2.png" />
+        <p>The second type of crossover occurs when a short-term average crosses through a long-term average. HIGHLY OBJECTIVE.</p>
+        <img src = "img/avg2.png" />
+        <h3>MACD Crossovers</h3>
+        <p> MACD goes below the signal line, bearish indicator, may be time to SELL. MACD above the signal line, bullish indicator, the stock might be going up! </p>
+        <img src = "img/macd.png" />
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Now let me go try!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
               <div class="container">
 
                 <div class="col-sm-12">
@@ -304,25 +339,19 @@ hr.style {
                                         <h4 class="font-thin m-t-none m-b-md text-muted">Dividend Information:</h4>
                                         <table class="table table-hover">
                                             <thead>
-<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a><script>
-$('[data-toggle="popover"]').popover();
 
-
-
-                                              </script>
-                                                <tr>
                                                     <th>Key Dates</th>
                                                     <th>Payout</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="active">
-                                                    <td class="success"><span id="exDivDate"></td>
-                                                   <td class="success"><span id="divPayout"></td>
+                                                     <td class="active"><span id="exDivDate"></td>
+                                                   <td class="active"><span id="divPayout"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="success"><span id="divdat"></td>
-                                                    <td class="success"><span id="divYield"></td>
+                                                    <td class="active"><span id="divdat"></td>
+                                                    <td class="active"><span id="divYield"></td>
                                                 </tr>
                                               
                                             </tbody>
@@ -412,12 +441,81 @@ $('[data-toggle="popover"]').popover();
       </div>
 
 
-        <div class="panel wrapper">
+<!--         <div class="panel wrapper">
             <div id="safety"></div>
 
+          </div> -->
+        <div class="panel wrapper">
+           <div class="row text-center">
+      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal2">What are these metrics?</a>
+  </div>
+<div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Metrics</h4>
+      </div>
+      <div class="modal-body">
+                <h3>PE/G Ratio</h3>
+                  <p> Normalizes the PE for growth rate. </p>
+                  <p> When this is negative the stock is probably undervalued. </p>
+                  <p> When this is positive the stock is probably overvalued. The higher the number the more overvalued it is. </p>
+
+        <h3>EBITDA</h3>
+                          <p> EBITDA = Revenue - Expenses (excluding interest, taxes) </p>
+                  <p> Use this to compare profitability against companies in the same sector. </p>
+        <h3>Forward PE</h3>
+                <p>Forward P/E can be used to compare current to estimated future earnings. </p>
+                  <p>If earnings are expected to grow in the future, the Forward P/E will be lower than the current P/E. </p>
+
+</p>
+
+        <h3>Price/BV</h3>
+                <p>If this is <= 3 typically two things are considered: </p>
+                <p>1) Undervalued </p>
+                <p>2) The stock will fail </p>
+                <p>Be sure to check out the other metrics to make your decision </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                        <div id="pie"></div>
           </div>
         <div class="panel wrapper">
-                        <div id="pie"></div>
+
+
+            <div id="container3"></div>
+           <div class="row text-center">
+      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal3">Help?</a>
+  </div>
+<div class="modal fade" id="basicModal3" tabindex="-1" role="dialog" aria-labelledby="basicModal3" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Help?</h4>
+      </div>
+            <div class="modal-body">
+                <h3>What should I look for?</h3>
+                  <p> 1) Price Changes</p>
+                  <p> 2) Positive changes in volume means lots of people are buying this stock.  </p>
+                  <p> 3) Negative changes in volume mean lots of people are selling. You might want to look into this. </p>
+                  <p> 3) Big changes in Moving Averages? Go look further into the interactive graph above. </p>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
           </div>
 
 
@@ -425,10 +523,6 @@ $('[data-toggle="popover"]').popover();
             <div id="container2"></div>
           </div>
 
-        <div class="panel wrapper">
-            <div id="container3"></div>
-
-          </div>
 
           <div class="container">
 
