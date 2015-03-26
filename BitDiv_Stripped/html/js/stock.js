@@ -258,19 +258,14 @@ function getStockData(stockCode) {
         $('#divPayout').html("Dividend Payout: " + "$ " + divPerQuart + "<br>");
 
         var now = new Date();
-        var todayUTC = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
-        todayUTC = todayUTC.toISOString().slice(0, 10).replace(/-/g, '-');
+        var stringy = now.getMonth()+1 + "/" + now.getDate() + "/" + now.getFullYear();
+
         var date = divDate;
 
 
         var date2 = exDivDate;
 
-
-        console.log(now);
-        console.log(date);
-        console.log(date2);
-
-        if (date < todayUTC || date === 'NA') {
+        if (date < stringy || date === 'NA') {
 
             $('#divdat').html("Payout On: " + divDate + "<p class='text-danger'><span class='glyphicon glyphicon-remove'></span>" + "<br>");
 
@@ -279,7 +274,7 @@ function getStockData(stockCode) {
             $('#divdat').html("Payout On: " + divDate + "<br>" + "<p class='text-success'><span class='glyphicon glyphicon-ok'></span>" + "<br>");
 
         }
-        if (date2 < todayUTC || date === 'NA') {
+        if (date2 < stringy || date === 'NA') {
 
             $('#exDivDate').html("Must own by: " + exDivDate + "<p class='text-danger'><span class='glyphicon glyphicon-remove'></span>" + "<br>");
 
@@ -522,8 +517,7 @@ function getStockData(stockCode) {
             }, {
                 name: 'Forward P/E',
                 data: [forwardPE]
-            }, 
-            {
+            }, {
                 name: 'P/E',
                 data: [peRatio]
             }, {

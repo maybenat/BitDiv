@@ -463,7 +463,7 @@ hr.style {
                   <p> When this is positive the stock is probably overvalued. The higher the number the more overvalued it is. </p>
 
         <h3>EBITDA</h3>
-                          <p> EBITDA = Revenue – Expenses (excluding interest, taxes) </p>
+                          <p> EBITDA = Revenue - Expenses (excluding interest, taxes) </p>
                   <p> Use this to compare profitability against companies in the same sector. </p>
         <h3>Forward PE</h3>
                 <p>Forward P/E can be used to compare current to estimated future earnings. </p>
@@ -475,7 +475,7 @@ hr.style {
                 <p>If this is <= 3 typically two things are considered: </p>
                 <p>1) Undervalued </p>
                 <p>2) The stock will fail </p>
-                <p>Be sure to check out the metrics to make your decision </p>
+                <p>Be sure to check out the other metrics to make your decision </p>
 
       </div>
       <div class="modal-footer">
@@ -518,7 +518,7 @@ hr.style {
 </div>
           </div>
 
-          
+
         <div class="panel wrapper">
             <div id="container2"></div>
           </div>
