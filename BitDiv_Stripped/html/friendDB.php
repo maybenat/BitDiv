@@ -10,17 +10,16 @@ if(true) {
         if(true) {
             session_name('Private');
             $email = $_SESSION['email'];
-            $statement = $db->prepare("SELECT * FROM users where uid not in  (select following_id from user_relationships where user_id =  (select uid from users where email = '$email') ) and email != '$email'");
+            $statement = $db->prepare("select * from users left join user_relationships on user_relationships.following_id = uid where user_relationships.user_id = (SELECT uid FROM users WHERE email = '$email')");
             $statement->execute();
 
-            $peopleList = array();
-            $riskList = array();
+            $friendList = array();
 
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $row)
             {
-                $peopleList[$row['email']] = $row['first_name'] . " " . $row['last_name'];
-                $riskList[$row['email']] = $row['risk'];
+                $info = array("fname"=>$row['first_name'], "lname"=>$row['last_name'], "email"=>$row['email']);
+                array_push($friendList, $info);
             }
         }
         $db = null;

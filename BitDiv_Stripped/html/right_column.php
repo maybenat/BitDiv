@@ -74,6 +74,7 @@
         <div class="wrapper-md">
           <div class="m-b-sm text-md">Who to follow</div>
           <ul class="list-group no-bg no-borders pull-in">
+          <!--
             <li class="list-group-item">
               <a herf class="pull-left thumb-sm avatar m-r">
                 <i class="on b-white bottom"></i>
@@ -94,6 +95,7 @@
                 <small class="text-muted">High Risk</small>
               </div>
             </li>
+            -->
             <?php include 'peopleDB.php';
             foreach ($peopleList as $key => $val )
             {

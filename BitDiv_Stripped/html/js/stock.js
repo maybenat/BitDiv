@@ -1,14 +1,93 @@
 $(".loading").hide();
 $(".error").hide();
 
-function getValue() {
-    stockCode = $("#stockCode").val().toUpperCase();
+
+
+function getValue(stockCode) {
+    //stockCode = $("#stockCode").val().toUpperCase();
+    // var javaScriptVar = "?php echo json_encode($somevar); ?>;";
+    // console.log(javaScriptVar);
     getStockData(stockCode);
 };
 
 
 
 var organizationName;
+
+
+function slides() {
+
+    $("#slider_amirol").slider({
+        range: "min",
+        animate: true,
+        value: 30,
+
+        min: 1,
+        max: 1000,
+        step: 1,
+        slide: function(event, ui) {
+            update(1, ui.value); //changed
+            calcualtePrice(ui.value);
+        }
+    });
+
+    $("#slider_amirol2").slider({
+        range: "min",
+        animate: true,
+        value: bid,
+
+        min: 1,
+        max: bid*2,
+        step: 1,
+
+        slide: function(event, ui) {
+            update2(1, ui.value); //changed
+            calcualtePrice(ui.value);
+        }
+    });
+
+    calcualtePrice();
+};
+
+
+
+function update(slider, val) {
+
+    if (undefined === val) val = 0;
+    var amount = val;
+
+    $('#sliderVal').val(val);
+
+    $('#slider_amirol a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> ' + amount + ' <span class="glyphicon glyphicon-chevron-right"></span></label>');
+}
+
+
+function update2(slider, val) {
+    if (undefined === val) val = 0;
+    var amount2 = val;
+
+    $('#sliderVal2').val(val);
+
+    $('#slider_amirol2 a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> ' + amount2 + ' <span class="glyphicon glyphicon-chevron-right"></span></label>');
+
+
+}
+
+function calcualtePrice(val) {
+
+    shares = $('#sliderVal').val();
+    var totalPayout = divPerQuart * shares;
+    totalPayout = totalPayout.toFixed(2);
+
+    price = $('#sliderVal2').val();
+    var totalInvestment = price * shares
+    totalInvestment = totalInvestment.toFixed(2);
+
+    $("#total").val(totalPayout);
+    $("#total12").val(totalInvestment);
+    $("#shares").val(shares);
+
+}
 
 function getStockData(stockCode) {
 
@@ -134,7 +213,7 @@ function getStockData(stockCode) {
         volumePercentWeek = volumePercentWeek.toFixed(2);
 
 
-        volumeChangeMonth2 = stockData[6][5];
+        volumeChangeMonth2 = stockData[30][5];
         volumePercentMonth = (volumeChangeDay - volumeChangeMonth2) / volumeChangeMonth2;
         volumePercentMonth = volumePercentMonth * 100;
         volumePercentMonth = volumePercentMonth.toFixed(2);
@@ -181,6 +260,15 @@ function getStockData(stockCode) {
         $('#divdat').html("Payout On: " + divDate + "<br>");
         $('#exDivDate').html("Must own by: " + exDivDate + "<br>");
 
+        if (priceChange < 0) {
+            $('#currentPrice').html("<p class='text-danger'><span class='glyphicon glyphicon-arrow-down'></span><strong>" + priceChange + "   (" + bid + ")");
+
+        } else {
+                    $('#currentPrice').html("<p class='text-success'><span class='glyphicon glyphicon-arrow-up'></span><strong>" + priceChange + "  (" + bid + ")");
+
+        }
+
+        slides();
 
 
         // Push closing price and date to price array
@@ -377,9 +465,7 @@ function getStockData(stockCode) {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false,
-                width: 450,
-                height: 450
+                plotShadow: false
             },
             title: {
                 text: 'Get to know the company'
@@ -424,8 +510,6 @@ function getStockData(stockCode) {
 
                 chart: {
                     type: 'gauge',
-                    width: 300,
-                    height: 300,
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
@@ -433,7 +517,7 @@ function getStockData(stockCode) {
                 },
 
                 title: {
-                    text: 'Safety'
+                    text: 'PE/G Ratio'
                 },
 
                 pane: {
@@ -518,7 +602,7 @@ function getStockData(stockCode) {
                 },
 
                 series: [{
-                    name: 'Safety',
+                    name: 'PE/G Ratio',
                     data: [peGRatio]
                 }]
 
@@ -659,12 +743,12 @@ function getArticles(date) {
     });
 }
 
+
 function formatPubDate(date) {
     date = date.split("T");
     return date[0];
 }
 
-getStockData("LMT");
 
 
 

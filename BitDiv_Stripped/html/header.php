@@ -103,13 +103,21 @@ $('input.typeahead-devs').typeahead({
         </ul>
         <!-- / link and dropdown -->
 
+        <script type="text/javascript">
+    function SubmitFrm(){
+    stockCode = $("#stockCode").val().toUpperCase();
+        window.location.href = 'http://eng.utah.edu/~mcmullen/BitDiv_Stripped/html/ui_chart.php?stocks='+stockCode;
+    }
+</script>
+
+
         <!-- search form -->
         <form class="navbar-form navbar-form-sm navbar-left shift" >
             <div class="form-group">
                 <div class="input-group">
                     <input type="text" id="stockCode" name="stocks" class="typeahead-devs input-sm bg-light no-border rounded padder" placeholder="Search stocks..." />
                     <span class="input-group-btn">
-                <button type="submit" onClick="getValue();return false;" class="btn btn-large bg-light rounded"><i class="fa fa-search"></i></button>
+                <button type="submit" onClick="SubmitFrm();return false;" class="btn btn-large bg-light rounded"><i class="fa fa-search"></i></button>
               </span>
                 </div>
             </div>
