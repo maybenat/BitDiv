@@ -20,7 +20,7 @@
 <body>
     <div class="app app-header-fixed">
 
-       <?php include("header.php"); ?>
+        <?php include("header.php"); ?>
 
         <!-- content -->
         <div id="content" class="app-content" role="main">
@@ -32,6 +32,21 @@
     app.settings.asideDock = false;
   ">
                     <!-- main -->
+                    <?php
+                        $i = 1;
+                        $num_stocks = 0;
+                        $total_invested = 0;
+                        foreach($_SESSION['user_stocks'][$i] as $key => $value) {
+                            $num_stocks++;
+                            foreach($value as $sid => $sparams) {
+                                if($sparams['transfer']) {
+                                    //$total_invested -= $sparams['number_shares'];
+                                } else {
+                                    $total_invested += $sparams['number_shares']*$sparams['price'];
+                                }
+                            }
+                        }
+                    ?>
                     <div class="col">
                         <!-- main header -->
                         <div class="bg-light lter b-b wrapper-md">
@@ -42,14 +57,13 @@
                                 </div>
                                 <div class="col-sm-6 text-right hidden-xs">
                                     <div class="inline m-r text-left">
-                                        <div class="m-b-xs">4 <span class="text-muted">stocks</span>
-                                        </div>
+                                        <?php echo '<div class="m-b-xs">'.$num_stocks.'<span class="text-muted"> holdings</span></div>', PHP_EOL ?>
                                         <div ui-jq="sparkline" ui-options="[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                                         </div>
                                     </div>
                                     <div class="inline text-left">
-                                        <div class="m-b-xs">$43,913.16 <span class="text-muted">invested</span>
-                                        </div>
+                                        <?php echo '<div class="m-b-xs">$'.$total_invested.'<span class="text-muted"> invested.</span></div>', PHP_EOL ?>
+
                                         <div ui-jq="sparkline" ui-options="[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                                         </div>
                                     </div>
@@ -65,26 +79,55 @@
                                             <thead>
                                                 <tr>
                                                     <th>Portfolio</th>
-                                                    <th>Net Change</th>
-                                                    <th>Percent Change</th>
+                                                    <th>Value</th>
+                                                    <th>Shares</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="active">
-                                                    <td class="success">Portfolio 1</td>
-                                                    <td>+$5771.65</td>
-                                                    <td>+13.1%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="danger">Portfolio 2</td>
-                                                    <td>-$177.00</td>
-                                                    <td>-10.3%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="info">Portfolio 3</td>
-                                                    <td >+$0.00</td>
-                                                    <td >+0.0%</td>
-                                                </tr>
+    <?php
+        for($i = 1; $i <= $_SESSION['number_portfolios']; $i++) {
+            $num_stocks = 0;
+            $total_invested = 0;
+            $current_value = 0;
+            $total_num_shares = 0;
+
+            foreach($_SESSION['user_stocks'][$i] as $key => $value) {            
+                $num_stocks++;
+                if($i == 1) {
+                    $current_value = (float)($_SESSION['user_stocks_db_info'][$key]->Open);
+                }
+                foreach($value as $sid => $sparams) {
+                    if($sparams['transfer']) {
+                        $total_num_shares -= $sparams['number_shares'];
+                        //$total_invested -= $sparams['number_shares']*$sparams['price'];
+                    } else {
+                        $total_invested += $sparams['number_shares']*$sparams['price'];
+                        $total_num_shares += $sparams['number_shares'];
+                    }
+                }
+            }
+
+            if ($i == 1) {
+                echo '<tr class="active">', PHP_EOL;
+            }
+            else {
+                echo '<tr>', PHP_EOL;
+            }
+            if ($total_invested > 0) {
+                echo '  <td class="success">Portfolio '.$i.'</td>', PHP_EOL;
+            }
+            else if ($total_invested < 0) {
+                echo '  <td class="danger">Portfolio '.$i.'</td>', PHP_EOL;
+            }
+            else {
+                echo '  <td class="info">Portfolio '.$i.'</td>', PHP_EOL;
+            }
+            echo '<td>'.$total_invested.'</td>', PHP_EOL;
+            //echo '<td>'.$_SESSION['user_stocks_db_info'].'</td>', PHP_EOL;
+            echo '<td>'.$total_num_shares.'</td>', PHP_EOL;
+            echo '</tr>', PHP_EOL;
+        }
+    ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -207,6 +250,31 @@
 </html>
 
 <script>
+var divpayoutpiechart;
+var holdingspiechart;
+
+$(document).ready(function(){
+
+})
+
+function requestData() {
+    $.ajax({
+        url: 'dashboard-chart-data.php',
+        success: function(point) {
+            var series = chart.series[0],
+                shift = series.data.length > 20; // shift if the series is 
+                                                 // longer than 20
+
+            // add the point
+            chart.series[0].addPoint(point, true, shift);
+            
+            // call it again after one second
+            setTimeout(requestData, 1000);    
+        },
+        cache: false
+    });
+}
+
 $(function () {
     $('#containerdivpayout').highcharts({
         chart: {
@@ -267,7 +335,9 @@ $(function () {
         }]
     });
 });
-
+<?php 
+    $desired_payout = $_SESSION['desired_monthly_payout'];
+?>
 $(function () {
     $('#containerdivpayoutpie').highcharts({
         chart: {
@@ -301,15 +371,15 @@ $(function () {
             type: 'pie',
             name: 'Payout amount',
             data: [
-                ['RGR',   268.6],
-                ['KO',       132],
+                ['GS',   268.6],
+                ['AAPL',       132],
                 {
                     name: 'Not yet earning',
                     y: 23.4,
                     sliced: true,
                     selected: true
                 },
-                ['UNP',    176]
+                ['LLL',    176]
             ]
         }]
     });
@@ -326,7 +396,7 @@ $(function () {
             text: 'Portfolio 1 Holdings'
         },
         subtitle: {
-            text: '$43,913.16 of available $50,000.00 invested'
+            text: '$61,845.29 of available $70,000.00 invested'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>${point.y:.2f}</b>'
@@ -348,16 +418,21 @@ $(function () {
             type: 'pie',
             name: 'Amount: ',
             data: [
-                ['RGR',   20619],
-                ['TSLA', 10081.76],
-                ['KO',       4006],
+                ['GOOG', 12266.98],
+                ['TSLA', 4134.96],
+                ['CAT',  954.36],
+                ['LLL', 1487.04],
+                ['bnd', 499.5],
+                ['GS', 2608.9],
+                ['AAPL', 4178.6],
+                ['RL', 659.35],
+                ['GE', 297.60],
                 {
                     name: 'Not yet invested',
-                    y: 6086.84,
+                    y: 8154.71,
                     sliced: true,
                     selected: true
                 },
-                ['UNP',    9206.]
             ]
         }]
     });
