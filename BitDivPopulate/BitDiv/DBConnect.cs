@@ -10,6 +10,7 @@ namespace BitDiv
     class DBConnect
     {
         private MySqlConnection connection;
+        private MySqlDataReader reader;
         private string server;
         private string database;
         private string uid;
@@ -197,6 +198,43 @@ namespace BitDiv
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
+            }
+        }
+
+        public void Select(string[] columns, string table, string limit)
+        {
+            string query = "SELECT ";
+            if (columns.Length == 0)
+            {
+                query += "* FROM ";
+            }
+            else
+            {
+                for (int a = 0; a < columns.Length; a++)
+                {
+                    query += columns[a] + ", ";
+                }
+                query = query.Substring(0, query.Length - 2) + " FROM ";
+            }
+
+            query += table;
+
+            if (limit.Length > 0)
+            {
+                query += limit;
+            }
+
+            if (this.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    reader = cmd.ExecuteReader();
+                }
+                catch (Exception e)
+                {
+
+                }
             }
         }
 
