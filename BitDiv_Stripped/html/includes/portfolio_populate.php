@@ -13,8 +13,8 @@
 
 
 
-{
   //if(!isset($_SESSION['user_stocks'])) {
+  {
     try {
 
       // write session variables to database
@@ -48,8 +48,9 @@
     }
   }
 
-{
+
   //if(!isset($_SESSION['user_stocks_db_info'])) {
+  {
   $YBASE_URL = "https://query.yahooapis.com/v1/public/yql";
 
   // construct list of tickers for query

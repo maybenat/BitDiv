@@ -29,7 +29,8 @@
   // store posted values into session variable
   if(isset($_POST['next1'])) {
     $_SESSION['funding'] = (int)$_POST['funding'];
-    $_SESSION['age'] = (int)$_POST['age'];
+    $_SESSION['date_of_birth'] = date('Y-m-d', strtotime($_POST['date_of_birth']));
+    $_SESSION['age'] = (int)(date('Y') - date('Y', $_SESSION['date_of_birth']));
     $form_page = 2;
   } else if(isset($_POST['next2'])) {
     //$_SESSION['risk'] already captured
@@ -55,6 +56,7 @@
 
       $sql = 'UPDATE users SET '
         .'funding='.$_SESSION['funding'].', '
+        .'date_of_birth=\''.$_SESSION['date_of_birth'].'\', '
         .'age='.$_SESSION['age'].', '
         .'risk='.$_SESSION['risk'].', '
         .'reinvest='.$_SESSION['reinvest'].', '

@@ -24,7 +24,8 @@
                     $_SESSION['first_name'] = $result['first_name'];
                     $_SESSION['last_name'] = $result['last_name'];
                     $_SESSION['uid'] = $result['uid'];
-                    $_SESSION['age'] = $result['age'];
+                    $_SESSION['date_of_birth'] = date('Y-m-d', strtotime($result['date_of_birth']));
+                    $_SESSION['age'] = (int)(date('Y') - date('Y', strtotime($result['date_of_birth'])));
                     $_SESSION['funding'] = $result['funding'];
                     $_SESSION['risk'] = $result['risk'];
                     $_SESSION['reinvest'] = $result['reinvest'];

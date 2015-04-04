@@ -29,6 +29,31 @@
     header('Location: http://'.$_SERVER['SERVER_NAME'].substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/') + 1).'user_setup.php');
     exit;
   }
+
+  // initialization of valid session
+
+  // determine if stock is being viewed
+  if($_GET['stocks']) {
+    $_SESSION['current_stock_viewing'] = $_GET['stocks'];
+    // add stock to recently viewed list (shift all others)
+    $temp = $_SESSION['recently_viewed_stock'][0];
+    if($temp != $_GET['stocks']) {
+      for($i = 0; $i < 5; $i++) {
+        $temp2 = $_SESSION['recently_viewed_stock'][$i + 1];
+        $_SESSION['recently_viewed_stock'][$i + 1] = $temp;
+        // don't repeat stocks
+        if(($temp = $temp2) == $_GET['stocks']) {
+          break;
+        }
+      }
+    }
+    $_SESSION['recently_viewed_stock'][0] = $_GET['stocks'];
+  } else {
+    $_SESSION['current_stock_viewing'] = $_SESSION['recently_viewed_stock'][0];
+  }
+
+  // end initialization
+
   session_write_close();
 
   $current_page_url = urlencode('http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
