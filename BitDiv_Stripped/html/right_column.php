@@ -19,47 +19,47 @@
         <div class="m-b-sm text-md">Transaction</div>
         <p>Add shares of this stock to your portfolio.</p>
 
-<?php
-  $current_stock = $_SESSION['current_stock_viewing'];
+        <?php
+        $current_stock = $_SESSION['current_stock_viewing'];
 
-  $YBASE_URL = "https://query.yahooapis.com/v1/public/yql";
+        $YBASE_URL = "https://query.yahooapis.com/v1/public/yql";
 
   // construct list of tickers for query
-  $query_tickers = '"null"';
-  foreach($stock_list as $ticker) {
-    $query_tickers .= ',"'.$ticker.'"';
-  }
+        $query_tickers = '"null"';
+        foreach($stock_list as $ticker) {
+          $query_tickers .= ',"'.$ticker.'"';
+        }
   //$query_tickers = substr($query_tickers, 0, -1);
   //echo $query_tickers;
 
   // Form YQL query and build URI to YQL Web service
-  $yql_query = 'select * from yahoo.finance.quotes where symbol in ("null","' . $current_stock . '")';
-  $yql_query_url = $YBASE_URL . "?q=" . urlencode($yql_query) . "&format=json" . "&env=http://datatables.org/alltables.env";
+        $yql_query = 'select * from yahoo.finance.quotes where symbol in ("null","' . $current_stock . '")';
+        $yql_query_url = $YBASE_URL . "?q=" . urlencode($yql_query) . "&format=json" . "&env=http://datatables.org/alltables.env";
 
   // Make call with cURL
-  $session = curl_init($yql_query_url);
-  curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-  $json = curl_exec($session);
+        $session = curl_init($yql_query_url);
+        curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+        $json = curl_exec($session);
 
   //print_r($json);
 
   // Convert JSON to PHP object
-  $phpObj = json_decode($json);
+        $phpObj = json_decode($json);
 
   // Confirm that results were returned before parsing
-  if(!is_null($phpObj->query->results)) {
+        if(!is_null($phpObj->query->results)) {
     // Parse results and extract data to display
 
-    foreach($phpObj->query->results->quote as $quote) {
-      $current_price = $quote->Open;
-    }
+          foreach($phpObj->query->results->quote as $quote) {
+            $current_price = $quote->Open;
+          }
 
     //foreach($phpObj->query->results->quote as $quote) {
     //  $_SESSION['user_stocks_db_info'][$quote->symbol] = $quote;
     //}
 
     //$_SESSION['user_stocks_db_info'] = $phpObj->query->results;
-  }
+        }
 
   //print_r($_SESSION['user_stocks_db_info']);
   //foreach($_SESSION['user_stocks_db_info'] as $symbol => $quote) {
@@ -67,7 +67,7 @@
   //  echo $quote->PercentChange . PHP_EOL;
   //}
 
-?>
+        ?>
 
         <div class="form-group">
           <form action="includes/form_transaction.php?referer=<?php echo $current_page_url; ?>" method="post">
@@ -111,7 +111,7 @@
 
           <p class="m-t">Recently viewed:</p>
           <ul class="list-group list-group-sm list-group-sp list-group-alt auto m-t">
-<?php
+            <?php
   //          <p class="m-t">Recently viewed:</p>
   //          <ul class="list-group list-group-sm list-group-sp list-group-alt auto m-t">
   //            <li class="list-group-item"><a href="ui_chart.php?stocks=GOOG">GOOG</a></li>
@@ -119,17 +119,17 @@
   //            <li class="list-group-item">AAPL</li>
   //          </ul>
 
-  session_name('Private');
-  session_start();
-  for($i = 0; $i < 5; $i++) {
-    $st = $_SESSION['recently_viewed_stock'][$i];
-    if(!$st) {
-      break;
-    }
-    echo '            <li class="list-group-item"><a href="ui_chart.php?stocks='.$st.'">'.$st.'</a></li>', PHP_EOL;
-  }
+            session_name('Private');
+            session_start();
+            for($i = 0; $i < 5; $i++) {
+              $st = $_SESSION['recently_viewed_stock'][$i];
+              if(!$st) {
+                break;
+              }
+              echo '            <li class="list-group-item"><a href="ui_chart.php?stocks='.$st.'">'.$st.'</a></li>', PHP_EOL;
+            }
 
-?>
+            ?>
           </ul>
 
         </div>
@@ -138,49 +138,43 @@
       <div class="tab-pane" id="follow">
         <div class="wrapper-md">
           <div class="m-b-sm text-md">Who to follow</div>
+          <form action="">
+            Search User: <input type="text" id="search" onkeyup="showUsers(this.value)">
+          </form>
           <ul class="list-group no-bg no-borders pull-in">
-          <!--
-            <li class="list-group-item">
-              <a herf class="pull-left thumb-sm avatar m-r">
-                <i class="on b-white bottom"></i>
-              </a>
-              <div class="clear">
-                <div><a href>The Advisor Profile</a>
-                </div>
-                <small class="text-muted">advisor</small>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <a herf class="pull-left thumb-sm avatar m-r">
-                <i class="on b-white bottom"></i>
-              </a>
-              <div class="clear">
-                <div><a href>Karl Tharp</a>
-                </div>
-                <small class="text-muted">High Risk</small>
-              </div>
-            </li>
-            -->
-            <?php include 'peopleDB.php';
-            foreach ($peopleList as $key => $val )
-            {
-              echo "<li class=\"list-group-item\">
-              <div class=\"clear\"><a href=\"page_people.php?email=$key&following=0\">$val</a></div>
-              <small class=\"text-muted\">";
-                switch ($riskList[$key]) {
-                  case 0: echo "High Risk</small></li>"; break;
-                  case 1: echo "Medium Risk</small></li>"; break;
-                  case 2: echo "Low Risk</small></li>"; break;
-                }}?>
-              </ul>
-              <div class="text-center">
-                <a href class="btn btn-sm btn-primary padder-md m-b">More Connections</a>
-              </div>
-            </div>
-          </div>
 
-        </div>
-        <div class="padder-md">
+
+            <span id="userList">
+              <?php include 'peoplelist.php';?>
+            </span>
+          </ul>
+          <div class="text-center">
+            <!--<a href class="btn btn-sm btn-primary padder-md m-b">More Connections</a>-->
+          </div>
         </div>
       </div>
-      <!-- / right col -->
+
+    </div>
+    <div class="padder-md">
+    </div>
+  </div>
+  <!-- / right col -->
+
+  <script>
+    function showUsers(str)
+    {
+      if (str.length==0) {
+        document.getElementById("userList").innerHTML="";
+        return;
+      } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("userList").innerHTML=xmlhttp.responseText;
+          }
+        }
+        xmlhttp.open("GET","peoplelist.php?q="+str,true);
+        xmlhttp.send();
+      }
+    }
+  </script>

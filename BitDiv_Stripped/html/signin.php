@@ -39,9 +39,6 @@
                 } else {
                     $login_error = "The email or password you entered is incorrect.";
                     return;
-                    //
-                    //header("Location: page_signin.php");
-                    //exit;
                 }
             }
             $db->disconnect();
