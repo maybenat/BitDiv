@@ -1,0 +1,753 @@
+Symbol,Company Name,Annualized Div.,Div. Yield,Curr. Price,Ex. Div. Date,Record Date,Pay Date,Next Payout,Industry,Sector
+EPR,EPR Properties,3.63,6.0200%,60.32,03/27/2015,03/31/2015,04/15/2015,0.3025,Financial,Real Estate Development
+LTC,LTC Properties,1.76,3.8200%,46.09,03/19/2015,03/23/2015,03/31/2015,0.17,Financial,REIT - Healthcare Facilities
+O,Realty Income Corp,2.274,4.400%,51.63,03/30/2015,04/01/2015,04/15/2015,0.1895,Financial,REIT - Retail
+SBR,Sabine Royalty Trust,5.3297,13.1800%,40.43,03/12/2015,03/16/2015,03/30/2015,0.44414,Financial,Diversified Investments
+VET,"Vermillion Energy, Inc.",2.58,6.1400%,42.05,03/27/2015,03/31/2015,04/15/2015,0.215,Basic Materials,Oil & Gas Drilling & Exploration
+GOOD,Gladstone Commercial,1.5,8.0600%,18.61,03/18/2015,03/20/2015,03/31/2015,0.125,Financial,Property Management
+SJR,Shaw Communications,1.1,4.8800%,22.56,04/13/2015,04/15/2015,04/29/2015,0.09875,Services,CATV Systems
+MAIN,Main Street Capital Corp,1.92,6.2200%,30.89,04/17/2015,04/21/2015,05/15/2015,0.175,Financial,Diversified Investments
+STAG,"STAG Industrial, Inc.",1.26,5.3200%,23.68,04/28/2015,04/30/2015,05/15/2015,0.1125,Financial,REIT - Industrial
+FSC,Fifth Street Finance,0.72,9.8800%,7.29,04/13/2015,04/15/2015,04/30/2015,0.06,Financial,Credit Services
+CLDT,Chatham Lodging Trust,1.2,4.0800%,29.43,03/27/2015,03/31/2015,04/24/2015,0.1,Financial,REIT - Hotel Motel
+VNR,"Vanguard Natural Resouces, LLC. ",1.41,9.8800%,14.27,03/30/2015,04/01/2015,04/14/2015,0.1175,Basic Materials,Oil & Gas Drilling & Exploration
+PSEC,Prospect Capital Corporation,1,11.8900%,8.41,04/28/2015,04/30/2015,05/21/2015,0.08333,Financial,Asset Management
+HLSS,Home Loan Servicing Solutions Ltd.,2.16,12.9300%,16.7,03/27/2015,03/31/2015,04/10/2015,0.18,Financial,Mortgage Investment
+BTE,Baytex Energy Corp,1.2,7.6100%,15.76,03/27/2015,03/31/2015,04/15/2015,0.1,Basic Materials,Independent Oil & Gas
+CRT,Cross Timbers Royalty Trust Units,1.3886,7.1400%,19.45,03/27/2015,03/31/2015,04/14/2015,0.115716,Basic Materials,Oil & Gas Drilling & Exploration
+GLAD,Gladstone Capital,0.84,9.3500%,8.98,03/18/2015,03/20/2015,03/31/2015,0.07,Financial,Closed-End Fund - Debt
+SJT,San Juan Basin Royalty Trust,0.3206,2.6400%,12.14,03/27/2015,03/31/2015,04/14/2015,0.026714,Financial,Diversified Investments
+HGT,Hugoton Royalty Trust,0.2206,3.6200%,6.09,03/27/2015,03/31/2015,04/14/2015,0.01838,Basic Materials,Oil & Gas Drilling & Exploration
+MTR,Mesa Royalty Trust Units Ben Int,1.9512,8.8100%,22.15,03/27/2015,03/31/2015,04/30/2015,0.162596,Financial,Diversified Investments
+ARCP,American Realty Capital Properties Inc,1,10.1500%,9.86,12/04/2014,12/08/2014,12/15/2014,0.0833333,Financial,Real Estate Development
+ROYT,Pacific Coast Oil Trust,0.093,2.4100%,3.86,04/01/2015,04/06/2015,04/14/2015,0.00775,Financial,Asset Management
+COLE,Cole Real Estate Investments,0.72,4.8100%,14.98,02/03/2014,01/31/2014,02/03/2014,0.06,Financial,REIT - Diversified
+GG,Goldcorp,0.6,3.300%,18.19,03/10/2015,03/12/2015,03/20/2015,0.05,Basic Materials,Gold
+IRC,Inland Real Estate,0.57,5.2900%,10.77,03/27/2015,03/31/2015,04/17/2015,0.0475,Financial,REIT - Retail
+LINE,Linn Energy LLC.,1.25,11.0600%,11.3,03/10/2015,03/12/2015,03/17/2015,0.1042,Basic Materials,Independent Oil & Gas
+ERF,Enerplus Corporation,0.6,5.8800%,10.21,03/27/2015,03/31/2015,04/15/2015,0.05,Basic Materials,Oil & Gas Refining & Marketing
+TAHO,Tahoe Resources Inc,0.24,2.0700%,11.58,03/17/2015,03/19/2015,03/26/2015,0.02,Basic Materials,Industrial Metals & Minerals
+GAIN,Gladstone Investment,0.6,8.00%,7.5,03/18/2015,03/20/2015,03/31/2015,0.06,Financial,Closed-End Fund - Equity
+ITUB,Itau Unibanco Banco Holding SA,0.0495,0.4600%,10.78,03/31/2015,04/03/2015,05/14/2015,0.004122,Financial,Foreign Money Center Banks
+PBT,Permian Basin Royalty Trust Units Ben. Int.,0.2589,3.1600%,8.19,03/27/2015,03/31/2015,04/14/2015,0.021577,Financial,Diversified Investments
+PGH,Pengrowth Energy Corp,0.24,8.0500%,2.98,03/19/2015,03/23/2015,04/15/2015,0.02,Basic Materials,Oil & Gas Drilling & Exploration
+LNCO,LinnCo LLC,1.25,12.9500%,9.65,03/10/2015,03/12/2015,03/18/2015,0.1042,Basic Materials,Independent Oil & Gas
+NDRO,Enduro Royalty Trust,0.4453,10.7800%,4.13,03/27/2015,03/31/2015,04/14/2015,0.037109,Basic Materials,Independent Oil & Gas
+ITIP,iShares Trust,0.12,0.2800%,42.12,03/02/2015,03/04/2015,03/06/2015,0.010001,N/A,N/A
+RAVI,lexShares Ready Access Variable Inc ,0.3949,0.5200%,75.62,03/02/2015,03/04/2015,03/06/2015,0.032906,N/A,N/A
+JMI,Javelin Mortgage Investment Corp,1.44,18.7700%,7.67,04/13/2015,04/15/2015,04/27/2015,0.09,Financial,REIT - Diversified
+NVJ-A,Nuveen Ohio Dividend Advantage Municipal Fund 1 Preferred Shares,0.23,2.2900%,10.06,04/03/2013,04/05/2013,05/01/2013,0.004569,Financial,Closed-End Fund - Debt
+NVX-A,Nuveen California Dividend Advantage Municipal Fund 2,0.234996,2.3500%,10,08/13/2013,08/15/2013,09/03/2013,0.019583,Financial,Closed-End Fund - Debt
+NXE-C,Nuveen Arizona Dividend Advantage Municipal Fund 3 Series,0.234996,2.3100%,10.17,04/03/2013,04/05/2013,05/01/2013,0.005639,Financial,Closed-End Fund - Debt
+NXI-D,Nuveen Ohio Dividend Advantage Municipal Fund Term Preferred Shares Series 2016,0.29,2.8600%,10.13,04/03/2013,04/05/2013,05/01/2013,0.005736,Financial,Closed-End Fund - Debt
+NXJ-A,Nuveen New Jersey Dividend Advantage Municipal Fund Preferred Series 2014,0.23,2.300%,10,08/13/2013,08/15/2013,09/03/2013,0.019167,Financial,Closed-End Fund - Debt
+HYLS,First Trust Exchange-Traded Fund IV,2.88,5.7100%,50.43,03/25/2015,03/27/2015,03/31/2015,0.24,N/A,N/A
+PFEM,PowerShares Fundamental Emerging Markets Local Debt Portfolio,0.985,5.2900%,18.62,03/13/2015,03/17/2015,03/31/2015,0.08208,N/A,N/A
+BBDO,Banco Bradesco S.A.,0.3,3.3700%,8.9,06/25/2014,06/27/2014,07/25/2014,0.083682,Financial,Foreign Regional Banks
+MMD,MainStay DefinedTerm Municipal Opportunities Fund,1.15,6.2400%,18.44,03/12/2015,03/16/2015,03/31/2015,0.098,Financial,Diversified Investments
+EDI,Stone Harbor Emerging Mkt Total Incom FD,1.81,12.5300%,14.45,04/16/2015,04/20/2015,04/30/2015,0.1511,N/A,N/A
+SPHD,PowerShares Exchange-Traded Fund Trust II,1.1353,3.4400%,33.04,03/13/2015,03/17/2015,03/31/2015,0.09461,N/A,N/A
+ARDC,"Ares Dynamic Credit Allocation Fund, Inc.",1.4,8.600%,16.27,03/17/2015,03/19/2015,03/31/2015,0.117,N/A,N/A
+RVNU,DBX ETF TR TRACKERS MUNICIPAL INFRASTR,0.7218,2.7300%,26.42,03/02/2015,03/04/2015,03/06/2015,0.06015,N/A,N/A
+GYLD,ArrowShares Dow Jones Global Yield ETF,1.8276,7.4900%,24.41,03/16/2015,03/18/2015,03/23/2015,0.1523,N/A,N/A
+ACG,AllianceBernstein Income Fund Inc,0.41,5.3700%,7.64,04/08/2015,04/10/2015,04/17/2015,0.03455,Financial,Closed-End Fund - Debt
+ACP,Avenue Income Credit Strategies Fund,1.44,9.500%,15.16,04/09/2015,04/13/2015,04/30/2015,0.12,N/A,N/A
+AFB,"AllianceBernstein National Municipal Income Fund, Inc.",0.7908,5.8300%,13.56,04/08/2015,04/10/2015,04/17/2015,0.0659,Financial,Closed-End Fund - Debt
+AGC,Advent/Claymore Global Convertible Securities & Income Fund,0.56,8.3100%,6.74,03/11/2015,03/13/2015,03/31/2015,0.047,N/A,N/A
+AGD,Alpine Global Dynamic Dividend Fund,0.77,7.4400%,10.35,04/21/2015,04/23/2015,04/30/2015,0.064,Financial,Closed-End Fund - Foreign
+AGG,iShares Barclays Aggregate Bond Fund,2.228,2.00%,111.24,03/02/2015,03/04/2015,03/06/2015,0.18567,N/A,N/A
+AGZ,iShares Barclays Agency Bond,1.4488,1.2700%,114.25,03/02/2015,03/04/2015,03/06/2015,0.120735,N/A,N/A
+AKP,"Alliance California Municipal Income Fund, Inc.",0.75,5.4300%,13.81,04/08/2015,04/10/2015,04/17/2015,0.0627,Financial,Closed-End Fund - Debt
+ALD,WisdomTree Asia Local Debt Fund,1.08,2.3400%,46.2,03/23/2015,03/25/2015,03/27/2015,0.09,N/A,N/A
+AOD,Alpine Total Dynamic Dividend Fund Com Sh Ben Int,0.68,7.6100%,8.94,04/21/2015,04/23/2015,04/30/2015,0.0565,N/A,N/A
+AOK,iShares S&P Conservative Allocation,0.3633,1.100%,33.09,03/03/2015,03/05/2015,03/09/2015,0.030275,N/A,N/A
+ARK,BlackRock Senior High Income Fund Inc,0.29,7.4200%,3.91,11/13/2013,11/15/2013,11/29/2013,0.024,Financial,Closed-End Fund - Debt
+ARR,ARMOUR Residential REIT Inc.,0.48,15.0900%,3.18,04/13/2015,04/15/2015,04/27/2015,0.04,Financial,REIT - Diversified
+ASP,"American Strategic Income Portfolio, Inc. Com.",0.66,6.3800%,10.34,08/01/2014,08/05/2014,08/20/2014,0.055,Financial,Closed-End Fund - Debt
+AT,Atlantic Power Corp,0.36,12.8100%,2.81,02/25/2015,02/27/2015,03/31/2015,0.03,N/A,N/A
+AVK,Advent Claymore Convertible Securities & Income Fund,1.1268,6.5100%,17.31,03/11/2015,03/13/2015,03/31/2015,0.0939,Financial,Closed-End Fund - Debt
+AWF,"AllianceBernstein Global High Income Fund, Inc.",0.97,7.7200%,12.56,04/08/2015,04/10/2015,04/17/2015,0.081,Financial,Closed-End Fund - Debt
+AYN,"Alliance New York Municipal Income Fund, Inc.",0.6716,4.8100%,13.95,04/08/2015,04/10/2015,04/17/2015,0.05597,Financial,Closed-End Fund - Debt
+AYT,Barclays iPath GEMS Asia 8 ETN,0.7212,1.6700%,43.17,03/17/2015,03/19/2015,03/20/2015,0.0601,N/A,N/A
+BAB,Invesco PowerShares Build America Bond Portfolio,1.3812,4.5400%,30.39,03/13/2015,03/17/2015,03/31/2015,0.1151,N/A,N/A
+BABS,SPDR Nuveen Barclays Capital Build America Bond ETF,2.4223,3.7900%,63.89,03/02/2015,03/04/2015,03/10/2015,0.201862,N/A,N/A
+BABZ,PIMCO Build America Bond Strategy Fund,1.98,3.8300%,51.7,08/29/2014,09/03/2014,09/05/2014,0.174,N/A,N/A
+BTT,BlackRock Municipal Target Term Trust,0.96,4.600%,20.86,03/11/2015,03/13/2015,04/01/2015,0.08,N/A,N/A
+BAF,BlackRock Municipal Income Investment Quality Trust,0.86,5.8500%,14.69,03/11/2015,03/13/2015,04/01/2015,0.0685,N/A,N/A
+BBF,BlackRock Municipal Income Investment Trust,0.87,6.1400%,14.18,03/11/2015,03/13/2015,04/01/2015,0.072375,Financial,Closed-End Fund - Debt
+BBK,Blackrock Municipal Bond Trust,0.98,5.9600%,16.45,03/11/2015,03/13/2015,04/01/2015,0.082,Financial,Closed-End Fund - Debt
+BBN,Blackrock Build America Bond Trust Shs,1.58,6.9500%,22.74,03/11/2015,03/13/2015,03/31/2015,0.1318,N/A,N/A
+BFK,BlackRock Municipal Income Trust,0.9,6.2200%,14.47,03/11/2015,03/13/2015,04/01/2015,0.0751,Financial,Closed-End Fund - Debt
+BFO,BlackRock Florida Municipal 2020 Term Trust,0.42,2.800%,15.01,03/11/2015,03/13/2015,04/01/2015,0.0347,Financial,Closed-End Fund - Debt
+BFY,Blackrock New York Municipal Income Trust II Com Shares of Beneficial Interest,0.84,5.7200%,14.68,03/11/2015,03/13/2015,04/01/2015,0.07,Financial,Closed-End Fund - Debt
+BFZ,BlackRock California Municipal Income Trust,0.87,5.6200%,15.49,03/11/2015,03/13/2015,04/01/2015,0.0722,Financial,Closed-End Fund - Debt
+BGR,Blackrock Energy & Resources Trust,1.62,7.8800%,20.57,03/11/2015,03/13/2015,03/31/2015,0.135,Financial,Closed-End Fund - Equity
+BGT,BlackRock Floating Rate Income Trust,0.78,5.7700%,13.52,03/11/2015,03/13/2015,03/31/2015,0.0653,N/A,N/A
+BHD,Blackrock Strategic Bond Trust,0.94,7.2300%,13,11/13/2013,11/15/2013,11/29/2013,0.078,Financial,Closed-End Fund - Debt
+BHK,Blackrock Core Bond Trust,0.91,6.700%,13.59,03/11/2015,03/13/2015,03/31/2015,0.0755,Financial,Closed-End Fund - Debt
+BHL,Blackrock Defined Opportunity Credit Trust,0.7,5.2800%,13.27,03/11/2015,03/13/2015,03/31/2015,0.0583,N/A,N/A
+BHV,Blackrock Virginia Municipal Bond Trust,0.834,4.7200%,17.67,03/11/2015,03/13/2015,04/01/2015,0.0695,Financial,Closed-End Fund - Debt
+BHY,Blackrock High Yield Trust Shs,0.51,7.2500%,7.03,10/11/2013,10/16/2013,10/31/2013,0.0428,Financial,Closed-End Fund - Debt
+BIE,BlackRock Municipal Bond Investment Trust,0.91,6.1600%,14.78,03/11/2015,03/13/2015,04/01/2015,0.076,Financial,Closed-End Fund - Debt
+BIV,Vanguard Intermediate-Term Bond ETF,2.1044,2.4400%,86.07,03/02/2015,03/04/2015,03/06/2015,0.175367,N/A,N/A
+BJZ,Blackrock California Municipal 2018 Term Trust,0.51,3.3700%,15.15,03/11/2015,03/13/2015,04/01/2015,0.0277,Financial,Closed-End Fund - Debt
+BKN,BlackRock Investment Quality Municipal Trust Inc. Com.,0.924,5.8200%,15.87,03/11/2015,03/13/2015,04/01/2015,0.077,Financial,Closed-End Fund - Debt
+BKT,BlackRock Income Trust Inc. (The) Com.,0.372,5.7700%,6.45,03/11/2015,03/13/2015,03/31/2015,0.031,Financial,Closed-End Fund - Debt
+BLE,Blackrock Municipal Income Trust II Com Shares of Beneficial Interest,0.948,6.3100%,15.03,03/11/2015,03/13/2015,04/01/2015,0.079,Financial,Closed-End Fund - Debt
+BLH,Blackrock New York Municipal 2018 Term Trust,0.3336,2.2200%,15.01,03/11/2015,03/13/2015,04/01/2015,0.0256,Financial,Closed-End Fund - Debt
+BLJ,Blackrock New Jersey Municipal Bond Trust,0.834,5.2400%,15.91,03/11/2015,03/13/2015,04/01/2015,0.0695,Financial,Closed-End Fund - Debt
+BLV,Vanguard Long-Term Bond ETF,3.3423,3.4700%,96.2,03/02/2015,03/04/2015,03/06/2015,0.278529,N/A,N/A
+BLW,Blackrock Limited Duration Income Trust,1.25,7.8600%,15.9,03/11/2015,03/13/2015,03/31/2015,0.0995,Financial,Closed-End Fund - Debt
+BNA,BlackRock Income Opportunity Trust Inc (The),0.71,6.8400%,10.38,10/10/2014,10/15/2014,10/31/2014,0.0595,Financial,Closed-End Fund - Debt
+BND,Vanguard Total Bond Market ETF,1.9431,2.3300%,83.28,03/02/2015,03/04/2015,03/06/2015,0.161928,N/A,N/A
+BNJ,Blackrock New Jersey Municipal Income Trust,0.9012,5.5800%,16.15,03/11/2015,03/13/2015,04/01/2015,0.0751,Financial,Closed-End Fund - Debt
+BNY,Blackrock New York Municipal Income Trust,0.83,5.6800%,14.62,03/11/2015,03/13/2015,04/01/2015,0.069,Financial,Closed-End Fund - Debt
+BPK,Blackrock Municipal 2018 Term Trust,0.564,3.5300%,15.96,03/11/2015,03/13/2015,04/01/2015,0.047,Financial,Closed-End Fund - Debt
+BPP,BlackRock Credit Allocation Income Trust III Com Shs,1.02,8.6100%,11.84,11/14/2012,11/16/2012,11/23/2012,0.085,Financial,Closed-End Fund - Debt
+BPS,BlackRock Pennsylvania Strategic Municipal Trust (The),0.732,5.5600%,13.17,03/11/2015,03/13/2015,04/01/2015,0.061,Financial,Closed-End Fund - Debt
+BQH,Blackrock New York Municipal Bond Trust,0.8,5.5900%,14.3,03/11/2015,03/13/2015,04/01/2015,0.0665,Financial,Closed-End Fund - Debt
+BSCC,Guggenheim BulletShares 2012 Corporate Bond ETF ,0.03,0.1500%,20.45,12/03/2012,12/05/2012,12/07/2012,0.001,N/A,N/A
+BSCD,Guggenheim BulletShares 2013 Corporate Bond ETF ,0.12,0.5800%,20.77,11/01/2013,11/05/2013,11/07/2013,0.002,N/A,N/A
+BSCE,Guggenheim BulletShares 2014 Corporate Bond ETF ,0.01,0.0500%,21.14,12/01/2014,12/03/2014,12/05/2014,0.0003,N/A,N/A
+BSCF,Guggenheim BulletShares 2015 Corporate Bond ETF ,0.138,0.6400%,21.66,03/02/2015,03/04/2015,03/06/2015,0.0115,N/A,N/A
+BSCG,Guggenheim BulletShares 2016 Corporate Bond ETF,0.228,1.0300%,22.23,03/02/2015,03/04/2015,03/06/2015,0.019,N/A,N/A
+BSCH,Guggenheim BulletShares 2017 Corporate Bond ETF ,0.3084,1.3500%,22.82,03/02/2015,03/04/2015,03/06/2015,0.0257,N/A,N/A
+BSD,Blackrock Strategic Municipal Trust (The) Shs Ben Int,0.852,6.1900%,13.76,03/11/2015,03/13/2015,04/01/2015,0.071,Financial,Closed-End Fund - Debt
+BSE,Blackrock New York Insured Municipal Income Trust,0.72,5.3800%,13.38,03/11/2015,03/13/2015,04/01/2015,0.06,N/A,N/A
+BSJC,Guggenheim BulletShares 2012 High Yield Corporate Bond ETF,0.74,2.9100%,25.41,12/03/2012,12/05/2012,12/07/2012,0.028,N/A,N/A
+BSJD,Guggenheim BulletShares 2013 High Yield Corporate Bond ETF,0.66,2.5800%,25.55,12/02/2013,12/04/2013,12/06/2013,0.015,N/A,N/A
+BSJE,Guggenheim BulletShares 2014 High Yield Corporate Bond ETF,0.16,0.6100%,26.24,12/01/2014,12/03/2014,12/05/2014,0.0133,N/A,N/A
+BSJF,Guggenheim BulletShares 2015 High Yield Corporate Bond ETF,0.8856,3.3900%,26.1,03/02/2015,03/04/2015,03/06/2015,0.0738,N/A,N/A
+BSL,Blackstone / GSO Senior Floating Rate Term Fund,1.2,6.9400%,17.29,04/21/2015,04/23/2015,04/30/2015,0.09,N/A,N/A
+BSP,"American Strategic Income Portfolio, Inc. II Com.",0.57,6.400%,8.91,08/01/2014,08/05/2014,08/20/2014,0.0475,Financial,Closed-End Fund - Debt
+BSV,Vanguard Short-Term Bond ETF,0.942,1.1700%,80.44,03/02/2015,03/04/2015,03/06/2015,0.078499,N/A,N/A
+BTA,BlackRock Long-Term Municipal Advantage Trust,0.7,6.1200%,11.43,03/11/2015,03/13/2015,04/01/2015,0.058,N/A,N/A
+BTZ,BlackRock Credit Allocation Income Trust IV,0.97,7.1900%,13.5,03/11/2015,03/13/2015,03/31/2015,0.0805,Financial,Closed-End Fund - Debt
+BWN,Morgan Stanley 8.000% Targeted Income Strategic Total Return Secs,0.8,13.9100%,5.75,01/06/2012,01/10/2012,01/17/2012,0.0666666,N/A,N/A
+BWX,SPDR Barclays Intl Treasury Bond,0.25,0.4700%,53.16,12/29/2014,12/31/2014,01/07/2015,0.130292,N/A,N/A
+BYM,BlackRock Municipal Income Quality Trust,0.86,6.00%,14.33,03/11/2015,03/13/2015,04/01/2015,0.0715,N/A,N/A
+BZM,Blackrock Maryland Municipal Bond Trust,0.654,4.3300%,15.1,03/11/2015,03/13/2015,04/01/2015,0.0545,Financial,Closed-End Fund - Debt
+CCA,MFS California Municipal Fund,0.624,5.4200%,11.51,03/17/2015,03/19/2015,03/31/2015,0.052,N/A,N/A
+CEV,Eaton Vance California Municipal Income Trust Shs Ben Int,0.74,5.5400%,13.36,03/10/2015,03/12/2015,03/19/2015,0.061337,Financial,Closed-End Fund - Debt
+CFD,Nuveen Diversified Commodity Fund Com Unit Ben Int,1.24,10.3700%,11.95,03/27/2015,03/31/2015,04/01/2015,0.103,N/A,N/A
+CFP,Cornerstone Progressive Return Fund,3.4296,21.6400%,15.85,04/13/2015,04/15/2015,04/30/2015,0.2858,N/A,N/A
+CFT,iShares Barclays Credit Bond Fund,3.74,3.3800%,110.5,06/02/2014,06/04/2014,06/06/2014,0.306944,N/A,N/A
+CGO,Calamos Global Total Return Fund Com Shs Ben Int,1.2,8.8200%,13.6,03/09/2015,03/11/2015,03/16/2015,0.1,Financial,Closed-End Fund - Equity
+CHI,Calamos Convertible Opportunities & Income Fund Sh Ben Int,1.14,8.7400%,13.05,03/09/2015,03/11/2015,03/16/2015,0.095,Financial,Closed-End Fund - Debt
+CHW,Calamos Global Dynamic Income Fund Com Sh of Ben Int,0.84,9.5100%,8.83,03/09/2015,03/11/2015,03/16/2015,0.07,Financial,Closed-End Fund - Equity
+CHY,Calamos Convertible & High Income Fund,1.2,8.4400%,14.21,03/09/2015,03/11/2015,03/16/2015,0.1,Financial,Closed-End Fund - Debt
+CIF,MFS Intermediate High Income Fund Sh Ben Int,0.204,7.4500%,2.74,03/17/2015,03/19/2015,03/31/2015,0.017,Financial,Closed-End Fund - Debt
+CIK,"Credit Suisse Asset Management Income Fund, Inc.",0.264,8.1700%,3.23,04/08/2015,04/10/2015,04/16/2015,0.022,Financial,Closed-End Fund - Debt
+CIU,iShares Barclays Intermediate Credit Bond Fund,2.6403,2.3900%,110.44,03/02/2015,03/04/2015,03/06/2015,0.220029,N/A,N/A
+CLM,"Cornerstone Strategic Value Fund, Inc.",4.42,20.7500%,21.3,04/13/2015,04/15/2015,04/30/2015,0.368,Financial,Closed-End Fund - Equity
+CLY,iShares 10+ Year Credit Bond Fund,2.481,3.9600%,62.6,03/02/2015,03/04/2015,03/06/2015,0.206754,N/A,N/A
+CMF,iShares S&P Cali Muni Bond,3.2106,2.7200%,118.12,03/02/2015,03/04/2015,03/06/2015,0.267551,N/A,N/A
+CMK,MFS Intermarket Income Trust I Sh Ben Int,0.396,4.6600%,8.49,03/17/2015,03/19/2015,03/31/2015,0.032,Financial,Closed-End Fund - Debt
+CMU,MFS High Yield Municipal Trust Sh Ben Int,0.276,6.2400%,4.42,03/17/2015,03/19/2015,03/31/2015,0.023,Financial,Closed-End Fund - Debt
+CORP,PIMCO Investment Grade Corporate Bond Index Fund,3,2.8800%,104.29,03/31/2015,04/02/2015,04/07/2015,0.25,N/A,N/A
+COY,BlackRock Corporate High Yield Fund Inc,0.59,8.3100%,7.1,10/11/2013,10/16/2013,10/31/2013,0.0495,N/A,N/A
+CRF,"Cornerstone Total Return Fund, Inc",1.09,4.8100%,22.66,04/13/2015,04/15/2015,04/30/2015,0.3319,Financial,Closed-End Fund - Equity
+CSJ,iShares Barclays 1-3 Year Credit Bond Fund,1.1255,1.0700%,105.44,03/02/2015,03/04/2015,03/06/2015,0.093788,N/A,N/A
+CSP,"American Strategic Income Portfolio, Inc. III Com.",0.48,6.4900%,7.4,09/03/2014,09/05/2014,10/01/2014,0.0407,N/A,N/A
+CSQ,Calamos Strategic Total Return Fund,0.99,8.7800%,11.28,03/09/2015,03/11/2015,03/16/2015,0.0825,Financial,Closed-End Fund - Equity
+CWB,SPDR Barclays Capital Convertible Bond ETF,1.0406,2.1600%,48.15,03/02/2015,03/04/2015,03/10/2015,0.086719,N/A,N/A
+CXA,SPDR Barclays California Municipal Bond ETF,0.6146,2.5500%,24.12,03/02/2015,03/04/2015,03/10/2015,0.051215,N/A,N/A
+CXE,MFS High Income Municipal Trust Sh Ben Int,0.32,6.600%,4.85,03/17/2015,03/19/2015,03/31/2015,0.026,Financial,Closed-End Fund - Debt
+CXH,MFS Investment Grade Municipal Trust Sh Ben Int,0.504,5.3600%,9.4,03/17/2015,03/19/2015,03/31/2015,0.042,Financial,Closed-End Fund - Debt
+CYE,BlackRock Corporate High Yield Fund III Inc,0.61,8.3400%,7.31,10/11/2013,10/16/2013,10/31/2013,0.0505,N/A,N/A
+DES,WisdomTree SmallCap Dividend Fund,2.3862,3.300%,72.25,03/23/2015,03/25/2015,03/27/2015,0.19885,N/A,N/A
+DEX,Delaware Enhanced Global Dividend & Income Fund,1.23,10.7300%,11.46,03/11/2015,03/13/2015,03/27/2015,0.075,N/A,N/A
+DHF,Dreyfus High Yield Strategies Fund Shs Ben Int,0.38,10.500%,3.62,04/08/2015,04/10/2015,04/27/2015,0.029,N/A,N/A
+DHG,DWS High Income Opportunities Fund Inc.,1.02,7.1300%,14.31,03/18/2015,03/20/2015,03/31/2015,0.085,N/A,N/A
+DHS,WisdomTree High-Yielding Equity Fund,1.6385,2.6800%,61.19,03/23/2015,03/25/2015,03/27/2015,0.13654,N/A,N/A
+DIA,Dow Jones Industrial Average ETF,3.7338,2.0800%,179.39,03/20/2015,03/24/2015,04/13/2015,0.31115,N/A,N/A
+DLN,WisdomTree LargeCap Dividend Fund,2.0507,2.7700%,73.92,03/23/2015,03/25/2015,03/27/2015,0.17089,N/A,N/A
+DON,WisdomTree MidCap Dividend Fund,1.6756,1.9400%,86.48,03/23/2015,03/25/2015,03/27/2015,0.13963,N/A,N/A
+DSU,BlackRock Debt Strategies Fund Inc,0.29,7.7700%,3.73,03/11/2015,03/13/2015,03/31/2015,0.024,Financial,Closed-End Fund - Debt
+DTD,WisdomTree Total Dividend Fund,1.834,2.4500%,74.89,03/23/2015,03/25/2015,03/27/2015,0.15283,N/A,N/A
+DTN,WisdomTree Dividend ex-Financials Fund,2.1254,2.7800%,76.37,03/23/2015,03/25/2015,03/27/2015,0.17712,N/A,N/A
+DUC,"Duff & Phelps Utility & Corporate Bond Trust, Inc. Com.",0.6,6.1700%,9.73,04/13/2015,04/15/2015,04/30/2015,0.05,Financial,Closed-End Fund - Debt
+EAD,Wells Fargo Advantage Income Opportunities Fund,0.82,9.2800%,8.84,04/13/2015,04/15/2015,05/01/2015,0.068,N/A,N/A
+EFR,Eaton Vance Senior Floating Rate Trust,0.94,6.5100%,14.44,03/20/2015,03/24/2015,03/31/2015,0.078,Financial,Closed-End Fund - Debt
+EFT,Eaton Vance Floating Rate Income Trust,0.9,6.1700%,14.58,03/20/2015,03/24/2015,03/31/2015,0.075,Financial,Closed-End Fund - Debt
+EGAS,Gas Natural Inc.,1.62,16.200%,10,03/24/2015,03/26/2015,04/02/2015,0.135,N/A,N/A
+EGF,"BlackRock Enhanced Government Fund, Inc.",0.66,4.7600%,13.88,03/11/2015,03/13/2015,03/31/2015,0.055,Financial,Closed-End Fund - Debt
+EHI,Western Asset Global High Income Fund Inc,1.155,10.4100%,11.09,04/15/2015,04/17/2015,04/24/2015,0.09625,Financial,Closed-End Fund - Debt
+EIA,Eaton Vance California Municipal Bond Fund II,0.73,5.6300%,12.97,03/20/2015,03/24/2015,03/31/2015,0.060916,Financial,Closed-End Fund - Debt
+EIO,Eaton Vance Ohio Municipal Bond Fund,0.7,5.3500%,13.09,03/20/2015,03/24/2015,03/31/2015,0.0585,Financial,Closed-End Fund - Debt
+EIP,Eaton Vance Pennsylvania Municipal Bond Fund,0.77,5.900%,13.04,03/20/2015,03/24/2015,03/31/2015,0.064417,Financial,Closed-End Fund - Debt
+ELD,WisdomTree Emerging Markets Local Debt Fund,1.92,4.8500%,39.6,03/23/2015,03/25/2015,03/27/2015,0.16,N/A,N/A
+EMB,iShares JP Morgan Emerging Markets Bond Fund,4.2755,3.8100%,112.17,03/02/2015,03/04/2015,03/06/2015,0.356292,N/A,N/A
+EMI,Eaton Vance Michigan Municipal Income Trust Shs Ben Int,0.71,5.4700%,12.97,03/10/2015,03/12/2015,03/19/2015,0.059084,Financial,Closed-End Fund - Debt
+EMJ,Eaton Vance Insured New Jersey Municipal Bond Fund,0.7,5.3400%,13.12,03/20/2015,03/24/2015,03/31/2015,0.0625,Financial,Closed-End Fund - Debt
+EMLC,Market Vectors Emerging Markets Local Currency Bond ETF,1.176,5.8600%,20.08,03/02/2015,03/04/2015,03/06/2015,0.098,N/A,N/A
+EOS,Eaton Vance Enhanced Equity Income Fund II,1.1064,7.7500%,14.28,03/20/2015,03/24/2015,03/31/2015,0.0875,Financial,Closed-End Fund - Equity
+EOT,Eaton Vance National Municipal Opportunities Trust Com Shs,1.03,4.8600%,21.18,03/20/2015,03/24/2015,03/31/2015,0.085834,N/A,N/A
+EPU,iShares MSCI All Peru Capped Index Fund,0.53,1.8600%,28.56,12/26/2014,12/30/2014,01/02/2015,0.105633,N/A,N/A
+ETO,Eaton Vance Tax-Advantaged Global Dividend Opportunities Fun,2.16,8.7300%,24.75,03/20/2015,03/24/2015,03/31/2015,0.18,N/A,N/A
+ETV,Eaton Vance Tax-Managed Buy-Write Opportunities Fund,1.33,8.9300%,14.9,03/20/2015,03/24/2015,03/31/2015,0.1108,Financial,Closed-End Fund - Equity
+ETY,Eaton Vance Tax-Managed Premium & Dividend Income Fund,1.01,8.8700%,11.39,03/20/2015,03/24/2015,03/31/2015,0.0843,Financial,Closed-End Fund - Equity
+EVF,Eaton Vance Senior Income Trust Shs Ben Int,0.4,6.1400%,6.51,03/10/2015,03/12/2015,03/19/2015,0.033,Financial,Closed-End Fund - Debt
+EVN,Eaton Vance Municipal Income Trust Shs Ben Int,0.9,6.6100%,13.62,03/10/2015,03/12/2015,03/19/2015,0.074999,Financial,Closed-End Fund - Debt
+EVO,Eaton Vance Ohio Municipal Income Trust Shs Ben Int,0.73,5.2700%,13.84,03/10/2015,03/12/2015,03/19/2015,0.060919,Financial,Closed-End Fund - Debt
+EVP,Eaton Vance Pennsylvania Municipal Income Trust Shs Ben Int,0.78,6.3800%,12.22,03/10/2015,03/12/2015,03/19/2015,0.060583,Financial,Closed-End Fund - Debt
+EVT,Eaton Vance Tax Advantaged Dividend Income Fund,1.39,6.7400%,20.61,03/20/2015,03/24/2015,03/31/2015,0.1158,Financial,Closed-End Fund - Equity
+EVV,Eaton Vance Limited Duration Income Fund,1.22,8.5200%,14.32,03/10/2015,03/12/2015,03/19/2015,0.1017,Financial,Closed-End Fund - Debt
+EVY,Eaton Vance New York Municipal Income Trust Shs Ben Int,0.82,5.9800%,13.72,03/10/2015,03/12/2015,03/19/2015,0.068334,Financial,Closed-End Fund - Debt
+EXG,Eaton Vance Tax-Managed Global Diversified Equity Income Fun,0.98,10.0700%,9.73,03/20/2015,03/24/2015,03/31/2015,0.0813,N/A,N/A
+FAM,First Trust / Aberdeen Global Opportunity Income Fund Com Shs,1.08,9.2600%,11.66,04/01/2015,04/06/2015,04/15/2015,0.09,N/A,N/A
+FBIZ,"First Business Financial Services, Inc.",0.88,1.9800%,44.55,02/11/2015,02/13/2015,02/27/2015,0.22,N/A,N/A
+FCT,First Trust Senior Floating Rate Income Fund II,0.82,5.9400%,13.81,04/01/2015,04/06/2015,04/15/2015,0.072,N/A,N/A
+FHY,First Trust Strategic High Income Fund II Com Shs,1.32,9.300%,14.19,04/01/2015,04/06/2015,04/15/2015,0.11,N/A,N/A
+FIVZ,PIMCO 3-7 Year U.S. Treasury Index Fund,1.068,1.3200%,80.71,03/31/2015,04/02/2015,04/07/2015,0.089,N/A,N/A
+FMN,Federated Premier Municipal Income Fund,0.91,6.1300%,14.84,03/19/2015,03/23/2015,04/01/2015,0.0735,Financial,Closed-End Fund - Debt
+FMY,First Trust/FIDAC Mortgage Income Fund,1.02,6.8100%,14.98,04/01/2015,04/06/2015,04/15/2015,0.085,N/A,N/A
+FPT,Federated Premier Intermediate Municipal Income Fund,0.73,5.6500%,12.91,03/19/2015,03/23/2015,04/01/2015,0.0555,Financial,Closed-End Fund - Debt
+FRA,BlackRock Floating Rate Income Strategies Fund Inc,0.81,5.8100%,13.95,03/11/2015,03/13/2015,03/31/2015,0.0674,Financial,Closed-End Fund - Debt
+FSD,First Trust High Income Long / Short Fund,1.28,7.800%,16.4,04/01/2015,04/06/2015,04/15/2015,0.1065,N/A,N/A
+FT,Franklin Universal Trust Shs. Ben. Int.,0.47,6.5700%,7.15,03/27/2015,03/31/2015,04/15/2015,0.0395,Financial,Closed-End Fund - Debt
+FTF,Franklin Templeton Limited Duration Income Trust,0.74,6.0600%,12.21,03/27/2015,03/31/2015,04/15/2015,0.062,Financial,Closed-End Fund - Debt
+FTT,Federated Enhanced Treasury Income Fund Com Shs Ben Int,0.348,2.6200%,13.28,03/20/2015,03/24/2015,03/31/2015,0.029,N/A,N/A
+FULL,Full Circle Capital Corporation,0.8,22.5400%,3.55,04/28/2015,04/30/2015,05/15/2015,0.035,N/A,N/A
+FXA,Rydex CurrencyShares Australian Dollar Trust,1.0537,1.3800%,76.52,03/02/2015,03/04/2015,03/09/2015,0.08781,N/A,N/A
+FXC,Rydex CurrencyShares Canadian Dollar Trust,0.0059,0.0100%,78.36,03/02/2015,03/04/2015,03/09/2015,0.00049,N/A,N/A
+FXS,Rydex CurrencyShares Swedish Krona Trust,0.38,0.3300%,115.37,07/01/2014,07/03/2014,07/09/2014,0.00749,N/A,N/A
+GBAB,Guggenheim Build America Bonds Managed Duration Trust,1.66,7.3700%,22.51,03/11/2015,03/13/2015,03/31/2015,0.13817,N/A,N/A
+GBF,iShares Barclays Government/Credit Bond Fund,1.9871,1.7200%,115.52,03/02/2015,03/04/2015,03/06/2015,0.16559,N/A,N/A
+GDO,"Western Asset Global Credit Defined Opportunity Fund, Inc.",1.44,8.0500%,17.88,04/15/2015,04/17/2015,04/24/2015,0.1135,N/A,N/A
+GDV,Gabelli Dividend & Income Trust,1.08,5.0900%,21.23,04/14/2015,04/16/2015,04/23/2015,0.1,Financial,Closed-End Fund - Equity
+ISTB,iShares Trust,1.4542,1.4400%,100.77,03/02/2015,03/04/2015,03/06/2015,0.12118,N/A,N/A
+GRP-U,Granite Real Estate Inc. Staple,2.2,5.6400%,39.01,03/27/2015,03/31/2015,04/15/2015,0.192,N/A,N/A
+GGN,Gabelli Global Gold Natural Resources & Income Trust Com Shs Ben Int,1.08,15.4100%,7.01,04/14/2015,04/16/2015,04/23/2015,0.07,Financial,Closed-End Fund - Equity
+SLVO,Credit Suisse AG - Credit Suisse Silver Shares Covered Call Exchange Traded Notes,1.7112,14.8500%,11.52,03/18/2015,03/20/2015,03/25/2015,0.1426,N/A,N/A
+GHI,Global High Income Fund Inc,0.6036,6.8600%,8.8,03/17/2015,03/19/2015,03/31/2015,0.0503,N/A,N/A
+GIM,Templeton Global Income Fund (DE),0.3,4.1300%,7.26,03/13/2015,03/17/2015,03/31/2015,0.025,Financial,Closed-End Fund - Debt
+GJI,STRATS Trust For IBM Corp Securities 4.750% 2004-7 Structured Repackaged Asset Tr Secs,0.76,3.0400%,25,11/26/2012,11/28/2012,11/29/2012,0.0635246,N/A,N/A
+GJJ,Strats Trust Goldman Sachs Group Securities Trust Ser 2004 - 8 Ctf Fltg Rate 10/15/2013,0.75,3.00%,24.97,10/09/2013,10/11/2013,10/15/2013,0.0616438,N/A,N/A
+GJO,STRATS Trust For Wal-Mart Stores Inc STRATS Ctf Wal-mart Stores Inc 2005-4,0.1895,0.9600%,19.83,03/11/2015,03/13/2015,03/16/2015,0.0157938,N/A,N/A
+GJP,Strats Trust for Dominion Resources Inc 2005-6 Asset Bkd Tr Ctf Fltg Rate 06/15/2035,0.6904,3.100%,22.24,03/11/2015,03/13/2015,03/16/2015,0.0575343,N/A,N/A
+GJR,STRATS Trust For Proctor & Gamble Securities 7.5% 2006-1 Ctf,0.1651,0.8300%,19.8,03/11/2015,03/13/2015,03/16/2015,0.0137603,N/A,N/A
+GJS,Strats Trust Goldman Sachs Group Securities Trust 2006-2 STRATS Ctf Fltg Rate 02/15/2033,0.2288,1.2500%,18.35,03/11/2015,03/13/2015,03/16/2015,0.0190625,N/A,N/A
+GJT,STRATS Trust AllState Corp 2006-3 Asset Backed Tr Secs 04/01/2036,0.21,1.1800%,17.74,03/27/2015,03/31/2015,04/01/2015,0.0170833,N/A,N/A
+GMMB,Columbia Intermediate Municipal Bond Strategy Fund,1.6141,3.0100%,53.62,03/02/2015,03/04/2015,03/06/2015,0.13451,N/A,N/A
+GMTB,Columbia Core Bond Strategy Fund,0.7478,1.4200%,52.8,03/02/2015,03/04/2015,03/06/2015,0.06232,N/A,N/A
+GOF,Claymore/Guggenheim Strategic Opportunities Fund Com Shs of Ben Int,2.19,10.2500%,21.36,03/11/2015,03/13/2015,03/31/2015,0.1821,N/A,N/A
+GORO,Gold Resource Corp,0.12,3.6800%,3.26,04/09/2015,04/13/2015,04/23/2015,0.01,Basic Materials,Gold
+GUT,Gabelli Utility Trust,0.6,8.4300%,7.12,04/14/2015,04/16/2015,04/23/2015,0.05,Financial,Closed-End Fund - Equity
+GVI,iShares Barclays Intermediate Government/Credit Bond Fund,1.8136,1.6200%,111.63,03/02/2015,03/04/2015,03/06/2015,0.15113,N/A,N/A
+HAV,"Helios Advantage Income Fund, Inc.",0.87,9.800%,8.88,07/22/2014,07/24/2014,07/31/2014,0.0725,Financial,Closed-End Fund - Debt
+HIF,Western Asset High Income Fund Inc,0.48,5.4900%,8.75,06/11/2013,06/13/2013,06/18/2013,0.04,Financial,Closed-End Fund - Debt
+HIH,"Helios High Income Fund, Inc.",0.78,9.2900%,8.4,07/22/2014,07/24/2014,07/31/2014,0.065,Financial,Closed-End Fund - Debt
+HIS,BlackRock High Income Shares Shs Ben Int,0.17,8.1300%,2.09,10/11/2013,10/16/2013,10/31/2013,0.0142,Financial,Closed-End Fund - Debt
+HIX,Western Asset High Income Fund II Inc,0.99,12.300%,8.05,04/15/2015,04/17/2015,04/24/2015,0.069,Financial,Closed-End Fund - Debt
+HMH,"Helios Multi-Sector High Income Fund, Inc.",0.63,10.4300%,6.04,07/22/2014,07/24/2014,07/31/2014,0.0525,Financial,Closed-End Fund - Debt
+HSA,"Helios Strategic Income Fund, Inc.",0.6,9.100%,6.59,07/22/2014,07/24/2014,07/31/2014,0.05,Financial,Closed-End Fund - Debt
+HTD,Hancock John Tax-Advantaged Dividend Income Fund,1.45,6.8200%,21.26,03/10/2015,03/12/2015,03/31/2015,0.121,Financial,Closed-End Fund - Equity
+HTR,"Helios Total Return Fund, Inc.",2.28,9.400%,24.26,03/17/2015,03/19/2015,03/26/2015,0.19,Financial,Closed-End Fund - Debt
+HYD,Market Vectors High Yield Municipal Index ETF,1.506,4.8100%,31.32,03/02/2015,03/04/2015,03/06/2015,0.1255,N/A,N/A
+HYF,Managed High Yield Plus Fund Inc,0.18,9.5200%,1.89,03/17/2015,03/19/2015,03/31/2015,0.0135,Financial,Closed-End Fund - Debt
+HYG,iShares iBoxx $ High Yield Corporate Bond Fund,4.7183,5.200%,90.72,03/02/2015,03/04/2015,03/06/2015,0.393188,N/A,N/A
+HYLD,AdvisorShares Peritus High Yield ETF,3.5642,8.5800%,41.53,03/25/2015,03/27/2015,03/31/2015,0.29702,N/A,N/A
+HYT,BlackRock Corporate High Yield Fund VI Inc,0.84,7.5100%,11.18,03/11/2015,03/13/2015,03/31/2015,0.07,Financial,Closed-End Fund - Debt
+HYV,BlackRock Corporate High Yield Fund V Inc,1.03,8.3900%,12.27,10/11/2013,10/16/2013,10/31/2013,0.0855,Financial,Closed-End Fund - Debt
+ICB,"Morgan Stanley Trusts Income Secs, Inc.",0.54,3.00%,17.99,03/18/2015,03/20/2015,03/27/2015,0.045,Financial,Closed-End Fund - Debt
+IEF,iShares Barclays 7-10 Year Treasury Bond Fund,2.0408,1.8900%,108.11,03/02/2015,03/04/2015,03/06/2015,0.170064,N/A,N/A
+IEI,iShares Barclays 3-7 Year Treasury Bond Fund,1.5507,1.2500%,123.94,03/02/2015,03/04/2015,03/06/2015,0.129225,N/A,N/A
+IGD,ING Global Equity Dividend & Premium Opportunity Fund,0.91,10.8700%,8.37,04/01/2015,04/06/2015,04/15/2015,0.076,Financial,Closed-End Fund - Foreign
+IGI,Western Asset Investment Grade Defined Opportunity Trust Inc,1.2,5.6600%,21.22,04/15/2015,04/17/2015,04/24/2015,0.1,N/A,N/A
+IGOV,iShares S&P/Citigroup International Treasury Fund,0.12,0.1300%,91.55,03/02/2015,03/04/2015,03/06/2015,0.01001,N/A,N/A
+IHE,iShares Dow Jones U.S. Pharmaceutical Index Fund,1.0216,0.5800%,174.66,03/25/2015,03/27/2015,03/31/2015,0.255405,N/A,N/A
+IID,ING International High Dividend Equity Income Fund,0.83,10.3200%,8.04,04/01/2015,04/06/2015,04/15/2015,0.069,N/A,N/A
+IIM,Invesco Insured Municipal Income Trust,0.84,5.2700%,15.93,03/11/2015,03/13/2015,03/31/2015,0.07,Financial,Closed-End Fund - Debt
+IMT,Invesco Insured Municipal Trust,0.95,6.1800%,15.38,10/10/2012,10/12/2012,10/31/2012,0.1242,Financial,Closed-End Fund - Debt
+INY,SPDR Barclays New York Municipal Bond ETF,0.5924,2.5100%,23.61,03/02/2015,03/04/2015,03/10/2015,0.049368,N/A,N/A
+IQI,Invesco Quality Municipal Income Trust,0.78,6.2300%,12.52,03/11/2015,03/13/2015,03/31/2015,0.065,Financial,Closed-End Fund - Debt
+IQT,Invesco Quality Municipal Investment Trust,1.05,7.0700%,14.85,10/10/2012,10/12/2012,10/31/2012,0.24189,Financial,Closed-End Fund - Debt
+ISHG,iShares S&P/Citi 1-3 Yr Intl Treasury Bd,0.25,0.3200%,78.34,12/01/2014,12/03/2014,12/05/2014,0.0101,N/A,N/A
+ISM,SLM Corp. 6.398% Med Term Nt Ser A Cpi-Linked due 1/16/2018,0.715,2.9600%,24.13,04/10/2015,04/14/2015,04/15/2015,0.0595795,N/A,N/A
+ITE,SPDR Barclays Intermediate Term Treasury ETF,0.6464,1.0700%,60.52,03/02/2015,03/04/2015,03/10/2015,0.053865,N/A,N/A
+ITM,Market Vectors-Intermediate Municipal Index ETF,0.5076,2.1300%,23.79,03/02/2015,03/04/2015,03/06/2015,0.0423,N/A,N/A
+ITR,SPDR Barclays Capital Intermediate Term Credit Bond ETF,0.9302,2.700%,34.49,03/02/2015,03/04/2015,03/10/2015,0.077513,N/A,N/A
+JEM,Barclays iPath GEMS Index ETN,1.086,3.3200%,32.68,03/17/2015,03/19/2015,03/20/2015,0.0966,N/A,N/A
+JFR,Nuveen Floating Rate Income Fund,0.72,6.3400%,11.35,03/11/2015,03/13/2015,04/01/2015,0.06,N/A,N/A
+JLS,Nuveen Mortgage Opportunity Term Fund,1.52,6.5200%,23.32,03/11/2015,03/13/2015,04/01/2015,0.1265,N/A,N/A
+JMT,Nuveen Mortgage Opportunity Term Fund 2,1.53,6.7500%,22.67,03/11/2015,03/13/2015,04/01/2015,0.1275,N/A,N/A
+JNK,SPDR Barclays Capital High Yield Bond ETF,2.2647,5.7700%,39.23,03/02/2015,03/04/2015,03/10/2015,0.188728,N/A,N/A
+TSLF,THL Credit Senior Loan Fund,1.43,7.7100%,18.55,03/17/2015,03/19/2015,03/31/2015,0.119,N/A,N/A
+KYN-F,Kayne Anderson MLP Investment Company 3.50% Series F Mandatory Redeemable Preferred Shares $25.00 Liquidation Preference per share,0.88,3.4900%,25.2,04/13/2015,04/15/2015,05/01/2015,0.072917,N/A,N/A
+JQC,Nuveen Multi-Strategy Income and Growth Fund 2 Com Shs,0.58,6.3700%,9.1,03/11/2015,03/13/2015,04/01/2015,0.0485,N/A,N/A
+JRO,Nuveen Floating Rate Income Opportunity Fund,0.76,6.5400%,11.62,03/11/2015,03/13/2015,04/01/2015,0.063,Financial,Closed-End Fund - Debt
+JTP,Nuveen Quality Preferred Income Fund,0.66,7.7200%,8.55,03/11/2015,03/13/2015,04/01/2015,0.055,Financial,Closed-End Fund - Debt
+ICOL,ISHARES INC,0.3,2.0100%,14.96,02/03/2015,02/05/2015,02/09/2015,0.012517,N/A,N/A
+CEFL,ETRACS Monthly Pay 2X Leveraged Closed-End Fund ETN,4.08,18.3500%,22.24,03/11/2015,03/13/2015,03/23/2015,0.3404,N/A,N/A
+OAKS-A,Five Oaks Investment Corp. 8.75% Series A Cumulative Redeemable Preferred Stock,2.47,9.6900%,25.48,04/13/2015,04/15/2015,04/27/2015,0.1823,N/A,N/A
+KBWD,Invesco PowerShares KBW High Dividend Yield Financial Portfolio,2.0056,7.8700%,25.49,03/13/2015,03/17/2015,03/31/2015,0.16713,N/A,N/A
+KBWY,Invesco PowerShares KBW Premium Yield Equity REIT Portfolio,1.7142,4.7400%,36.14,03/13/2015,03/17/2015,03/31/2015,0.14285,N/A,N/A
+KHI,DWS High Income Trust Shs,0.72,8.1400%,8.85,03/18/2015,03/20/2015,03/31/2015,0.06,Financial,Closed-End Fund - Debt
+KMM,DWS Multi Market Income Trust Com Shs of Ben Int,0.66,7.7600%,8.51,03/18/2015,03/20/2015,03/31/2015,0.055,Financial,Closed-End Fund - Debt
+KSM,DWS Strategic Municipal Income Trust,0.77,5.5800%,13.81,03/18/2015,03/20/2015,03/31/2015,0.077,Financial,Closed-End Fund - Debt
+KST,DWS Strategic Income Trust Shs of Ben Int,0.93,7.9400%,11.72,03/18/2015,03/20/2015,03/31/2015,0.0775,Financial,Closed-End Fund - Debt
+KTF,DWS Municipal Income Trust,0.84,6.0900%,13.8,03/18/2015,03/20/2015,03/31/2015,0.07,Financial,Closed-End Fund - Debt
+LAG,SPDR Barclays Aggregate Bond ETF,1.4391,2.4400%,58.88,03/02/2015,03/04/2015,03/10/2015,0.119925,N/A,N/A
+LBF,DWS Global High Income Fund,0.57,6.8300%,8.34,03/18/2015,03/20/2015,03/31/2015,0.045,Financial,Closed-End Fund - Debt
+LEO,"Dreyfus Strategic Municipals, Inc. Com.",0.52,6.300%,8.25,04/13/2015,04/15/2015,04/30/2015,0.043,Financial,Closed-End Fund - Debt
+LGI,Lazard Global Total Return & Income Fund Inc,1.1138,6.8300%,16.3,04/08/2015,04/10/2015,04/23/2015,0.09282,Financial,Closed-End Fund - Foreign
+LOR,Lazard World Dividend & Income Fund Inc,1.03,8.1600%,12.62,04/08/2015,04/10/2015,04/23/2015,0.07649,Financial,Closed-End Fund - Foreign
+LQD,iShares iBoxx $ Investment Grade Corporate Bond Fund,3.9288,3.2300%,121.49,03/02/2015,03/04/2015,03/06/2015,0.327402,N/A,N/A
+LTPZ,PIMCO 15+ Year U.S. TIPS Index Fund,0.24,0.3500%,68.21,12/29/2014,12/31/2014,01/05/2015,0.04,N/A,N/A
+LWC,SPDR Barclays Capital Long Term Corporate Bond ETF,1.7524,4.1400%,42.32,03/02/2015,03/04/2015,03/10/2015,0.146035,N/A,N/A
+MAB,Eaton Vance Massachusetts Municipal Bond Fund,0.76,5.2400%,14.51,03/20/2015,03/24/2015,03/31/2015,0.063333,Financial,Closed-End Fund - Debt
+MAV,Pioneer Municipal High Income Advantage Trust,1.14,7.4300%,15.35,03/13/2015,03/17/2015,03/31/2015,0.095,Financial,Closed-End Fund - Debt
+MBG,SPDR Barclays Capital Mortgage Backed Bond ETF,0.7377,2.6900%,27.38,03/02/2015,03/04/2015,03/10/2015,0.061477,N/A,N/A
+MCA,"BlackRock MuniYield California Quality Fund, Inc.",0.88,5.6500%,15.57,03/11/2015,03/13/2015,04/01/2015,0.073,N/A,N/A
+MCR,MFS Charter Income Trust Shs Ben Int,0.54,6.0800%,8.88,03/17/2015,03/19/2015,03/31/2015,0.045,Financial,Closed-End Fund - Debt
+MEN,BlackRock MuniEnhanced Fund Inc,0.01,0.0900%,11.51,03/11/2015,03/13/2015,04/01/2015,0.0605,Financial,Closed-End Fund - Debt
+MFG,Mizuho Financial Group Inc ADR Sponsored,0.06,1.6500%,3.64,TBA,03/30/2010,07/02/2010,0.175727,N/A,N/A
+MFL,BlackRock MuniHoldings Investment Quality Fund,0.858,5.9500%,14.43,03/11/2015,03/13/2015,04/01/2015,0.0715,N/A,N/A
+MFM,MFS Municipal Income Trust Shs. Ben. Int.,0.396,5.9100%,6.7,03/17/2015,03/19/2015,03/31/2015,0.033,Financial,Closed-End Fund - Debt
+MFV,MFS Special Value Trust Shs. Ben. Int.,0.6664,10.0800%,6.61,03/17/2015,03/19/2015,03/31/2015,0.05553,Financial,Closed-End Fund - Debt
+MGF,MFS Government Markets Income Trust Shs. Ben. Int.,0.4374,7.8200%,5.59,03/17/2015,03/19/2015,03/31/2015,0.03645,Financial,Closed-End Fund - Debt
+MHD,BlackRock MuniHoldings Fund Inc,1.14,6.5800%,17.33,03/11/2015,03/13/2015,04/01/2015,0.0885,Financial,Closed-End Fund - Debt
+MHI,Pioneer Municipal High Income Trust Com Shs,1.02,7.0900%,14.38,03/13/2015,03/17/2015,03/31/2015,0.085,Financial,Closed-End Fund - Debt
+MHN,"BlackRock MuniHoldings New York Quality Fund, Inc.",0.83,5.9500%,13.95,03/11/2015,03/13/2015,04/01/2015,0.069,N/A,N/A
+MIN,MFS Intermediate Income Trust Shs. Ben. Int.,0.4553,9.3300%,4.88,03/17/2015,03/19/2015,03/31/2015,0.03794,Financial,Closed-End Fund - Debt
+MINT,PIMCO Enhanced Short Maturity Strategy Fund,0.672,0.6600%,101.21,03/31/2015,04/02/2015,04/07/2015,0.056,N/A,N/A
+MIW,Eaton Vance Michigan Municipal Bond Fund,0.73,5.4300%,13.45,03/20/2015,03/24/2015,03/31/2015,0.065749,Financial,Closed-End Fund - Debt
+MIY,"BlackRock MuniYield Michigan Quality Fund, Inc.",0.86,6.1300%,14.04,03/11/2015,03/13/2015,04/01/2015,0.072,N/A,N/A
+MJI,"BlackRock MuniYield New Jersey Quality Fund, Inc.",0.89,6.1200%,14.55,03/11/2015,03/13/2015,04/01/2015,0.074,N/A,N/A
+MLN,Market Vectors-Long Municipal Index ETF,0.6228,3.1400%,19.86,03/02/2015,03/04/2015,03/06/2015,0.0519,N/A,N/A
+MMT,MFS Multimarket Income Trust Shs. Ben. Int.,0.06,0.9400%,6.4,03/17/2015,03/19/2015,03/31/2015,0.032,Financial,Closed-End Fund - Debt
+MMV,Eaton Vance Massachusetts Municipal Income Trust Shs Ben Int,0.74,5.3700%,13.79,03/10/2015,03/12/2015,03/19/2015,0.057166,Financial,Closed-End Fund - Debt
+MNE,BlackRock Muni New York Intermediate Duration Fund Inc,0.69,4.9600%,13.91,03/11/2015,03/13/2015,04/01/2015,0.0575,Financial,Closed-End Fund - Debt
+MNP,Western Asset Municipal Partners Fund Inc,0.88,5.6700%,15.53,04/15/2015,04/17/2015,04/24/2015,0.0725,Financial,Closed-End Fund - Debt
+MPA,BlackRock MuniYield Pennsylvania Quality Fund,0.858,5.9300%,14.48,03/11/2015,03/13/2015,04/01/2015,0.0715,N/A,N/A
+MQT,"BlackRock MuniYield Quality Fund II, Inc.",0.85,6.3900%,13.31,03/11/2015,03/13/2015,04/01/2015,0.0705,Financial,Closed-End Fund - Debt
+MQY,BlackRock MuniYield Quality Fund Inc,0.96,6.2900%,15.27,03/11/2015,03/13/2015,04/01/2015,0.08,Financial,Closed-End Fund - Debt
+MRF,American Income Fund Inc,0.48,6.3200%,7.6,09/02/2014,09/04/2014,09/17/2014,0.04,Financial,Closed-End Fund - Debt
+MUAB,iShares 2013 S&P AMT-Free Municipal Series,0,0%,50.5,07/01/2013,07/03/2013,07/08/2013,0.020056,N/A,N/A
+MUAC,iShares 2014 S&P AMT-Free Municipal Series,0.32,0.6300%,51.18,07/01/2014,07/03/2014,07/08/2014,0.016719,N/A,N/A
+MUAD,iShares 2015 S&P AMT-Free Municipal Series,0.44,0.8300%,52.91,07/01/2014,07/03/2014,07/08/2014,0.027497,N/A,N/A
+MUAE,iShares 2016 S&P AMT-Free Municipal Series,0.53,0.9900%,53.53,07/01/2014,07/03/2014,07/08/2014,0.032411,N/A,N/A
+MUAF,iShares 2017 S&P AMT-Free Municipal Series,0.68,1.2300%,55.23,07/01/2014,07/03/2014,07/08/2014,0.045548,N/A,N/A
+MUB,iShares S&P National Municipal Bond Fund,2.8847,2.6100%,110.48,03/02/2015,03/04/2015,03/06/2015,0.240388,N/A,N/A
+MUC,"BlackRock MuniHoldings California Quality Fund, Inc.",0.81,5.5200%,14.67,03/11/2015,03/13/2015,04/01/2015,0.0675,N/A,N/A
+MUE,"BlackRock MuniHoldings Quality Fund II, Inc.",0.816,5.9600%,13.68,03/11/2015,03/13/2015,04/01/2015,0.068,N/A,N/A
+MUH,BlackRock MuniHoldings Fund II Inc,1,6.5300%,15.31,03/11/2015,03/13/2015,04/01/2015,0.0775,Financial,Closed-End Fund - Debt
+MUI,BlackRock Muni Intermediate Duration Fund Inc,0.786,5.3900%,14.59,03/11/2015,03/13/2015,04/01/2015,0.0655,Financial,Closed-End Fund - Debt
+MUJ,"BlackRock MuniHoldings New Jersey Quality Fund, Inc.",0.89,6.0300%,14.75,03/11/2015,03/13/2015,04/01/2015,0.074,N/A,N/A
+MUNI,PIMCO Intermediate Municipal Bond Strategy Fund,1.2,2.2300%,53.83,03/31/2015,04/02/2015,04/07/2015,0.1,N/A,N/A
+MUS,"BlackRock MuniHoldings Quality Fund, Inc.",0.81,6.0400%,13.42,03/11/2015,03/13/2015,04/01/2015,0.0675,N/A,N/A
+MVF,"BlackRock MuniVest Fund, Inc",0.642,6.2800%,10.22,03/11/2015,03/13/2015,04/01/2015,0.0535,Financial,Closed-End Fund - Debt
+MVT,BlackRock MuniVest Fund II Inc,0.17,1.0500%,16.25,03/11/2015,03/13/2015,04/01/2015,0.083,Financial,Closed-End Fund - Debt
+MXA,Minnesota Municipal Income Portfolio Inc. Com.,1.33,8.400%,15.83,10/01/2014,10/03/2014,10/22/2014,0.111,Financial,Closed-End Fund - Debt
+MXN,First American Minnesota Municipal Income Fund II Inc,1.03,7.0800%,14.54,10/01/2014,10/03/2014,10/22/2014,0.0861,Financial,Closed-End Fund - Debt
+MYC,"BlackRock MuniYield California Fund, Inc.",0.876,5.6200%,15.6,03/11/2015,03/13/2015,04/01/2015,0.073,Financial,Closed-End Fund - Debt
+MYD,BlackRock MuniYield Fund Inc,0.02,0.1300%,15.01,03/11/2015,03/13/2015,04/01/2015,0.077,Financial,Closed-End Fund - Debt
+MYF,BlackRock MuniYield Investment Fund,0.978,6.3400%,15.42,03/11/2015,03/13/2015,04/01/2015,0.0815,Financial,Closed-End Fund - Debt
+MYI,"BlackRock MuniYield Quality Fund III, Inc.",0.888,6.2900%,14.12,03/11/2015,03/13/2015,04/01/2015,0.074,N/A,N/A
+MYJ,BlackRock MuniYield NJ Fund Inc,0.9,5.9300%,15.18,03/11/2015,03/13/2015,04/01/2015,0.075,Financial,Closed-End Fund - Debt
+MYM,"BlackRock MuniYield Michigan Quality Fund II, Inc.",0.79,6.0900%,12.98,03/11/2015,03/13/2015,04/01/2015,0.066,N/A,N/A
+MYN,"BlackRock MuniYield New York Quality Fund, Inc.",0.77,5.800%,13.27,03/11/2015,03/13/2015,04/01/2015,0.0645,N/A,N/A
+MZA,"BlackRock MuniYield Arizona Fund, Inc.",0.83,5.0900%,16.3,03/11/2015,03/13/2015,04/01/2015,0.0695,Financial,Closed-End Fund - Debt
+MZF,Managed Duration Investment Grade Municipal Fund,0.7392,5.4600%,13.53,03/11/2015,03/13/2015,03/31/2015,0.0616,Financial,Closed-End Fund - Debt
+NAC,Nuveen California Dividend Advantage Municipal Fund,0.96,6.3100%,15.21,03/11/2015,03/13/2015,04/01/2015,0.08,Financial,Closed-End Fund - Debt
+NAD,Nuveen Dividend Advantage Municipal Fund Shs Ben Int,0.888,6.2500%,14.2,03/11/2015,03/13/2015,04/01/2015,0.074,Financial,Closed-End Fund - Debt
+NAN,Nuveen New York Dividend Advantage Municipal Fund,0.78,5.6300%,13.86,03/11/2015,03/13/2015,04/01/2015,0.065,N/A,N/A
+NBB,Nuveen Build America Bond Fund,1.39,6.5400%,21.24,03/11/2015,03/13/2015,04/01/2015,0.116,N/A,N/A
+NBD,Nuveen Build America Bond Opportunity Fund,1.37,6.300%,21.74,03/11/2015,03/13/2015,04/01/2015,0.114,N/A,N/A
+NBJ,Nuveen Ohio Dividend Advantage Municipal Fund 2,1.29,8.1300%,15.87,04/03/2013,04/05/2013,05/01/2013,0.1074,N/A,N/A
+NCA,"Nuveen California Municipal Value Fund, Inc. Com.",0.47,4.4300%,10.61,03/11/2015,03/13/2015,04/01/2015,0.039,Financial,Closed-End Fund - Debt
+NCB,Nuveen California Municipal Value Fund 2 Ord Shs,0.78,4.7100%,16.55,03/11/2015,03/13/2015,04/01/2015,0.065,N/A,N/A
+NCP,"Nuveen California Performance Plus Municipal Fund, Inc. Com.",0.95,6.6500%,14.29,05/13/2014,05/15/2014,06/02/2014,0.079,Financial,Closed-End Fund - Debt
+NCU,"Nuveen California Premium Income Municipal Fund, Inc. Com.",0.84,6.0400%,13.9,05/13/2014,05/15/2014,06/02/2014,0.07,Financial,Closed-End Fund - Debt
+NEA,Nuveen Insured Tax-Free Advantage Municipal Fund,0.82,5.9600%,13.75,03/11/2015,03/13/2015,04/01/2015,0.0685,Financial,Closed-End Fund - Debt
+NFZ,Nuveen Arizona Dividend Advantage Municipal Fund,0.89,5.9400%,14.98,04/03/2013,04/05/2013,05/01/2013,0.0738,Financial,Closed-End Fund - Debt
+NGX,Nuveen Insured Massachusetts Tax-Free Advantage Municipal Fu,0.58,4.5600%,12.71,05/13/2014,05/15/2014,06/02/2014,0.048,N/A,N/A
+NIF,"Nuveen Premier Insured Municipal Income Fund, Inc. Com.",0.86,5.7300%,15.02,05/01/2013,05/03/2013,06/03/2013,0.072,Financial,Closed-End Fund - Debt
+NIM,Nuveen Select Maturities Municipal Fund Shs. Ben. Int.,0.33,3.0700%,10.74,03/11/2015,03/13/2015,04/01/2015,0.0275,Financial,Closed-End Fund - Debt
+NJV,Nuveen New Jersey Municipal Value Fund Ord Shs,0.6,4.0700%,14.75,03/11/2015,03/13/2015,04/01/2015,0.05,N/A,N/A
+NKG,Nuveen Georgia Dividend Advantage Municipal Fund 2,0.64,4.9800%,12.84,03/11/2015,03/13/2015,04/01/2015,0.0535,Financial,Closed-End Fund - Debt
+NKO,Nuveen Insured New York Dividend Advantage Municipal Fund,0.77,5.1700%,14.88,03/06/2013,03/08/2013,04/01/2013,0.065,N/A,N/A
+NKR,Nuveen Arizona Dividend Advantage Municipal Fund 2,0.81,5.3200%,15.23,04/03/2013,04/05/2013,05/01/2013,0.0671,N/A,N/A
+NKX,Nuveen Insured California Tax-Free Advantage Municipal Fund,0.86,5.7800%,14.89,03/11/2015,03/13/2015,04/01/2015,0.072,Financial,Closed-End Fund - Debt
+NMA,"Nuveen Municipal Advantage Fund, Inc. Com.",0.792,5.7700%,13.72,03/11/2015,03/13/2015,04/01/2015,0.066,Financial,Closed-End Fund - Debt
+NMB,Nuveen Massachusetts Dividend Advantage Municipal Fund,0.65,4.9400%,13.15,05/13/2014,05/15/2014,06/02/2014,0.054,Financial,Closed-End Fund - Debt
+NMD,Nuveen Municipal High Income Opportunity Fund 2,0.15,1.2700%,11.81,07/10/2013,07/12/2013,08/01/2013,0.0655,N/A,N/A
+NMI,"Nuveen Municipal Income Fund, Inc. Com.",0.54.,4.5500%,11.87,03/11/2015,03/13/2015,04/01/2015,0.0425,Financial,Closed-End Fund - Debt
+NMO,"Nuveen Municipal Market Opportunity Fund, Inc. Com.",0.77,5.6400%,13.65,03/11/2015,03/13/2015,04/01/2015,0.067,Financial,Closed-End Fund - Debt
+NMP,"Nuveen Michigan Premium Income Municipal Fund, Inc. Com.",0.85,5.6100%,15.15,01/02/2013,01/04/2013,02/01/2013,0.2405,Financial,Closed-End Fund - Debt
+NMT,Nuveen Massachusetts Premium Income Municipal Fund Com.,0.708,5.3100%,13.34,03/11/2015,03/13/2015,04/01/2015,0.059,Financial,Closed-End Fund - Debt
+NMY,Nuveen Maryland Premium Income Municipal Fund Com.,0.67,5.2600%,12.73,03/11/2015,03/13/2015,04/01/2015,0.0555,Financial,Closed-End Fund - Debt
+NMZ,Nuveen Municipal High Income Opportunity Fund,0.88,6.3900%,13.77,03/11/2015,03/13/2015,04/01/2015,0.076,Financial,Closed-End Fund - Debt
+NNC,Nuveen North Carolina Premium Income Municipal Fund Com.,0.588,4.4800%,13.13,03/11/2015,03/13/2015,04/01/2015,0.049,Financial,Closed-End Fund - Debt
+NNF,"Nuveen Insured New York Premium Income Municipal Fund, Inc. Com.",2.72,18.00%,15.11,03/06/2013,03/08/2013,04/01/2013,0.0069,Financial,Closed-End Fund - Debt
+NNJ,"Nuveen New Jersey Premium Income Municipal Fund, Inc. Com.",0.85,6.2100%,13.68,10/10/2014,10/15/2014,11/03/2014,0.068,N/A,N/A
+NNP,"Nuveen New York Performance Plus Municipal Fund, Inc. Com.",0.822,5.6100%,14.64,03/11/2015,03/13/2015,04/01/2015,0.0685,Financial,Closed-End Fund - Debt
+NNY,"Nuveen New York Municipal Value Fund, Inc. Com.",0.37,3.800%,9.74,03/11/2015,03/13/2015,04/01/2015,0.0325,Financial,Closed-End Fund - Debt
+NPF,"Nuveen Premier Municipal Income Fund, Inc. Com.",0.822,5.9400%,13.83,03/11/2015,03/13/2015,04/01/2015,0.0685,Financial,Closed-End Fund - Debt
+NPM,"Nuveen Premium Income Municipal Fund 2, Inc. Com.",0.86,6.1100%,14.07,03/11/2015,03/13/2015,04/01/2015,0.072,Financial,Closed-End Fund - Debt
+NPN,Nuveen Pennsylvania Municipal Value Fund Ord Shs,0.62,4.00%,15.5,03/11/2015,03/13/2015,04/01/2015,0.052,N/A,N/A
+NPP,"Nuveen Performance Plus Municipal Fund, Inc. Com.",0.924,6.2700%,14.74,03/11/2015,03/13/2015,04/01/2015,0.077,Financial,Closed-End Fund - Debt
+NPT,"Nuveen Premium Income Municipal Fund 4, Inc.",0.82,6.200%,13.22,03/11/2015,03/13/2015,04/01/2015,0.068,Financial,Closed-End Fund - Debt
+NPV,Nuveen Virginia Premium Income Municipal Fund Com.,0.73,5.4500%,13.4,03/11/2015,03/13/2015,04/01/2015,0.061,Financial,Closed-End Fund - Debt
+NQC,"Nuveen California Investment Quality Municipal Fund, Inc. Com.",0.92,6.3300%,14.54,05/13/2014,05/15/2014,06/02/2014,0.077,Financial,Closed-End Fund - Debt
+NQI,"Nuveen Insured Quality Municipal Fund, Inc. Com.",0.66,4.9500%,13.32,03/11/2015,03/13/2015,04/01/2015,0.055,Financial,Closed-End Fund - Debt
+NQJ,"Nuveen New Jersey Investment Quality Municipal Fund, Inc. Com.",0.8,6.0200%,13.3,10/10/2014,10/15/2014,11/03/2014,0.064,N/A,N/A
+NQN,"Nuveen New York Investment Quality Municipal Fund, Inc. Com.",0.83,5.5400%,14.97,03/06/2013,03/08/2013,04/01/2013,0.0081,Financial,Closed-End Fund - Debt
+NQP,Nuveen Pennsylvania Investment Quality Municipal Fund Com.,0.88,6.3500%,13.86,03/11/2015,03/13/2015,04/01/2015,0.069,N/A,N/A
+NQS,"Nuveen Select Quality Municipal Fund, Inc. Com.",0.78,5.5600%,14.03,03/11/2015,03/13/2015,04/01/2015,0.0665,Financial,Closed-End Fund - Debt
+NQU,"Nuveen Quality Income Municipal Fund, Inc. Com.",0.79,5.6500%,13.99,03/11/2015,03/13/2015,04/01/2015,0.0685,Financial,Closed-End Fund - Debt
+NRK,Nuveen Insured New York Tax-Free Advantage Municipal Fund,0.73,5.600%,13.03,03/11/2015,03/13/2015,04/01/2015,0.061,Financial,Closed-End Fund - Debt
+NSL,Nuveen Senior Income Fund Shs Ben Int,0.42,6.2800%,6.69,03/11/2015,03/13/2015,04/01/2015,0.035,Financial,Closed-End Fund - Debt
+NTC,Nuveen Connecticut Premium Income Municipal Fund Shs. Ben. Int.,0.68,5.3500%,12.72,03/11/2015,03/13/2015,04/01/2015,0.057,Financial,Closed-End Fund - Debt
+NTX,Nuveen Texas Quality Income Municipal Fund Shs. Ben. Int.,0.7,4.900%,14.28,03/11/2015,03/13/2015,04/01/2015,0.0545,Financial,Closed-End Fund - Debt
+NUC,"Nuveen California Quality Income Municipal Fund, Inc. Com.",1.02,6.7400%,15.14,05/13/2014,05/15/2014,06/02/2014,0.085,Financial,Closed-End Fund - Debt
+NUJ,Nuveen New Jersey Dividend Advantage Municipal Fund 2,0.71,5.3600%,13.25,10/10/2014,10/15/2014,11/03/2014,0.0595,N/A,N/A
+NUN,"Nuveen New York Quality Income Municipal Fund, Inc. Com.",0.84,5.6100%,14.96,03/06/2013,03/08/2013,04/01/2013,0.0085,Financial,Closed-End Fund - Debt
+NUV,"Nuveen Municipal Value Fund, Inc. Com.",0.43,4.3500%,9.88,03/11/2015,03/13/2015,04/01/2015,0.0345,Financial,Closed-End Fund - Debt
+NUW,Nuveen Municipal Value Fund 2,0.78,4.4800%,17.4,03/11/2015,03/13/2015,04/01/2015,0.065,N/A,N/A
+NVC,"Nuveen California Select Quality Municipal Fund, Inc. Com.",1,6.7400%,14.83,05/13/2014,05/15/2014,06/02/2014,0.083,Financial,Closed-End Fund - Debt
+NVG,Nuveen Insured Dividend Advantage Municipal Fund,0.73,5.0600%,14.42,03/11/2015,03/13/2015,04/01/2015,0.061,Financial,Closed-End Fund - Debt
+NVJ,Nuveen Ohio Dividend Advantage Municipal Fund 3,1.15,7.100%,16.2,04/03/2013,04/05/2013,05/01/2013,0.0958,N/A,N/A
+NVN,"Nuveen New York Select Quality Municipal Fund, Inc. Com.",0.87,5.6700%,15.34,03/06/2013,03/08/2013,04/01/2013,0.0155,Financial,Closed-End Fund - Debt
+NVX,Nuveen California Dividend Advantage Municipal Fund 2,0.84,5.8500%,14.36,03/11/2015,03/13/2015,04/01/2015,0.07,Financial,Closed-End Fund - Debt
+NVY,Nuveen Pennsylvania Dividend Advantage Municipal Fund 2,0.74,5.900%,12.54,01/13/2014,01/15/2014,02/03/2014,0.0585,N/A,N/A
+NXE,Nuveen Arizona Dividend Advantage Municipal Fund 3,0.83,5.6500%,14.68,04/03/2013,04/05/2013,05/01/2013,0.0695,Financial,Closed-End Fund - Debt
+NXI,Nuveen Ohio Dividend Advantage Municipal Fund,0.47,2.8900%,16.29,04/03/2013,04/05/2013,05/01/2013,0.0393,N/A,N/A
+NXJ,Nuveen New Jersey Dividend Advantage Municipal Fund,0.82,5.9900%,13.69,03/11/2015,03/13/2015,04/01/2015,0.068,N/A,N/A
+NXK,Nuveen New York Dividend Advantage Municipal Fund 2,0.696,5.1700%,13.47,03/11/2015,03/13/2015,04/01/2015,0.058,N/A,N/A
+NXM,Nuveen Pennsylvania Dividend Advantage Municipal Fund,0.71,5.5900%,12.7,01/13/2014,01/15/2014,02/03/2014,0.0595,N/A,N/A
+NXN,Nuveen New York Select Tax-Free Income Portfolio Shs. Ben. Int.,0.59,4.2100%,14,03/11/2015,03/13/2015,04/01/2015,0.046,Financial,Closed-End Fund - Debt
+NXP,Nuveen Select Tax-Free Income Portfolio Shs. Ben. Int.,0.57,3.9200%,14.54,03/11/2015,03/13/2015,04/01/2015,0.0475,Financial,Closed-End Fund - Debt
+NXR,Nuveen Select Tax-Free Income Portfolio 3 Shs. Ben. Int.,0.59,3.9900%,14.79,03/11/2015,03/13/2015,04/01/2015,0.049,Financial,Closed-End Fund - Debt
+NXZ,Nuveen Dividend Advantage Municipal Fund 2,0.816,5.7700%,14.14,03/11/2015,03/13/2015,04/01/2015,0.068,Financial,Closed-End Fund - Debt
+NYF,iShares S&P New York AMT-Free Municipal Bond Fund,3.0583,2.7300%,112.08,03/02/2015,03/04/2015,03/06/2015,0.254857,N/A,N/A
+NYV,Nuveen New York Municipal Value Fund 2 Ord Shs,0.65,4.3900%,14.82,03/11/2015,03/13/2015,04/01/2015,0.0525,N/A,N/A
+NZF,Nuveen Dividend Advantage Municipal Fund  3,0.768,5.4700%,14.05,03/11/2015,03/13/2015,04/01/2015,0.064,N/A,N/A
+NZH,Nuveen California Dividend Advantage Municipal Fund 3,0.8,5.8800%,13.6,03/11/2015,03/13/2015,04/01/2015,0.067,Financial,Closed-End Fund - Debt
+IBDA,"iShares, Inc. iSharesBond 2016 Corporate Term ETF",0.7219,0.7100%,101.31,03/02/2015,03/04/2015,03/06/2015,0.060157,N/A,N/A
+NZW,Nuveen Michigan Dividend Advantage Municipal Fund.,0.73,4.8800%,14.96,01/02/2013,01/04/2013,02/01/2013,0.0903,Financial,Closed-End Fund - Debt
+NZW-C,Nuveen Michigan Dividend Advantage Municipal Fund. Munifund Term Pfd Shs Ser 2015,0.046,0.4600%,10.08,01/02/2013,01/04/2013,02/01/2013,0.003833,N/A,N/A
+OIA,Invesco Municipal Income Opportunities Trust,0.41,5.8300%,7.03,03/11/2015,03/13/2015,03/31/2015,0.0328,Financial,Closed-End Fund - Debt
+OIC,Invesco Municipal Income Opportunities Trust III,0.51,5.9200%,8.61,08/22/2012,08/24/2012,08/31/2012,0.048,Financial,Closed-End Fund - Debt
+OSM,SLM Corp. CPI Lkd Nt Fltg Rate 02/21/2017,0.7022,2.8600%,24.59,04/10/2015,04/14/2015,04/15/2015,0.0585178,N/A,N/A
+PCEF,Invesco PowerShares CEF Income Composite Portfolio,1.965,8.2300%,23.87,03/13/2015,03/17/2015,03/31/2015,0.16375,N/A,N/A
+PCM,PCM Fund Inc,0.96,9.0800%,10.57,03/10/2015,03/12/2015,04/01/2015,0.08,N/A,N/A
+PCN,Pimco Corporate Income Fund,1.35,8.8600%,15.23,03/10/2015,03/12/2015,04/01/2015,0.1125,Financial,Closed-End Fund - Debt
+PCY,Invesco PowerShares Emerging Markets Sovereign Debt Portfolio,1.44,5.0600%,28.46,03/13/2015,03/17/2015,03/31/2015,0.12,N/A,N/A
+PEY,Invesco PowerShares High Yield Dividend Achievers,0.4642,3.4500%,13.44,03/13/2015,03/17/2015,03/31/2015,0.03868,N/A,N/A
+PFD,Flaherty & Crumrine Preferred Income Fund Inc,1.08,7.0300%,15.36,03/20/2015,03/24/2015,03/31/2015,0.09,N/A,N/A
+PFF,iShares S&P US Preferred Stock Fund,2.0383,5.0800%,40.11,03/02/2015,03/04/2015,03/06/2015,0.169857,Financial,Money Center Banks
+PFK,"Prudential Financial, Inc. Inflation Lkd Retail Med Term Nt 04/10/2018",0.77,2.9300%,26.25,03/30/2015,04/01/2015,04/10/2015,0.0641667,N/A,N/A
+PFL,PIMCO Income Strategy Fund,1.08,9.4500%,11.43,03/10/2015,03/12/2015,04/01/2015,0.09,Financial,Closed-End Fund - Debt
+PFN,PIMCO Income Strategy Fund II,0.96,9.5400%,10.06,03/10/2015,03/12/2015,04/01/2015,0.08,Financial,Closed-End Fund - Debt
+PFO,Flaherty & Crumrine Preferred Income Opportunity Fund Inc,0.88,7.1400%,12.32,03/20/2015,03/24/2015,03/31/2015,0.073,Financial,Closed-End Fund - Debt
+PGD,Barclays iPath Asian & Gulf Currency Revaluation ETN,0.1836,0.3700%,49.57,03/17/2015,03/19/2015,03/20/2015,0.0153,N/A,N/A
+PGF,Invesco PowerShares Financial Preferred Portfolio,1.0354,5.5800%,18.56,03/13/2015,03/17/2015,03/31/2015,0.08628,N/A,N/A
+PGX,Invesco PowerShares Preferred Portfolio,0.8699,5.8400%,14.89,03/13/2015,03/17/2015,03/31/2015,0.07249,N/A,N/A
+PHB,Invesco PowerShares Fundamental High Yield Corporate Bond Portfolio,0.832,4.3800%,18.98,03/13/2015,03/17/2015,03/31/2015,0.06933,N/A,N/A
+PHD,Pioneer Floating Rate Trust,0.78,6.6600%,11.72,03/13/2015,03/17/2015,03/31/2015,0.055,Financial,Closed-End Fund - Debt
+PHF,"Pacholder High Yield Fund, Inc",0.64,8.600%,7.44,03/25/2015,03/27/2015,03/31/2015,0.05,Financial,Closed-End Fund - Debt
+PHK,Pimco High Income Fund Com Shs,1.46,11.6300%,12.55,03/10/2015,03/12/2015,04/01/2015,0.121875,Financial,Closed-End Fund - Debt
+PHT,Pioneer High Income Trust,1.38,10.7600%,12.83,03/13/2015,03/17/2015,03/31/2015,0.115,Financial,Closed-End Fund - Debt
+PIA,Invesco Municipal Premium Income Trust,1.07,11.3200%,9.45,10/10/2012,10/12/2012,10/31/2012,0.0896,Financial,Closed-End Fund - Debt
+PIC,Invesco PowerShares Dynamic Insurance,0.47,2.4700%,19.01,12/21/2012,12/26/2012,12/31/2012,0.11825,N/A,N/A
+PICB,Invesco PowerShares International Corporate Bond Portfolio,0.624,2.3600%,26.43,03/13/2015,03/17/2015,03/31/2015,0.052,N/A,N/A
+PIM,Putnam Master Intermediate Income Trust Shs Ben Int,0.348,7.1300%,4.88,04/22/2015,04/24/2015,05/01/2015,0.026,Financial,Closed-End Fund - Debt
+PLK,Invesco PowerShares Active Low Duration Fund,0,0%,25.33,01/15/2013,01/17/2013,01/31/2013,0.00675,N/A,N/A
+PLW,Invesco PowerShares 1-30 Treasury Ladder Portfolio,0.7114,2.1200%,33.49,03/13/2015,03/17/2015,03/31/2015,0.05928,N/A,N/A
+PMM,Putnam Managed Municipal Income Trust,0.44,6.0600%,7.26,04/22/2015,04/24/2015,05/01/2015,0.0363,Financial,Closed-End Fund - Debt
+PMX,Pimco Municipal Income Fund III,0.75,6.5700%,11.41,03/10/2015,03/12/2015,04/01/2015,0.0623,Financial,Closed-End Fund - Debt
+PPR,ING Prime Rate Trust Shs Ben Int,0.324,5.8400%,5.55,03/06/2015,03/10/2015,03/23/2015,0.027,Financial,Closed-End Fund - Debt
+PPT,Putnam Premier Income Trust Shs Ben Int,0.516,9.7500%,5.29,04/22/2015,04/24/2015,05/01/2015,0.026,Financial,Closed-End Fund - Debt
+PRB,Market Vectors Pre-Refunded Municipal Index ETF,0.08,0.3300%,24.48,03/02/2015,03/04/2015,03/06/2015,0.007,N/A,N/A
+PSF,Cohen & Steers Select Preferred & Income Fund Inc.,2.064,7.7900%,26.49,03/18/2015,03/20/2015,03/31/2015,0.172,N/A,N/A
+PTY,Pimco Corporate Opportunity Fund,1.56,9.9400%,15.7,03/10/2015,03/12/2015,04/01/2015,0.13,Financial,Closed-End Fund - Debt
+PVI,Invesco PowerShares VRDO Tax Free Weekly Portfolio,0.008,0.0300%,24.95,03/13/2015,03/17/2015,03/31/2015,0.00005,N/A,N/A
+PWZ,Invesco PowerShares Insured CA Municipal Bond Portfolio,0.8772,3.400%,25.8,03/13/2015,03/17/2015,03/31/2015,0.0731,N/A,N/A
+PZA,Invesco PowerShares Insured National Municipal Bond Portfolio,0.9242,3.6200%,25.52,03/13/2015,03/17/2015,03/31/2015,0.07702,N/A,N/A
+PZT,Invesco PowerShares Insured NY Municipal Bond Portfolio,0.8456,3.4600%,24.42,03/13/2015,03/17/2015,03/31/2015,0.07047,N/A,N/A
+RCS,"PIMCO Strategic Global Government Fund, Inc.",0.96,10.400%,9.23,03/10/2015,03/12/2015,04/01/2015,0.08,N/A,N/A
+RIT,LMP Real Estate Income Fund Inc,0.72,5.500%,13.09,04/15/2015,04/17/2015,04/24/2015,0.06,Financial,Closed-End Fund - Equity
+EMAG,Market Vectors ETF Trust,0.9,4.0800%,22.08,03/02/2015,03/04/2015,03/06/2015,0.075,N/A,N/A
+SBW,Western Asset Worldwide Income Fund Inc,1.01,8.900%,11.35,04/15/2015,04/17/2015,04/24/2015,0.08,Financial,Closed-End Fund - Debt
+SCHO,Charles Schwab Short-Term U.S. Treasury ETF,0.2832,0.5600%,50.71,03/02/2015,03/04/2015,03/06/2015,0.0236,N/A,N/A
+SCHR,Charles Schwab Intermediate-Term U.S. Treasury ETF,0.7824,1.4400%,54.27,03/02/2015,03/04/2015,03/06/2015,0.0652,N/A,N/A
+SCPB,SPDR Barclays Capital Short Term Corporate Bond ETF,0.4423,1.4400%,30.73,03/02/2015,03/04/2015,03/10/2015,0.036858,N/A,N/A
+SGL,"Strategic Global Income Fund, Inc. Com.",0.4932,5.7700%,8.55,03/17/2015,03/19/2015,03/31/2015,0.0411,Financial,Closed-End Fund - Debt
+SHM,SPDR Barclays Short Term Municipal Bond ETF,0.2979,1.2300%,24.31,03/02/2015,03/04/2015,03/10/2015,0.024823,N/A,N/A
+SHY,iShares Barclays 1-3 Year Treasury Bond Fund,0.3724,0.4400%,84.81,03/02/2015,03/04/2015,03/06/2015,0.031035,N/A,N/A
+SLA,"American Select Portfolio, Inc. Com.",0.69,6.4700%,10.66,09/03/2014,09/05/2014,10/01/2014,0.0476,Financial,Closed-End Fund - Debt
+SMB,Market Vectors Short Municipal Index ETF,0.18,1.0300%,17.56,03/02/2015,03/04/2015,03/06/2015,0.015,N/A,N/A
+SMMU,PIMCO Short Term Municipal Bond Strategy Fund,0.432,0.8600%,50.37,03/31/2015,04/02/2015,04/07/2015,0.036,N/A,N/A
+SHYG,iShares 0-5 Year High Yield Corporate Bond ETF,2.0408,4.1600%,49.03,03/02/2015,03/04/2015,03/06/2015,0.170063,N/A,N/A
+SLQD,iShares 0-5 Year Investment Grade Corporate Bond ETF,0.6628,1.3100%,50.62,03/02/2015,03/04/2015,03/06/2015,0.055236,N/A,N/A
+SUB,iShares S&P Short Trm National Muni Bond,0.8169,0.7700%,105.71,03/02/2015,03/04/2015,03/06/2015,0.068074,N/A,N/A
+TAI,"Transamerica Income Shares, Inc. Com.",1.08,5.3100%,20.34,03/27/2015,03/31/2015,04/15/2015,0.09,Financial,Closed-End Fund - Debt
+TDN,DBX Strategic Advisors db-X 2030 Target Date Fund,0.52,1.7300%,30.03,12/19/2014,12/23/2014,12/26/2014,0.60121,N/A,N/A
+TENZ,PIMCO 7-15 Year U.S. Treasury Index Fund,1.92,2.200%,87.22,03/31/2015,04/02/2015,04/07/2015,0.16,N/A,N/A
+TFI,SPDR Barclays Municipal Bond,0.57,2.3500%,24.21,03/02/2015,03/04/2015,03/10/2015,0.050132,N/A,N/A
+TGR,iShares S&P Target Date Retirement Inc,0.76,2.2800%,33.36,10/02/2014,10/06/2014,10/08/2014,0.06318,N/A,N/A
+TIPZ,PIMCO Broad U.S. TIPS Index Fund,2.16,3.7500%,57.59,08/29/2014,09/03/2014,09/05/2014,0.08,N/A,N/A
+TLH,iShares Barclays 10-20 Year Treasury Bond Fund,2.6474,1.9100%,138.34,03/02/2015,03/04/2015,03/06/2015,0.220618,N/A,N/A
+TLO,SPDR Barclays Long Term Treasury ETF,1.6815,2.2400%,75.06,03/02/2015,03/04/2015,03/10/2015,0.140121,N/A,N/A
+TLT,iShares Barclays 20 Year Treasury Bond Fund,3.0251,2.3200%,130.41,03/02/2015,03/04/2015,03/06/2015,0.25209,N/A,N/A
+TRSY,PIMCO Broad U.S. Treasury Index Fund,1.45,1.4500%,99.72,02/28/2014,03/04/2014,03/06/2014,0.13,N/A,N/A
+TUZ,PIMCO 1-3 Year US Treasury Index Fund,0.24,0.4700%,51.01,03/31/2015,04/02/2015,04/07/2015,0.02,N/A,N/A
+TW,Towers Watson & Co.,0.6,0.4600%,131.15,03/27/2015,03/31/2015,04/15/2015,0.15,N/A,N/A
+TZD,iShares S&P Target Date 2010,0.91,2.5600%,35.57,10/02/2014,10/06/2014,10/08/2014,0.075498,N/A,N/A
+HFIN,Horizons S&P Fincl Sel Sect Cov Call ETF,0.6549,1.5600%,42.01,02/25/2015,02/27/2015,03/11/2015,0.054568,N/A,N/A
+USD,ProShares Ultra Semiconductors,0.5251,0.5800%,91.27,03/25/2015,03/27/2015,04/02/2015,0.131283,N/A,N/A
+VBF,Invesco Van Kampen Bond Fund,0.85,4.5700%,18.58,03/11/2015,03/13/2015,03/31/2015,0.071,Financial,Closed-End Fund - Debt
+VCF,Delaware Investments Colorado Municipal Income Fund Inc,0.69,4.8300%,14.29,03/11/2015,03/13/2015,03/27/2015,0.0575,Financial,Closed-End Fund - Debt
+VCIT,Vanguard Intermediate-Term Corporate Bond Index Fund,2.748,3.1400%,87.54,03/02/2015,03/04/2015,03/06/2015,0.229,N/A,N/A
+VCLT,Vanguard Long-Term Corporate Bond Index Fund,3.756,3.9900%,94.16,03/02/2015,03/04/2015,03/06/2015,0.313,N/A,N/A
+VCSH,Vanguard Short-Term Corporate Bond Index Fund,1.488,1.8600%,80.14,03/02/2015,03/04/2015,03/06/2015,0.124,N/A,N/A
+VCV,Invesco Van Kampen California Value Municipal Income Trust,0.79,5.9400%,13.31,03/11/2015,03/13/2015,03/31/2015,0.066,Financial,Closed-End Fund - Debt
+VFL,Delaware Investments National Municipal Income Fund,0.72,5.500%,13.08,03/11/2015,03/13/2015,03/27/2015,0.065,Financial,Closed-End Fund - Debt
+VGIT,Vanguard Intermediate-Term Government Bond Index Fund,1.068,1.6400%,65.29,03/02/2015,03/04/2015,03/06/2015,0.089,N/A,N/A
+VGLT,Vanguard Long-Term Government Bond Index Fund,3.768,4.700%,80.17,03/02/2015,03/04/2015,03/06/2015,0.172,N/A,N/A
+VGM,Invesco Van Kampen Trust For Investment Grade Municipals,0.89,6.6600%,13.37,03/11/2015,03/13/2015,03/31/2015,0.074,Financial,Closed-End Fund - Debt
+VGSH,Vanguard Short-Term Government Bond Index Fund,0.36,0.5900%,61.09,03/02/2015,03/04/2015,03/06/2015,0.03,N/A,N/A
+VKI,Invesco Van Kampen Advantage Municipal Income Trust II Sh Ben Int,0.78,6.7100%,11.62,03/11/2015,03/13/2015,03/31/2015,0.065,Financial,Closed-End Fund - Debt
+VKQ,Invesco Van Kampen Municipal Trust,0.82,6.4600%,12.7,03/11/2015,03/13/2015,03/31/2015,0.068,Financial,Closed-End Fund - Debt
+VMBS,Vanguard Mortgage-Backed Securities Index Fund,0.792,1.4800%,53.37,03/25/2015,03/27/2015,03/31/2015,0.066,N/A,N/A
+VMM,"Delaware Investments Minnesota Municipal Income Fund II, Inc",0.63,4.5500%,13.85,03/11/2015,03/13/2015,03/27/2015,0.0525,Financial,Closed-End Fund - Debt
+VMO,Invesco Van Kampen Municipal Opportunity Trust,0.79,6.1300%,12.88,03/11/2015,03/13/2015,03/31/2015,0.066,Financial,Closed-End Fund - Debt
+VOQ,Invesco Van Kampen Ohio Quality Municipal Trust,1.21,7.0300%,17.21,10/10/2012,10/12/2012,10/31/2012,0.272,Financial,Closed-End Fund - Debt
+VRD,SPDR S&P VRDO Municipal Bond ETF,0,0%,29.91,06/03/2013,06/05/2013,06/11/2013,0.001962,N/A,N/A
+VVR,Invesco Van Kampen Senior Income Trust,0.336,7.0400%,4.77,03/11/2015,03/13/2015,03/31/2015,0.028,N/A,N/A
+XAA,"American Municipal Income Portfolio, Inc. Com.",1.67,11.5700%,14.44,10/01/2014,10/03/2014,10/22/2014,0.139,Financial,Closed-End Fund - Debt
+XRU,Rydex CurrencyShares Russian Ruble Trust,0.33,0.9900%,33.29,09/01/2011,09/06/2011,09/09/2011,0.052,N/A,N/A
+ZTR,"Zweig Total Return Fund, Inc. (The) Com.",1.092,7.9600%,13.71,03/10/2015,03/12/2015,03/19/2015,0.091,Financial,Closed-End Fund - Debt
+MHR-D,Magnum Hunter Resources Corporation 8.0% Series D Cumulative Preferred Stock,4,11.5300%,34.7,03/11/2015,03/13/2015,03/31/2015,0.3333,N/A,N/A
+STB,Student Transportation Inc,0.55642,10.400%,5.35,03/27/2015,03/31/2015,04/15/2015,0.0463683,Services,Consumer Services
+SPLV,Invesco PowerShares S&P 500 Low Volatility Portfolio,0.9169,2.400%,38.21,03/13/2015,03/17/2015,03/31/2015,0.07641,N/A,N/A
+ETX,Eaton Vance Municipal Income Term Trust,0.85,4.7800%,17.79,03/20/2015,03/24/2015,03/31/2015,0.070833,N/A,N/A
+AFT,Apollo Senior Floating Rate Fund Inc,1.1724,6.5900%,17.79,04/16/2015,04/20/2015,04/30/2015,0.0977,N/A,N/A
+AUNZ,WisdomTree Australia & New Zealand Debt Fund,0.54,2.9600%,18.26,03/23/2015,03/25/2015,03/27/2015,0.045,N/A,N/A
+BCX,BlackRock Resources and Commodities,0.786,8.300%,9.47,03/11/2015,03/13/2015,03/31/2015,0.0655,N/A,N/A
+BKLN,Invesco PowerShares Senior Loan Portfolio,0.8765,3.6300%,24.13,03/13/2015,03/17/2015,03/31/2015,0.07304,N/A,N/A
+BONO,Market Vectors LatAm Aggregate Bond ETF,1.14,4.8400%,23.57,12/02/2013,12/04/2013,12/06/2013,0.09,N/A,N/A
+CAD,PIMCO Canada Bond Index Fund,0.96,1.00%,95.88,08/29/2014,09/03/2014,09/05/2014,0.2,N/A,N/A
+CBND,SPDR Barclays Capital Issuer Scored Corporate Bond ETF,0.9495,2.8900%,32.88,03/02/2015,03/04/2015,03/10/2015,0.079124,N/A,N/A
+CHLC,Market Vectors Renminbi Bond ETF,0.12,0.4800%,25.07,12/09/2014,12/11/2014,12/15/2014,0.6043,N/A,N/A
+CNPF,Global X Canada Preferred ETF,0.5,4.2400%,11.8,10/01/2014,10/03/2014,10/10/2014,0.0415,N/A,N/A
+CVRT,Invesco PowerShares Convertible Securities Portfolio,0,0%,25.03,01/15/2013,01/17/2013,01/31/2013,0.0565,N/A,N/A
+DSUM,Invesco PowerShares Chinese Yuan Dim Sum Bond Portfolio,0.7577,3.1300%,24.2,03/13/2015,03/17/2015,03/31/2015,0.06314,N/A,N/A
+EU,WisdomTree Euro Debt Fund,0.68,3.3100%,20.54,01/26/2015,01/28/2015,01/30/2015,0.05063,N/A,N/A
+FIF,First Trust Energy Infrastructure Fund,1.32,5.800%,22.75,04/01/2015,04/06/2015,04/15/2015,0.11,N/A,N/A
+FLOT,iShares Floating Rate Note Fund,0.2214,0.4400%,50.64,03/02/2015,03/04/2015,03/06/2015,0.018453,N/A,N/A
+FLRN,SPDR Barclays Capital Investment Grade Floating Rate ETF,0.1717,0.5600%,30.59,03/02/2015,03/04/2015,03/10/2015,0.014306,N/A,N/A
+FLTR,Market Vectors Investment Grade Floating Rate Bond ETF,0.1488,0.600%,24.87,03/02/2015,03/04/2015,03/06/2015,0.0124,N/A,N/A
+FWDB,AdvisorShares Madrona Forward Global Bond ETF,0.6905,2.6900%,25.67,03/25/2015,03/27/2015,03/31/2015,0.05754,N/A,N/A
+GIY,Guggenheim Enhanced Core Bond ETF,1.4,2.7900%,50.1,02/03/2014,02/05/2014,02/07/2014,0.1356,N/A,N/A
+GJK,SYNTHETIC FIXED FLOATING RATE STRATS,0.75,3.0100%,24.95,03/12/2014,03/14/2014,03/17/2014,0.0575342,N/A,N/A
+GSY,Guggenheim Enhanced Ultra-Short Bond ETF,0.5712,1.1400%,50.05,03/02/2015,03/04/2015,03/06/2015,0.0476,N/A,N/A
+HCIIP,"Homeowners Choice, Inc. - 7% Series A Cumulative Redeemable Preferred Stock",0.6999996,1.4700%,47.65,02/27/2014,03/03/2014,03/27/2014,0.0583333,N/A,N/A
+HYMB,SPDR Nuveen S&P High Yield Municipal Bond ETF,2.5344,4.400%,57.62,03/02/2015,03/04/2015,03/10/2015,0.211202,N/A,N/A
+HYS,PIMCO 0-5 Year High Yield Corporate Bond Index Fund,4.32,4.2400%,101.87,03/31/2015,04/02/2015,04/07/2015,0.36,N/A,N/A
+INF,Brookfield Global Listed Infrastructure,1.4004,6.7400%,20.79,03/17/2015,03/19/2015,03/26/2015,0.1167,N/A,N/A
+IPFF,iShares S&P International Preferred Stock Index Fund,0.832,4.100%,20.28,03/02/2015,03/04/2015,03/06/2015,0.069337,N/A,N/A
+JE,"Just Energy Group, Inc. Ordinary Shares (Canada)",0.5,10.7100%,4.67,03/12/2015,03/16/2015,03/31/2015,0.125,Utilities,Diversified Utilities
+JSD,Nuveen Short Duration Credit Opp Fund,1.164,6.800%,17.12,03/11/2015,03/13/2015,04/01/2015,0.097,N/A,N/A
+LEMB,iShares Emerging Markets Local Currency Bond Fund,0.827,1.8800%,44.03,03/02/2015,03/04/2015,03/06/2015,0.068919,N/A,N/A
+PBA,Pembina Pipeline Corp. Ordinary Shares (Canada),1.74,5.5200%,31.52,03/23/2015,03/25/2015,04/15/2015,0.145,Basic Materials,Oil & Gas Pipelines
+PFIG,Invesco PowerShares Fundamental Investment Grade Corporate Bond Portfolio,0.6451,2.5100%,25.75,03/13/2015,03/17/2015,03/31/2015,0.05376,N/A,N/A
+PFLT,PennantPark Floating Rate Capital Ltd.,1.14,8.0900%,14.09,03/18/2015,03/20/2015,04/01/2015,0.095,N/A,N/A
+PVX,Provident Energy Ltd (USA),0.54,0%,0,03/15/2012,03/19/2012,04/13/2012,0.045,N/A,N/A
+RMB,Guggenheim Yuan Bond ETF,0,0%,26.13,05/01/2013,05/03/2013,05/07/2013,0.064,N/A,N/A
+SCHZ,Charles Schwab U.S. Aggregate Bond ETF,1.0704,2.0300%,52.85,03/02/2015,03/04/2015,03/06/2015,0.0892,N/A,N/A
+SDIV,Global X SuperDividend ETF,1.45,6.2200%,23.3,03/02/2015,03/04/2015,03/11/2015,0.1205,N/A,N/A
+SST,SPDR Barclays Capital Short Term Treasury ETF,0.2262,0.7500%,30.28,03/02/2015,03/04/2015,03/10/2015,0.018854,N/A,N/A
+SUNS,Solar Senior Capital Ltd,1.41,8.5700%,16.45,03/17/2015,03/19/2015,04/02/2015,0.1175,Financial,Closed-End Fund - Debt
+XMPT,Market Vectors CEF Municipal Income ETF,1.344,5.0600%,26.58,03/02/2015,03/04/2015,03/06/2015,0.112,N/A,N/A
+ARCT,"American Realty Capital Trust, Inc.",0.69996,5.3800%,13.01,01/04/2013,01/08/2013,01/15/2013,0.05958,Financial,REIT - Office
+EMCB,WisdomTree Emerging Markets Corporate Bond Fund,3.96,5.5400%,71.46,03/23/2015,03/25/2015,03/27/2015,0.28,N/A,N/A
+AMPS,iShares Utilities Sector Bond Fund,1.4671,2.7700%,53.05,03/02/2015,03/04/2015,03/06/2015,0.122259,N/A,N/A
+ANGL,Market Vectors Fallen Angel ETF,1.344,4.900%,27.41,03/02/2015,03/04/2015,03/06/2015,0.112,N/A,N/A
+BOND,PIMCO Total Return Exchange-Traded Fund,2.16,1.9600%,110.05,03/31/2015,04/02/2015,04/07/2015,0.18,N/A,N/A
+BOXC,Brookfield Canada Office Properties,1.17,5.1800%,22.58,04/28/2015,04/30/2015,05/15/2015,0.1033,Financial,REIT - Office
+BSCI,Guggenheim BulletShares 2018 Corporate Bond ETF,0.3336,1.5600%,21.33,03/02/2015,03/04/2015,03/06/2015,0.0278,N/A,N/A
+BSCJ,Guggenheim BulletShares 2019 Corporate Bond ETF,0.3852,1.8100%,21.27,03/02/2015,03/04/2015,03/06/2015,0.0321,N/A,N/A
+BSCK,Guggenheim BulletShares 2020 Corporate Bond ETF,0.4752,2.2100%,21.47,03/02/2015,03/04/2015,03/06/2015,0.0396,N/A,N/A
+BSJG,Guggenheim BulletShares 2016 High Yield Corporate Bond ETF,0.8904,3.3800%,26.36,03/02/2015,03/04/2015,03/06/2015,0.0742,N/A,N/A
+BSJH,Guggenheim BulletShares 2017 High Yield Corporate Bond ETF,0.948,3.5900%,26.44,03/02/2015,03/04/2015,03/06/2015,0.079,N/A,N/A
+BSJI,Guggenheim BulletShares 2018 High Yield Corporate Bond ETF,1.0764,4.1400%,26,03/02/2015,03/04/2015,03/06/2015,0.0897,N/A,N/A
+BWG,Legg Mason BW Global Income Opp,1.44,8.9200%,16.14,04/15/2015,04/17/2015,04/24/2015,0.13,N/A,N/A
+CMBS,iShares Barclays CMBS Bond Fund,1.2046,2.3100%,52.15,03/02/2015,03/04/2015,03/06/2015,0.100384,N/A,N/A
+COBO,ProShares USD Covered Bond,1.0203,1.0200%,100.48,03/02/2015,03/04/2015,03/10/2015,0.085021,N/A,N/A
+DVYL,UBS ETRACS Monthly Pay 2x Leveraged Dow Jones Select Dividend Index ETN,5.1912,10.5400%,49.25,03/11/2015,03/13/2015,03/23/2015,0.4326,N/A,N/A
+EMCD,SPDR BofA Merrill Lynch Emerging Markets Corporate Bond ETF,1.247,4.300%,29,03/02/2015,03/04/2015,03/10/2015,0.103915,N/A,N/A
+ENGN,iShares Industrials Sector Bond Fund,1.4816,2.900%,51.01,03/02/2015,03/04/2015,03/06/2015,0.123464,N/A,N/A
+GAINP,Gladstone Investment Corporation,1.781256,6.8800%,25.9,03/18/2015,03/20/2015,03/31/2015,0.148438,Financial,Diversified Investments
+GGOV,German Sovereign/Sub-Sovereign ETF,0.83,2.3300%,35.63,12/22/2014,12/24/2014,12/31/2014,0.0277,N/A,N/A
+GLADP,Gladstone Capital Corporation,0,0%,25.13,05/16/2014,05/20/2014,05/23/2014,0.148438,Financial,Asset Management
+GNMA,Barclays GNMA Bond Fund,0.7102,1.4100%,50.46,03/02/2015,03/04/2015,03/06/2015,0.059183,N/A,N/A
+GOODN,Gladstone Commercial Corporation,1.781256,6.9600%,25.58,03/18/2015,03/20/2015,03/31/2015,0.148438,Financial,REIT - Diversified
+GOVT,Barclays U.S. Treasury Bond Fund,0.2728,1.0700%,25.49,03/02/2015,03/04/2015,03/06/2015,0.022733,N/A,N/A
+HYEM,Market Vectors Emerging Markets High Yield Bond ETF ,1.56,6.6800%,23.35,03/02/2015,03/04/2015,03/06/2015,0.13,N/A,N/A
+DBL,Doubleline Opportunistic Credit Fund,2,8.0500%,24.85,03/11/2015,03/13/2015,03/31/2015,0.167,N/A,N/A
+IHY,Market Vectors International High Yield Bond ETF,1.2,4.9900%,24.07,03/02/2015,03/04/2015,03/06/2015,0.1,N/A,N/A
+ISD,Prudential Short Duration High Yield Fund,1.47,9.0100%,16.32,04/15/2015,04/17/2015,04/30/2015,0.1225,Financial,Savings & Loans
+JRI,Nuveen Real Asset Income and Growth Fund Common Shares of Beneficial Interest,1.266,6.5200%,19.43,03/11/2015,03/13/2015,04/01/2015,0.1345,Financial,Asset Management
+MONY,Financials Sector Bond Fund,1.3766,2.500%,55.11,03/02/2015,03/04/2015,03/06/2015,0.114716,N/A,N/A
+PDI,PIMCO Dynamic Income Fund,2.292,7.8900%,29.04,03/10/2015,03/12/2015,04/01/2015,0.191,Financial,Asset Management
+QLTA,Aaa - A Rated Corporate Bond Fund,1.2868,2.4500%,52.5,03/02/2015,03/04/2015,03/06/2015,0.107236,N/A,N/A
+RWXL,ETRACS Monthly Pay 2XLeveraged Dow Jones International Real Estate ETN,1.6524,4.500%,36.76,03/11/2015,03/13/2015,03/23/2015,0.1377,N/A,N/A
+SDYL,ETRACS Monthly Pay 2xLeveraged S&P Dividend ETN,3.2676,5.9400%,55.03,03/11/2015,03/13/2015,03/23/2015,0.2723,N/A,N/A
+SJNK,SPDR Barclays Capital Short Term High Yield Bond ETF,1.5495,5.300%,29.22,03/02/2015,03/04/2015,03/10/2015,0.129121,N/A,N/A
+VGI,Virtus Global Multi-Sector Inco,3,17.900%,16.76,04/09/2015,04/13/2015,04/20/2015,0.156,Financial,Closed-End Fund - Equity
+XOVR,SPDR BofA Merrill Lynch Crossover Corporate Bond ETF,0.8439,3.1900%,26.46,03/02/2015,03/04/2015,03/10/2015,0.070326,N/A,N/A
+ARR-A,Armour Residential REIT INC Preferred Series A,2.06,8.3600%,24.63,03/11/2015,03/15/2015,03/27/2015,0.171875,Financial,REIT - Residential
+EPM-A,"Evolution Petroleum Corporation, Inc. 8.5% Series A Cumulative Preferred Stock",2.124996,8.4100%,25.26,03/12/2015,03/16/2015,03/31/2015,0.177083,Basic Materials,Independent Oil & Gas
+GLAD-A,"Gladstone Capital Corporation - Term Preferred Shares, 7.125% Series 2016",1.781256,6.9900%,25.47,12/14/2011,12/16/2011,12/30/2011,0.133594,Financial,Asset Management
+GST-A,Gastar Exploration 8.625% Series A Cumulative Preferred Stock,2.156256,10.0800%,21.4,03/11/2015,03/13/2015,03/31/2015,0.179688,Basic Materials,Independent Oil & Gas
+IRC-A,Inland Real Estate Corporation 8.125% Series A Cumulative Redeemable Preferred Stock,2.031252,7.7100%,26.35,03/30/2015,04/01/2015,04/15/2015,0.169271,Financial,REIT - Retail
+KYN-E,Kayne Anderson MLP Investment Company Series E,1.06,4.1900%,25.28,04/13/2015,04/15/2015,05/01/2015,0.088542,Financial,Closed-End Fund - Equity
+NBJ-A,Nuveen Ohio Dividend Advantage Municipal Fund 2 Preferred Shares,0.23,2.2900%,10.06,04/03/2013,04/05/2013,05/01/2013,0.004569,Financial,Closed-End Fund - Debt
+NKG-D,Nuveen Georgia Dividend Advantage Municipal Fund 2,0,0%,10.07,04/11/2014,04/15/2014,05/01/2014,0.022083,Financial,Closed-End Fund - Debt
+NKG-E,Nuveen Georgia Dividend Advantage Municipal Fund MuniFund Term,0,0%,10.03,04/11/2014,04/15/2014,05/01/2014,0.022083,Financial,Closed-End Fund - Debt
+NMY-D,Nuveen Maryland Premium Income Municipal Fund Preferred Shares Series D,0,0%,10.07,04/11/2014,04/15/2014,05/01/2014,0.024167,Financial,Closed-End Fund - Debt
+NPV-A,Nuveen Virginia Premium Income Municipal Fund MUNIFUND TERM PFD SHS SER 2016,0.225,2.2500%,10,08/13/2013,08/15/2013,09/03/2013,0.01875,Financial,Closed-End Fund - Debt
+NTC-E,Nuveen Connecticut Premium Income Municipal Fund 2.60% Series 2015,0.19,1.8900%,10.06,02/12/2014,02/14/2014,03/03/2014,0.021667,Financial,Closed-End Fund - Debt
+NTC-F,Nuveen Connecticut Premium Income Mun Fd,0.19,1.3300%,14.24,02/12/2014,02/14/2014,03/03/2014,0.021667,Financial,Closed-End Fund - Debt
+NTC-G,"Nuveen Connecticut Premium Income Municipal Fund 2.65% Series 2015 #1, MuniFund Term ",0.19,1.8900%,10.07,02/12/2014,02/14/2014,03/03/2014,0.022083,Financial,Closed-End Fund - Debt
+TYY-C,Tortoise Energy Capital Corporation Series C,0.4,3.8800%,10.31,06/11/2014,06/15/2014,07/01/2014,0.032917,Financial,Closed-End Fund - Equity
+JPI,Nuveen Preferred & Income Term Fund,1.914,8.1700%,23.44,03/11/2015,03/13/2015,04/01/2015,0.1595,Financial,Closed-End Fund - Equity
+LDP,"Cohen & Steers Limited Duration Preferred and Income Fund, Inc.",1.872,7.7900%,24.03,03/18/2015,03/20/2015,03/31/2015,0.156,Financial,Closed-End Fund - Equity
+GRH-C,GreenHunter Energy Inc 10% Series C Cumulative Preferred Stock,2.5,13.300%,18.8,03/18/2015,03/20/2015,03/31/2015,0.208333,N/A,N/A
+NPV-D,"Nuveen Virginia Premium Income Municipal Fund 2.80% series 2014, MuniFund Term Preferred SBI",0.28,2.7900%,10.04,08/13/2013,08/15/2013,09/03/2013,0.023333,N/A,N/A
+MORL,ETRACS Monthly Pay 2XLeveraged Mortgage REIT ETN,0.7212,3.4700%,20.77,03/11/2015,03/13/2015,03/23/2015,0.0601,N/A,N/A
+WHLR,Wheeler Real Estate Investment Trust Inc,0.21,9.0500%,2.32,03/27/2015,03/31/2015,04/30/2015,0.0175,N/A,N/A
+CPG,CRESCENT POINT EN,2.76,12.1800%,22.66,03/27/2015,03/31/2015,04/15/2015,0.23,N/A,N/A
+OXLCP,Oxford Lane Capital Corp,2.13,8.2400%,25.86,04/14/2015,04/16/2015,04/30/2015,0.1771,N/A,N/A
+NID,Nuveen Intermediate Duration Mu,0.66,5.1300%,12.87,03/11/2015,03/13/2015,04/01/2015,0.057,N/A,N/A
+O-F,Realty Income,1.66,6.2400%,26.59,03/30/2015,04/01/2015,04/15/2015,0.138021,N/A,N/A
+MDIV,First Trust Exchange Traded Fd VI,1.68,7.9800%,21.06,03/25/2015,03/27/2015,03/31/2015,0.14,N/A,N/A
+GLDI,Credit Suisse Gold Shrs Cov Call Exc ETN,0.9612,8.1700%,11.77,03/18/2015,03/20/2015,03/25/2015,0.0801,N/A,N/A
+ORC,Orchid Island Capital Inc,2.16,16.3400%,13.22,03/25/2015,03/27/2015,03/31/2015,0.18,N/A,N/A
+LAND,Gladstone Land Corporation,1.44,11.9900%,12.01,03/18/2015,03/20/2015,03/31/2015,0.035,N/A,N/A
+GLCB,WisdomTree Global Corporate Bond,3,3.9500%,75.86,05/23/2014,05/28/2014,05/30/2014,0.26,N/A,N/A
+PCI,PIMCO Dynamic Credit Income Fund,1.875,9.1900%,20.41,03/10/2015,03/12/2015,04/01/2015,0.15625,N/A,N/A
+IMLP,iPath S&P MLP ETN,1.4546,5.0500%,28.78,02/26/2015,03/02/2015,03/10/2015,0.363661,N/A,N/A
+DIV,Global X SuperDividend US ETF,1.99,7.0300%,28.31,03/02/2015,03/04/2015,03/11/2015,0.1655,N/A,N/A
+ARR-B,"ARMOUR Residential REIT, Inc. Preferred Series B",1.97,8.2500%,23.88,03/11/2015,03/15/2015,03/27/2015,0.164062,N/A,N/A
+NIQ,Nuveenn Intermediate Duration Quality Municipal Term Fund Common Shares of Beneficial Interest,0.58,4.4800%,12.96,03/11/2015,03/13/2015,04/01/2015,0.0495,N/A,N/A
+FPE,Fuchs Petrolub AG,1.32,6.8800%,19.19,03/25/2015,03/27/2015,03/31/2015,0.11,N/A,N/A
+AIF,Apollo Tactical Income Fund Inc,1.4,8.5400%,16.4,04/16/2015,04/20/2015,04/30/2015,0.117,N/A,N/A
+BIT,Blackrock Multi-Sector Income Trust,1.4,7.9900%,17.53,03/11/2015,03/13/2015,03/31/2015,0.1167,N/A,N/A
+OAKS,Five Oaks Investment Corp.,1.56,14.6100%,10.68,04/13/2015,04/15/2015,04/29/2015,0.125,N/A,N/A
+MINC,AdvisorShares Newfleet Multi-sector Income ETF,1.4584,2.9600%,49.27,03/25/2015,03/27/2015,03/31/2015,0.12153,N/A,N/A
+BOI,Brookfield Mortgage Opportunity Income Fund Inc.,1.53,9.3500%,16.37,03/17/2015,03/19/2015,03/26/2015,0.1271,N/A,N/A
+MUAG,iShares 2018 S&P AMT-Free Municipal Series,0.22,0.8600%,25.52,07/01/2014,07/03/2014,07/08/2014,0.019962,N/A,N/A
+SRLN,SPDR Blackstone GSO Senior Loan ETF,1.8768,3.800%,49.43,03/02/2015,03/04/2015,03/10/2015,0.156403,N/A,N/A
+THHY,Market Vectors Treasury-Hedged High Yield Bond ETF,0.6,2.4700%,24.28,03/02/2015,03/04/2015,03/06/2015,0.05,N/A,N/A
+FTSL,First Trust Senior Loan Fund ETF,1.8,3.6600%,49.21,03/25/2015,03/27/2015,03/31/2015,0.15,N/A,N/A
+DMB,Dreyfus Municipal Bond Infrstrctr Fd Inc,0.75,5.8900%,12.74,03/13/2015,03/17/2015,04/01/2015,0.0625,N/A,N/A
+BNDX,Vanguard Total International Bond ETF,0.744,1.3800%,53.97,03/02/2015,03/04/2015,03/06/2015,0.062,N/A,N/A
+IBCB,iShares 2016 Investment Grade C,0.612,0.6100%,99.69,03/02/2015,03/04/2015,03/06/2015,0.050999,N/A,N/A
+IBCC,iShares 2018 Investment Grade C,1.4201,1.4300%,99.29,03/02/2015,03/04/2015,03/06/2015,0.118342,N/A,N/A
+IBCD,iShares 2020 Investment Grade C,2.1393,2.1400%,99.79,03/02/2015,03/04/2015,03/06/2015,0.178279,N/A,N/A
+IBCE,iShares 2023 Investment Grade C,2.6084,2.6400%,98.85,03/02/2015,03/04/2015,03/06/2015,0.21737,N/A,N/A
+DSL,DoubleLine Income Solutions Fund Common Shares of Beneficial Interests,1.8,9.0600%,19.87,03/11/2015,03/13/2015,03/31/2015,0.15,N/A,N/A
+HCAP,Harvest Capital Credit Corp,1.35,10.4200%,12.95,04/21/2015,04/23/2015,04/30/2015,0.1125,Financial,Asset Management
+LTS-A,"Ladenburg Thalmann Financial Services Inc 8.00% Series A Cumulative Redeemable Preferred Stock, Liquidation Preference $25.00 per share",2.33,9.6900%,24.03,03/11/2015,03/15/2015,03/30/2015,0.166667,N/A,N/A
+DGRW,WisdomTree U.S. Dividend Growth Fund,0.7609,2.4100%,31.53,03/23/2015,03/25/2015,03/27/2015,0.06341,N/A,N/A
+VWOB,Vanguard Emerging Markets Government Bond ETF,3.432,4.4200%,77.65,03/02/2015,03/04/2015,03/06/2015,0.286,N/A,N/A
+OXLCO,"Oxford Lane Capital Corp. - Term Preferred Shares, 7.50% Series 2023",1.88,7.5200%,25,04/14/2015,04/16/2015,04/30/2015,0.15625,N/A,N/A
+VNRAP,Vanguard Natural Resources LLC - 7.875% Series A Cumulative Redeemable Perpetual Preferred Unit,1.97,8.200%,24.02,03/30/2015,04/01/2015,04/15/2015,0.1641,N/A,N/A
+KIO,KKR Income Opportunities Fund,1.5,9.100%,16.48,04/16/2015,04/20/2015,04/27/2015,0.125,N/A,N/A
+YYY,YieldShares High Income ETF ,1.92,9.0600%,21.2,03/25/2015,03/27/2015,03/30/2015,0.16,N/A,N/A
+HSPX,Horizons S&P 500 Covered Call ETF,0.83,1.8200%,45.52,03/25/2015,03/27/2015,04/09/2015,0.069164,N/A,N/A
+JPW,Nuveen Flexible Investment Income Fund,1.512,8.8700%,17.05,03/11/2015,03/13/2015,04/01/2015,0.126,N/A,N/A
+BSCL,CLAYMORE EXCHANGE-TRADED FD TR,0.4992,2.3500%,21.25,03/02/2015,03/04/2015,03/06/2015,0.0416,N/A,N/A
+EFF,Eaton Vance Floating-Rate Income Plus Fund,1.152,6.800%,16.94,03/20/2015,03/24/2015,03/31/2015,0.096,N/A,N/A
+MHR-E,Magnum Hunter Resources Corp,2,8.0500%,24.85,03/11/2015,03/13/2015,03/31/2015,0.1667,N/A,N/A
+ORM,"Owens Realty Mortgage, Inc.",0.28,1.900%,14.75,03/27/2015,03/31/2015,04/14/2015,0.07,Financial,REIT - Office
+BSCM,CLAYMORE EXCHANGE-TRADED FD TR,0.444,2.0900%,21.2,03/02/2015,03/04/2015,03/06/2015,0.037,N/A,N/A
+TIPX,SPDR Barclays 1-10 Year TIPS,0.1006,0.5200%,19.29,12/29/2014,12/31/2014,01/07/2015,0.083912,N/A,N/A
+IBDC,"iShares, Inc. iSharesBond 2020 Corporate Term ETF",2.3614,2.2200%,106.44,03/02/2015,03/04/2015,03/06/2015,0.196783,N/A,N/A
+IBDB,"iShares, Inc. iSharesBond 2018 Corporate Term ETF",1.6166,1.5700%,103.06,03/02/2015,03/04/2015,03/06/2015,0.13472,N/A,N/A
+YDIV,First Trust Exchange Traded Fd VI,0.72,3.7800%,19.05,03/25/2015,03/27/2015,03/31/2015,0.06,N/A,N/A
+FNDA,Schwab Fundamental U.S. Small Company Index ETF,0.3124,1.00%,31.11,03/30/2015,04/01/2015,04/06/2015,0.0781,N/A,N/A
+FEI,First Trust MLP and Energy Income Fund,1.38,6.6800%,20.65,04/01/2015,04/06/2015,04/15/2015,0.115,N/A,N/A
+DGRS,WisdomTree U.S. SmallCap Dividend Growth Fund,1.2,3.9700%,30.26,03/23/2015,03/25/2015,03/27/2015,0.1,N/A,N/A
+FNDB,Schwab Fundamental U.S. Broad Market Index ETF,0.5912,1.9500%,30.26,03/30/2015,04/01/2015,04/06/2015,0.1478,N/A,N/A
+FTSD,Franklin Short Duration U.S. Government ETF,1.2443,1.2500%,99.28,03/31/2015,04/02/2015,04/07/2015,0.10369,N/A,N/A
+CEN,Center Coast MLP & Infrastructure,1.25,7.1400%,17.5,04/08/2015,04/10/2015,04/28/2015,0.1042,N/A,N/A
+BSJJ,CLAYMORE EXCHANGE-TRADED FD TRUST GUGGENHEIM BULLETSHR 2019 H,1.008,4.00%,25.22,03/02/2015,03/04/2015,03/06/2015,0.084,N/A,N/A
+BSJK,CLAYMORE EXCHANGE-TRADED FD TRUST GUGGENHEIM BULLETSHR 2020 H,1.1904,4.6700%,25.51,03/02/2015,03/04/2015,03/06/2015,0.0992,N/A,N/A
+RIGS,ALPS ETF TRUST RIVERFRONT STRATEGIC INCOME,0.9861,3.9300%,25.12,03/25/2015,03/27/2015,04/01/2015,0.082171,N/A,N/A
+DVHL,UBS E-TRACS Mthly Pay 2x Divs Hi Inc ETN,3.3984,14.1400%,24.03,03/11/2015,03/13/2015,03/23/2015,0.2832,N/A,N/A
+GST-B,Gastar Exploration USA Inc. Pfd Ser B %,2.69,11.0200%,24.4,03/11/2015,03/13/2015,03/31/2015,0.223958,N/A,N/A
+IVH,Ivy High Income Opportunities Fund,2.94,17.9800%,16.35,03/13/2015,03/17/2015,03/31/2015,0.125,N/A,N/A
+QYLD,Recon Capital NASDAQ-100 Covered Call ETF,1.9158,8.1300%,23.57,03/25/2015,03/27/2015,04/01/2015,0.159652,N/A,N/A
+AGND,WisdomTree Trust,0.66,1.4800%,44.56,03/23/2015,03/25/2015,03/27/2015,0.055,N/A,N/A
+AGZD,WisdomTree Trust,0.72,1.4700%,49.08,03/23/2015,03/25/2015,03/27/2015,0.06,N/A,N/A
+ARCPP,"American Realty Capital Properties, Inc. - 6.70% Series F Cumulative Redeemable Preferred Stock",1.68,7.1400%,23.53,03/30/2015,04/01/2015,04/15/2015,0.139583,N/A,N/A
+HYND,WisdomTree Trust,0.72,3.3700%,21.35,03/23/2015,03/25/2015,03/27/2015,0.06,N/A,N/A
+HYZD,WisdomTree Trust,0.9,3.7700%,23.89,03/23/2015,03/25/2015,03/27/2015,0.075,N/A,N/A
+SEMF,EGShares TCW EM Short Term Investment Grade Bond ETF,0.2,1.00%,19.96,08/25/2014,08/27/2014,08/28/2014,0.02013,N/A,N/A
+FTHI,First Trust Exchange Traded Fund VI,1.02,4.8900%,20.86,03/25/2015,03/27/2015,03/31/2015,0.085,N/A,N/A
+DI,PIMCO Diversified Income ETF,2.04,4.0900%,49.88,03/31/2015,04/02/2015,04/07/2015,0.17,N/A,N/A
+IEM-F,EGShares TCW EM Intermediate Term Investment Grade Bond ETF,0.64,3.1800%,20.1,08/25/2014,08/27/2014,08/28/2014,0.05093,N/A,N/A
+LEMF,EGShares TCW EM Long Term Investment Grade Bond ETF,0.78,3.7800%,20.62,08/25/2014,08/27/2014,08/28/2014,0.05814,N/A,N/A
+LDUR,PIMCO Low Duration Exchange-Traded Fund,0.96,0.9500%,101.5,03/31/2015,04/02/2015,04/07/2015,0.08,N/A,N/A
+MUAH,iShares 2019 AMT-Free Muni Term ETF,0.24,0.9500%,25.29,07/01/2014,07/03/2014,07/08/2014,0.024072,N/A,N/A
+NQP-C,Nuveen Pennsylvania Dividend Advantage Municipal Fund Preferred Shs Series 2015,0,0%,10.03,04/11/2014,04/15/2014,05/01/2014,0.0175,N/A,N/A
+SHYD,Market Vectors ETF Trust,0.7212,2.8300%,25.48,03/02/2015,03/04/2015,03/06/2015,0.0601,N/A,N/A
+BRG,"Bluerock Residential Growth REIT, Inc",1.16,8.6100%,13.48,03/23/2015,03/25/2015,04/05/2015,0.096667,N/A,N/A
+HCT,AMERICAN RLTY CAP HEALTHCARE TR INC,0.68,5.1800%,13.12,01/06/2015,01/08/2015,01/15/2015,0.0566667,Financial,REIT - Healthcare Facilities
+CRED,iShares Lehman Credit Bond Fund (ETF),2.9409,2.600%,113.01,03/02/2015,03/04/2015,03/06/2015,0.245076,N/A,N/A
+LGCYP,Legacy Reserves LP - 8% Series A Fixed-to-Floating Rate Cumulative Redeemable Perpetual Preferred Units,1.86,9.3800%,19.82,03/30/2015,04/01/2015,04/15/2015,0.166667,N/A,N/A
+ULST,SPDR SSgA Ultra Short Term Bond ETF,0.1698,0.4200%,40.04,03/02/2015,03/04/2015,03/10/2015,0.014152,N/A,N/A
+OXLCN,Oxford Lane Capital Corp. - 8.125% Series 2024 Term Preferred Stock,2.03,8.0500%,25.22,04/14/2015,04/16/2015,04/30/2015,0.1693,N/A,N/A
+FPF,First Trust Intrmdt Drtn Prfrd & Incm Fd,1.89,8.3800%,22.57,04/01/2015,04/06/2015,04/15/2015,0.1625,N/A,N/A
+GHY,Prudential Global Short Du Hig Yd FD Inc,1.5,9.3600%,16.03,04/15/2015,04/17/2015,04/30/2015,0.125,N/A,N/A
+LMLP,"LML Payment Systems, Inc.",10.7976,45.0500%,23.97,03/11/2015,03/13/2015,03/23/2015,0.8998,N/A,N/A
+ENLC,EnLink Midstream LLC,0.94,2.8800%,32.59,01/29/2015,02/02/2015,02/13/2015,0.235,Basic Materials,Oil & Gas Refining & Marketing
+NYRT,"New York REIT, Inc.",0.46,4.3900%,10.48,04/06/2015,04/08/2015,04/15/2015,0.0383333,Financial,REIT - Office
+SIPE,SPDR Series Trust,0.54,2.7800%,19.43,12/29/2014,12/31/2014,01/07/2015,0.033043,N/A,N/A
+TFLO,iShares Trust,0.0446,0.0900%,50.04,03/02/2015,03/04/2015,03/06/2015,0.003717,N/A,N/A
+FSIC,FS Investment Corporation Commo,0.89,8.8200%,10.09,03/23/2015,03/25/2015,04/02/2015,0.22275,N/A,N/A
+BGH,Babson Capital Glbl Shrt Drtn Hgh Yld Fd,2.01,9.6800%,20.77,04/20/2015,04/22/2015,05/01/2015,0.1677,N/A,N/A
+LGCYO,Legacy Reserves LP - 8.00% Series B Fixed-to-Floating Rate Cumulative Redeemable Perpetual Preferred Units,2,10.0800%,19.85,03/30/2015,04/01/2015,04/15/2015,0.166667,N/A,N/A
+BYLD,iShares Yield Optimized Bond ETF,0.6409,2.5200%,25.4,03/03/2015,03/05/2015,03/09/2015,0.053407,N/A,N/A
+BBEPP,"BreitBurn Energy Partners, L.P. - 8.25% Series A Cumulative Redeemable Perpetual Preferred Units",2.06,9.9600%,20.68,03/27/2015,03/31/2015,04/15/2015,0.171875,N/A,N/A
+LDRI,PowerShares LadderRite 0-5 Year Corporate Bond Portfolio,0.2939,1.1800%,24.94,03/13/2015,03/17/2015,03/31/2015,0.02449,N/A,N/A
+UDF,United Development Funding IV - Common Shares of Beneficial Interest,1.64,9.0900%,18.05,03/11/2015,03/13/2015,03/25/2015,0.1367,N/A,N/A
+CRDT,WisdomTree Trust,3,3.9700%,75.5,03/23/2015,03/25/2015,03/27/2015,0.25,N/A,N/A
+FMB,First Trust Exchange-Traded Fund III - First Trust Managed Municipal ETF,1.38,2.6600%,51.94,03/25/2015,03/27/2015,03/31/2015,0.115,N/A,N/A
+TYG-C,Tortoise Energy Infrastructure Corp PRFD 'C',0.4,3.9100%,10.24,04/13/2015,04/15/2015,05/01/2015,0.032917,N/A,N/A
+LQDH,ISHARES PLC ISHARES $ CORP BND INTEREST RATE HDG,2.9349,3.0400%,96.4,03/03/2015,03/05/2015,03/09/2015,0.244578,N/A,N/A
+IBDF,iSharesBond Dec 2016 Corporate Term ETF,0.6807,0.6800%,100.55,03/02/2015,03/04/2015,03/06/2015,0.056721,N/A,N/A
+IBDH,iShareBond Dec 2018 Corporate Term ETF,1.5703,1.5500%,101.19,03/02/2015,03/04/2015,03/06/2015,0.130861,N/A,N/A
+STIP,iShares Trust,2.83,2.8500%,99.21,09/02/2014,09/04/2014,09/08/2014,0.085629,N/A,N/A
+SUBD,db X-trackers Solactive Investment Grade Subordinated Debt Fund,1.1471,4.4300%,25.91,03/02/2015,03/04/2015,03/06/2015,0.09559,N/A,N/A
+ENRJ-,"EnerJex Resources, Inc. 10% Series A Cumulative Redeemable Perpetual Preferred Stock",3.33,39.2700%,8.48,03/12/2015,03/16/2015,03/31/2015,0.208333,N/A,N/A
+IBMG,iShares Trust,0.2863,1.1200%,25.45,03/02/2015,03/04/2015,03/06/2015,0.023859,N/A,N/A
+IBMH,iShares Trust,0.3186,1.2500%,25.5,03/02/2015,03/04/2015,03/06/2015,0.026552,N/A,N/A
+FMLP,ETRACS Wells Fargo MLP Ex-Energy ETN,5.3424,21.7600%,24.55,03/11/2015,03/13/2015,03/23/2015,0.4452,N/A,N/A
+FTSM,First Trust Enhanced Short Maturity ETF,0.24,0.400%,60.02,03/25/2015,03/27/2015,03/31/2015,0.02,N/A,N/A
+THQ,Tekla Healthcare Opportunities Fund,1.35,6.5300%,20.66,03/17/2015,03/19/2015,03/31/2015,0.1125,N/A,N/A
+FDIV,First Trust Strategic Income ETF,1.92,3.8300%,50.07,03/25/2015,03/27/2015,03/31/2015,0.16,N/A,N/A
+NXJ-C,Nuveen New Jersey Dividend Advantage Municipal Fund PRFD 'C',0.14,1.400%,10.03,01/13/2015,01/15/2015,02/02/2015,0.016667,N/A,N/A
+HDLV,"ETRACS Montly Pay 2xLeveraged US High Dividend Low Volatility ETN due September 30, 2044",2.7444,10.2400%,26.79,03/11/2015,03/13/2015,03/23/2015,0.2252,N/A,N/A
+YUMA-A,"Yuma Energy, Inc. 9.25% Series A Cumulative Redeemable Preferred Stock",2.31,12.200%,18.94,03/16/2015,03/18/2015,04/01/2015,0.192708,N/A,N/A
+HIPS,Master Income ETF,1.29,6.4200%,20.08,03/17/2015,03/19/2015,03/20/2015,0.1075,N/A,N/A
+CDC,Compass EMP U S EQ Income 100 Enhanced Volatility Weighted Fund,1.0405,2.8500%,36.5,04/21/2015,04/23/2015,04/24/2015,0,N/A,N/A
+WBIE,Absolute Shares Trust,0.1634,0.6400%,25.6,03/17/2015,03/19/2015,03/20/2015,0.0136162,N/A,N/A
+IBMI,iShares Trust,0.3002,1.1900%,25.33,03/02/2015,03/04/2015,03/06/2015,0.025018,N/A,N/A
+BSCN,Claymore Exchange-Traded Fund Trust,0.3936,1.8900%,20.86,03/02/2015,03/04/2015,03/06/2015,0.0328,N/A,N/A
+BSCO,Claymore Exchange-Traded Fund Trust,0.4308,2.0700%,20.85,03/02/2015,03/04/2015,03/06/2015,0.0359,N/A,N/A
+BSJL,Claymore Exchange-Traded Fund Trust,1.1772,4.700%,25.03,03/02/2015,03/04/2015,03/06/2015,0.0981,N/A,N/A
+BSJM,Claymore Exchange-Traded Fund Trust,0.7764,3.100%,25.08,03/02/2015,03/04/2015,03/06/2015,0.0647,N/A,N/A
+CBON,Market Vectors ChinaAMC China Bond ETF,0.528,2.1600%,24.39,03/02/2015,03/04/2015,03/06/2015,0.044,N/A,N/A
+CHNB,Global X GF China Bond ETF,2.11,5.6400%,37.4,03/02/2015,03/04/2015,03/11/2015,0.205,N/A,N/A
+FBND,Fidelity Merrimack Street Trust,1.44,2.8400%,50.63,03/27/2015,03/31/2015,04/02/2015,0.12,N/A,N/A
+FCOR,Fidelity Merrimack Street Trust,1.524,3.00%,50.8,03/27/2015,03/31/2015,04/02/2015,0.127,N/A,N/A
+JGH,Nuveen Global High Income Fund Common Shares of Beneficial Interest,1.584,9.2400%,17.14,03/11/2015,03/13/2015,04/01/2015,0.132,N/A,N/A
+FEMB,First Trust Emerging Markets Local Currency Bond ETF,2.4,5.3300%,45.05,03/25/2015,03/27/2015,03/31/2015,0.2,N/A,N/A
+KCNY,KraneShares E Fund China Commercial Paper ETF,0.94,2.7200%,34.52,02/24/2015,02/26/2015,02/27/2015,0.078549,N/A,N/A
+FLTB,Fidelity Merrimack Street Trust,0.564,1.1200%,50.35,03/27/2015,03/31/2015,04/02/2015,0.047,N/A,N/A
