@@ -1,6 +1,5 @@
 <?php
 include_once 'data/config.php';
-
 if(true) {
     try {
         $db = new PDO ( "mysql:host=$host;dbname=$dbname;charset=utf8", $user, $dbPassword );
