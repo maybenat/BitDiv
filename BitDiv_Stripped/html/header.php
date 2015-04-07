@@ -196,12 +196,20 @@
           <nav ui-nav class="navi clearfix">
             <ul class="nav">
               <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                <span>Navigation</span>
+                <span>Research</span>
               </li>
               <li>
                 <a href="index.php">
                   <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
                   <span class="font-bold">Dashboard</span>
+                </a>
+
+              </li>
+                            <li>
+                <a href="monthly.php">
+                <i class="fa fa-calendar"></i>
+
+                  <span class="font-bold">Monthly Dividends</span>
                 </a>
 
               </li>
