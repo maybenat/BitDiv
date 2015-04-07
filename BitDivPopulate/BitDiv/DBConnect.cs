@@ -155,6 +155,56 @@ namespace BitDiv
             return false;
         }
 
+        public bool UpdateQuote(string tableName, string[] columns, object[] quote, string limit) {
+            errorMessage = "";
+            string query = "UPDATE " + tableName + " SET ";
+
+            for (int a = 0; a < columns.Length-1;a++){
+                if (columns[a].Equals("Change"))
+                {
+                    query += "`" + columns[a] + "` = ";
+                }
+                else
+                {
+                    query += columns[a] + " = ";
+                }
+
+                query += "'" + quote[a] + "', ";
+            }
+
+            query += columns[columns.Length - 1] + " = '" + quote[quote.Length - 1] + "'";
+
+            if (limit != null && limit.Length > 0)
+            {
+                query += " " + limit;
+            }
+
+            //open connection
+            if (this.OpenConnection())
+            {
+                try
+                {
+                    //create command and assign the query and connection from the constructor
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    //Execute command
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    //Console.WriteLine("Error: " + e.Message);
+                    this.CloseConnection();
+                    errorMessage = e.Message;
+                    return false;
+                }
+
+                //close connection
+                this.CloseConnection();
+                return true;
+            }
+            return false;
+        }
+
         //Update statement
         public bool Update()
         {
@@ -177,6 +227,7 @@ namespace BitDiv
                 }
                 catch (Exception e)
                 {
+                    Console.Write("Error: " + e.Message);
                     this.CloseConnection();
                     return false;
                 }
@@ -201,7 +252,7 @@ namespace BitDiv
             }
         }
 
-        public void Select(string[] columns, string table, string limit)
+        public MySqlDataReader Select(string[] columns, string table, string limit)
         {
             string query = "SELECT ";
             if (columns.Length == 0)
@@ -233,9 +284,16 @@ namespace BitDiv
                 }
                 catch (Exception e)
                 {
-
+                    Console.Write("Error: " + e.Message);
+                    this.CloseConnection();
+                    return null;
                 }
+
+                this.CloseConnection();
+                return reader;
             }
+
+            return null;
         }
 
         ////Select statement

@@ -197,11 +197,20 @@ namespace BitDiv
 
         static void Main(string[] args)
         {
-            //first get the list of symbols/tickers available on the db
-            DownloadFile(tickerListPath, tickerListLocalPath);
+            if (true)
+            {
+                //run yahoo finance scraper instead of wiki eod population
+                FinanceScraper fs = new FinanceScraper();
+                fs.Run();
+            }
+            else
+            {
+                //first get the list of symbols/tickers available on the db
+                DownloadFile(tickerListPath, tickerListLocalPath);
 
-            //use the list of tickers to populate the wiki EOD table
-            PopulateTable(tickerListLocalPath);
+                //use the list of tickers to populate the wiki EOD table
+                PopulateTable(tickerListLocalPath);
+            }
         }
 
         static void InitLogger(string path)
