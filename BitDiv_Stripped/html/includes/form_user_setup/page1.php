@@ -13,7 +13,7 @@
             </div>
             <p class="m-t">Your date of birth:</p>
             <div class="input-group">
-              <input type="date" name="date_of_birth" placeholder="" class="form-control no-border" required <?php if(isset($_SESSION['date_of_birth'])) echo 'value="'.$_SESSION['date_of_birth'].'"'; ?>>
+              <input type="date" name="date_of_birth" placeholder="" class="form-control no-border" required <?php if(isset($_SESSION['date_of_birth'])) echo 'value="'.date('m/d/Y', strtotime($_SESSION['date_of_birth'])).'"'; ?>>
             </div>
           </div>
 

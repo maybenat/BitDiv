@@ -1,0 +1,98 @@
+Shows all session parameters.
+
+array(key = 'param')
+  -> ...
+
+  indicates a hashmap where 'param' is a string mapping to an associated array
+
+Examples:
+
+$first_name = 'test';
+$_SESSION['first_name'] = $first_name
+
+----
+
+$_SESSION variables
+
+first_name
+  string
+
+last_name
+  string
+
+email
+  string
+
+uid
+  identifier
+
+date_of_birth
+  date
+
+age
+  integer
+
+funding
+  integer
+
+risk
+  integer
+    0 high
+    1 med
+    2 low
+
+reinvest
+  boolean
+    1 if reinvest,
+    0 if monthly payout
+
+desired_monthly_payout
+  integer
+
+first_login
+  boolean
+    1 if have not set up profile,
+    0 otherwise
+
+session_started
+
+portfolios // holds only information for user's portfolios
+  array(key = 'p_id')
+    -> array(
+      p_id,
+        identifier
+      p_name,
+        string, user assigned
+      p_funding,
+        same as funding above
+      p_risk,
+        same as risk above
+      p_reinvest,
+        same as reinvest above
+      p_public
+        1 if public to other users,
+        0 otherwise
+    )
+
+user_stocks // user-specific investment information
+  array(key = 'p_id')
+     -> array(key = 'ticker')
+       -> array(key = 'stock_id') // all transactions under stock
+         -> array(
+           uid, // user id
+           ticker,
+           number_shares,
+           price,
+           date_purchased,
+           portfolio, // p_id
+           stock_id,
+           transfer
+             boolean
+               0 if buy,
+               1 if sell
+         )
+
+stock_list // Yahoo! database parameters for stocks user has invested in
+
+number_portfolios
+  integer
