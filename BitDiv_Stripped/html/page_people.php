@@ -34,25 +34,26 @@
 
           <div class="bg-light lter b-b wrapper-md">
             <h1 class="m-n font-thin h3">
-              <?php echo "$firstname $lastname" ;; ?>
-              <button type="submit" class="btn btn-default" value=<?php echo $following; ?>><?php echo $following; ?></button>
+              <?php echo "$firstname $lastname";?>
+              <input type="submit" class="btn btn-default" value=<?php echo $following; ?>>
             </h1>
           </div>
 
           <script type="text/javascript">
             $(document).ready(function(){
-              $('button').click(function(){
-                var clickBtnValue = $(this).val();
-                //alert(clickBtnValue);
-                var ajaxurl = 'follow.php',
-                data =  {'action': clickBtnValue};
+              $('input').click(function(){
+                var thisValue = $(this).val();
+                var newValue = $(this).val() == "follow" ? 1 : 0;
+                var user_email = '<?php echo $user_email ?>';
+                var ajaxurl = 'follow.php';
+                //alert(user_email);
+                data =  {'action': thisValue, 'email': user_email};
                 $.post(ajaxurl, data, function (response) {
-                  alert(response)
+                  location.href = location.origin + location.pathname + '?email='+user_email+'&following='+newValue;
                 });
               });
             });
           </script>
-
 
           <div class="wrapper-md">
             <div class=" col-md-9 col-lg-9 ">
@@ -78,31 +79,28 @@
                     <td>Funding</td>
                     <td><?php echo $funding; ?></td>
                   </tr>
-
                   <tr>
-                    <tr>
-                      <td>Risk Level:</td>
-                      <td><?php switch ($risk){ case 0:echo 'High Risk';break; case 1:echo 'Medium Risk';break; case 2:echo 'Low Risk';break; }; ?></td>
-                    </tr>
-                    <tr>
-                      <td>Reinvest/Monthly Payout:</td>
-                      <td><?php switch ($reinvest) {case 0: echo 'Reinvest';break; case 1: echo'Monthly Payout';break;}; ?></td>
-                    </tr>
+                    <td>Risk Level:</td>
+                    <td><?php switch ($risk){ case 0:echo 'High Risk';break; case 1:echo 'Medium Risk';break; case 2:echo 'Low Risk';break; }; ?></td>
+                  </tr>
+                  <tr>
+                    <td>Reinvest/Monthly Payout:</td>
+                    <td><?php switch ($reinvest) {case 0: echo 'Reinvest';break; case 1: echo'Monthly Payout';break;}; ?></td>
+                  </tr>
+                  <tr>
                     <td>desired_monthly_payout:</td>
                     <td><?php echo $desired_monthly_payout; ?></td>
                   </tr>
                 </tbody>
               </table>
-
-
             </div>
           </div>
+
           <?php include 'right_column.php'; ?>
         </div>
       </div>
-      <!-- / content -->
-
     </div>
+    <!-- / content -->
 
     <script src="js/ui-load.js"></script>
     <script src="js/ui-jp.config.js"></script>

@@ -108,9 +108,9 @@
       <form action="" class="text-center">
         Search User: <input type="text" id="search" onkeyup="showUsers(this.value)">
       </form>
-      <!--<div class="m-b-sm text-md">Who to follow</div>-->
-      <ul class="list-group no-bg no-borders pull-in">
+      <ul class="list-group no-bg no-borders pull-in text-center">
         <span id="userList"></span>
+        <div class="m-b-sm text-center">Who to follow</div>
         <?php include 'peoplelist.php';?>
       </ul>
     </div>
