@@ -11,6 +11,36 @@
 
 
 
+  //if(!isset($_SESSION['portfolios'])) {
+  {
+    try {
+
+      // write session variables to database
+      $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+      $statement = $db->prepare('SELECT * FROM user_portfolios WHERE uid="'.$_SESSION['uid'].'"');
+      $statement->execute();
+
+      // find all user portfolios
+      $portfolios = array();
+      while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $portfolios[$row['p_id']] = $row;
+      }
+
+      // save to session
+      session_name('Private');
+      session_start();
+      $_SESSION['portfolios'] = $portfolios;
+      session_write_close();
+
+    } catch(PDOException $e) {
+      echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database: '.$e.'") </script></head><body></body></html>';
+      exit;
+    }
+  }
+
 
 
   //if(!isset($_SESSION['user_stocks'])) {
@@ -193,6 +223,7 @@ Object
     // Parse results and extract data to display
 //*
     foreach($phpObj->query->results->quote as $quote) {
+      $quote->Name = trim(str_replace('(The)', '', $quote->Name));
       $_SESSION['user_stocks_db_info'][$quote->symbol] = $quote;
     }
 //*/

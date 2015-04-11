@@ -38,7 +38,7 @@
         if(!is_null($phpObj->query->results)) {
     // Parse results and extract data to display
           foreach($phpObj->query->results->quote as $quote) {
-            $current_price = $quote->Open;
+            $current_price = number_format($quote->Open, 2, '.', '');
           }
     //foreach($phpObj->query->results->quote as $quote) {
     //  $_SESSION['user_stocks_db_info'][$quote->symbol] = $quote;
@@ -72,9 +72,13 @@
 
             <p class="m-t"></p>
             <select name="portfolio" class="form-control">
-              <option value="1">Portfolio 1</option>
-              <option value="2">Portfolio 2</option>
-              <option value="3">Portfolio 3</option>
+<?php
+  foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
+?>
+              <option value="<?php echo $p_id; ?>"><?php echo $portfolio_params['p_name']; ?></option>
+<?php
+  }
+?>
             </select>
 
             <p class="m-t"></p>

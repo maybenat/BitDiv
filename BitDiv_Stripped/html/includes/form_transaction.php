@@ -81,6 +81,8 @@
     );
   }
 
+  $_SESSION['active_p_id'] = $portfolio;
+
   header('Location: '.$referer_url);
   exit;
 

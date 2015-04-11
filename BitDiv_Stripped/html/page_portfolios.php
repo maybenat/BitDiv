@@ -57,6 +57,9 @@
     position: fixed;
     width: 100%;
   }
+  .z-up {
+    z-index: 2;
+  }
   </style>
 </head>
 <body>
@@ -86,23 +89,42 @@
 
   // print tabs for each portfolio
   // tabs labeled with id=portfolio{i}
-  echo '        <li class="active"><a href="#portfolio1" data-toggle="tab">Portfolio 1<i class="fa"></i></a></li>', PHP_EOL;
-  for($i = 2; $i <= $_SESSION['number_portfolios']; $i++) {
-    echo '        <li><a href="#portfolio'.$i.'" data-toggle="tab">Portfolio '.$i.'<i class="fa"></i></a></li>', PHP_EOL;
+  //echo '        <li class="active"><a href="#portfolio1" data-toggle="tab">Portfolio 1<i class="fa"></i></a></li>', PHP_EOL;
+  //for($i = 2; $i <= $_SESSION['number_portfolios']; $i++) {
+  //  echo '        <li><a href="#portfolio'.$i.'" data-toggle="tab">Portfolio '.$i.'<i class="fa"></i></a></li>', PHP_EOL;
+  //}
+
+
+  if(isset($_SESSION['active_p_id'])) {
+    $first = 0;
+  } else {
+    $first = 1;
+  }
+
+  foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
+    $active = $first || ($p_id == $_SESSION['active_p_id']) ? ' class="active"' : ''; $first = 0;
+    echo '        <li'.$active.'><a href="#portfolio'.$p_id.'" data-toggle="tab">'.$portfolio_params['p_name'].'<i class="fa"></i></a></li>', PHP_EOL;
   }
 
   // add tab for new portfolio, id=portfolio_new
-  //echo '        <li><a href="includes/new_portfolio.php" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
+  echo '        <li><a href="#portfolio_new" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
 
 
   echo '      </ul>', PHP_EOL;
 
   echo '      <div class="tab-content">', PHP_EOL;
 
-  // print tables for each portfolio, populate with stocks associated with portfolio
-  for($i = 1; $i <= $_SESSION['number_portfolios']; $i++) {
+  if(isset($_SESSION['active_p_id'])) {
+    $first = 0;
+  } else {
+    $first = 1;
+  }
 
-    $active = $i == 1 ? ' active' : '';
+  // print tables for each portfolio, populate with stocks associated with portfolio
+  //for($i = 1; $i <= $_SESSION['number_portfolios']; $i++) {
+  foreach($_SESSION['portfolios'] as $i => $portfolio_params) {
+
+    $active = $first || ($i == $_SESSION['active_p_id']) ? ' active' : ''; $first = 0;
     echo '        <div class="tab-pane'.$active.'" id="portfolio'.$i.'">', PHP_EOL;
 
     $num_stocks = 0;
@@ -120,9 +142,47 @@
 
         // identify columns
         echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
-        echo '            <h1 class="m-n font-thin h3">Portfolio '.$i.'</h1>', PHP_EOL;
-        echo '            <p><small>'.$num_stocks.' stocks, $'.number_format((float)$total_invested, 2, '.', '').' invested</small></p>', PHP_EOL;
-        //echo '            <p><small class="text-muted">ticker / number shares / price / date purchased</small></p>', PHP_EOL;
+        //echo '            <h1 class="m-n font-thin h3">'.$portfolio_params['p_name'].'</h1>', PHP_EOL;
+        //echo '            <p><small>'.$num_stocks.' stocks, $'.number_format((float)$total_invested, 2, '.', '').' invested</small></p>', PHP_EOL;
+        ////echo '            <p><small class="text-muted">ticker / number shares / price / date purchased</small></p>', PHP_EOL;
+?>
+
+                <div class="form-group">
+                  <form action="includes/portfolio_update.php?p_id=<?php echo $i; ?>" method="post">
+            <input type="text" name="p_name" placeholder="<?php echo $portfolio_params['p_name']; ?>" class="bg-light m-n font-thin h3 no-border" value="<?php echo $portfolio_params['p_name']; ?>" size="<?php echo strlen($portfolio_params['p_name']) + 3; ?>" />
+
+                    <div class="input-group no-border">
+                      <span class="m-n font-thin h5">$</span>
+                      <input type="number" step="any" name="p_funding" class="bg-light m-n font-thin h5 no-border" placeholder= "<?php echo number_format($portfolio_params['p_funding'], 2, '.', ''); ?>"
+                        size="<?php echo strlen(''.number_format($portfolio_params['p_funding'], 2, '.', '')); ?>"
+                        required value="<?php echo number_format($portfolio_params['p_funding'], 2, '.', ''); ?>" /> <span class="m-n font-thin h5">available funding</span>
+                    </div>
+                    <div class="input-group no-border">
+                      <span class="h5"> </span>
+                      <select name="p_risk" class="bg-light m-n font-thin h5 no-border">
+<?php
+  for($j = 0; $j < 3; $j++) {
+    switch($j) {
+      case 0: $opt = 'high risk'; break;
+      case 1: $opt = 'medium risk'; break;
+      case 2: $opt = 'low risk'; break;
+    }
+?>
+                        <option value="<?php echo $j; ?>"<?php if($portfolio_params['p_risk'] == $j) { echo 'selected="selected"'; } ?>><?php echo $opt; ?></option>
+<?php
+  }
+?>
+                      </select>
+                    </div>
+                    <input type="checkbox" name="p_reinvest"<?php if($portfolio_params['p_reinvest']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Re-invest </span>
+                    <input type="checkbox" name="p_public"<?php if($portfolio_params['p_public']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Allow others to view this portfolio</span><br />
+                    <button name="update" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Update</button> 
+                    <button name="delete" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Delete</button> 
+                    <button name="copy" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Copy</button>
+                  </form>
+                </div>
+
+<?php
         echo '          </div>', PHP_EOL;
 
 
@@ -193,7 +253,7 @@ Route::get('fetch', function() {
       }
       //$current_value_str = number_format($current_value, 2, '.', '');
       //echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
-      echo '            <h1 class="m-n font-thin h3">'.$key;
+      echo '            <h1 class="m-n font-thin h4">'.$key;
 
   if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
     echo '</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
@@ -302,7 +362,7 @@ Route::get('fetch', function() {
                     <p class="m-t">Price at time of sale:</p>
                     <div class="input-group">
                       <span class="input-group-addon">$</span>
-                      <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="" /> <!-- fix input type/view -->
+                      <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="<?php echo number_format($_SESSION['user_stocks_db_info'][$key]->Open, 2, '.', ''); ?>" />
                     </div>
                     <p class="m-t">Date of sale:</p>
                     <div class="input-group date">
@@ -362,12 +422,52 @@ Route::get('fetch', function() {
 
   // TODO: implement new portfolio
   echo '        <div class="tab-pane" id="portfolio_new">', PHP_EOL;
-  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+  echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
   //echo '            <h1 class="m-n font-thin h3">TODO: Implement New Portfolio function in script at bottom of page.</h1>', PHP_EOL;
+
+
+?>
+
+                <div class="form-group">
+                  <form action="includes/new_portfolio.php" method="post">
+            <input type="text" name="p_name" placeholder="New Portfolio" class="bg-light m-n font-thin h3 no-border" value="" size="15" />
+
+                    <div class="input-group no-border">
+                      <span class="m-n font-thin h5">$</span>
+                      <input type="number" step="any" name="p_funding" class="bg-light m-n font-thin h5 no-border" placeholder= "0.00"
+                        size="8"
+                        required value="10000.00" /> <span class="m-n font-thin h5">available funding</span>
+                    </div>
+                    <div class="input-group no-border">
+                      <span class="h5"> </span>
+                      <select name="p_risk" class="bg-light m-n font-thin h5 no-border">
+<?php
+  for($j = 0; $j < 3; $j++) {
+    switch($j) {
+      case 0: $opt = 'high risk'; break;
+      case 1: $opt = 'medium risk'; break;
+      case 2: $opt = 'low risk'; break;
+    }
+?>
+                        <option value="<?php echo $j; ?>"><?php echo $opt; ?></option>
+<?php
+  }
+?>
+                      </select>
+                    </div>
+                    <input type="checkbox" name="p_reinvest" /> <span class="m-n font-thin h5">Re-invest </span>
+                    <input type="checkbox" name="p_public" /> <span class="m-n font-thin h5">Allow others to view this portfolio</span><br />
+                    <button name="create" type="submit" class="btn btn-sm m-t">Create New</button>
+                  </form>
+                </div>
+
+<?php
   echo '          </div>', PHP_EOL;
   echo '        </div>', PHP_EOL;
 
   echo '      </div>', PHP_EOL;
+
+
 ?>
 
                                 </div>
