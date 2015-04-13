@@ -1,5 +1,4 @@
 <?php include 'includes/session.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +20,9 @@
 </head>
 <body>
   <div class="app app-header-fixed">
-
     <?php include 'header.php'; ?>
     <?php include 'people_info.php'; ?>
     <?php include 'follow.php' ?>
-
     <!-- content -->
     <div id="content" class="app-content" role="main">
       <div class="app-content-body ">
@@ -35,7 +32,7 @@
           <div class="bg-light lter b-b wrapper-md">
             <h1 class="m-n font-thin h3">
               <?php echo "$firstname $lastname";?>
-              <input type="submit" class="btn btn-default" value=<?php echo $following; ?>>
+              <input type="button" class="btn btn-default" value=<?php echo $following; ?>>
             </h1>
           </div>
 
@@ -87,15 +84,10 @@
                     <td>Reinvest/Monthly Payout:</td>
                     <td><?php switch ($reinvest) {case 0: echo 'Reinvest';break; case 1: echo'Monthly Payout';break;}; ?></td>
                   </tr>
-                  <tr>
-                    <td>desired_monthly_payout:</td>
-                    <td><?php echo $desired_monthly_payout; ?></td>
-                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
-
           <?php include 'right_column.php'; ?>
         </div>
       </div>
