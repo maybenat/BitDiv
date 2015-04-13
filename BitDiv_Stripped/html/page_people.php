@@ -27,6 +27,7 @@
     <div id="content" class="app-content" role="main">
       <div class="app-content-body ">
         <div class="hbox hbox-auto-xs hbox-auto-sm">
+
           <div class="bg-light lter b-b wrapper-md">
             <h1 class="m-n font-thin h3">
               <?php echo "$firstname $lastname";?>
@@ -50,8 +51,14 @@
             });
           </script>
 
-          <div class="wrapper-md">
-            <div class=" col-md-9 col-lg-9">
+          <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-target="#personal" data-toggle="tab">Profile</a></li>
+            <li><a data-target="#portfoilo" data-toggle="tab">Portfoilo</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="personal">
+             <div class="col-md-9 col-lg-9">
               <table class="table table-user-information">
                 <tbody>
                   <tr>
@@ -85,20 +92,31 @@
                 </tbody>
               </table>
             </div>
-
-            <div><p>this is portfoilo</p></div>
           </div>
-          <?php include 'right_column.php'; ?>
-        </div>
+
+          <!--Show Use's Portfoilo-->
+          <div class="tab-pane" id="portfoilo">
+            <p>this is portfoilo</p>
+          </div>
+
+        </div><!-- / tab-content -->
+        <?php include 'right_column.php'; ?>
       </div>
     </div>
-    <!-- / content -->
+  </div>
 
-    <script src="js/ui-load.js"></script>
-    <script src="js/ui-jp.config.js"></script>
-    <script src="js/ui-jp.js"></script>
-    <script src="js/ui-nav.js"></script>
-    <script src="js/ui-toggle.js"></script>
+  <script>
+    jQuery(function () {
+      jQuery('#myTab a:first').tab('show')
+    })
+  </script>
+  <!-- / content -->
 
-  </body>
-  </html>
+  <script src="js/ui-load.js"></script>
+  <script src="js/ui-jp.config.js"></script>
+  <script src="js/ui-jp.js"></script>
+  <script src="js/ui-nav.js"></script>
+  <script src="js/ui-toggle.js"></script>
+
+</body>
+</html>

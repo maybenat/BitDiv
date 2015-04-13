@@ -28,9 +28,9 @@
      * Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
      * This notice must stay intact for legal use
      ***********************************************/
-  </script>
+   </script>
 
-  <script type="text/javascript">
+   <script type="text/javascript">
     ddaccordion.init({
       headerclass: "expandable", //Shared CSS class name of headers group that are expandable
       contentclass: "categoryitems", //Shared CSS class name of contents group
@@ -53,39 +53,36 @@
     })
   </script>
   <style>
-  .fixed {
-    position: fixed;
-    width: 100%;
-  }
-  .z-up {
-    z-index: 2;
-  }
+    .fixed {
+      position: fixed;
+      width: 100%;
+    }
+    .z-up {
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
   <div class="app app-header-fixed">
 
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
       <div class="app-content-body">
-
         <div class="hbox hbox-auto-xs hbox-auto-sm">
+          <div class="bg-light lter b-b wrapper-md">
+            <h1 class="m-n font-thin h3">My Portfolios</h1>
+          </div>
+          <div class="wrapper-md">
 
-        <div class="bg-light lter b-b wrapper-md">
-          <h1 class="m-n font-thin h3">My Portfolios</h1>
-        </div>
+            <div class="panel hbox hbox-auto-xs no-border">
+              <div class="col wrapper">
 
-        <div class="wrapper-md">
-
-                            <div class="panel hbox hbox-auto-xs no-border">
-                                <div class="col wrapper">
-
-<?php
+                <?php
   //print_r($user_stocks);
 
-  echo '      <ul class="nav nav-tabs">', PHP_EOL;
+                echo '      <ul class="nav nav-tabs">', PHP_EOL;
 
   // print tabs for each portfolio
   // tabs labeled with id=portfolio{i}
@@ -95,115 +92,115 @@
   //}
 
 
-  if(isset($_SESSION['active_p_id'])) {
-    $first = 0;
-  } else {
-    $first = 1;
-  }
+                if(isset($_SESSION['active_p_id'])) {
+                  $first = 0;
+                } else {
+                  $first = 1;
+                }
 
-  foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
-    $active = $first || ($p_id == $_SESSION['active_p_id']) ? ' class="active"' : ''; $first = 0;
-    echo '        <li'.$active.'><a href="#portfolio'.$p_id.'" data-toggle="tab">'.$portfolio_params['p_name'].'<i class="fa"></i></a></li>', PHP_EOL;
-  }
+                foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
+                  $active = $first || ($p_id == $_SESSION['active_p_id']) ? ' class="active"' : ''; $first = 0;
+                  echo '        <li'.$active.'><a href="#portfolio'.$p_id.'" data-toggle="tab">'.$portfolio_params['p_name'].'<i class="fa"></i></a></li>', PHP_EOL;
+                }
 
   // add tab for new portfolio, id=portfolio_new
-  echo '        <li><a href="#portfolio_new" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
+                echo '        <li><a href="#portfolio_new" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
 
 
-  echo '      </ul>', PHP_EOL;
+                echo '      </ul>', PHP_EOL;
 
-  echo '      <div class="tab-content">', PHP_EOL;
+                echo '      <div class="tab-content">', PHP_EOL;
 
-  if(isset($_SESSION['active_p_id'])) {
-    $first = 0;
-  } else {
-    $first = 1;
-  }
+                if(isset($_SESSION['active_p_id'])) {
+                  $first = 0;
+                } else {
+                  $first = 1;
+                }
 
   // print tables for each portfolio, populate with stocks associated with portfolio
   //for($i = 1; $i <= $_SESSION['number_portfolios']; $i++) {
-  foreach($_SESSION['portfolios'] as $i => $portfolio_params) {
+                foreach($_SESSION['portfolios'] as $i => $portfolio_params) {
 
-    $active = $first || ($i == $_SESSION['active_p_id']) ? ' active' : ''; $first = 0;
-    echo '        <div class="tab-pane'.$active.'" id="portfolio'.$i.'">', PHP_EOL;
+                  $active = $first || ($i == $_SESSION['active_p_id']) ? ' active' : ''; $first = 0;
+                  echo '        <div class="tab-pane'.$active.'" id="portfolio'.$i.'">', PHP_EOL;
 
-    $num_stocks = 0;
-    $total_invested = 0;
-    foreach($_SESSION['user_stocks'][$i] as $key => $value) {
-      $num_stocks++;
-      foreach($value as $sid => $sparams) {
-        if($sparams['transfer']) {
+                  $num_stocks = 0;
+                  $total_invested = 0;
+                  foreach($_SESSION['user_stocks'][$i] as $key => $value) {
+                    $num_stocks++;
+                    foreach($value as $sid => $sparams) {
+                      if($sparams['transfer']) {
           //$total_invested -= $sparams['number_shares'];
-        } else {
-          $total_invested += $sparams['number_shares']*$sparams['price'];
-        }
-      }
-    }
+                      } else {
+                        $total_invested += $sparams['number_shares']*$sparams['price'];
+                      }
+                    }
+                  }
 
         // identify columns
-        echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
+                  echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
         //echo '            <h1 class="m-n font-thin h3">'.$portfolio_params['p_name'].'</h1>', PHP_EOL;
         //echo '            <p><small>'.$num_stocks.' stocks, $'.number_format((float)$total_invested, 2, '.', '').' invested</small></p>', PHP_EOL;
         ////echo '            <p><small class="text-muted">ticker / number shares / price / date purchased</small></p>', PHP_EOL;
-?>
+                  ?>
 
-                <div class="form-group">
-                  <form action="includes/portfolio_update.php?p_id=<?php echo $i; ?>" method="post">
-            <input type="text" name="p_name" placeholder="<?php echo $portfolio_params['p_name']; ?>" class="bg-light m-n font-thin h3 no-border" value="<?php echo $portfolio_params['p_name']; ?>" size="<?php echo strlen($portfolio_params['p_name']) + 3; ?>" />
+                  <div class="form-group">
+                    <form action="includes/portfolio_update.php?p_id=<?php echo $i; ?>" method="post">
+                      <input type="text" name="p_name" placeholder="<?php echo $portfolio_params['p_name']; ?>" class="bg-light m-n font-thin h3 no-border" value="<?php echo $portfolio_params['p_name']; ?>" size="<?php echo strlen($portfolio_params['p_name']) + 3; ?>" />
 
-                    <div class="input-group no-border">
-                      <span class="m-n font-thin h5">$</span>
-                      <input type="number" step="any" name="p_funding" class="bg-light m-n font-thin h5 no-border" placeholder= "<?php echo number_format($portfolio_params['p_funding'], 2, '.', ''); ?>"
+                      <div class="input-group no-border">
+                        <span class="m-n font-thin h5">$</span>
+                        <input type="number" step="any" name="p_funding" class="bg-light m-n font-thin h5 no-border" placeholder= "<?php echo number_format($portfolio_params['p_funding'], 2, '.', ''); ?>"
                         size="<?php echo strlen(''.number_format($portfolio_params['p_funding'], 2, '.', '')); ?>"
                         required value="<?php echo number_format($portfolio_params['p_funding'], 2, '.', ''); ?>" /> <span class="m-n font-thin h5">available funding</span>
-                    </div>
-                    <div class="input-group no-border">
-                      <span class="h5"> </span>
-                      <select name="p_risk" class="bg-light m-n font-thin h5 no-border">
-<?php
-  for($j = 0; $j < 3; $j++) {
-    switch($j) {
-      case 0: $opt = 'high risk'; break;
-      case 1: $opt = 'medium risk'; break;
-      case 2: $opt = 'low risk'; break;
-    }
-?>
-                        <option value="<?php echo $j; ?>"<?php if($portfolio_params['p_risk'] == $j) { echo 'selected="selected"'; } ?>><?php echo $opt; ?></option>
-<?php
-  }
-?>
-                      </select>
-                    </div>
-                    <input type="checkbox" name="p_reinvest"<?php if($portfolio_params['p_reinvest']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Re-invest </span>
-                    <input type="checkbox" name="p_public"<?php if($portfolio_params['p_public']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Allow others to view this portfolio</span><br />
-                    <button name="update" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Update</button> 
-                    <button name="delete" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Delete</button> 
-                    <button name="copy" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Copy</button>
-                  </form>
-                </div>
+                      </div>
+                      <div class="input-group no-border">
+                        <span class="h5"> </span>
+                        <select name="p_risk" class="bg-light m-n font-thin h5 no-border">
+                          <?php
+                          for($j = 0; $j < 3; $j++) {
+                            switch($j) {
+                              case 0: $opt = 'high risk'; break;
+                              case 1: $opt = 'medium risk'; break;
+                              case 2: $opt = 'low risk'; break;
+                            }
+                            ?>
+                            <option value="<?php echo $j; ?>"<?php if($portfolio_params['p_risk'] == $j) { echo 'selected="selected"'; } ?>><?php echo $opt; ?></option>
+                            <?php
+                          }
+                          ?>
+                        </select>
+                      </div>
+                      <input type="checkbox" name="p_reinvest"<?php if($portfolio_params['p_reinvest']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Re-invest </span>
+                      <input type="checkbox" name="p_public"<?php if($portfolio_params['p_public']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Allow others to view this portfolio</span><br />
+                      <button name="update" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Update</button>
+                      <button name="delete" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Delete</button>
+                      <button name="copy" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Copy</button>
+                    </form>
+                  </div>
 
-<?php
-        echo '          </div>', PHP_EOL;
+                  <?php
+                  echo '          </div>', PHP_EOL;
 
 
     // enumerate stocks in portfolio
-    $num_stocks = 0;
+                  $num_stocks = 0;
 
     // key => value
     // ticker => (stock_id => params)
-    foreach($_SESSION['user_stocks'][$i] as $key => $value) {
+                  foreach($_SESSION['user_stocks'][$i] as $key => $value) {
 
-      $total_num_shares = 0;
-      $original_investment = 0;
-      foreach($value as $sid => $sparams) {
-        if($sparams['transfer']) {
-          $total_num_shares -= $sparams['number_shares'];
-          $original_investment -= $sparams['number_shares']*$sparams['price'];
-        } else {
-          $total_num_shares += $sparams['number_shares'];
-          $original_investment += $sparams['number_shares']*$sparams['price'];
-        }
-      }
+                    $total_num_shares = 0;
+                    $original_investment = 0;
+                    foreach($value as $sid => $sparams) {
+                      if($sparams['transfer']) {
+                        $total_num_shares -= $sparams['number_shares'];
+                        $original_investment -= $sparams['number_shares']*$sparams['price'];
+                      } else {
+                        $total_num_shares += $sparams['number_shares'];
+                        $original_investment += $sparams['number_shares']*$sparams['price'];
+                      }
+                    }
 
 
 /*
@@ -231,14 +228,14 @@ Route::get('fetch', function() {
   //if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
   //  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
   //} else {
-    echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
+  echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
   //}
-?>
+  ?>
 
-<div class="row">
-  <div class="col-lg-3">
+  <div class="row">
+    <div class="col-lg-3">
 
-<?php
+      <?php
       $current_value = (float)($total_num_shares*$_SESSION['user_stocks_db_info'][$key]->Open);
       if($current_value < 0) {
         $current_value_str = '<strong class="text-danger">-$'.number_format(abs($current_value), 2, '.', '').'</strong>';
@@ -255,64 +252,64 @@ Route::get('fetch', function() {
       //echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
       echo '            <h1 class="m-n font-thin h4">'.$key;
 
-  if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
-    echo '</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
-    echo '</div></div></div>';
+      if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
+        echo '</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
+        echo '</div></div></div>';
 
       //echo '          </div>', PHP_EOL;
-      echo '          <div class="categoryitems">', PHP_EOL;
-      echo '          <div class="row">', PHP_EOL;
-      echo '            <div class="container">', PHP_EOL;
-      echo '            <div class="col-lg-4">', PHP_EOL;
+        echo '          <div class="categoryitems">', PHP_EOL;
+        echo '          <div class="row">', PHP_EOL;
+        echo '            <div class="container">', PHP_EOL;
+        echo '            <div class="col-lg-4">', PHP_EOL;
 
-      echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
-?>
+        echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
+        ?>
 
-                <div class="form-group">
-                  <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
-                    <select name="stock_id" class="form-control">
-<?php
-  foreach($value as $sid => $sparams) {
-        $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
-        $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
-        $sprice = number_format((float)$sparams['price'], 2, '.', '');
-        echo '                      <option value="'.$sparams['stock_id'].'">'.$transfer.' '.$key.': '.$sparams['number_shares'].' shares at $'.$sprice.' on '.$sparams['date_purchased'].'</option>', PHP_EOL;
-  }
-?>
-                    </select>
-                    <button name="remove" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
-                    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
-                  </form>
-                </div>
-
-            </div>
-            </div>
-          </div>
+        <div class="form-group">
+          <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
+            <select name="stock_id" class="form-control">
+              <?php
+              foreach($value as $sid => $sparams) {
+                $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
+                $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
+                $sprice = number_format((float)$sparams['price'], 2, '.', '');
+                echo '                      <option value="'.$sparams['stock_id'].'">'.$transfer.' '.$key.': '.$sparams['number_shares'].' shares at $'.$sprice.' on '.$sparams['date_purchased'].'</option>', PHP_EOL;
+              }
+              ?>
+            </select>
+            <button name="remove" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
+            <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
+          </form>
         </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 
 
 
 
 
-    continue;
-  }
+continue;
+}
 
-      echo ' ('.$_SESSION['user_stocks_db_info'][$key]->Name.')</h1>', PHP_EOL;
-      echo '            <p><strong>'.$total_num_shares.'</strong> shares for '.$current_value_str.' value</p>', PHP_EOL;
-      echo '            <p>Total '.$change_value_str.' from original investments</p>', PHP_EOL;
+echo ' ('.$_SESSION['user_stocks_db_info'][$key]->Name.')</h1>', PHP_EOL;
+echo '            <p><strong>'.$total_num_shares.'</strong> shares for '.$current_value_str.' value</p>', PHP_EOL;
+echo '            <p>Total '.$change_value_str.' from original investments</p>', PHP_EOL;
 ?>
 
-  </div>
-  <div class="col-lg-3">
+</div>
+<div class="col-lg-3">
 
-<?php
+  <?php
   if($_SESSION['user_stocks_db_info'][$key]->Change < 0) {
     echo '<p class="text-danger"><span class="glyphicon glyphicon-arrow-down"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
-      .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
+    .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
   } else {
     echo '<p class="text-success"><span class="glyphicon glyphicon-arrow-up"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
-      .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
+    .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
   }
 
   $div_share = $_SESSION['user_stocks_db_info'][$key]->DividendShare;
@@ -321,175 +318,175 @@ Route::get('fetch', function() {
   if(!$div_yield) { $div_yield = '0.00'; }
   echo '<p>Div & Yield: ', PHP_EOL;
   echo '<strong>'.$div_share.' ('.$div_yield.'%)</strong></p>', PHP_EOL;
-?>
+  ?>
 
-  </div>
+</div>
 </div>
 
 <?php
-      echo '          </div>', PHP_EOL;
-      echo '          <div class="categoryitems">', PHP_EOL;
-      echo '          <div class="row">', PHP_EOL;
-      echo '            <div class="container">', PHP_EOL;
-      echo '            <div class="col-lg-4">', PHP_EOL;
-      echo '              <strong>Purchase history</strong>', PHP_EOL;
+echo '          </div>', PHP_EOL;
+echo '          <div class="categoryitems">', PHP_EOL;
+echo '          <div class="row">', PHP_EOL;
+echo '            <div class="container">', PHP_EOL;
+echo '            <div class="col-lg-4">', PHP_EOL;
+echo '              <strong>Purchase history</strong>', PHP_EOL;
 
       // stock ticker => stock_id
+foreach($value as $sid => $sparams) {
+  $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
+  $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
+  $sprice = number_format((float)$sparams['price'], 2, '.', '');
+  echo '            <div class="'.$color.'">'.$transfer.' '.$key.': <strong>'.$sparams['number_shares'].' shares</strong> at <strong>$'.$sprice.'</strong> on <strong>'.$sparams['date_purchased'].'</strong></div>', PHP_EOL;
+
+}
+
+echo '            </div>', PHP_EOL;
+echo '            <div class="col-lg-4">', PHP_EOL;
+
+      // sell/remove stocks form
+echo '            <ul class="nav nav-pills nav-stacked">', PHP_EOL;
+echo '              <li><a href="#sell_'.$key.$i.'" data-toggle="tab">Sell<i class="fa"></i></a></li>', PHP_EOL;
+echo '              <li><a href="#remove_'.$key.$i.'" data-toggle="tab">Remove<i class="fa"></i></a></li>', PHP_EOL;
+echo '            </ul>', PHP_EOL;
+echo '            <div class="tab-content">', PHP_EOL;
+echo '              <div class="tab-pane" id="sell_'.$key.$i.'">', PHP_EOL;
+echo '                <p>Sell shares of this stock and register sale with portfolio.</p>', PHP_EOL;
+?>
+<div class="form-group">
+  <form action="includes/form_transaction.php?act=sell<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
+    <p class="m-t">Shares sold:</p>
+    <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
+    <p class="m-t">Price at time of sale:</p>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="<?php echo number_format($_SESSION['user_stocks_db_info'][$key]->Open, 2, '.', ''); ?>" />
+    </div>
+    <p class="m-t">Date of sale:</p>
+    <div class="input-group date">
+      <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="<?php echo date('m/d/Y'); ?>" />
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+    </div>
+    <button name="sell" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
+    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
+  </form>
+</div>
+
+<?php
+echo '              </div>', PHP_EOL;
+echo '              <div class="tab-pane" id="remove_'.$key.$i.'">', PHP_EOL;
+echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
+?>
+
+<div class="form-group">
+  <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
+    <select name="stock_id" class="form-control">
+      <?php
       foreach($value as $sid => $sparams) {
         $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
         $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
         $sprice = number_format((float)$sparams['price'], 2, '.', '');
-        echo '            <div class="'.$color.'">'.$transfer.' '.$key.': <strong>'.$sparams['number_shares'].' shares</strong> at <strong>$'.$sprice.'</strong> on <strong>'.$sparams['date_purchased'].'</strong></div>', PHP_EOL;
-
-      }
-
-      echo '            </div>', PHP_EOL;
-      echo '            <div class="col-lg-4">', PHP_EOL;
-
-      // sell/remove stocks form
-      echo '            <ul class="nav nav-pills nav-stacked">', PHP_EOL;
-      echo '              <li><a href="#sell_'.$key.$i.'" data-toggle="tab">Sell<i class="fa"></i></a></li>', PHP_EOL;
-      echo '              <li><a href="#remove_'.$key.$i.'" data-toggle="tab">Remove<i class="fa"></i></a></li>', PHP_EOL;
-      echo '            </ul>', PHP_EOL;
-      echo '            <div class="tab-content">', PHP_EOL;
-      echo '              <div class="tab-pane" id="sell_'.$key.$i.'">', PHP_EOL;
-      echo '                <p>Sell shares of this stock and register sale with portfolio.</p>', PHP_EOL;
-?>
-                <div class="form-group">
-                  <form action="includes/form_transaction.php?act=sell<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
-                    <p class="m-t">Shares sold:</p>
-                    <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
-                    <p class="m-t">Price at time of sale:</p>
-                    <div class="input-group">
-                      <span class="input-group-addon">$</span>
-                      <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="<?php echo number_format($_SESSION['user_stocks_db_info'][$key]->Open, 2, '.', ''); ?>" />
-                    </div>
-                    <p class="m-t">Date of sale:</p>
-                    <div class="input-group date">
-                      <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="<?php echo date('m/d/Y'); ?>" />
-                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                    </div>
-                    <button name="sell" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
-                    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
-                  </form>
-                </div>
-
-<?php
-      echo '              </div>', PHP_EOL;
-      echo '              <div class="tab-pane" id="remove_'.$key.$i.'">', PHP_EOL;
-      echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
-?>
-
-                <div class="form-group">
-                  <form action="includes/form_transaction.php?act=remove<?php echo '&ticker='.$key.'&portfolio='.$i.'&referer='.$current_page_url; ?>" method="post">
-                    <select name="stock_id" class="form-control">
-<?php
-  foreach($value as $sid => $sparams) {
-        $transfer = $sparams['transfer'] ? 'Sold' : 'Bought';
-        $color = $sparams['transfer'] ? 'text-danger' : 'text-success';
-        $sprice = number_format((float)$sparams['price'], 2, '.', '');
         echo '                      <option value="'.$sparams['stock_id'].'">'.$transfer.' '.$key.': '.$sparams['number_shares'].' shares at $'.$sprice.' on '.$sparams['date_purchased'].'</option>', PHP_EOL;
-  }
-?>
-                    </select>
-                    <button name="remove" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
-                    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
-                  </form>
-                </div>
+      }
+      ?>
+    </select>
+    <button name="remove" type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
+    <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
+  </form>
+</div>
 
 <?php
-      echo '              </div>', PHP_EOL;
-      echo '            </div>', PHP_EOL;
+echo '              </div>', PHP_EOL;
+echo '            </div>', PHP_EOL;
 
 
-      echo '            </div>', PHP_EOL;
-      echo '            </div>', PHP_EOL;
-      echo '          </div>', PHP_EOL;
+echo '            </div>', PHP_EOL;
+echo '            </div>', PHP_EOL;
+echo '          </div>', PHP_EOL;
 
-      echo '          </div>', PHP_EOL;
+echo '          </div>', PHP_EOL;
 
-      $num_stocks++;
-    }
+$num_stocks++;
+}
 
-    if($num_stocks == 0) {
-      echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
-      echo '            <h4 class="m-n font-thin h4">No stocks to show.</h4>', PHP_EOL;
-      echo '          </div>', PHP_EOL;
-    }
+if($num_stocks == 0) {
+  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
+  echo '            <h4 class="m-n font-thin h4">No stocks to show.</h4>', PHP_EOL;
+  echo '          </div>', PHP_EOL;
+}
 
-    echo '        </div>', PHP_EOL;
-  }
+echo '        </div>', PHP_EOL;
+}
 
   // TODO: implement new portfolio
-  echo '        <div class="tab-pane" id="portfolio_new">', PHP_EOL;
-  echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
+echo '        <div class="tab-pane" id="portfolio_new">', PHP_EOL;
+echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
   //echo '            <h1 class="m-n font-thin h3">TODO: Implement New Portfolio function in script at bottom of page.</h1>', PHP_EOL;
 
 
 ?>
 
-                <div class="form-group">
-                  <form action="includes/new_portfolio.php" method="post">
-            <input type="text" name="p_name" placeholder="New Portfolio" class="bg-light m-n font-thin h3 no-border" value="" size="15" />
+<div class="form-group">
+  <form action="includes/new_portfolio.php" method="post">
+    <input type="text" name="p_name" placeholder="New Portfolio" class="bg-light m-n font-thin h3 no-border" value="" size="15" />
 
-                    <div class="input-group no-border">
-                      <span class="m-n font-thin h5">$</span>
-                      <input type="number" step="any" name="p_funding" class="bg-light m-n font-thin h5 no-border" placeholder= "0.00"
-                        size="8"
-                        required value="10000.00" /> <span class="m-n font-thin h5">available funding</span>
-                    </div>
-                    <div class="input-group no-border">
-                      <span class="h5"> </span>
-                      <select name="p_risk" class="bg-light m-n font-thin h5 no-border">
+    <div class="input-group no-border">
+      <span class="m-n font-thin h5">$</span>
+      <input type="number" step="any" name="p_funding" class="bg-light m-n font-thin h5 no-border" placeholder= "0.00"
+      size="8"
+      required value="10000.00" /> <span class="m-n font-thin h5">available funding</span>
+    </div>
+    <div class="input-group no-border">
+      <span class="h5"> </span>
+      <select name="p_risk" class="bg-light m-n font-thin h5 no-border">
+        <?php
+        for($j = 0; $j < 3; $j++) {
+          switch($j) {
+            case 0: $opt = 'high risk'; break;
+            case 1: $opt = 'medium risk'; break;
+            case 2: $opt = 'low risk'; break;
+          }
+          ?>
+          <option value="<?php echo $j; ?>"><?php echo $opt; ?></option>
+          <?php
+        }
+        ?>
+      </select>
+    </div>
+    <input type="checkbox" name="p_reinvest" /> <span class="m-n font-thin h5">Re-invest </span>
+    <input type="checkbox" name="p_public" /> <span class="m-n font-thin h5">Allow others to view this portfolio</span><br />
+    <button name="create" type="submit" class="btn btn-sm m-t">Create New</button>
+  </form>
+</div>
+
 <?php
-  for($j = 0; $j < 3; $j++) {
-    switch($j) {
-      case 0: $opt = 'high risk'; break;
-      case 1: $opt = 'medium risk'; break;
-      case 2: $opt = 'low risk'; break;
-    }
-?>
-                        <option value="<?php echo $j; ?>"><?php echo $opt; ?></option>
-<?php
-  }
-?>
-                      </select>
-                    </div>
-                    <input type="checkbox" name="p_reinvest" /> <span class="m-n font-thin h5">Re-invest </span>
-                    <input type="checkbox" name="p_public" /> <span class="m-n font-thin h5">Allow others to view this portfolio</span><br />
-                    <button name="create" type="submit" class="btn btn-sm m-t">Create New</button>
-                  </form>
-                </div>
+echo '          </div>', PHP_EOL;
+echo '        </div>', PHP_EOL;
 
-<?php
-  echo '          </div>', PHP_EOL;
-  echo '        </div>', PHP_EOL;
-
-  echo '      </div>', PHP_EOL;
+echo '      </div>', PHP_EOL;
 
 
 ?>
 
-                                </div>
-                            </div>
+</div>
+</div>
 
-        </div>
+</div>
 
 <?php include 'right_column.php'; ?>
 
-        </div>
+</div>
 
-      </div>
-    </div>
-    <!-- / content -->
+</div>
+</div>
+<!-- / content -->
 
-  </div>
+</div>
 
-  <script src="js/ui-load.js"></script>
-  <script src="js/ui-jp.config.js"></script>
-  <script src="js/ui-jp.js"></script>
-  <script src="js/ui-nav.js"></script>
-  <script src="js/ui-toggle.js"></script>
+<script src="js/ui-load.js"></script>
+<script src="js/ui-jp.config.js"></script>
+<script src="js/ui-jp.js"></script>
+<script src="js/ui-nav.js"></script>
+<script src="js/ui-toggle.js"></script>
 
 </body>
 </html>
