@@ -53,7 +53,7 @@
 
           <ul class="nav nav-tabs" id="myTab">
             <li class="active"><a data-target="#personal" data-toggle="tab">Profile</a></li>
-            <li><a data-target="#portfoilo" data-toggle="tab">Portfoilo</a></li>
+            <li><a data-target="#Portfolio" data-toggle="tab">Portfolio</a></li>
           </ul>
 
           <div class="tab-content">
@@ -95,7 +95,7 @@
           </div>
 
           <!--Show Use's Portfoilo-->
-          <div class="tab-pane" id="portfoilo">
+          <div class="tab-pane" id="Portfolio">
             <p>this is portfoilo</p>
           </div>
 
