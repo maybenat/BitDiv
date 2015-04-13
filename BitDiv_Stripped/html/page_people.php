@@ -26,19 +26,17 @@
     <!-- content -->
     <div id="content" class="app-content" role="main">
       <div class="app-content-body ">
-
         <div class="hbox hbox-auto-xs hbox-auto-sm">
-
           <div class="bg-light lter b-b wrapper-md">
             <h1 class="m-n font-thin h3">
               <?php echo "$firstname $lastname";?>
-              <input type="button" class="btn btn-default" value=<?php echo $following; ?>>
+              <input id="following" type="button" class="btn btn-default" value=<?php echo $following; ?>>
             </h1>
           </div>
 
           <script type="text/javascript">
             $(document).ready(function(){
-              $('input').click(function(){
+              $('#following').click(function(){
                 var thisValue = $(this).val();
                 var newValue = $(this).val() == "follow" ? 1 : 0;
                 var user_email = '<?php echo $user_email ?>';
@@ -53,7 +51,7 @@
           </script>
 
           <div class="wrapper-md">
-            <div class=" col-md-9 col-lg-9 ">
+            <div class=" col-md-9 col-lg-9">
               <table class="table table-user-information">
                 <tbody>
                   <tr>
@@ -87,6 +85,8 @@
                 </tbody>
               </table>
             </div>
+
+            <div><p>this is portfoilo</p></div>
           </div>
           <?php include 'right_column.php'; ?>
         </div>
