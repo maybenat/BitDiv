@@ -19,9 +19,6 @@ if(true) {
             $statement = $db->prepare("SELECT * FROM users WHERE email = '$user_email'");
             $statement->execute();
 
-            $peopleList = array();
-            $riskList = array();
-
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $row)
             {

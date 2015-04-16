@@ -2,6 +2,7 @@
 include 'peopleDB.php';
 
 $q = $_REQUEST["q"];
+
 if ($q == "") {
   foreach ($peopleList as $key => $val) {
     echo "<li class=\"list-group-item\"><div class=\"clear\"><a href=\"page_people.php?email=$key&following=0\">$val</a></div><small class=\"text-muted\">";

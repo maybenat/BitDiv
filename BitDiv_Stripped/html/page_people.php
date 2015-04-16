@@ -96,7 +96,15 @@
 
           <!--Show Use's Portfoilo-->
           <div class="tab-pane" id="Portfolio">
-            <p>this is portfoilo</p>
+            <?php include "page_people_portfolios.php"; ?>
+            <?php foreach ($stocks as $key => $value) {
+              echo "<tr>";
+              echo "<br>";
+              foreach ($value as $key => $info) {
+                print_r("<td> $info </td>");
+              }
+              echo "</tr>";
+            } ?>
           </div>
 
         </div><!-- / tab-content -->
