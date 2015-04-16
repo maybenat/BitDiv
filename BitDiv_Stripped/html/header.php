@@ -106,7 +106,7 @@
           <script type="text/javascript">
             function SubmitFrm(){
               stockCode = $("#stockCode").val().toUpperCase();
-              window.location.href = 'http://eng.utah.edu/~mcmullen/BitDiv_Stripped/html/ui_chart.php?stocks='+stockCode;
+              window.location.href = 'ui_chart.php?stocks='+stockCode;
             }
           </script>
 

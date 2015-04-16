@@ -726,14 +726,12 @@ function getStockData(stockCode) {
 
 };
 
-// Searches and gets articles from The New York Times based on 1: Organization (search) 2: Date
 function getArticles(date) {
 
     // Get articles
     var articleJson = $.getJSON("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + organizationName + "&begin_date=" + date + "&end_date=" + date + "&api-key=1978a642927f7f7aa19dae13031368b3:17:69577800");
 
     articleJson.complete(function() {
-        // Delete existing article rows
         $('#table tr').not(function() {
             if ($(this).has('th').length) {
                 return true
@@ -743,7 +741,6 @@ function getArticles(date) {
         var articles = articleJson.responseJSON.response.docs;
         console.log(articles);
 
-        // Append articles to table with clickable row to article URL
         for (var i = 0; i < articles.length; i++) {
             article_para = articles[i].lead_paragraph;
             if (!article_para) {
@@ -753,7 +750,6 @@ function getArticles(date) {
             $('#table > tbody:last').append("<tr onclick='window.open(&quot;" + articles[i].web_url + "&quot;)'><td><b>" + articles[i].headline.main + "</b><br>" + article_para + "</td></tr>");
         }
 
-        // If no articles were retrieved, notify user
         if (articles.length === 0) {
             $('#wat').html("No articles were found - click on the chart for another date.");
         } else {

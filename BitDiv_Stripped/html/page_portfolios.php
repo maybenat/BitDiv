@@ -15,13 +15,7 @@
   <link rel="stylesheet" href="css/app.css" type="text/css" />
 
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
-  <script src="http://code.highcharts.com/stock/highstock.js"></script>
-  <script src="js/algs.js"></script>
-  <script src="js/stock.js"></script>
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/ddaccordion.js">
     /***********************************************
      * Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
