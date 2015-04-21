@@ -22,3 +22,7 @@ C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDi
 C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\BitDiv.pdb
 C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\System.Data.dll
 C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\obj\Debug\BitDivDatabase.csprojResolveAssemblyReference.cache
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\Newtonsoft.Json.dll
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\Newtonsoft.Json.xml
+C:\Users\thapt_000\Documents\GitHub\BitDiv\BitDivPopulate\BitDiv\bin\Debug\System.Net.Http.Formatting.xml
