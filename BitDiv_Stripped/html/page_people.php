@@ -96,17 +96,27 @@
 
           <!--Show Use's Portfoilo-->
           <div class="tab-pane" id="Portfolio">
-            <?php include "page_people_portfolios.php"; ?>
-            <?php foreach ($stocks as $key => $value) {
-              echo "<tr>";
-              echo "<br>";
-              foreach ($value as $key => $info) {
-                print_r("<td> $info </td>");
-              }
-              echo "</tr>";
-            } ?>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Number of Shares</th>
+                  <th>Price</th>
+                  <th>Purchased Date</th>
+                </tr>
+              </thead>
+              <?php include "page_people_portfolios.php"; ?>
+              <tbody>
+                <?php foreach ($stocks as $key => $value) {
+                  echo "<tr>";
+                  foreach ($value as $key => $info) {
+                    print_r("<td> $info </td>");
+                  }
+                  echo "</tr>";
+                } ?>
+              </tbody>
+            </table>
           </div>
-
         </div><!-- / tab-content -->
         <?php include 'right_column.php'; ?>
       </div>

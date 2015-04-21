@@ -1,9 +1,5 @@
 <?php
 include_once 'data/config.php';
-if(isset($_GET["email"]))
-{
-    $email = $_GET["email"];
-}
 
 if(true) {
     try {
@@ -14,7 +10,7 @@ if(true) {
         if(true) {
             session_name('Private');
             $email = $_SESSION['email'];
-            $statement = $db->prepare("select * from user_stocks where uid = (SELECT uid FROM users WHERE email = '$email')");
+            $statement = $db->prepare("select * from user_stocks where uid = (SELECT uid FROM users WHERE email = '$emailkey')");
             $statement->execute();
 
             $stocks = array();
@@ -22,9 +18,12 @@ if(true) {
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $row)
             {
-                $info = array("ticker"=>$row['ticker'], "shares"=>$row['number_shares'], "price"=>$row['price'], "date"=>$row['date_purchased']);
+                $info = array($row['ticker'], $row['number_shares'], $row['price'], $row['date_purchased']);
                 array_push($stocks, $info);
             }
+
+
+
         }
         $db = null;
     } catch(PDOException $e) {
