@@ -21,6 +21,8 @@ namespace BitDiv
         static string tickerListLocalPath = "ticker_list.csv";
         private readonly System.Timers.Timer timer = new System.Timers.Timer();
         private int quoteCount = 0;
+        private int failCount = 0;
+        private string currentSymbol = "";
 
         private string[] attributes = {"Ask", "Bid", "AverageDailyVolume", "BookValue", "Change", "DividendShare", "LastTradeDate",
                                           "EarningsShare", "EpsEstimateCurrentYear", "EpsEstimateNextYear","EpsEstimateNextQuarter",
@@ -37,18 +39,20 @@ namespace BitDiv
         {
             //read through list of wiki eod symbols to build symbols for yahoo finance calls
             ArrayList symbols = new ArrayList();
-            System.IO.StreamReader file = new System.IO.StreamReader(tickerListLocalPath);
-            string line;
-            while ((line = file.ReadLine()) != null)
+            using (System.IO.StreamReader file = new System.IO.StreamReader(tickerListLocalPath))
             {
-                String[] lineArray = line.Split(',');
-                if (lineArray[0] != "quandl code")
+                string line;
+                while ((line = file.ReadLine()) != null)
                 {
-                    //remove WIKI/ from the front of each symbol (WIKI/AAPL -> AAPL)
-                    string symbol = lineArray[0].Substring(lineArray[0].IndexOf('/') + 1);
-                    //e.g. BRK_B -> BRK-B
-                    symbol = symbol.Replace('_', '-');
-                    symbols.Add(symbol);
+                    String[] lineArray = line.Split(',');
+                    if (lineArray[0] != "quandl code")
+                    {
+                        //remove WIKI/ from the front of each symbol (WIKI/AAPL -> AAPL)
+                        string symbol = lineArray[0].Substring(lineArray[0].IndexOf('/') + 1);
+                        //e.g. BRK_B -> BRK-B
+                        symbol = symbol.Replace('_', '-');
+                        symbols.Add(symbol);
+                    }
                 }
             }
             return (string[])symbols.ToArray(typeof(string));
@@ -60,6 +64,13 @@ namespace BitDiv
             string[] symbols = GetSymbols();
             DateTime lastFetch = DateTime.Now;
             //only request one page every 5 seconds to avoid being blocked
+            if (currentSymbol != string.Empty)
+            {
+                while (symbols[quoteCount] != currentSymbol)
+                {
+                    quoteCount++;
+                }
+            }
             while (quoteCount < symbols.Length)
             {
                 do { } while (lastFetch.AddSeconds(5).CompareTo(DateTime.Now) > 0);
@@ -68,7 +79,7 @@ namespace BitDiv
                 lastFetch = DateTime.Now;
             }
 
-            Console.Write("Done");
+            Console.WriteLine("Done");
             /*
             timer.Interval = 50000;
             timer.Elapsed += (o, e) => Fetch(symbols);
@@ -92,18 +103,11 @@ namespace BitDiv
 
         private void Fetch(string[] symbols)
         {
-            if (quoteCount >= symbols.Length)
+            Quote quote = new Quote(symbols[quoteCount]);
+            if (YahooStockEngine.Fetch(quote))
             {
-                //timer.Stop();
-                Console.Write("Done");
-            }
-            else
-            {
-                Console.Write("In fetch for " + symbols[quoteCount] + "\n");
-                Quote quote = new Quote(symbols[quoteCount]);
-                YahooStockEngine.Fetch(quote);
 
-                Console.Write("Fetched data for " + quote.Symbol + "\n");
+                Console.WriteLine("Fetched data for " + quote.Symbol);
 
                 object[] quoteData = new object[attributes.Length];
                 int a = 0;
@@ -135,6 +139,10 @@ namespace BitDiv
                 quoteData[a++] = quote.PercentChangeFromTwoHundredDayMovingAverage;
                 quoteData[a++] = quote.PercentChangeFromFiftyDayMovingAverage;
                 quoteData[a++] = quote.Name;
+                if (quote.Name.Contains('\''))
+                {
+                    quoteData[a-1] = quote.Name.Replace("\'", "\\'");
+                }
                 quoteData[a++] = quote.Open;
                 quoteData[a++] = quote.PreviousClose;
                 quoteData[a++] = quote.ChangeInPercent;
@@ -152,9 +160,21 @@ namespace BitDiv
                 quoteData[a++] = quote.StockExchange;
                 quoteData[a++] = quote.LastUpdate;
 
-                dbConnector.UpdateQuote("wiki_eod_symbols", attributes, quoteData, "where symbol='" + quote.Symbol + "'");
-                quoteCount++;
+                if (dbConnector.UpdateQuote("wiki_eod_symbols", attributes, quoteData, "where symbol='" + quote.Symbol + "'"))
+                {
+                    Console.WriteLine("Wrote data for: " + symbols[quoteCount]);
+                }
+                else
+                {
+                    failCount++;
+                }
             }
+            else
+            {
+                failCount++;
+            }
+            Console.WriteLine(quoteCount + " out of " + symbols.Length + " complete. " + failCount + " failures.");
+            quoteCount++;
         }
         /*
         static async Task RunAsync()

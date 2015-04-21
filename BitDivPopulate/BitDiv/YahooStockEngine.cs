@@ -11,14 +11,22 @@ namespace BitDiv
     public class YahooStockEngine
     {
         private const string BASE_URL = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22{0}%22)&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
-        //private const string BASE_URL = http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22YHOO%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=
 
-        public static void Fetch(Quote quote)
+        public static bool Fetch(Quote quote)
         {
-            string url = string.Format(BASE_URL, quote.Symbol);
+            try
+            {
+                string url = string.Format(BASE_URL, quote.Symbol);
 
-            XDocument doc = XDocument.Load(url);
-             Parse(quote, doc);
+                XDocument doc = XDocument.Load(url);
+                Parse(quote, doc);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.Write("Error: " + e.Message);
+                return false;
+            }
         }
 
         private static void Parse(Quote quote, XDocument doc)

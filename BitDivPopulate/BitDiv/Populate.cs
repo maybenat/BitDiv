@@ -104,10 +104,12 @@ namespace BitDiv
                 string line;
                 //read through the file of symbols to make an api call for each one
                 InitLogger(populateSymbolLogPath);
+                int count = 0;
                 while ((line = file.ReadLine()) != null)
                 {
                     String[] lineArray = line.Split(',');
                     if (lineArray[0] != "quandl code")
+                        //785 LMNX finished
                     {
                         try
                         {
@@ -124,7 +126,7 @@ namespace BitDiv
                             //populate database with info from the current symbol
                             PopulateSymbol(symbol, fileName);
                             Log(symbol + " " + populateCode + " " + successCode);
-                            Console.WriteLine(symbol + " finished!");
+                            Console.WriteLine(symbol + " finished! " + count++ + " out of 2666 complete");
 
                             if (cleanupFiles)
                             {
@@ -178,10 +180,10 @@ namespace BitDiv
                     {
                         if (dbconnector.errorMessage.Substring(0,15).Equals("Duplicate entry"))
                         {
-                            if (++duplicateEntryCount > 100)
+                            if (++duplicateEntryCount > 2)
                             {
-                                Console.Write("100 consecutive duplicate entries, moving to next symbol\n");
-                                Log("100 consecutive duplicate entries, moving to next symbol\n");
+                                Console.Write("2 consecutive duplicate entries, moving to next symbol\n");
+                                Log("2 consecutive duplicate entries, moving to next symbol\n");
                                 break;
                             }
                         }
@@ -197,7 +199,7 @@ namespace BitDiv
 
         static void Main(string[] args)
         {
-            if (true)
+            if (false)
             {
                 //run yahoo finance scraper instead of wiki eod population
                 FinanceScraper fs = new FinanceScraper();

@@ -192,9 +192,9 @@ namespace BitDiv
                 }
                 catch (Exception e)
                 {
-                    //Console.WriteLine("Error: " + e.Message);
                     this.CloseConnection();
                     errorMessage = e.Message;
+                    Console.WriteLine("Error: " + e.Message);
                     return false;
                 }
 
