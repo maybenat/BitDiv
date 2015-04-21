@@ -1,7 +1,8 @@
 <?php
 include_once 'data/config.php';
 
-if(true) {
+if(true)
+{
     try {
         $db = new PDO ( "mysql:host=$host;dbname=$dbname;charset=utf8", $user, $dbPassword );
         $db->setAttribute ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -21,9 +22,6 @@ if(true) {
                 $info = array($row['ticker'], $row['number_shares'], $row['price'], $row['date_purchased']);
                 array_push($stocks, $info);
             }
-
-
-
         }
         $db = null;
     } catch(PDOException $e) {
