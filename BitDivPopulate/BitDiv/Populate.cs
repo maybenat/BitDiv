@@ -126,7 +126,7 @@ namespace BitDiv
                             //populate database with info from the current symbol
                             PopulateSymbol(symbol, fileName);
                             Log(symbol + " " + populateCode + " " + successCode);
-                            Console.WriteLine(symbol + " finished! " + count++ + " out of 2666 complete");
+                            Console.WriteLine("\n"+symbol + " finished! " + count++ + " out of 2666 complete");
 
                             if (cleanupFiles)
                             {
@@ -152,11 +152,16 @@ namespace BitDiv
         {
             using (System.IO.StreamReader file = new System.IO.StreamReader(fileName))
             {
-                int duplicateEntryCount = 0;
+                //int duplicateEntryCount = 0;
+                int count = 0;
                 string line;
                 //each row is a different date of market info, now iterate through dates
                 while ((line = file.ReadLine()) != null)
                 {
+                    if (count++ % 20 == 0)
+                    {
+                        Console.Write('.');
+                    }
                     String[] lineArray = line.Split(',');
                     if (lineArray[0] == "Date")
                     {
@@ -176,25 +181,32 @@ namespace BitDiv
                     //    }
                     //}
                     //for each date, write the information we want to the database
-                    if (!dbconnector.Insert(quandlTableName, lineArrayReduced))
+                    string[] columns = { "symbol", "date", "open", "high", "low", "close", "volume", "exdividend", "splitratio" };
+                    if (!dbconnector.Update(quandlTableName, columns, lineArrayReduced, " WHERE symbol = '" + lineArrayReduced[0] + "' AND date = '" + lineArrayReduced[1] + "'"))
                     {
-                        if (dbconnector.errorMessage.Substring(0,15).Equals("Duplicate entry"))
+                        if (!dbconnector.Insert(quandlTableName, lineArrayReduced))
                         {
-                            if (++duplicateEntryCount > 2)
+                            if (dbconnector.errorMessage.Substring(0, 15).Equals("Duplicate entry"))
                             {
-                                Console.Write("2 consecutive duplicate entries, moving to next symbol\n");
-                                Log("2 consecutive duplicate entries, moving to next symbol\n");
-                                break;
+                                {
+                                    //if (++duplicateEntryCount > 2)
+                                    //{
+                                    //    Console.Write("2 consecutive duplicate entries, moving to next symbol\n");
+                                    //    Log("2 consecutive duplicate entries, moving to next symbol\n");
+                                    //    break;
+                                    //}
+                                    Log("Insertion failed on " + symbol);
+                                }
                             }
                         }
-                        Log("Insertion failed on " + symbol);  
                     }
-                    else
-                    {
-                        duplicateEntryCount = 0;
-                    }
+                    //else
+                    //{
+                    //    duplicateEntryCount = 0;
+                    //}
                 }
             }
+            dbconnector.CloseConnection();
         }
 
         static void Main(string[] args)

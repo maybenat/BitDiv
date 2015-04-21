@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,10 @@ namespace BitDiv
         //open connection to database
         private bool OpenConnection()
         {
+            if (connection != null && connection.State == ConnectionState.Open)
+            {
+                return true;
+            }
             try
             {
                 connection.Open();
@@ -94,7 +99,7 @@ namespace BitDiv
         }
 
         //Close connection
-        private bool CloseConnection()
+        public bool CloseConnection()
         {
             try
             {
@@ -149,7 +154,7 @@ namespace BitDiv
                 }
 
                 //close connection
-                this.CloseConnection();
+                //this.CloseConnection();
                 return true;
             }
             return false;
@@ -206,29 +211,48 @@ namespace BitDiv
         }
 
         //Update statement
-        public bool Update()
+        public bool Update(string tableName, string[] columns, string[] values, string limit)
         {
-            string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
+            errorMessage = "";
+            string query = "UPDATE " + tableName + " SET ";
 
-            //Open connection
+            for (int a = 0; a < columns.Length - 1; a++)
+            {
+                if (columns[a].Equals("Change"))
+                {
+                    query += "`" + columns[a] + "` = ";
+                }
+                else
+                {
+                    query += columns[a] + " = ";
+                }
+
+                query += "'" + values[a] + "', ";
+            }
+
+            query += columns[columns.Length - 1] + " = '" + values[values.Length - 1] + "'";
+
+            if (limit != null && limit.Length > 0)
+            {
+                query += " " + limit;
+            }
+
+            //open connection
             if (this.OpenConnection())
             {
                 try
                 {
-                    //create mysql command
-                    MySqlCommand cmd = new MySqlCommand();
-                    //Assign the query using CommandText
-                    cmd.CommandText = query;
-                    //Assign the connection using Connection
-                    cmd.Connection = connection;
+                    //create command and assign the query and connection from the constructor
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                    //Execute query
+                    //Execute command
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception e)
                 {
-                    Console.Write("Error: " + e.Message);
                     this.CloseConnection();
+                    errorMessage = e.Message;
+                    Console.WriteLine("Error: " + e.Message);
                     return false;
                 }
 
