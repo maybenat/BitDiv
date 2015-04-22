@@ -85,6 +85,8 @@
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
+          <div style="position:absolute;overflow-y:scroll;overflow-x:hidden;">
+
       <div class="app-content-body">
         <div class="hbox hbox-auto-xs hbox-auto-sm">
           <div class="bg-light lter b-b wrapper-md">
