@@ -85,7 +85,7 @@
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
-          <div style="position:absolute;overflow-y:scroll;overflow-x:hidden;">
+          <!--<div style="position:absolute;overflow-y:scroll;overflow-x:hidden;">-->
 
       <div class="app-content-body">
         <div class="hbox hbox-auto-xs hbox-auto-sm">
@@ -224,32 +224,11 @@
                     }
 
 
-/*
-Route::get('fetch', function() {
-  $stock = Input::get('stock');
-  $cache_key = 'stock_data' . date('Y-m-d') . $stock;
-  $data = Cache::get($cache_key);
-
-  if(!$data) {
-    $resource = "https://query.yahooapis.com/v1/public/yql?q=";
-    $resource .= urlencode("select * from yahoo.finance.quotes ");
-    $resource .= urlencode("where symbol in ('$stock')");
-    $resource .= "&format=json&diagnostics=true";
-    $resource .= "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
-
-    try {
-      $data = file_get_contents($resource);
-    } catch(Exception $e) {
-      $data = json_encode(['error' => $e->getMessage()]);
-    }
-
-  }
-*/
 
   //if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
   //  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
   //} else {
-  echo '          <div class="bg-light lter b-b wrapper-md lim-padding-bottom">', PHP_EOL;
+  echo '          <div class="bg-light lter b-b wrapper-md lim-padding-bottom font-thin">', PHP_EOL;
   //}
   ?>
 
@@ -269,6 +248,9 @@ Route::get('fetch', function() {
       } else {
         $change_value_str = '<strong class="text-success">+$'.number_format($change_value, 2, '.', '').'</strong> profit';
       }
+      
+      
+
       //$current_value_str = number_format($current_value, 2, '.', '');
       //echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
       echo '            <h1 class="m-n font-thin h4">';
@@ -341,13 +323,29 @@ echo '          </div>', PHP_EOL;
   //---------------
   
   echo '          </div>', PHP_EOL;
-echo '          <div class="categoryitems">', PHP_EOL;
+echo '          <div class="categoryitems font-thin">', PHP_EOL;
+
+
+
+echo '          <div class="row">', PHP_EOL;
+echo '            <div class="container">', PHP_EOL;
+echo '            </div>', PHP_EOL;
+echo '          </div><hr />', PHP_EOL;
 echo '          <div class="row">', PHP_EOL;
 echo '            <div class="container">', PHP_EOL;
 
 
 
-echo '<div class="col-lg-3">', PHP_EOL;
+echo '<div class="col-lg-4">', PHP_EOL;
+
+
+echo '            <p class="m-n font-thin h4"><a href="ui_chart.php?stocks='.$key.'">'.$key.' ('.$_SESSION['user_stocks_db_info'][$key]->Name.') <br /><small>Go to stock research page</small></a></p>', PHP_EOL;
+
+
+  
+  
+echo '</div>', PHP_EOL;
+echo '<div class="col-lg-4">', PHP_EOL;
 
 
   if($_SESSION['user_stocks_db_info'][$key]->Change < 0) {
@@ -364,13 +362,6 @@ echo '<div class="col-lg-3">', PHP_EOL;
   if(!$div_yield) { $div_yield = '0.00'; }
   echo '<p>Div & Yield: ', PHP_EOL;
   echo '<strong>'.$div_share.' ('.$div_yield.'%)</strong></p>', PHP_EOL;
-  
-  
-echo '</div>', PHP_EOL;
-echo '<div class="col-lg-3">', PHP_EOL;
-
-
-
 
 
 
@@ -384,7 +375,7 @@ echo '          </div><hr />', PHP_EOL;
 echo '          <div class="row">', PHP_EOL;
 echo '            <div class="container">', PHP_EOL;
 echo '            <div class="col-lg-4">', PHP_EOL;
-echo '              <strong>Purchase history</strong>', PHP_EOL;
+echo '              <strong>Transaction history</strong>', PHP_EOL;
 
       // stock ticker => stock_id
 foreach($value as $sid => $sparams) {
@@ -397,6 +388,7 @@ foreach($value as $sid => $sparams) {
 
 echo '            </div>', PHP_EOL;
 echo '            <div class="col-lg-4">', PHP_EOL;
+echo '              <strong>Sell stock or remove transactions</strong>', PHP_EOL;
 
       // sell/remove stocks form
 echo '            <ul class="nav nav-pills nav-stacked">', PHP_EOL;

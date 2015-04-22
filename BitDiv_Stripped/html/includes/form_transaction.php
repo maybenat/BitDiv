@@ -133,7 +133,8 @@
 
   $_SESSION['active_p_id'] = $p_id;
 
-  header('Location: '.$referer_url);
+  //header('Location: '.$referer_url);
+  header('Location: ../page_portfolios.php');
   exit;
 
 ?>

@@ -158,7 +158,7 @@
                   </div>-->
                   <div class="list-group">
               <?php $i = 0; foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) { ?>
-                    <a href="?pid=<?php echo $p_id; ?>" class="media list-group-item">
+                    <a href="?stocks=<?php echo $_SESSION['current_stock_viewing']; ?>&pid=<?php echo $p_id; ?>" class="media list-group-item">
                     <span class="media-body block m-b-none">
                       <?php
                         $strong1 = ''; $strong2 = '';

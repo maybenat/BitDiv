@@ -12,8 +12,8 @@
     <div class="tab-content">
       <div class="tab-pane active" id="trans">
         <div class="wrapper-md">
-          <div class="m-b-sm text-md">Transaction</div>
-          <p>Add shares of this stock to your portfolio.</p>
+          <div class="m-b-sm font-thin text-md">Transaction</div>
+          <p class="font-thin">Add shares of this stock to your portfolio.</p>
 
           <?php
           $current_stock = $_SESSION['current_stock_viewing'];
@@ -55,30 +55,30 @@
 
           <div class="form-group">
             <form action="includes/form_transaction.php?referer=<?php echo $current_page_url; ?>" method="post">
-              <p>Stock purchased:</p>
-              <input type="text" name="ticker" placeholder="ticker" class="form-control" required value="<?php echo $current_stock; ?>" />
-              <p class="m-t">Shares purchased:</p>
-              <input type="number" name="number_shares" placeholder="number of shares" class="form-control" required />
-              <p class="m-t">Price at time of purchase:</p>
+              <p class="m-t font-thin">Stock purchased:</p>
+              <input type="text" name="ticker" placeholder="ticker" class="form-control" id="rp_tr_ticker" onblur="rp_tr_ticker_blur()" required value="<?php echo $current_stock; ?>" />
+              <p class="m-t font-thin">Shares purchased:</p>
+              <input type="number" name="number_shares" placeholder="number of shares" class="form-control" id="rp_tr_shares" onblur="rp_tr_shares_blur()" required />
+              <p class="m-t font-thin">Price at time of purchase:</p>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="number" step="any" name="price" placeholder="price" class="form-control" required value="<?php echo $current_price; ?>" />
+                <input type="number" step="any" name="price" placeholder="price" class="form-control" id="rp_tr_price" onblur="rp_tr_price_blur()" required value="<?php echo $current_price; ?>" />
               </div>
 
-              <p class="m-t">Date purchased:</p>
+              <p class="m-t font-thin">Date purchased:</p>
               <div class="input-group date" id="datetimepicker1">
                 <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" required value="<?php echo date('m/d/Y'); ?>" />
                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
               </div>
 
               <p class="m-t"></p>
-              <select name="portfolio" class="form-control">
+              <select name="portfolio" class="form-control font-thin">
                 <?php
                 $i = 0;
                 foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
                 $sel = ($p_id == $_SESSION['active_p_id']) ? ' selected="selected"' : '';
                   ?>
-                  <option value="<?php echo $p_id; ?>"<?php echo $sel; ?>><?php echo $portfolio_params['p_name']; ?></option>
+                  <option class="font-thin" value="<?php echo $p_id; ?>"<?php echo $sel; ?>><?php echo $portfolio_params['p_name']; ?></option>
                   <?php
                   $i++;
                 }
@@ -90,13 +90,13 @@
                 ?>
               </select>
 
-              <p class="m-t"></p>
-              <button type="submit" class="btn btn-default btn-rounded m-t">Submit</button>
-              <button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>
+              <!--<p class="m-t"></p>-->
+              <button type="submit" class="btn btn-default btn-rounded m-t" id="rp_tr_submit">Submit</button>
+              <!--<button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>-->
             </form>
           </div>
 
-          <p class="m-t">Recently viewed:</p>
+          <p class="m-t font-thin">Recently viewed:</p>
           <ul class="list-group list-group-sm list-group-sp list-group-alt auto m-t">
             <?php
             session_name('Private');
@@ -141,6 +141,86 @@
               xmlhttp.open("GET","peoplelist.php?q="+str,true);
               xmlhttp.send();
             }
+          }
+        </script>
+        <script>
+          function rp_tr_ticker_blur() {
+            var rp_tr_ticker = document.getElementById("rp_tr_ticker");
+            var rp_tr_price = document.getElementById("rp_tr_price");
+            var rp_tr_submit = document.getElementById("rp_tr_submit");
+            
+            rp_tr_ticker.value = rp_tr_ticker.value.toUpperCase();
+            
+            var url = 'https://query.yahooapis.com/v1/public/yql';
+            var symbol = rp_tr_ticker.value;
+            var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
+
+            $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
+              .done(function (data) {
+                if(!data.query.results.quote.LastTradePriceOnly) {
+                  rp_tr_price.value = 0;
+                  rp_tr_submit.disabled = true;
+                } else {
+                  rp_tr_price.value = data.query.results.quote.Open;
+                  //LastTradePriceOnly;
+                  rp_tr_submit.disabled = false;
+                }
+              })
+              .fail(function (jqxhr, textStatus, error) {
+                var err = textStatus + ", " + error;
+                console.log('Request failed: ' + err);
+              });
+          }
+        </script>
+        <script>
+          function rp_tr_shares_blur() {
+            var rp_tr_ticker = document.getElementById("rp_tr_ticker");
+            var rp_tr_shares = document.getElementById("rp_tr_shares");
+            var rp_tr_price = document.getElementById("rp_tr_price");
+            var rp_tr_submit = document.getElementById("rp_tr_submit");
+            
+            rp_tr_ticker.value = rp_tr_ticker.value.toUpperCase();
+            
+            var url = 'https://query.yahooapis.com/v1/public/yql';
+            var symbol = rp_tr_ticker.value;
+            var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
+
+            $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
+              .done(function (data) {
+                // if number of shares invalid, disable submit button
+                if(rp_tr_shares.value < 1) {
+                  rp_tr_submit.disabled = true;
+                } else {
+                  rp_tr_submit.disabled = false;
+                }
+              })
+              .fail(function (jqxhr, textStatus, error) {
+                var err = textStatus + ", " + error;
+                console.log('Request failed: ' + err);
+              });
+          }
+        </script>
+        <script>
+          function rp_tr_price_blur() {
+            var rp_tr_ticker = document.getElementById("rp_tr_ticker");
+            var rp_tr_price = document.getElementById("rp_tr_price");
+            var rp_tr_submit = document.getElementById("rp_tr_submit");
+            
+            rp_tr_ticker.value = rp_tr_ticker.value.toUpperCase();
+            
+            var url = 'https://query.yahooapis.com/v1/public/yql';
+            var symbol = rp_tr_ticker.value;
+            var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
+
+            $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
+              .done(function (data) {
+                // if price invalid, disable submit button
+                  //rp_tr_submit.disabled = true;
+              })
+              .fail(function (jqxhr, textStatus, error) {
+                var err = textStatus + ", " + error;
+                console.log('Request failed: ' + err);
+              });
           }
         </script>
       </div><!-- End of follow tab -->
