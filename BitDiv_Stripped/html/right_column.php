@@ -74,12 +74,19 @@
               <p class="m-t"></p>
               <select name="portfolio" class="form-control">
                 <?php
+                $i = 0;
                 foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
                 $sel = ($p_id == $_SESSION['active_p_id']) ? ' selected="selected"' : '';
                   ?>
                   <option value="<?php echo $p_id; ?>"<?php echo $sel; ?>><?php echo $portfolio_params['p_name']; ?></option>
                   <?php
+                  $i++;
                 }
+                  if(empty($i)) { 
+                ?>
+                  <option value="new">New Portfolio (create)</option>
+                <?php
+                  }
                 ?>
               </select>
 

@@ -140,7 +140,7 @@
                 <span>
                 <?php
                   if(empty($_SESSION['active_p_id'])) {
-                    echo 'No Portfolio';
+                    echo '[No Portfolios]';
                   } else {
                     echo $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_name'];
                   }
