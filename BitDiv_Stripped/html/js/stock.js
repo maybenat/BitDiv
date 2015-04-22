@@ -27,6 +27,9 @@ function slides() {
         slide: function(event, ui) {
             update(1, ui.value); //changed
             calcualtePrice(ui.value);
+        },
+        create: function(event, ui) {
+            update(1, ui.value);
         }
     });
 
@@ -42,6 +45,9 @@ function slides() {
         slide: function(event, ui) {
             update2(1, ui.value); //changed
             calcualtePrice(ui.value);
+        },
+        create: function(event, ui) {
+            update2(1, bid);
         }
     });
 
@@ -106,6 +112,16 @@ function getStockData(stockCode) {
         console.log("success quandl");
     })
 
+
+    // var sp = $.getJSON("https://www.quandl.com/api/v1/datasets/YAHOO/INDEX_GSPC.json", function() {
+    //     console.log("success sp");
+    // })
+
+    var dowy = $.getJSON("https://www.quandl.com/api/v1/datasets/BCB/UDJIAD1.json?trim_start=2012-06-20&auth_token=hM_FtE8cFi1AC-e3Sufo", function() {
+
+        console.log("success dow");
+    })
+
     .fail(function() {
         $(".error").show();
     })
@@ -117,12 +133,15 @@ function getStockData(stockCode) {
     $(".loading").show();
 
     var price = [];
+    var dowPrice = [];
+    var volume = [];
+    var priceDose = [];
 
     var stockData, organization;
 
     json.complete(function() {
         $(".loading").hide();
-        console.log(json2);
+
 
         stockData = json.responseJSON.data;
 
@@ -142,10 +161,7 @@ function getStockData(stockCode) {
         EPS = json2.responseJSON.query.results.quote.EarningsShare;
         EPS = parseFloat(EPS);
 
-        // bid = json2.responseJSON.query.results.quote.Ask;
-        // bid = parseFloat(bid);
         bid = stockData[0][4];
-        console.log("PRICE", bid);
 
         currentEarnings = json2.responseJSON.query.results.quote.EPSEstimateCurrentYear;
         currentEarnings = parseFloat(currentEarnings);
@@ -159,14 +175,12 @@ function getStockData(stockCode) {
         forwardPE = (bid / meanEPS);
         forwardPE = forwardPE.toFixed(2);
         forwardPE = parseFloat(forwardPE);
-        console.log("FORWARD", forwardPE);
 
         divYield = json2.responseJSON.query.results.quote.DividendYield;
         divYield = parseFloat(divYield);
 
         divPay = json2.responseJSON.query.results.quote.DividendShare;
         divPay = parseFloat(divPay);
-        console.log("DIV PAY", divPay)
 
         exDivDate = json2.responseJSON.query.results.quote.ExDividendDate;
 
@@ -174,11 +188,9 @@ function getStockData(stockCode) {
 
         ebitda = json2.responseJSON.query.results.quote.EBITDA;
         ebitda = parseFloat(ebitda);
-        console.log("EBIT", ebitda);
 
         marketCap = json2.responseJSON.query.results.quote.MarketCapitalization;
         marketCap = parseFloat(marketCap);
-        console.log("marketCap", marketCap);
 
 
         priceChange = json2.responseJSON.query.results.quote.PercentChange;
@@ -258,7 +270,7 @@ function getStockData(stockCode) {
         $('#divPayout').html("Dividend Payout: " + "$ " + divPerQuart + "<br>");
 
         var now = new Date();
-        var stringy = now.getMonth()+1 + "/" + now.getDate() + "/" + now.getFullYear();
+        var stringy = now.getMonth() + 1 + "/" + now.getDate() + "/" + now.getFullYear();
 
         var date = divDate;
 
@@ -303,9 +315,30 @@ function getStockData(stockCode) {
             price[i].push(stockData[i][4]);
         }
 
+        for (var i = 0; i < 200; i++) {
+            priceDose[i] = [];
+            priceDose[i].push(Date.parse(stockData[i][0]));
+            priceDose[i].push(stockData[i][4]);
+        }
+
+        for (var i = 0; i < stockData.length; i++) {
+            volume[i] = [];
+            volume[i].push(Date.parse(stockData[i][0]));
+            volume[i].push(stockData[i][5]);
+        }
+
+        dowData = dowy.responseJSON.data;
+
+        for (var i = 0; i < 200; i++) {
+            dowPrice[i] = [];
+            dowPrice[i].push(Date.parse(dowData[i][0]));
+            dowPrice[i].push(dowData[i][1] / 100);
+        }
+        dowPrice.reverse();
+
         // Reverse order to make information digestible by Highcharts
         price.reverse();
-
+        volume.reverse();
         // Create the chart
         $('#container').highcharts('StockChart', {
             chart: {
@@ -435,6 +468,118 @@ function getStockData(stockCode) {
             }]
         });
 
+        $('#containerStocks').highcharts('StockChart', {
+            chart: {
+                width: 780,
+                zoomType: 'xy',
+                panning: true,
+                panKey: 'shift'
+            },
+
+
+            title: {
+                // text: organization[0]
+            },
+
+            yAxis: [{
+                title: {
+                    text: 'Volume'
+                },
+                height: 200,
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            }],
+
+            legend: {
+                enabled: true,
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+
+            plotOptions: {
+                series: {
+                    marker: {
+                        enabled: false,
+                    }
+                }
+            },
+            rangeSelector: {
+                selected: 1,
+            },
+            series: [{
+                name: 'Volume',
+                type: 'column',
+                tooltip: {
+                    valueDecimals: 2
+                },
+                id: 'primary2',
+                data: volume
+            }, {
+                name: 'Linear Regression',
+                linkedTo: 'primary2',
+                showInLegend: true,
+                color: '#0066FF',
+                type: 'trendline',
+                algorithm: 'linear'
+            }]
+        });
+
+
+        $('#containerDow').highcharts({
+
+            chart: {
+                marginRight: 130,
+                marginBottom: 25,
+                type: 'spline'
+            },
+            title: {
+                text: 'Dow vs ' + organization[0]
+            },
+            subtitle: {
+                text: 'Dow scaled by 100'
+            },
+            xAxis: {
+                labels: {
+                    enabled: false
+                }
+                // crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Price'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            // plotOptions: {
+            //     column: {
+            //         pointPadding: 0.2,
+            //         borderWidth: 0
+            //     }
+            // },
+            series: [{
+                name: organization[0],
+                color: '#0066FF',
+                data: priceDose,
+
+            }, {
+                name: "Dow",
+                data: dowPrice
+            }]
+        });
+
         $('#container2').highcharts({
 
             chart: {
@@ -461,36 +606,6 @@ function getStockData(stockCode) {
                 data: [
                     [priceChange, bid, marketCap],
                 ]
-            }, {
-                name: "GOOG",
-                data: [
-                    [1.48, 552.66, 376.15],
-                ]
-            }, {
-                name: "MSFT",
-                data: [
-                    [-0.62, 41.35, 339.27]
-                ]
-            }, {
-                name: "AMZN",
-                data: [
-                    [6.20, 372.57, 173.02]
-                ]
-            }, {
-                name: "ORCL",
-                data: [
-                    [0.16, 46.13, 182.81]
-                ]
-            }, {
-                name: "FB",
-                data: [
-                    [0.92, 78.49, 219.67]
-                ]
-            }, {
-                name: "GPRO",
-                data: [
-                    [0.66, 38.83, 5.01]
-                ]
             }]
         });
 
@@ -513,6 +628,7 @@ function getStockData(stockCode) {
                 data: [peGRatio]
             }, {
                 name: 'Price',
+                enabled: false,
                 data: [bid]
             }, {
                 name: 'Forward P/E',
@@ -737,9 +853,7 @@ function getArticles(date) {
                 return true
             }
         }).remove();
-        console.log("Articles complete.");
         var articles = articleJson.responseJSON.response.docs;
-        console.log(articles);
 
         for (var i = 0; i < articles.length; i++) {
             article_para = articles[i].lead_paragraph;

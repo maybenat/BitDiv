@@ -39,7 +39,7 @@ x-padding: 20px;
 
 .price-box {
   margin: 0 auto;
-  background: #E9E9E9;
+  background: #ffffff;
   border-radius: 10px;
   padding: 40px 15px;
   /*width: 500px;*/
@@ -121,6 +121,13 @@ h4.great {
   -moz-box-shadow:    2px 4px 5px 0 #ccc;
     -webkit-box-shadow: 2px 4px 5px 0 #ccc;
     box-shadow:         2px 4px 5px 0 #ccc;
+}
+
+.containy{
+   display: inline-block;
+    height: 400px;
+    width: 700px;
+}
 }
 
 .total {
@@ -212,15 +219,22 @@ img.payment {
 .active-term {
   background: #3276b1;
 }
+#fixedbar{
+    position:fixed;
+    /*background-color:#ccc;*/
+    /*height:5em;*/
+    width:40%;
+    padding-left: 7cm;
+}
 
 /* HR */
-
+/*
 hr.style {
   margin-top: 0;
     border: 0;
     border-bottom: 1px dashed #ccc;
     background: #999;
-}
+}*/
 
 
 #top-link-block.affix-top {
@@ -256,18 +270,40 @@ hr.style {
     <!-- content -->
     <div id="content" class="app-content" role="main">
       <div class="app-content-body">
+        <nav class="navbar navbar-default">
 
+<div id="fixedbar"><ul class="nav navbar-nav">
+            <li class="active"><a href="#">Calculator</a></li>
+            <li><a href="#">Key Stats</a></li>
+            <li><a href="#">Yao</a></li>
+        </ul></div>
+</nav>
+
+<p></p>
+<p></p>
+
+<p></p>
         <div class="hbox hbox-auto-xs hbox-auto-sm">
 
           <div class="bg-light lter b-b wrapper-md">
             <h1 class="m-n font-thin h3"><span id="currentName"></h1><span id="currentPrice">
           </div>
-          <div class="wrapper-md-fixed">
+                        <div class="wrapper-md">
 
-            <div class="content-fixed">
-               <div class="row text-center">
-      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal">What should I look for?</a>
-  </div>
+              <div class="container">
+
+                <div class="col-sm-12">
+
+                </div>
+
+            </div>
+          </div>
+
+                 <div class="panel wrapper">
+                              <div class="loading"><img src="img/load.GIF" alt="" /><img src="img/load.GIF" alt="Be patient..." /><h1>Loading Data....</h1></div>
+
+                   <div class="content-fixed">
+      <a href="#" class="btn btn-small btn-info" data-toggle="modal" data-target="#basicModal">?</a>
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -284,7 +320,7 @@ hr.style {
 
         <h3>Moving Average Crossovers</h3>
         <p>Price moves from one side of a moving average and closes on the other.</p>
-        <img src = "img/avg2.png" />
+        <img src = "img/avg1.png" />
         <p>The second type of crossover occurs when a short-term average crosses through a long-term average. HIGHLY OBJECTIVE.</p>
         <img src = "img/avg2.png" />
         <h3>MACD Crossovers</h3>
@@ -297,21 +333,7 @@ hr.style {
       </div>
     </div>
   </div>
-</div>
-
-
-              <div class="container">
-
-                <div class="col-sm-12">
-
-                </div>
-
-            </div>
-          </div>
-
-                 <div class="panel wrapper">
-
-            <div class="loading"><img src="img/load.GIF" alt="" /><img src="img/load.GIF" alt="Be patient..." /><h1>Loading Data....</h1></div>
+</div> 
 
             <div id="container" style="height: 500px; width: 100px"></div>
             <p></p>
@@ -329,14 +351,25 @@ hr.style {
             <!-- <div class="container" id="wat"></div> -->
 
           </div>
+
+          <div class="container">
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+                                        <h3>Volume:</h3>
+
+   <div id="containerStocks"></div>
+
+          </div>
+
+
           <div class="container">
 
 <!--             <div class="row"> -->
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
-              <div class="panel wrapper">
+              
                                 <div class="row">
                                     <div class="col-md-12 b-r b-light no-border-xs">
-                                        <h4 class="font-thin m-t-none m-b-md text-muted">Dividend Information:</h4>
+                                        <h3>Dividend Information:</h3>
                                         <table class="table table-hover">
                                             <thead>
 
@@ -361,16 +394,21 @@ hr.style {
                             </div>
 
           
-          </div>
+
           <div class="container">
+            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+
       <div class="price-box">
+
         <div class="row">
           <div class="col-sm-4">
+
+                                                    <h3>Dividend Calculator:</h3>
+
                 <form class="form-horizontal form-pricing" role="form">
 
                   <div class="price-slider">
                     <h4 class="great">Shares</h4>
-                    <span>Minimum 1 is required</span>
                     <div class="col-sm-12">
                       <div id="slider_amirol"></div>
                        <input name="sliderVal" type="hidden" id="sliderVal" readonly="readonly" />
@@ -416,7 +454,7 @@ hr.style {
 
                     </div>
                     </div>
-    <div class="form-group">
+      <div class="form-group">
                       <div class="row">
                         <div class="col-sm-12">
                           <label for="amount_amirol" class="control-label">Shares Needed ($): </label>
@@ -435,20 +473,24 @@ hr.style {
                 </form>
             </div>
         </div>
+</div>
+          </div>
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+
+<h3> Dow vs Price </h3>
+   <div id="containerDow" class="containy"></div>
+<!--       <div id="containerDow2" class="containy"></div>
+ -->
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+
+        <div class="panel wrapper">
+                        <div id="pie"></div>
 
           </div>
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
-      </div>
+      <a href="#" class="btn btn-small btn-info" data-toggle="modal" data-target="#basicModal2">?</a>
 
-
-<!--         <div class="panel wrapper">
-            <div id="safety"></div>
-
-          </div> -->
-        <div class="panel wrapper">
-           <div class="row text-center">
-      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal2">What are these metrics?</a>
-  </div>
 <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -482,12 +524,13 @@ hr.style {
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-  </div>
 </div>
+            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
-                        <div id="pie"></div>
+                        <!-- <div id="pie"></div> -->
           </div>
-        <div class="panel wrapper">
+
+
 
 
             <div id="container3"></div>
@@ -516,15 +559,13 @@ hr.style {
     </div>
   </div>
 </div>
-          </div>
 
+            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
-        <div class="panel wrapper">
             <div id="container2"></div>
-          </div>
 
 
-          <div class="container">
+       <!--    <div class="container">
 
             <div class="row">
               <div class="col-lg-4">
@@ -583,14 +624,14 @@ hr.style {
       </div>
       <div class="col-lg-4"></div>
     </div>
-  </div>
-</div>
+  </div> -->
+
 <span id="top-link-block" class="hidden">
     <a href="#top" class="well well-sm"  onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
         <i class="glyphicon glyphicon-chevron-up"></i> Top
     </a>
 </span>
-
+</div>
 <script type="text/javascript">
 if ( ($(window).height() + 100) < $(document).height() ) {
     $('#top-link-block').removeClass('hidden').affix({

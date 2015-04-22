@@ -395,6 +395,7 @@ a.list-group-item.hover {
 }
 
 .tab-container {
+  position: fixed;
   margin-bottom: 15px;
 }
 
@@ -404,6 +405,7 @@ a.list-group-item.hover {
   border: 1px solid #dee5e7;
   border-top-width: 0;
   border-radius: 0 0 2px 2px;
+  position: fixed;
 }
 
 .pagination > li > a {
@@ -699,7 +701,12 @@ body {
   border-radius: 0;
 }
 
-.app-aside {
+.app-aside {  
+  position: fixed;
+  /*right: 0;*/
+  /*top: 2%;*/
+  /*width: 8em;*/
+  /*margin-top: -2.5em;*/
   float: left;
 }
 
@@ -1085,14 +1092,14 @@ body {
 }
 
 html {
-  background: url('../img/bg.jpg');
-  background-attachment: fixed;
-  background-size: cover;
+  /*background: url('../img/bg.jpg');*/
+  /*background-attachment: fixed;*/
+  /*background-size: cover;*/
 }
 
 .app.container {
-  padding-right: 0;
-  padding-left: 0;
+/*  padding-right: 0;
+  padding-left: 0;*/
 }
 
 @media (min-width: 768px) {
