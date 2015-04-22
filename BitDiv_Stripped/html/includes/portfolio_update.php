@@ -36,10 +36,11 @@
       .' WHERE (p_id='.$p_id.')'
       .';';
   } else if(isset($_POST['delete'])) {
-    // need to also delete stocks
     $sql = 'DELETE FROM user_portfolios '
       .' WHERE (p_id='.$p_id.')'
       .';';
+    // need to also delete stocks
+    $sql2 = 'DELETE FROM user_stocks WHERE portfolio = '.$p_id.';';
   } else if(isset($_POST['copy'])) {
     $sql = 'INSERT INTO user_portfolios SET '
       .'uid='.$uid.', '
@@ -49,7 +50,10 @@
       .'p_reinvest='.$p_reinvest.', '
       .'p_public='.$p_public
       .';';
+    // copying of stocks happens below (once new p_id is determined)
   }
+  
+  
 
 
   try {
@@ -63,6 +67,37 @@
     $statement->execute();
     $new_p_id = $db->lastInsertId();
 
+    if(!empty($sql2)) {
+      $statement = $db->prepare($sql2);
+      $statement->execute();
+    }
+    
+    
+  if(isset($_POST['copy'])) {
+    // copy stocks
+    $i = 0;
+    foreach($_SESSION['user_stocks'][$p_id] as $key => $value) {
+      foreach($value as $sid => $sparams) {
+        $sql3[$i] = 'INSERT INTO user_stocks SET '
+          .'uid='.$sparams['uid'].', '
+          .'ticker=\''.$sparams['ticker'].'\', '
+          .'number_shares='.$sparams['number_shares'].', '
+          .'price='.$sparams['price'].', '
+          .'date_purchased=\''.$sparams['date_purchased'].'\', '
+          .'portfolio='.$new_p_id.', '
+          .'transfer='.$sparams['transfer']
+          .';';
+        $i++;
+      }
+    }
+    
+      foreach($sql3 as $q) {
+        $statement = $db->prepare($q);
+        $statement->execute();
+      }
+    
+  }
+    
   } catch(PDOException $e) {
     echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database: '.$e.'") </script></head><body></body></html>';
     exit;
@@ -82,7 +117,7 @@
         'p_public' => $p_public,
     );
   } else if(isset($_POST['delete'])) {
-    // make new first portfolio active
+    // active portfolio is gone; make the first portfolio in the array active
     reset($_SESSION['portfolios']);
     $_SESSION['active_p_id'] = key($_SESSION['portfolios']);
     // remove portfolio
@@ -99,6 +134,41 @@
         'p_reinvest' => $p_reinvest,
         'p_public' => $p_public,
     );
+    
+        try {
+
+      // write session variables to database
+      $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+      $statement = $db->prepare('SELECT * FROM user_stocks WHERE uid="'.$_SESSION['uid'].'"');
+      $statement->execute();
+
+      // find all user stocks
+      $user_stocks = array();
+      $stock_list = array();
+      while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $user_stocks[$row['portfolio']][$row['ticker']][$row['stock_id']] = $row;
+        // track list of tickers
+        if(!in_array($row['ticker'], $stock_list)) {
+          $stock_list[] = $row['ticker'];
+        }
+      }
+
+      // save to session
+      session_name('Private');
+      session_start();
+      $_SESSION['user_stocks'] = $user_stocks;
+      session_write_close();
+
+    } catch(PDOException $e) {
+      echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database: '.$e.'") </script></head><body></body></html>';
+      exit;
+    }
+    
+    
+    
   }
 
   header('Location: ../page_portfolios.php');

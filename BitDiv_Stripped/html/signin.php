@@ -31,6 +31,11 @@ if(!empty($_POST)) {
                 $_SESSION['reinvest'] = $result['reinvest'];
                 $_SESSION['desired_monthly_payout'] = $result['desired_monthly_payout'];
                 $_SESSION['first_login'] = $result['first_login'];
+                $_SESSION['recently_viewed_stock'][0] = $result['recent_stock1'];
+                $_SESSION['recently_viewed_stock'][1] = $result['recent_stock2'];
+                $_SESSION['recently_viewed_stock'][2] = $result['recent_stock3'];
+                $_SESSION['recently_viewed_stock'][3] = $result['recent_stock4'];
+                $_SESSION['recently_viewed_stock'][4] = $result['recent_stock5'];
                 session_write_close();
 
                     // Redirect to Home page

@@ -1,5 +1,7 @@
 <?php
 
+  include 'data/config.php';
+  
   // filename of user setup page
   $USER_SETUP = 'user_setup.php';
 
@@ -52,6 +54,36 @@
     $_SESSION['current_stock_viewing'] = $_SESSION['recently_viewed_stock'][0];
   }
 
+  $_SESSION['active_p_id'] = empty($_SESSION['active_p_id']) ? 0 : $_SESSION['active_p_id'];
+  
+  // write recently viewed stocks, active portfolio to database
+  
+  
+      $sql = 'UPDATE users SET '
+      .'recent_stock1=\''.$_SESSION['recently_viewed_stock'][0].'\', '
+      .'recent_stock2=\''.$_SESSION['recently_viewed_stock'][1].'\', '
+      .'recent_stock3=\''.$_SESSION['recently_viewed_stock'][2].'\', '
+      .'recent_stock4=\''.$_SESSION['recently_viewed_stock'][3].'\', '
+      .'recent_stock5=\''.$_SESSION['recently_viewed_stock'][4].'\', '
+      .'p_id_current='.$_SESSION['active_p_id']
+      .' WHERE (uid='.$_SESSION['uid'].')'
+      .';';
+      
+        try {
+
+    // write parameters for new stock to database
+    $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    $statement = $db->prepare($sql);
+    $statement->execute();
+
+  } catch(PDOException $e) {
+    echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database: '.$e.'") </script></head><body></body></html>';
+    exit;
+  }
+  
   // end initialization
 
   session_write_close();

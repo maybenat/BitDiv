@@ -14,7 +14,7 @@
   session_start();
 
   $uid = $_SESSION['uid'];
-  $ticker = $_POST['ticker'];
+  $ticker = strtoupper($_POST['ticker']);
   $number_shares = $_POST['number_shares'];
   $price = $_POST['price'];
   $date_purchased = date('Y-m-d', strtotime($_POST['date_purchased']));

@@ -6,7 +6,6 @@
   // currently static 3 portfolios
   session_name('Private');
   session_start();
-  $_SESSION['number_portfolios'] = 3;
   session_write_close();
 
 

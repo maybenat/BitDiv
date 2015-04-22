@@ -30,10 +30,10 @@
       contentclass: "categoryitems", //Shared CSS class name of contents group
       revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
       mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-      collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
-      defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+      collapseprev: false, //Collapse previous content (so only one open at any time)? true/false
+      defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
       onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-      animatedefault: false, //Should contents open by default be animated into view?
+      animatedefault: true, //Should contents open by default be animated into view?
       persiststate: true, //persist state of opened contents within browser session?
       toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
       togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
@@ -51,8 +51,27 @@
       position: fixed;
       width: 100%;
     }
-    .z-up {
-      z-index: 2;
+    .lim-padding {
+      padding-top: 4px;
+      padding-bottom: 4px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    .lim-padding-bottom {
+      padding-top: 8px;
+      padding-bottom: 2px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    .no-padding {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    .expandable:hover {
+      background-color: #FDFDFD;
+      padding-top: 6px;
     }
   </style>
 </head>
@@ -86,7 +105,7 @@
   //}
 
 
-                if(isset($_SESSION['active_p_id'])) {
+                if(!empty($_SESSION['active_p_id'])) {
                   $first = 0;
                 } else {
                   $first = 1;
@@ -105,7 +124,7 @@
 
                 echo '      <div class="tab-content">', PHP_EOL;
 
-                if(isset($_SESSION['active_p_id'])) {
+                if(!empty($_SESSION['active_p_id'])) {
                   $first = 0;
                 } else {
                   $first = 1;
@@ -132,13 +151,13 @@
                   }
 
         // identify columns
-                  echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
+                  echo '          <div class="bg-light b-b wrapper-md ">', PHP_EOL;
         //echo '            <h1 class="m-n font-thin h3">'.$portfolio_params['p_name'].'</h1>', PHP_EOL;
         //echo '            <p><small>'.$num_stocks.' stocks, $'.number_format((float)$total_invested, 2, '.', '').' invested</small></p>', PHP_EOL;
         ////echo '            <p><small class="text-muted">ticker / number shares / price / date purchased</small></p>', PHP_EOL;
                   ?>
 
-                  <div class="form-group">
+                  <div class="form-group no-padding">
                     <form action="includes/portfolio_update.php?p_id=<?php echo $i; ?>" method="post">
                       <input type="text" name="p_name" placeholder="<?php echo $portfolio_params['p_name']; ?>" class="bg-light m-n font-thin h3 no-border" value="<?php echo $portfolio_params['p_name']; ?>" size="<?php echo strlen($portfolio_params['p_name']) + 3; ?>" />
 
@@ -167,9 +186,9 @@
                       </div>
                       <input type="checkbox" name="p_reinvest"<?php if($portfolio_params['p_reinvest']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Re-invest </span>
                       <input type="checkbox" name="p_public"<?php if($portfolio_params['p_public']) { echo ' checked'; } ?> /> <span class="m-n font-thin h5">Allow others to view this portfolio</span><br />
-                      <button name="update" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Update</button>
-                      <button name="delete" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Delete</button>
-                      <button name="copy" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t">Copy</button>
+                      <button name="update" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t lim-padding">Update</button>
+                      <button name="delete" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t lim-padding">Delete</button>
+                      <button name="copy" value="<?php echo $i; ?>" type="submit" class="btn btn-sm m-t lim-padding">Copy</button>
                     </form>
                   </div>
 
@@ -222,7 +241,7 @@ Route::get('fetch', function() {
   //if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
   //  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
   //} else {
-  echo '          <div class="bg-light lter b-b wrapper-md expandable">', PHP_EOL;
+  echo '          <div class="bg-light lter b-b wrapper-md lim-padding-bottom">', PHP_EOL;
   //}
   ?>
 
@@ -244,10 +263,10 @@ Route::get('fetch', function() {
       }
       //$current_value_str = number_format($current_value, 2, '.', '');
       //echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
-      echo '            <h1 class="m-n font-thin h4">'.$key;
+      echo '            <h1 class="m-n font-thin h4">';
 
       if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
-        echo '</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
+        echo $key.'</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
         echo '</div></div></div>';
 
       //echo '          </div>', PHP_EOL;
@@ -289,15 +308,40 @@ Route::get('fetch', function() {
 continue;
 }
 
-echo ' ('.$_SESSION['user_stocks_db_info'][$key]->Name.')</h1>', PHP_EOL;
+echo '<a href="ui_chart.php?stocks='.$key.'">'.$key.' ('.$_SESSION['user_stocks_db_info'][$key]->Name.')</a></h1>', PHP_EOL;
 echo '            <p><strong>'.$total_num_shares.'</strong> shares for '.$current_value_str.' value</p>', PHP_EOL;
-echo '            <p>Total '.$change_value_str.' from original investments</p>', PHP_EOL;
 ?>
 
 </div>
 <div class="col-lg-3">
 
   <?php
+  
+  
+echo '            <p>Total '.$change_value_str.' from original investments</p>', PHP_EOL;
+
+  ?>
+
+</div>
+</div>
+
+<?php
+echo '          </div>', PHP_EOL;
+
+  echo '          <div class="bg-light lter b-b wrapper-md expandable lim-padding">', PHP_EOL;
+  
+  //---------------
+  
+  echo '          </div>', PHP_EOL;
+echo '          <div class="categoryitems">', PHP_EOL;
+echo '          <div class="row">', PHP_EOL;
+echo '            <div class="container">', PHP_EOL;
+
+
+
+echo '<div class="col-lg-3">', PHP_EOL;
+
+
   if($_SESSION['user_stocks_db_info'][$key]->Change < 0) {
     echo '<p class="text-danger"><span class="glyphicon glyphicon-arrow-down"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
     .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
@@ -312,14 +356,23 @@ echo '            <p>Total '.$change_value_str.' from original investments</p>',
   if(!$div_yield) { $div_yield = '0.00'; }
   echo '<p>Div & Yield: ', PHP_EOL;
   echo '<strong>'.$div_share.' ('.$div_yield.'%)</strong></p>', PHP_EOL;
-  ?>
+  
+  
+echo '</div>', PHP_EOL;
+echo '<div class="col-lg-3">', PHP_EOL;
 
-</div>
-</div>
 
-<?php
-echo '          </div>', PHP_EOL;
-echo '          <div class="categoryitems">', PHP_EOL;
+
+
+
+
+echo '</div>', PHP_EOL;
+  
+  
+  
+
+echo '            </div>', PHP_EOL;
+echo '          </div><hr />', PHP_EOL;
 echo '          <div class="row">', PHP_EOL;
 echo '            <div class="container">', PHP_EOL;
 echo '            <div class="col-lg-4">', PHP_EOL;
