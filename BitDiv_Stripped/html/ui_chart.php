@@ -333,7 +333,7 @@ $(document).ready(function(){
           </div>
 
                  <div class="panel wrapper">
-                              <div class="loading"><img src="img/load.GIF" alt="" /><img src="img/load.GIF" alt="Be patient..." /><h1>Loading Data....</h1></div>
+                              <div class="loading"><img src="img/load.GIF" alt="" /><img src="img/load.GIF" alt="Be patient..." /><img src="img/load.GIF" alt="Be patient..." /><h1>Loading Data....</h1></div>
 <div id="signals">
 </div>
                    <div class="content-fixed">
@@ -368,7 +368,7 @@ $(document).ready(function(){
     </div>
   </div>
 </div> 
-
+<h3>Signals</h3>
             <div id="container" style="height: 500px; width: 100px"></div>
             <p></p>
 
@@ -388,7 +388,41 @@ $(document).ready(function(){
 <div id="volume">
 </div>
           <div class="container">
+                       <div class="row text-center">
+
 <hr style="width: 100%; color: #3A3F50; height: 1px; background-color:#3A3F50;" />
+</div>
+                                             <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#volumeModal">?</a>
+<div class="modal fade" id="volumeModal" tabindex="-1" role="dialog" aria-labelledby="volumeModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Getting Started</h4>
+      </div>
+      <div class="modal-body">
+                <h3>Some useful tips</h3>
+                  <p> 1. Drag on the graph to zoom in. </p>
+                  <p> 2. Toggle different moving averages </p>
+                  <p> 3. Compare how the moving averages and MACD indicate trends in the price. </p>
+                  <p> 4. Click on the price in order to fetch relevant news related to the stock. See how reactionary the markets are by clicking on low and high points! </p>
+
+        <h3>Moving Average Crossovers</h3>
+        <p>Price moves from one side of a moving average and closes on the other.</p>
+        <img src = "img/avg1.png" />
+        <p>The second type of crossover occurs when a short-term average crosses through a long-term average. HIGHLY OBJECTIVE.</p>
+        <img src = "img/avg2.png" />
+        <h3>MACD Crossovers</h3>
+        <p> MACD goes below the signal line, bearish indicator, may be time to SELL. MACD above the signal line, bullish indicator, the stock might be going up! </p>
+        <img src = "img/macd.png" />
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Now let me go try!</button>
+      </div>
+    </div>
+  </div>
+</div> 
                                         <h3>Volume:</h3>
 
    <div id="containerStocks"></div>
@@ -400,8 +434,10 @@ $(document).ready(function(){
           <div class="container">
 
 <!--             <div class="row"> -->
-<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+           <div class="row text-center">
 
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+</div>
               
                                 <div class="row">
                                     <div class="col-md-12 b-r b-light no-border-xs">
@@ -433,15 +469,15 @@ $(document).ready(function(){
 <div id="calc">
 </div>
           <div class="container">
-            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+                       <div class="row text-center">
 
+            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+</div>
       <div class="price-box" id="calculator">
+                                                <h3>Dividend Calculator:</h3>
 
         <div class="row">
           <div class="col-sm-4">
-
-                                                    <h3>Dividend Calculator:</h3>
-
                 <form class="form-horizontal form-pricing" role="form">
 
                   <div class="price-slider">
@@ -510,10 +546,44 @@ $(document).ready(function(){
                 </form>
             </div>
         </div>
+        <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#divModal">?</a>
+<div class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="divModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Getting Started</h4>
+      </div>
+      <div class="modal-body">
+                <h3>Some useful tips</h3>
+                  <p> 1. Drag on the graph to zoom in. </p>
+                  <p> 2. Toggle different moving averages </p>
+                  <p> 3. Compare how the moving averages and MACD indicate trends in the price. </p>
+                  <p> 4. Click on the price in order to fetch relevant news related to the stock. See how reactionary the markets are by clicking on low and high points! </p>
+
+        <h3>Moving Average Crossovers</h3>
+        <p>Price moves from one side of a moving average and closes on the other.</p>
+        <img src = "img/avg1.png" />
+        <p>The second type of crossover occurs when a short-term average crosses through a long-term average. HIGHLY OBJECTIVE.</p>
+        <img src = "img/avg2.png" />
+        <h3>MACD Crossovers</h3>
+        <p> MACD goes below the signal line, bearish indicator, may be time to SELL. MACD above the signal line, bullish indicator, the stock might be going up! </p>
+        <img src = "img/macd.png" />
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Now let me go try!</button>
+      </div>
+    </div>
+  </div>
+</div>           
 </div>
           </div>
+          <div id="dow">
+</div>
+           <div class="row text-center">
+
 <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-<div id="dow">
 </div>
 <h3> Dow vs Price </h3>
    <div id="containerDow" class="containy"></div>
@@ -523,14 +593,6 @@ $(document).ready(function(){
 <div id="stats">
 </div>
         <div class="panel wrapper">
-                                                  <h3>Key Stats:</h3>
-
-                        <div id="pie"></div>
-
-          </div>
-<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-<div id="heatmap">
-</div>
       <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#basicModal2">?</a>
 
 <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true">
@@ -567,17 +629,16 @@ $(document).ready(function(){
       </div>
     </div>
 </div>
+</div>
+                                                  <h3>Key Stats:</h3>
 
-                        <!-- <div id="pie"></div> -->
+                        <div id="pie"></div>
+
           </div>
-
-            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-
-
-            <div id="container3"></div>
-           <div class="row text-center">
-      <a href="#" class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal3">Help?</a>
-  </div>
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+<div id="heatmap">
+</div>
+      <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#basicModal3">?</a>
 <div class="modal fade" id="basicModal3" tabindex="-1" role="dialog" aria-labelledby="basicModal3" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -601,8 +662,38 @@ $(document).ready(function(){
   </div>
 </div>
 
+                        <!-- <div id="pie"></div> -->
+<!--           </div> -->
+
+
+
+            <div id="container3"></div>
+
+
             <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 <div id="market">
+</div>      <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#marketCap">?</a>
+<div class="modal fade" id="marketCap" tabindex="-1" role="dialog" aria-labelledby="marketCap" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Help?</h4>
+      </div>
+            <div class="modal-body">
+                <h3>What should I look for?</h3>
+                  <p> 1) Price Changes</p>
+                  <p> 2) Positive changes in volume means lots of people are buying this stock.  </p>
+                  <p> 3) Negative changes in volume mean lots of people are selling. You might want to look into this. </p>
+                  <p> 3) Big changes in Moving Averages? Go look further into the interactive graph above. </p>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
             <div id="container2"></div>
 

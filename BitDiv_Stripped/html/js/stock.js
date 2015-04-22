@@ -142,7 +142,6 @@ function getStockData(stockCode) {
     json.complete(function() {
         $(".loading").hide();
 
-
         stockData = json.responseJSON.data;
 
         organization = json.responseJSON.name;
@@ -470,7 +469,7 @@ function getStockData(stockCode) {
 
         $('#containerStocks').highcharts('StockChart', {
             chart: {
-                width: 780,
+                width: 700,
                 zoomType: 'xy',
                 panning: true,
                 panKey: 'shift'
