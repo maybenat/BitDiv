@@ -21,8 +21,6 @@
 -->
 
 <style>
-
-
 .loading {
   opacity:0.45;
 /*   -moz-opacity:0.45;
@@ -219,12 +217,18 @@ img.payment {
 .active-term {
   background: #3276b1;
 }
-#fixedbar{
+#sidebar{
     position:fixed;
-    /*background-color:#ccc;*/
+    /*background-color:#3A3F50;*/
+    background-color: #ccc;
     /*height:5em;*/
-    width:40%;
-    padding-left: 7cm;
+  top: 0;
+  width: 60%;
+  padding-top: 50px;
+  left:6cm;
+  z-index: 1025;
+  border-radius: 0;
+  padding-left: 1em;
 }
 
 /* HR */
@@ -240,14 +244,13 @@ hr.style {
 #top-link-block.affix-top {
     position: absolute; /* allows it to "slide" up into view */
     bottom: -82px; /* negative of the offset - height of link element */
-    right: 10px; /* padding from the left side of the window */
+    left: 20px; /* padding from the left side of the window */
 }
 #top-link-block.affix {
     position: fixed; /* keeps it on the bottom once in view */
     bottom: 18px; /* height of link element */
-    right: 10px; /* padding from the left side of the window */
+    left: 20px; /* padding from the left side of the window */
 }
-
 
 </style>
 
@@ -265,19 +268,48 @@ hr.style {
   getValue(javaScriptVar);
 };</script>
   <div class="app app-header-fixed">
+<div id="top">
+</div>
+<div class="container-fluid">
+<div id="sidebar">
+  <ul class="nav navbar-nav">
+                <li><a href="#signals">Signals</font></a></li>
+
+            <li><a href="#volume">Volume</font></a></li>
+            <li><a href="#dividend">Dividends</a></li>
+            <li><a href="#calc">Div Calculator</a></li>
+            <li><a href="#dow">Dow</a></li>
+            <li><a href="#stats">Key Stats</a></li>
+            <li><a href="#heatmap">Heatmap</a></li>
+            <li><a href="#market">Market Cap</a></li>
+<li><a href="#top"> <i class="glyphicon glyphicon-chevron-up"></i> Top</a></li>
+        </ul>
+      </div></div>
+<!-- </nav>
+ -->
+ 
+<script>
+$(document).ready(function(){
+  $('a[href^="#"]').on('click',function (e) {
+      e.preventDefault();
+
+      var target = this.hash;
+      var $target = $(target);
+
+      $('html, body').stop().animate({
+          'scrollTop': $target.offset().top-100
+      }, 500, 'swing', function () {
+          window.location.hash = target;
+      });
+  });
+});</script>
 
     <?php include("header.php"); ?>
     <!-- content -->
     <div id="content" class="app-content" role="main">
       <div class="app-content-body">
-        <nav class="navbar navbar-default">
+    <div style="position:absolute;overflow-y:scroll;overflow-x:hidden;">
 
-<div id="fixedbar"><ul class="nav navbar-nav">
-            <li class="active"><a href="#">Calculator</a></li>
-            <li><a href="#">Key Stats</a></li>
-            <li><a href="#">Yao</a></li>
-        </ul></div>
-</nav>
 
 <p></p>
 <p></p>
@@ -286,6 +318,7 @@ hr.style {
         <div class="hbox hbox-auto-xs hbox-auto-sm">
 
           <div class="bg-light lter b-b wrapper-md">
+            <h1>&nbsp;</h1>
             <h1 class="m-n font-thin h3"><span id="currentName"></h1><span id="currentPrice">
           </div>
                         <div class="wrapper-md">
@@ -301,9 +334,10 @@ hr.style {
 
                  <div class="panel wrapper">
                               <div class="loading"><img src="img/load.GIF" alt="" /><img src="img/load.GIF" alt="Be patient..." /><h1>Loading Data....</h1></div>
-
+<div id="signals">
+</div>
                    <div class="content-fixed">
-      <a href="#" class="btn btn-small btn-info" data-toggle="modal" data-target="#basicModal">?</a>
+      <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#basicModal">?</a>
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -351,16 +385,18 @@ hr.style {
             <!-- <div class="container" id="wat"></div> -->
 
           </div>
-
+<div id="volume">
+</div>
           <div class="container">
-<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+<hr style="width: 100%; color: #3A3F50; height: 1px; background-color:#3A3F50;" />
                                         <h3>Volume:</h3>
 
    <div id="containerStocks"></div>
 
           </div>
 
-
+<div id="dividend">
+</div>
           <div class="container">
 
 <!--             <div class="row"> -->
@@ -394,11 +430,12 @@ hr.style {
                             </div>
 
           
-
+<div id="calc">
+</div>
           <div class="container">
             <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
-      <div class="price-box">
+      <div class="price-box" id="calculator">
 
         <div class="row">
           <div class="col-sm-4">
@@ -476,20 +513,25 @@ hr.style {
 </div>
           </div>
 <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-
+<div id="dow">
+</div>
 <h3> Dow vs Price </h3>
    <div id="containerDow" class="containy"></div>
 <!--       <div id="containerDow2" class="containy"></div>
  -->
 <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-
+<div id="stats">
+</div>
         <div class="panel wrapper">
+                                                  <h3>Key Stats:</h3>
+
                         <div id="pie"></div>
 
           </div>
 <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-
-      <a href="#" class="btn btn-small btn-info" data-toggle="modal" data-target="#basicModal2">?</a>
+<div id="heatmap">
+</div>
+      <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#basicModal2">?</a>
 
 <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true">
   <div class="modal-dialog">
@@ -525,12 +567,11 @@ hr.style {
       </div>
     </div>
 </div>
-            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
                         <!-- <div id="pie"></div> -->
           </div>
 
-
+            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
 
             <div id="container3"></div>
@@ -561,73 +602,12 @@ hr.style {
 </div>
 
             <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-
+<div id="market">
+</div>
             <div id="container2"></div>
 
-
-       <!--    <div class="container">
-
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="panel panel-default">
-
-                  <div class="panel-heading font-bold">
-                    Popularity Rating
-                  </div>
-                  <div class="panel-body text-center">
-                    <div class="inline">
-                      <div ui-jq="easyPieChart" ui-options="{
-                      percent: 75,
-                      lineWidth: 10,
-                      trackColor: '#e8eff0',
-                      barColor: '#fad733',
-                      scaleColor: '#e8eff0',
-                      size: 188,
-                      lineCap: 'butt'
-                    }">
-                    <div>
-                      <span class="h2 m-l-sm step">75 %</span>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-footer"><small>% of viewers today</small></div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="panel panel-default">
-              <div class="panel-heading font-bold">
-                Views
-              </div>
-              <div class="panel-body text-center">
-                <div class="inline">
-                  <div ui-jq="easyPieChart"  ui-options="{
-                  percent: 25,
-                  lineWidth: 10,
-                  trackColor: '#e8eff0',
-                  barColor: '#27c24c',
-                  scaleColor: '#e8eff0',
-                  size: 188,
-                  lineCap: 'butt',
-                  animate: 1000
-                }">
-                <div>
-                  <span class="h2 m-l-sm step">25</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="panel-footer"><small>all time views</small></div>
-        </div>
-      </div>
-      <div class="col-lg-4"></div>
-    </div>
-  </div> -->
-
 <span id="top-link-block" class="hidden">
-    <a href="#top" class="well well-sm"  onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+    <a href="#top" class="well well-sm">
         <i class="glyphicon glyphicon-chevron-up"></i> Top
     </a>
 </span>
@@ -643,6 +623,7 @@ if ( ($(window).height() + 100) < $(document).height() ) {
 
 <?php include 'right_column.php'; ?>
 
+</div>
 </div>
 </div>
 
