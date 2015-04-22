@@ -38,12 +38,6 @@
   } else if(isset($_POST['next3'])) {
     //$_SESSION['reinvest'] already captured
 
-    // TODO: monthly payout amount
-    $_SESSION['desired_monthly_payout'] = 0;
-
-    // user has completed profile setup
-    $_SESSION['first_login'] = 0;
-
     // done writing session, close session
     session_write_close();
 
@@ -60,7 +54,6 @@
         .'age='.$_SESSION['age'].', '
         .'risk='.$_SESSION['risk'].', '
         .'reinvest='.$_SESSION['reinvest'].', '
-        .'desired_monthly_payout='.$_SESSION['desired_monthly_payout'].', '
         .'first_login='.$_SESSION['first_login']
         .' WHERE uid='.$_SESSION['uid'];
 
@@ -72,9 +65,65 @@
       exit;
     }
 
-    // TODO: redirect to "profile finished, welcome page"?
-
-    header('Location: http://'.$_SERVER['SERVER_NAME'].substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/') + 1));
+    // create first portfolio (if completing first_login)
+    if($_SESSION['first_login']) {
+    session_name('Private');
+    session_start();
+    
+    $uid = $_SESSION['uid'];
+    $p_name = 'My First Portfolio';
+    $p_funding = $_SESSION['funding'];
+    $p_risk = $_SESSION['risk'];
+    $p_reinvest = $_SESSION['reinvest'];
+    $p_public = 0; // private first portfolio
+    $sql = '';
+    
+    
+      $sql = 'INSERT INTO user_portfolios SET '
+        .'uid='.$uid.', '
+        .'p_name=\''.$p_name.'\', '
+        .'p_funding='.$p_funding.', '
+        .'p_risk='.$p_risk.', '
+        .'p_reinvest='.$p_reinvest.', '
+        .'p_public='.$p_public
+        .';';
+    
+    try {
+    
+      // write parameters for new stock to database
+      $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    
+      $statement = $db->prepare($sql);
+      $statement->execute();
+      $p_id = $db->lastInsertId();
+    
+    } catch(PDOException $e) {
+      echo '<!DOCTYPE html><html><head><script language="javascript"> alert("Unable to connect to the database: '.$e.'") </script></head><body></body></html>';
+      exit;
+    }
+    
+    // update $_SESSION to add new portfolio
+      $_SESSION['portfolios'][$p_id] =
+        array(
+          'uid' => $uid,
+          'p_id' => $p_id,
+          'p_name' => $p_name,
+          'p_funding' => $p_funding,
+          'p_risk' => $p_risk,
+          'p_reinvest' => $p_reinvest,
+          'p_public' => $p_public,
+      );
+    
+      $_SESSION['active_p_id'] = $p_id;
+    }
+    
+    // user has completed profile setup
+    $_SESSION['first_login'] = 0;
+    
+    //header('Location: http://'.$_SERVER['SERVER_NAME'].substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/') + 1));
+    header('Location: index.php');
     exit;
   } else if(isset($_POST['prev2'])) {
     $form_page = 1;

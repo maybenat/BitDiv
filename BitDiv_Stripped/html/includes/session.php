@@ -54,27 +54,35 @@
     $_SESSION['current_stock_viewing'] = $_SESSION['recently_viewed_stock'][0];
   }
 
+  // determine current portfolio id
   if(!empty($_GET['pid'])) {
     $_SESSION['active_p_id'] = $_GET['pid'];
   }
+  if(empty($_SESSION['active_p_id'])) {
+    reset($_SESSION['portfolios']);
+    $_SESSION['active_p_id'] = key($_SESSION['portfolios']);
+  }
   $_SESSION['active_p_id'] = empty($_SESSION['active_p_id']) ? 0 : $_SESSION['active_p_id'];
   
+  // update session parameters to this portfolio's parameters
+  if(!empty($_SESSION['active_p_id'])) {
+    $_SESSION['funding'] = $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_funding'];
+    $_SESSION['risk'] = $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_risk'];
+    $_SESSION['reinvest'] = $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_reinvest'];
+  }
+  
   // write recently viewed stocks, active portfolio to database
-  
-  
-      $sql = 'UPDATE users SET '
-      .'recent_stock1=\''.$_SESSION['recently_viewed_stock'][0].'\', '
-      .'recent_stock2=\''.$_SESSION['recently_viewed_stock'][1].'\', '
-      .'recent_stock3=\''.$_SESSION['recently_viewed_stock'][2].'\', '
-      .'recent_stock4=\''.$_SESSION['recently_viewed_stock'][3].'\', '
-      .'recent_stock5=\''.$_SESSION['recently_viewed_stock'][4].'\', '
-      .'p_id_current='.$_SESSION['active_p_id']
-      .' WHERE (uid='.$_SESSION['uid'].')'
-      .';';
-      
-        try {
+  $sql = 'UPDATE users SET '
+    .'recent_stock1=\''.$_SESSION['recently_viewed_stock'][0].'\', '
+    .'recent_stock2=\''.$_SESSION['recently_viewed_stock'][1].'\', '
+    .'recent_stock3=\''.$_SESSION['recently_viewed_stock'][2].'\', '
+    .'recent_stock4=\''.$_SESSION['recently_viewed_stock'][3].'\', '
+    .'recent_stock5=\''.$_SESSION['recently_viewed_stock'][4].'\', '
+    .'p_id_current='.$_SESSION['active_p_id']
+    .' WHERE (uid='.$_SESSION['uid'].')'
+    .';';
 
-    // write parameters for new stock to database
+  try {
     $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);

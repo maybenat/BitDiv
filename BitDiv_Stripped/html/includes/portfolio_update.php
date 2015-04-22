@@ -117,11 +117,11 @@
         'p_public' => $p_public,
     );
   } else if(isset($_POST['delete'])) {
+    // remove portfolio
+    unset($_SESSION['portfolios'][$p_id]);
     // active portfolio is gone; make the first portfolio in the array active
     reset($_SESSION['portfolios']);
     $_SESSION['active_p_id'] = key($_SESSION['portfolios']);
-    // remove portfolio
-    unset($_SESSION['portfolios'][$p_id]);
   } else if(isset($_POST['copy'])) {
     $_SESSION['active_p_id'] = $new_p_id;
     $_SESSION['portfolios'][$new_p_id] =

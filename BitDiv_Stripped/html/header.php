@@ -32,6 +32,9 @@
     color: #111;
     background-color: #F1F1F1;
   }
+  .glyphicon-sm {
+    font-size: 0.8em;
+  }
 
 </style>
 <script>
@@ -134,8 +137,16 @@
             </li>
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                <span><?php echo $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_name']; ?></span>
-                <span class="glyphicon glyphicon-menu-down"></span>
+                <span>
+                <?php
+                  if(empty($_SESSION['active_p_id'])) {
+                    echo 'No Portfolio';
+                  } else {
+                    echo $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_name'];
+                  }
+                ?>
+                </span>
+                <span class="glyphicon glyphicon-sm glyphicon-menu-down"></span>
               </a>
               <!-- dropdown -->
               <div class="dropdown-menu w-xl animated fadeInUp">
@@ -144,7 +155,7 @@
                     <span>View app for portfolio:</span>
                   </div>-->
                   <div class="list-group">
-              <?php foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) { ?>
+              <?php $i = 0; foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) { ?>
                     <a href="?pid=<?php echo $p_id; ?>" class="media list-group-item">
                     <span class="media-body block m-b-none">
                       <?php
@@ -152,11 +163,21 @@
                         if($p_id == $_SESSION['active_p_id']) {
                           $strong1 = '<strong>'; $strong2 = ' (viewing)</strong>';
                         }
+                        echo $strong1.$portfolio_params['p_name'].$strong2;
                       ?>
-                      <?php echo $strong1.$portfolio_params['p_name'].$strong2; ?>
                     </span>
                     </a>
-              <?php } ?>
+              <?php $i++; } 
+                if(!$i) {
+              ?>
+                    <a href="page_portfolios.php?act=new" class="media list-group-item">
+                    <span class="media-body block m-b-none">
+                      Create a new portfolio
+                    </span>
+                    </a>
+                
+              <?php  }
+              ?>
                 </div>
 
               </div>
@@ -207,6 +228,9 @@
               </li>
               <li>
                 <a href="page_profile.php">Profile</a>
+              </li>
+              <li>
+                <a href="about.php">About BitDiv</a>
               </li>
 
               <li class="divider"></li>

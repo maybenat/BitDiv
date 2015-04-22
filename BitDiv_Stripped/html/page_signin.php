@@ -47,12 +47,12 @@
       <p class="text-center"><small>Need an account?</small></p>
       <a href="page_signup.php" class="btn btn-lg btn-default btn-block">Create an account</a>
     </form>
+        <div class="content wrapper text-center">
+          <a href="about.php" class="m-n font-thin">About BitDiv</a>
+        </div>
   </div>
 
 </div>
-</div>
-
-
 </div>
 
 <script src="js/ui-load.js"></script>

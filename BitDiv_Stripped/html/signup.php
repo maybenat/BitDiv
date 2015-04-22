@@ -50,7 +50,7 @@
             $result = $statement->fetch ( PDO::FETCH_ASSOC );
         // check user id exist or not
             if (isset ( $result ) && $result != false) {
-                $error3 = "An account with the e-mail provided already exists. Try <a href=\"login.php\">logging in</a> here.";
+                $error3 = "An account with the e-mail provided already exists. Try logging in <a href=\"page_signin.php\">here</a>.";
                 //echo '<script type="text/javascript">', 'userExists();', '</script>';
             } else {
                 $statement = $db->prepare ( "INSERT INTO users (email, password, last_name, first_name, created, first_login)
@@ -62,6 +62,7 @@
 
                 $result = $statement->fetch ( PDO::FETCH_ASSOC );
 
+                // set session variables
                     session_name('Private');
                     session_start();
                     session_regenerate_id();
@@ -71,7 +72,7 @@
                     $_SESSION['uid'] = $result['uid'];
                     $_SESSION['first_login'] = 1; // DEFAULT
                     session_write_close();
-
+                    
                 header ( "Location: user_setup.php" );
                 exit;
             }

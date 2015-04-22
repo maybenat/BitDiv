@@ -73,6 +73,9 @@
       background-color: #FDFDFD;
       padding-top: 6px;
     }
+    .glyphicon-sm {
+    font-size: 0.8em;
+    }
   </style>
 </head>
 <body>
@@ -103,7 +106,7 @@
   //for($i = 2; $i <= $_SESSION['number_portfolios']; $i++) {
   //  echo '        <li><a href="#portfolio'.$i.'" data-toggle="tab">Portfolio '.$i.'<i class="fa"></i></a></li>', PHP_EOL;
   //}
-
+                $create_new = ($_GET['act'] == 'new');
 
                 if(!empty($_SESSION['active_p_id'])) {
                   $first = 0;
@@ -111,13 +114,16 @@
                   $first = 1;
                 }
 
+                $num_portfolios1 = 0;
                 foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
-                  $active = $first || ($p_id == $_SESSION['active_p_id']) ? ' class="active"' : ''; $first = 0;
+                  $active = ($first || ($p_id == $_SESSION['active_p_id'])) && !$create_new ? ' class="active"' : ''; $first = 0;
                   echo '        <li'.$active.'><a href="#portfolio'.$p_id.'" data-toggle="tab">'.$portfolio_params['p_name'].'<i class="fa"></i></a></li>', PHP_EOL;
+                  $num_portfolios1++;
                 }
 
   // add tab for new portfolio, id=portfolio_new
-                echo '        <li><a href="#portfolio_new" data-toggle="tab">New Portfolio<i class="fa"></i></a></li>', PHP_EOL;
+                $active = ($create_new || empty($num_portfolios1)) ? ' class="active"' : '';
+                echo '        <li'.$active.'><a href="#portfolio_new" data-toggle="tab"><span class="glyphicon glyphicon-sm glyphicon-menu-right"></span> <strong>Create New</strong><i class="fa"></i></a></li>', PHP_EOL;
 
 
                 echo '      </ul>', PHP_EOL;
@@ -134,7 +140,7 @@
   //for($i = 1; $i <= $_SESSION['number_portfolios']; $i++) {
                 foreach($_SESSION['portfolios'] as $i => $portfolio_params) {
 
-                  $active = $first || ($i == $_SESSION['active_p_id']) ? ' active' : ''; $first = 0;
+                  $active = ($first || ($i == $_SESSION['active_p_id'])) && !$create_new ? ' active' : ''; $first = 0;
                   echo '        <div class="tab-pane'.$active.'" id="portfolio'.$i.'">', PHP_EOL;
 
                   $num_stocks = 0;
@@ -464,10 +470,9 @@ if($num_stocks == 0) {
 echo '        </div>', PHP_EOL;
 }
 
-  // TODO: implement new portfolio
-echo '        <div class="tab-pane" id="portfolio_new">', PHP_EOL;
+                $active = ($create_new || empty($num_portfolios1)) ? ' active' : '';
+echo '        <div class="tab-pane'.$active.'" id="portfolio_new">', PHP_EOL;
 echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
-  //echo '            <h1 class="m-n font-thin h3">TODO: Implement New Portfolio function in script at bottom of page.</h1>', PHP_EOL;
 
 
 ?>

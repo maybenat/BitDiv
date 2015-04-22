@@ -28,13 +28,13 @@
         </div>
         <div class="list-group list-group-sm">
           <div class="list-group-item">
-            <input placeholder="First Name" name="firstname" class="form-control no-border"  required>
+            <input placeholder="First Name" name="firstname" class="form-control no-border" value="<?php if(!empty($fname)) { echo $fname; } ?>" required>
           </div>
           <div class="list-group-item">
-            <input placeholder="Last Name" name="lastname" class="form-control no-border"  required>
+            <input placeholder="Last Name" name="lastname" class="form-control no-border" value="<?php if(!empty($lname)) { echo $lname; } ?>" required>
           </div>
           <div class="list-group-item">
-            <input type="email" placeholder="Email" name="email" class="form-control no-border"  required>
+            <input type="email" placeholder="Email" name="email" class="form-control no-border" value="<?php if(!empty($email)) { echo $email; } ?>" required>
           </div>
           <div class="list-group-item">
            <input type="password" placeholder="Password" name="password1" class="form-control no-border"  required>
@@ -43,6 +43,13 @@
          <input type="password" placeholder="Password again" name="password2" class="form-control no-border"  required>
          </div>
        </div>
+            <?php
+              if(!empty($error3)) {
+                echo '<p class="text-danger">'.$error3.'</p>';
+              } else if(!empty($error5)) {
+                echo '<p class="text-danger">'.$error5.'</p>';
+              }
+            ?>
        <div class="checkbox m-b-md m-t-none">
         <label class="i-checks">
           <input type="checkbox" ng-model="agree" required><i></i> Agree to the <a href>terms and policy</a>
@@ -53,6 +60,9 @@
       <p class="text-center"><small>Already have an account?</small></p>
       <a href="page_signin.php" class="btn btn-lg btn-default btn-block">Sign in</a>
     </form>
+        <div class="content wrapper text-center">
+          <a href="about.php" class="m-n font-thin">About BitDiv</a>
+        </div>
   </div>
 
 
