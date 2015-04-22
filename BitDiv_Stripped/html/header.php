@@ -127,6 +127,42 @@
 
           <!-- nabar right -->
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <p class="p">
+                <!--Currently viewing portfolio:-->
+              </p>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                <span><?php echo $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_name']; ?></span>
+                <span class="glyphicon glyphicon-menu-down"></span>
+              </a>
+              <!-- dropdown -->
+              <div class="dropdown-menu w-xl animated fadeInUp">
+                <div class="panel bg-white">
+                  <!--<div class="panel-heading b-light bg-light">
+                    <span>View app for portfolio:</span>
+                  </div>-->
+                  <div class="list-group">
+              <?php foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) { ?>
+                    <a href="?pid=<?php echo $p_id; ?>" class="media list-group-item">
+                    <span class="media-body block m-b-none">
+                      <?php
+                        $strong1 = ''; $strong2 = '';
+                        if($p_id == $_SESSION['active_p_id']) {
+                          $strong1 = '<strong>'; $strong2 = ' (viewing)</strong>';
+                        }
+                      ?>
+                      <?php echo $strong1.$portfolio_params['p_name'].$strong2; ?>
+                    </span>
+                    </a>
+              <?php } ?>
+                </div>
+
+              </div>
+            </div>
+            <!-- / dropdown -->
+          </li>
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                 <i class="icon-bell fa-fw"></i>

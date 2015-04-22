@@ -54,6 +54,9 @@
     $_SESSION['current_stock_viewing'] = $_SESSION['recently_viewed_stock'][0];
   }
 
+  if(!empty($_GET['pid'])) {
+    $_SESSION['active_p_id'] = $_GET['pid'];
+  }
   $_SESSION['active_p_id'] = empty($_SESSION['active_p_id']) ? 0 : $_SESSION['active_p_id'];
   
   // write recently viewed stocks, active portfolio to database

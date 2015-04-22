@@ -75,8 +75,9 @@
               <select name="portfolio" class="form-control">
                 <?php
                 foreach($_SESSION['portfolios'] as $p_id => $portfolio_params) {
+                $sel = ($p_id == $_SESSION['active_p_id']) ? ' selected="selected"' : '';
                   ?>
-                  <option value="<?php echo $p_id; ?>"><?php echo $portfolio_params['p_name']; ?></option>
+                  <option value="<?php echo $p_id; ?>"<?php echo $sel; ?>><?php echo $portfolio_params['p_name']; ?></option>
                   <?php
                 }
                 ?>

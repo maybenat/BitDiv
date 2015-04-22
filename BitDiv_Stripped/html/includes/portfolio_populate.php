@@ -2,14 +2,6 @@
 
   include 'data/config.php';
 
-  // TODO: implement column 'number_portfolios' to be stored in users table
-  // currently static 3 portfolios
-  session_name('Private');
-  session_start();
-  session_write_close();
-
-
-
   //if(!isset($_SESSION['portfolios'])) {
   {
     try {
