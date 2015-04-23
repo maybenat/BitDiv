@@ -708,6 +708,7 @@ body {
   /*width: 8em;*/
   /*margin-top: -2.5em;*/
   float: left;
+  padding-bottom: 800px;
 }
 
 .app-aside:before {
