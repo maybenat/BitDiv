@@ -313,7 +313,7 @@ namespace BitDiv
                     return null;
                 }
 
-                this.CloseConnection();
+                //this.CloseConnection();
                 return reader;
             }
 

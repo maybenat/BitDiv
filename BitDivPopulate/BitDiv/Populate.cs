@@ -38,6 +38,8 @@ namespace BitDiv
         static readonly bool cleanupFiles = true;
         static readonly bool populateSymbolList = false;
 
+        static readonly int mode = 3;
+
         public static bool DownloadFile(string remoteFile, string localFile)
         {
             try
@@ -209,21 +211,88 @@ namespace BitDiv
             dbconnector.CloseConnection();
         }
 
+        public static void symbolNameGenerate()
+        {
+            string list = "[";
+            string[] columns = {"symbol", "name"};
+            using (MySqlDataReader reader = dbconnector.Select(columns, symbolListTableName, ""))
+            {
+                while (reader.Read())
+                {
+                    if (!reader.IsDBNull(0))
+                    {
+                        list += "\"" + reader.GetString("symbol") + ": " + reader.GetString("name") + "\",";
+                    }
+                }
+                dbconnector.CloseConnection();
+            }
+            list += "]";
+            System.IO.StreamWriter writer = new StreamWriter("symbolsWithNames.txt");
+            writer.Write(list);
+            writer.Close();
+        }
+
+        public static void writeIndustries(string fileName)
+        {
+            System.IO.StreamReader file = new System.IO.StreamReader(fileName);
+            string line = "";
+            string[] column = { "industry" };
+            bool keepgoing = false;
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] lineArray = line.Split(',');
+                if (lineArray[0] != "\"Symbol\"")
+                {
+                    string symbol = lineArray[0].Replace("\\", "").Replace("\"", "");
+                    if (symbol == "AWAY")
+                    {
+                        keepgoing = true;
+                    }
+                    if (keepgoing)
+                    {
+                        string industry = lineArray[6].Replace("\\", "").Replace("\"", "");
+                        string[] rowToInsert = { industry };
+                        if (industry.Length == 4)
+                        {
+                            industry = lineArray[7].Replace("\\", "").Replace("\"", "");
+                        }
+                        if (!dbconnector.Update(symbolListTableName, column, rowToInsert, "WHERE symbol = '" + symbol + "'"))
+                        {
+                            Console.WriteLine("Failed on " + symbol);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Success on " + symbol);
+                        }
+                    }
+                }
+            }
+            file.Close();
+        }
+
         static void Main(string[] args)
         {
-            if (false)
+            switch (mode)
             {
-                //run yahoo finance scraper instead of wiki eod population
-                FinanceScraper fs = new FinanceScraper();
-                fs.Run();
-            }
-            else
-            {
-                //first get the list of symbols/tickers available on the db
-                DownloadFile(tickerListPath, tickerListLocalPath);
+                case 0:
+                    //run yahoo finance scraper instead of wiki eod population
+                    FinanceScraper fs = new FinanceScraper();
+                    fs.Run();
+                break;
+                case 1:
+                    //first get the list of symbols/tickers available on the db
+                    DownloadFile(tickerListPath, tickerListLocalPath);
 
-                //use the list of tickers to populate the wiki EOD table
-                PopulateTable(tickerListLocalPath);
+                    //use the list of tickers to populate the wiki EOD table
+                    PopulateTable(tickerListLocalPath);
+                break;
+                case 2:
+                    symbolNameGenerate();
+                break;
+                case 3:
+                    writeIndustries("companylistnyse.csv");
+                    writeIndustries("companylistnasdaq.csv");
+                break;
             }
         }
 

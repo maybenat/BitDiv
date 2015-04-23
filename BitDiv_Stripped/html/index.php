@@ -35,7 +35,7 @@
   ">
                     <!-- main -->
                     <?php
-                        $i = 1;//TODO set to current session
+                        $i = $_SESSION['active_p_id'];
                         $num_stocks = 0;
                         $total_invested = 0;
                         foreach($_SESSION['user_stocks'][$i] as $key => $value) {            
@@ -75,11 +75,10 @@
                             </div>
                         </div>
 <?php
-    $active_p = $_SESSION['active_p_id']; // TODO IMPLEMENT THIS
     $desired_payout = $_SESSION['desired_monthly_payout'];
     $desired_mode_string = ($_SESSION['reinvest'] == 0 ? 'Dividend Payout' : 'Reinvestment');
     $current_portfolio_name = $_SESSION['portfolios'][$_SESSION['active_p_id']]['p_name'];
-    $i = 1;//TODO: set portfolio to current portfolio
+    $i = $_SESSION['active_p_id'];//TODO: set portfolio to current portfolio
     $current_value = 0;
     $total_invested = 0;
     $symbols = array();
@@ -112,15 +111,46 @@
     $password = "wHP8+xPvw5";
     $dbname = "tharp";
     $wiki_table = "wiki_eod_symbols";
+    $quandl_table = "quandl";
     $dividendshares = array();
     $holdings_names = array();
     $open_prices = array();
     $total_payout = 0;
+    $dividenddates = array();
+    $exdividends = array();
+    $industries = array();
+    
+    $months = array();
+    $months[] = "Jan";
+    $months[] = "Feb";
+    $months[] = "Mar";
+    $months[] = "Apr";
+    $months[] = "May";
+    $months[] = "Jun";
+    $months[] = "Jul";
+    $months[] = "Aug";
+    $months[] = "Sep";
+    $months[] = "Oct";
+    $months[] = "Nov";
+    $months[] = "Dec";
+    
+    $top_industries = array();
+    $recommended_industries = array();
+    
+    $last_twelve_months = array();
+    $this_month = date('n');
+    
+    for($m = 0; $m < 12; $m++){
+        $last_twelve_months[] = $months[($this_month+$m)%12];
+    }
+    
+    echo var_dump($last_twelve_months)."<br>";
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $conn->prepare("SELECT symbol, name, open, dividendshare FROM ".$wiki_table." WHERE symbol IN ('".implode("','", $symbols)."')");
+        $query = $conn->prepare("SELECT symbol, name, open, dividendshare, industry FROM ".$wiki_table." WHERE symbol IN ('".implode("','", $symbols)."')");
+        
         $query->execute();
 
         $result = $query;
@@ -129,12 +159,42 @@
             $total_payout += $dividendshares[$row['symbol']]*$shares[$row['symbol']];
             $holdings_names[$row['symbol']] = $row['name'];
             $open_prices[$row['symbol']] = $row['open'];
+            $industries[$row['symbol']] = $row['industry'];
             //echo var_dump($_SESSION['user_stocks'][$i][$row['symbol']]).'<br>';
         }
+       
+        $query = $conn->prepare("SELECT symbol, date, exdividend FROM ".$quandl_table." WHERE date >= DATE_SUB(NOW(), INTERVAL 1 YEAR) and symbol IN ('".implode("','", $symbols)."') and exdividend > 0");
         
-        //echo var_dump($shares)."<br>";
-        //echo var_dump($total_payout)."<br>";
-        //echo var_dump($dividendshares)."<br>";
+        $query->execute();
+        $result = $query;
+        foreach($symbols as $s){
+            $dividenddates[$s] = array();
+            $exdividends[$s] = array();
+        }
+        
+        foreach($result as $row){
+            $dividenddates[$row['symbol']][] = $row['date'];
+            $exdividends[$row['symbol']][] = $row['exdividend'];
+        }
+        
+        foreach($top_industries as $industry){
+            $have = false;
+            foreach($industries as $my_industry){
+                if($my_industry == $industry){
+                    $have = true;
+                }
+            }
+            if(!$have){
+                $recommended_industries[] = $industry;
+            }
+            if(count($recommended_industries) >= 4){
+                break;
+            }
+        }
+        
+        //foreach($recommended_industries as $industry){
+        //    $query = $conn->prepare
+        //}
     }
     catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
@@ -148,7 +208,7 @@
                                 <div class="row">
                                     <div class="col-md-12 b-r b-light no-border-xs">
                                         <h4 class="font-thin m-t-none m-b-md text-muted">Your Portfolios:</h4>
-                                        <table class="table table-hover">
+                                        <table id="portfolios_table" class="table table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Portfolio</th>
@@ -185,7 +245,7 @@
                 echo '<tr>', PHP_EOL;
             }
             if ($current_value - $total_invested > 0) {
-                echo '  <td class="success">'.$portfolio_params['p_name'].'</td>', PHP_EOL;
+                echo '  <td class="success"><a href=page_portfolios.php?pid='.$i.'/>'.$portfolio_params['p_name'].'</a></td>', PHP_EOL;
             }
             else if ($current_value - $total_invested < 0) {
                 echo '  <td class="danger">'.$portfolio_params['p_name'].'</td>', PHP_EOL;
@@ -403,18 +463,18 @@ $(function () {
         },
         xAxis: {
             categories: [
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec',
-                'Jan',
-                'Feb',
-                'Mar'
+                <?php 
+                    $count = 0;
+                    foreach($last_twelve_months as $month){
+                        echo "'".$month."'";
+                        if($count++ == 11){
+                            echo PHP_EOL;
+                        }
+                        else{
+                            echo ",", PHP_EOL;
+                        }
+                    }
+                ?>
             ],
             crosshair: true
         },
@@ -438,7 +498,8 @@ $(function () {
                 borderWidth: 0
             }
         },
-        series: [{
+        series:
+        [{
             name: 'KO',
             data: [.33, 0, 0,.30, 0, .30, 0, 0, .30, 0, 0, 0]
         }, {
