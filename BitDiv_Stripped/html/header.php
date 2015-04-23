@@ -314,8 +314,8 @@
               </li>
               
             <?php
-            session_name('Private');
-            session_start();
+            //session_name('Private');
+            //session_start();
             for($i = 0; $i < 5; $i++) {
               $st = $_SESSION['recently_viewed_stock'][$i];
               if(!$st) {
