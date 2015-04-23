@@ -105,7 +105,6 @@
         $current_value += (float)($total_num_shares*$_SESSION['user_stocks_db_info'][$key]->Open);
     }
     
-    //echo var_dump($symbols_with_shares).'<br>';
     $servername = "mysql.eng.utah.edu";
     $username = "tharp";
     $password = "wHP8+xPvw5";
@@ -143,30 +142,27 @@
     for($m = 0; $m < 12; $m++){
         $last_twelve_months[] = $months[($this_month+$m)%12];
     }
-    
-    echo var_dump($last_twelve_months)."<br>";
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $conn->prepare("SELECT symbol, name, open, dividendshare, industry FROM ".$wiki_table." WHERE symbol IN ('".implode("','", $symbols)."')");
         
+        $query = $conn->prepare("SELECT symbol, name, open, dividendshare, industry FROM ".$wiki_table." WHERE symbol IN ('".implode("','", $symbols)."')");
         $query->execute();
-
         $result = $query;
+        
         foreach($result as $row){
             $dividendshares[$row['symbol']] = $row['dividendshare'];
             $total_payout += $dividendshares[$row['symbol']]*$shares[$row['symbol']];
             $holdings_names[$row['symbol']] = $row['name'];
             $open_prices[$row['symbol']] = $row['open'];
             $industries[$row['symbol']] = $row['industry'];
-            //echo var_dump($_SESSION['user_stocks'][$i][$row['symbol']]).'<br>';
         }
        
         $query = $conn->prepare("SELECT symbol, date, exdividend FROM ".$quandl_table." WHERE date >= DATE_SUB(NOW(), INTERVAL 1 YEAR) and symbol IN ('".implode("','", $symbols)."') and exdividend > 0");
-        
         $query->execute();
         $result = $query;
+        
         foreach($symbols as $s){
             $dividenddates[$s] = array();
             $exdividends[$s] = array();
@@ -238,23 +234,13 @@
                 $total_invested += $num_shares*$sparams['price'];
                 $current_value += (float)($num_shares*$_SESSION['user_stocks_db_info'][$key]->Open);
             }
-            if ($i == 1) {
-                echo '<tr class="active">', PHP_EOL;
-            }
-            else {
-                echo '<tr>', PHP_EOL;
-            }
-            if ($current_value - $total_invested > 0) {
-                echo '  <td class="success"><a href="page_portfolios.php?pid='.$i.'">'.$portfolio_params['p_name'].'</a></td>', PHP_EOL;
-            }
-            else if ($current_value - $total_invested < 0) {
-                echo '  <td class="danger">'.$portfolio_params['p_name'].'</td>', PHP_EOL;
-            }
-            else {
-                echo '  <td class="info">'.$portfolio_params['p_name'].'</td>', PHP_EOL;
-            }
-            echo '<td>$'.number_format($current_value, 2, '.', '').'</td>', PHP_EOL;
-            echo '<td>'.$total_num_shares.'</td>', PHP_EOL;
+            
+            $active_class = ($i == $_SESSION['active_p_id']) ? 'class="info"' : "";
+            
+            echo '<tr>', PHP_EOL;
+            echo '  <td '.$active_class.'><a href="page_portfolios.php?pid='.$i.'">'.$portfolio_params['p_name'].'</a></td>', PHP_EOL;
+            echo '  <td '.$active_class.'>$'.number_format($current_value, 2, '.', '').'</td>', PHP_EOL;
+            echo '  <td '.$active_class.'>'.$total_num_shares.'</td>', PHP_EOL;
             echo '</tr>', PHP_EOL;
         }
     ?>
