@@ -117,15 +117,17 @@
                   <?php include "page_people_portfolios.php"; ?>
                   <tbody>
                     <?php foreach ($stocks as $key => $value) {
+                      if(!empty($value[0])){
                       echo "<tr>";
                       echo "<td>". $value[0]."</td>";
                       echo "<td>". $value[1]."</td>";
                       echo "<td>". $value[2]."</td>";
                       echo "<td>$". $value[3]."($".number_format($value[3] * $value[2],2,".","").")</td>";
                       echo "<td>". $value[4]."</td>";
-                      echo "<td>". $value[4]."</td>";
+                      echo "<td>". "$".number_format($value[4] * $value[2],2,".","")."</td>";
                       echo "<td>". $value[5]."</td>";
                       echo "</tr>";
+                    }
                     } ?>
                   </tbody>
                 </table>
