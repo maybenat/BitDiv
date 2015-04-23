@@ -20,7 +20,7 @@
 
   $p_id = $_GET['p_id'];
 
-  if($p_name == '') {
+  if(empty($p_name)) {
     $p_name = $_SESSION['portfolios'][$p_id]['p_name'];
   }
 
@@ -28,7 +28,7 @@
   if(isset($_POST['update'])) {
     $sql = 'UPDATE user_portfolios SET '
       .'uid='.$uid.', '
-      .'p_name=\''.$p_name.'\', '
+      .'p_name=\''.addcslashes($p_name, "'\"\r\n\\\t\0..\37").'\', '
       .'p_funding='.$p_funding.', '
       .'p_risk='.$p_risk.', '
       .'p_reinvest='.$p_reinvest.', '
@@ -42,9 +42,12 @@
     // need to also delete stocks
     $sql2 = 'DELETE FROM user_stocks WHERE portfolio = '.$p_id.';';
   } else if(isset($_POST['copy'])) {
+    if($p_name == $_SESSION['portfolios'][$p_id]['p_name']) {
+      $p_name .= ' Copy';
+    }
     $sql = 'INSERT INTO user_portfolios SET '
       .'uid='.$uid.', '
-      .'p_name=\''.$p_name.' Copy\', '
+      .'p_name=\''.addcslashes($p_name, "'\"\r\n\\\t\0..\37").'\', '
       .'p_funding='.$p_funding.', '
       .'p_risk='.$p_risk.', '
       .'p_reinvest='.$p_reinvest.', '

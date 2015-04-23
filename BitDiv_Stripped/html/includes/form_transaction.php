@@ -34,7 +34,7 @@
 
     $sql = 'INSERT INTO user_portfolios SET '
       .'uid='.$uid.', '
-      .'p_name=\''.$p_name.'\', '
+      .'p_name=\''.addcslashes($p_name, "'\"\r\n\\\t\0..\37").'\', '
       .'p_funding='.$p_funding.', '
       .'p_risk='.$p_risk.', '
       .'p_reinvest='.$p_reinvest.', '
@@ -89,10 +89,10 @@
 
     $sql = 'INSERT INTO user_stocks SET '
       .'uid='.$uid.', '
-      .'ticker=\''.$ticker.'\', '
+      .'ticker=\''.addcslashes($ticker, "'\"\r\n\\\t\0..\37").'\', '
       .'number_shares='.$number_shares.', '
       .'price='.$price.', '
-      .'date_purchased=\''.$date_purchased.'\', '
+      .'date_purchased=\''.addcslashes($date_purchased, "'\"\r\n\\\t\0..\37").'\', '
       .'portfolio='.$p_id.', '
       .'transfer='.$transfer
       .';';

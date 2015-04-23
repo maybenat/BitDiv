@@ -25,7 +25,7 @@
 
     $sql = 'INSERT INTO user_portfolios SET '
       .'uid='.$uid.', '
-      .'p_name=\''.$p_name.'\', '
+      .'p_name=\''.addcslashes($p_name, "'\"\r\n\\\t\0..\37").'\', '
       .'p_funding='.$p_funding.', '
       .'p_risk='.$p_risk.', '
       .'p_reinvest='.$p_reinvest.', '
