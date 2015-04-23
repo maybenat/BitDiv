@@ -69,7 +69,7 @@
               <span class="m-t font-thin"><small id="rp_tr_sub_price"></small></span>
 
               <p class="m-t font-thin">Date purchased:</p>
-              <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" id="rp_tr_date" onblur="rp_tr_date_blur()" required value="<?php echo date('m/d/Y'); ?>" />
+              <input type="text" name="date_purchased" placeholder="01/01/2001" class="form-control" id="rp_tr_date" onblur="rp_tr_date_blur()" required value="<?php echo date('m/d/Y'); ?>" />
               <span class="m-t font-thin text-danger"><small id="rp_tr_sub_date"></small></span>
 
               <p class="m-t"></p>
@@ -92,7 +92,7 @@
               </select>
 
               <!--<p class="m-t"></p>-->
-              <button type="submit" class="btn btn-default btn-rounded m-t" id="rp_tr_submit">Submit</button>
+              <button type="submit" class="btn btn-default btn-rounded m-t" id="rp_tr_submit" disabled>Submit</button>
               <!--<button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>-->
             </form>
           </div><!--
@@ -254,7 +254,7 @@
               month = month < 10 ? "0" + month : month;
               var day = date.getDate();
               day = day < 10 ? "0" + day : day;
-              rp_tr_date.value = month + "/" + day + "/" + date.getFullYear();
+              //rp_tr_date.value = month + "/" + day + "/" + date.getFullYear();
               rp_tr_sub_date.textContent = "";
               if(rp_tr_isValid()) {
                 rp_tr_submit.disabled = false;

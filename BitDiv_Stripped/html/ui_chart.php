@@ -17,8 +17,7 @@
 
 
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
--->
+
 
 <style>
 .loading {
@@ -398,27 +397,15 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Getting Started</h4>
+        <h4 class="modal-title" id="myModalLabel">Volume</h4>
       </div>
       <div class="modal-body">
-                <h3>Some useful tips</h3>
-                  <p> 1. Drag on the graph to zoom in. </p>
-                  <p> 2. Toggle different moving averages </p>
-                  <p> 3. Compare how the moving averages and MACD indicate trends in the price. </p>
-                  <p> 4. Click on the price in order to fetch relevant news related to the stock. See how reactionary the markets are by clicking on low and high points! </p>
-
-        <h3>Moving Average Crossovers</h3>
-        <p>Price moves from one side of a moving average and closes on the other.</p>
-        <img src = "img/avg1.png" />
-        <p>The second type of crossover occurs when a short-term average crosses through a long-term average. HIGHLY OBJECTIVE.</p>
-        <img src = "img/avg2.png" />
-        <h3>MACD Crossovers</h3>
-        <p> MACD goes below the signal line, bearish indicator, may be time to SELL. MACD above the signal line, bullish indicator, the stock might be going up! </p>
-        <img src = "img/macd.png" />
-
-      </div>
+                <h3>What should I look for?</h3>
+                  <p> 1. Basically low volume = not being traded among a lot of people. High volume = A LOT of people are buying this stock. </p>
+                  <p> 2. Increasing price and decreasing volume is a bad sign! Something in the stock has changed.  </p>
+     </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Now let me go try!</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
       </div>
     </div>
   </div>
@@ -545,38 +532,7 @@ $(document).ready(function(){
 
                 </form>
             </div>
-        </div>
-        <a href="#" class="btn btn-small btn-default" data-toggle="modal" data-target="#divModal">?</a>
-<div class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="divModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Getting Started</h4>
-      </div>
-      <div class="modal-body">
-                <h3>Some useful tips</h3>
-                  <p> 1. Drag on the graph to zoom in. </p>
-                  <p> 2. Toggle different moving averages </p>
-                  <p> 3. Compare how the moving averages and MACD indicate trends in the price. </p>
-                  <p> 4. Click on the price in order to fetch relevant news related to the stock. See how reactionary the markets are by clicking on low and high points! </p>
-
-        <h3>Moving Average Crossovers</h3>
-        <p>Price moves from one side of a moving average and closes on the other.</p>
-        <img src = "img/avg1.png" />
-        <p>The second type of crossover occurs when a short-term average crosses through a long-term average. HIGHLY OBJECTIVE.</p>
-        <img src = "img/avg2.png" />
-        <h3>MACD Crossovers</h3>
-        <p> MACD goes below the signal line, bearish indicator, may be time to SELL. MACD above the signal line, bullish indicator, the stock might be going up! </p>
-        <img src = "img/macd.png" />
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Now let me go try!</button>
-      </div>
-    </div>
-  </div>
-</div>           
+        </div>         
 </div>
           </div>
           <div id="dow">
@@ -644,10 +600,10 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Help?</h4>
+        <h4 class="modal-title" id="myModalLabel">The change</h4>
       </div>
             <div class="modal-body">
-                <h3>What should I look for?</h3>
+                <h3>Heatmap, what to look for</h3>
                   <p> 1) Price Changes</p>
                   <p> 2) Positive changes in volume means lots of people are buying this stock.  </p>
                   <p> 3) Negative changes in volume mean lots of people are selling. You might want to look into this. </p>
@@ -678,16 +634,15 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Help?</h4>
+        <h4 class="modal-title" id="myModalLabel">Market Cap</h4>
       </div>
             <div class="modal-body">
-                <h3>What should I look for?</h3>
-                  <p> 1) Price Changes</p>
-                  <p> 2) Positive changes in volume means lots of people are buying this stock.  </p>
-                  <p> 3) Negative changes in volume mean lots of people are selling. You might want to look into this. </p>
-                  <p> 3) Big changes in Moving Averages? Go look further into the interactive graph above. </p>
-
-
+                <h3>Market Capitalization</h3>
+                  <p> 1) Mega cap- $200 billion and greater</p>
+                  <p> 2) Big/large cap-  $10 billion to $200 billion. Stable and Secure</p>
+                  <p> 3) Mid cap-  $2 billion to $10 billion. More volatile.</p>
+                  <p> 4) Small cap-  $300 million to $2 billion. Greater Risk.</p>
+                  <p> 5) Micro cap- $50 million to $300 million. Not safe. Do your research.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -3,9 +3,6 @@ $(".error").hide();
 
 
 function getValue(stockCode) {
-    //stockCode = $("#stockCode").val().toUpperCase();
-    // var javaScriptVar = "?php echo json_encode($somevar); ?>;";
-    // console.log(javaScriptVar);
     getStockData(stockCode);
 };
 
@@ -482,7 +479,7 @@ function getStockData(stockCode) {
 
             yAxis: [{
                 title: {
-                    text: 'Volume'
+                    text: ' '
                 },
                 height: 200,
                 plotLines: [{
@@ -490,6 +487,17 @@ function getStockData(stockCode) {
                     width: 1,
                     color: '#808080'
                 }]
+            }, { // Secondary yAxis
+                gridLineWidth: 0,
+                title: {
+                    text: ' ',
+                    
+                },
+                labels: {
+                    format: '{value}',
+                   
+                },
+                            opposite: true
             }],
 
             legend: {
@@ -519,6 +527,11 @@ function getStockData(stockCode) {
                 id: 'primary2',
                 data: volume
             }, {
+                name: 'Price',
+                type: 'spline',
+                yAxis: 1,
+                data: price
+            }, {
                 name: 'Linear Regression',
                 linkedTo: 'primary2',
                 showInLegend: true,
@@ -540,7 +553,7 @@ function getStockData(stockCode) {
                 text: 'Dow vs ' + organization[0]
             },
             subtitle: {
-                text: 'Dow scaled by 100'
+                text: 'Dow scaled by 100. Does it mimic the Dow?'
             },
             xAxis: {
                 labels: {
