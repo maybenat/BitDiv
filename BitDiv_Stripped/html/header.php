@@ -307,7 +307,7 @@
                         </a>
                       </li>
 
-              <li class="line dk"></li>
+              <li class="line dk hidden-folded"></li>
 
               <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                 <span>Recently Viewed</span>
@@ -321,7 +321,7 @@
               if(!$st) {
                 break;
               }
-              echo '<li><a href="ui_chart.php?stocks='.$st.'"><span>'.$st.'</span></a></li>', PHP_EOL;
+              echo '<li class="hidden-folded"><a href="ui_chart.php?stocks='.$st.'"><i>'.$st.'</i> <span><small>'.$_SESSION['user_stocks_db_info'][$st]->Name.'</small></span></a></li>', PHP_EOL;
             }
             ?>
                     </ul>

@@ -56,6 +56,13 @@
           $stock_list[] = $row['ticker'];
         }
       }
+      
+      for($i = 0; $i < 5; $i++) {
+        // track list of tickers
+        if(!in_array($_SESSION['recently_viewed_stock'][$i], $stock_list)) {
+          $stock_list[] = $_SESSION['recently_viewed_stock'][$i];
+        }
+      }
 
       // save to session
       session_name('Private');
