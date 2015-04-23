@@ -245,7 +245,7 @@
                 echo '<tr>', PHP_EOL;
             }
             if ($current_value - $total_invested > 0) {
-                echo '  <td class="success"><a href=page_portfolios.php?pid='.$i.'/>'.$portfolio_params['p_name'].'</a></td>', PHP_EOL;
+                echo '  <td class="success"><a href="page_portfolios.php?pid='.$i.'">'.$portfolio_params['p_name'].'</a></td>', PHP_EOL;
             }
             else if ($current_value - $total_invested < 0) {
                 echo '  <td class="danger">'.$portfolio_params['p_name'].'</td>', PHP_EOL;
