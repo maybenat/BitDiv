@@ -30,8 +30,8 @@
           <p class="m-n font-thin"><small><a href="">Website</a> | <a href="">LinkedIn</a></small></p>
           <hr />
           <p class="m-n font-thin">Michael Scutt</p>
-          <p class="m-n font-thin">paragraph</p>
-          <p class="m-n font-thin"><small><a href="">Website</a> | <a href="">LinkedIn</a></small></p>
+          <p class="m-n font-thin">Interests in embedded development, computer engineering, and signal processing.</p>
+          <p class="m-n font-thin"><small><a href="http://www.linkedin.com/in/mscutt">Website</a> | <a href="http://www.linkedin.com/in/mscutt">LinkedIn</a></small></p>
           <hr />
           <p class="m-n font-thin">Karl Tharp</p>
           <p class="m-n font-thin">paragraph</p>

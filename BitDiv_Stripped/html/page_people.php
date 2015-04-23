@@ -1,4 +1,7 @@
 <?php include 'includes/session.php'; ?>
+
+<?php include 'includes/portfolio_populate.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
