@@ -94,7 +94,7 @@
               <button type="submit" class="btn btn-default btn-rounded m-t" id="rp_tr_submit">Submit</button>
               <!--<button type="reset" class="btn btn-default btn-rounded m-t">Clear</button>-->
             </form>
-          </div>
+          </div><!--
 
           <p class="m-t font-thin">Recently viewed:</p>
           <ul class="list-group list-group-sm list-group-sp list-group-alt auto m-t">
@@ -109,7 +109,7 @@
               echo '<li class="list-group-item"><a href="ui_chart.php?stocks='.$st.'">'.$st.'</a></li>', PHP_EOL;
             }
             ?>
-          </ul>
+          </ul>-->
         </div>
       </div>
       <!-- End of trans tab in right column php-->

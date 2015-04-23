@@ -302,10 +302,28 @@
                       </li>
                       <li>
                         <a href="page_friend.php">
-                          <i class="icon-user icon text-success-lter"></i>
+                          <i class="icon-users icon text-success-lter"></i>
                           <span>Following</span>
                         </a>
                       </li>
+
+              <li class="line dk"></li>
+
+              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>Recently Viewed</span>
+              </li>
+              
+            <?php
+            session_name('Private');
+            session_start();
+            for($i = 0; $i < 5; $i++) {
+              $st = $_SESSION['recently_viewed_stock'][$i];
+              if(!$st) {
+                break;
+              }
+              echo '<li><a href="ui_chart.php?stocks='.$st.'"><span>'.$st.'</span></a></li>', PHP_EOL;
+            }
+            ?>
                     </ul>
                   </nav>
                   <!-- nav -->
