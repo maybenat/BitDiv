@@ -76,6 +76,9 @@
     .glyphicon-sm {
     font-size: 0.8em;
     }
+    .container_spacer {
+      margin-bottom: 12px;
+    }
   </style>
 </head>
 <body>
@@ -98,16 +101,12 @@
               <div class="col wrapper">
 
                 <?php
-  //print_r($user_stocks);
-
+                
+                // -------------------------------
+                // ---- print tabs for each portfolio
+                // -------------------------------
                 echo '      <ul class="nav nav-tabs">', PHP_EOL;
 
-  // print tabs for each portfolio
-  // tabs labeled with id=portfolio{i}
-  //echo '        <li class="active"><a href="#portfolio1" data-toggle="tab">Portfolio 1<i class="fa"></i></a></li>', PHP_EOL;
-  //for($i = 2; $i <= $_SESSION['number_portfolios']; $i++) {
-  //  echo '        <li><a href="#portfolio'.$i.'" data-toggle="tab">Portfolio '.$i.'<i class="fa"></i></a></li>', PHP_EOL;
-  //}
                 $create_new = ($_GET['act'] == 'new');
 
                 if(!empty($_SESSION['active_p_id'])) {
@@ -123,13 +122,15 @@
                   $num_portfolios1++;
                 }
 
-  // add tab for new portfolio, id=portfolio_new
+                // add tab for new portfolio, id=portfolio_new
                 $active = ($create_new || empty($num_portfolios1)) ? ' class="active"' : '';
                 echo '        <li'.$active.'><a href="#portfolio_new" data-toggle="tab"><span class="glyphicon glyphicon-sm glyphicon-menu-right"></span> <strong>Create New</strong><i class="fa"></i></a></li>', PHP_EOL;
-
-
                 echo '      </ul>', PHP_EOL;
 
+                
+                // -------------------------------
+                // ---- print tables for each portfolio, populate with stocks associated with portfolio
+                // -------------------------------
                 echo '      <div class="tab-content">', PHP_EOL;
 
                 if(!empty($_SESSION['active_p_id'])) {
@@ -138,8 +139,6 @@
                   $first = 1;
                 }
 
-  // print tables for each portfolio, populate with stocks associated with portfolio
-  //for($i = 1; $i <= $_SESSION['number_portfolios']; $i++) {
                 foreach($_SESSION['portfolios'] as $i => $portfolio_params) {
 
                   $active = ($first || ($i == $_SESSION['active_p_id'])) && !$create_new ? ' active' : ''; $first = 0;
@@ -151,18 +150,17 @@
                     $num_stocks++;
                     foreach($value as $sid => $sparams) {
                       if($sparams['transfer']) {
-          //$total_invested -= $sparams['number_shares'];
+                        //$total_invested -= $sparams['number_shares'];
                       } else {
                         $total_invested += $sparams['number_shares']*$sparams['price'];
                       }
                     }
                   }
 
-        // identify columns
+                  // -------------------------------
+                  // ---- portfolio header presenting parameters as a form
+                  // -------------------------------
                   echo '          <div class="bg-light b-b wrapper-md ">', PHP_EOL;
-        //echo '            <h1 class="m-n font-thin h3">'.$portfolio_params['p_name'].'</h1>', PHP_EOL;
-        //echo '            <p><small>'.$num_stocks.' stocks, $'.number_format((float)$total_invested, 2, '.', '').' invested</small></p>', PHP_EOL;
-        ////echo '            <p><small class="text-muted">ticker / number shares / price / date purchased</small></p>', PHP_EOL;
                   ?>
 
                   <div class="form-group no-padding">
@@ -203,12 +201,13 @@
                   <?php
                   echo '          </div>', PHP_EOL;
 
-
-    // enumerate stocks in portfolio
                   $num_stocks = 0;
 
-    // key => value
-    // ticker => (stock_id => params)
+                  // -------------------------------
+                  // ---- enumerate stocks in the portfolio
+                  // ----           $key (ticker) => $value (stock id - per transaction)
+                  // ---- $value as $sid (stock id) => $sparams (stock parameters, per transaction, as row of user_stocks table in database)
+                  // -------------------------------
                   foreach($_SESSION['user_stocks'][$i] as $key => $value) {
 
                     $total_num_shares = 0;
@@ -223,13 +222,7 @@
                       }
                     }
 
-
-
-  //if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
-  //  echo '          <div class="bg-light lter b-b wrapper-md">', PHP_EOL;
-  //} else {
   echo '          <div class="bg-light lter b-b wrapper-md lim-padding-bottom font-thin">', PHP_EOL;
-  //}
   ?>
 
   <div class="row">
@@ -249,17 +242,14 @@
         $change_value_str = '<strong class="text-success">+$'.number_format($change_value, 2, '.', '').'</strong> profit';
       }
       
-      
-
-      //$current_value_str = number_format($current_value, 2, '.', '');
-      //echo '            <h1 class="m-n font-thin h3">'.$key.' / '.$total_num_shares.' shares / $'.$original_investment.'</h1>', PHP_EOL;
+      // stock ticker and company name
       echo '            <h1 class="m-n font-thin h4">';
 
+      // if invalid stock, allow user to remove the stock by presenting a form
       if(!$_SESSION['user_stocks_db_info'][$key]->Name) {
         echo $key.'</h1>', PHP_EOL, '  <p><strong>Could not find stock information</strong></p>', PHP_EOL;
         echo '</div></div></div>';
 
-      //echo '          </div>', PHP_EOL;
         echo '          <div class="categoryitems">', PHP_EOL;
         echo '          <div class="row">', PHP_EOL;
         echo '            <div class="container">', PHP_EOL;
@@ -291,13 +281,11 @@
 </div>
 <?php
 
-
-
-
-
+      // END invalid stock, stock is valid after this point 
 continue;
 }
 
+// continue with stock title
 echo '<a href="ui_chart.php?stocks='.$key.'">'.$key.' ('.$_SESSION['user_stocks_db_info'][$key]->Name.')</a></h1>', PHP_EOL;
 echo '            <p><strong>'.$total_num_shares.'</strong> shares for '.$current_value_str.' value</p>', PHP_EOL;
 ?>
@@ -306,47 +294,39 @@ echo '            <p><strong>'.$total_num_shares.'</strong> shares for '.$curren
 <div class="col-lg-3">
 
   <?php
-  
-  
 echo '            <p>Total '.$change_value_str.' from original investments</p>', PHP_EOL;
-
   ?>
 
 </div>
 </div>
 
 <?php
+// expandable div
 echo '          </div>', PHP_EOL;
-
   echo '          <div class="bg-light lter b-b wrapper-md expandable lim-padding">', PHP_EOL;
   
   //---------------
   
   echo '          </div>', PHP_EOL;
+  
+                // -------------------------------
+                // ---- stock expanded region - show relevant information
+                // -------------------------------
 echo '          <div class="categoryitems font-thin">', PHP_EOL;
 
-
-
-echo '          <div class="row">', PHP_EOL;
-echo '            <div class="container">', PHP_EOL;
+echo '            <div class="row">', PHP_EOL;
+echo '              <div class="container_spacer">', PHP_EOL;
+echo '              </div>', PHP_EOL;
 echo '            </div>', PHP_EOL;
-echo '          </div><hr />', PHP_EOL;
-echo '          <div class="row">', PHP_EOL;
-echo '            <div class="container">', PHP_EOL;
-
-
+echo '            <div class="row">', PHP_EOL;
+echo '              <div class="container">', PHP_EOL;
 
 echo '<div class="col-lg-4">', PHP_EOL;
-
 
 echo '            <p class="m-n font-thin h4"><a href="ui_chart.php?stocks='.$key.'">'.$key.' ('.$_SESSION['user_stocks_db_info'][$key]->Name.') <br /><small>Go to stock research page</small></a></p>', PHP_EOL;
 
-
-  
-  
 echo '</div>', PHP_EOL;
 echo '<div class="col-lg-4">', PHP_EOL;
-
 
   if($_SESSION['user_stocks_db_info'][$key]->Change < 0) {
     echo '<p class="text-danger"><span class="glyphicon glyphicon-arrow-down"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
@@ -422,6 +402,7 @@ echo '                <p>Sell shares of this stock and register sale with portfo
 echo '              </div>', PHP_EOL;
 echo '              <div class="tab-pane" id="remove_'.$key.$i.'">', PHP_EOL;
 echo '                <p>Remove a purchase without updating portfolio.</p>', PHP_EOL;
+// remove trancaction form
 ?>
 
 <div class="form-group">
@@ -469,6 +450,9 @@ echo '        <div class="tab-pane'.$active.'" id="portfolio_new">', PHP_EOL;
 echo '          <div class="bg-light b-b wrapper-md">', PHP_EOL;
 
 
+                  // -------------------------------
+                  // ---- content for new portfolio tab
+                  // -------------------------------
 ?>
 
 <div class="form-group">
