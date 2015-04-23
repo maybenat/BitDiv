@@ -15,18 +15,17 @@
   <link rel="stylesheet" href="css/app.css" type="text/css" />
 
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
--->
+<!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
 
-  <script src="http://code.highcharts.com/stock/highstock.js"></script>
-  <script src="js/algs.js"></script>
-  <script src="js/stock.js"></script>
+<script src="http://code.highcharts.com/stock/highstock.js"></script>
+<script src="js/algs.js"></script>
+<script src="js/stock.js"></script>
 </head>
 <body>
   <div class="app app-header-fixed">
     <?php include 'header.php'; ?>
     <?php include 'people_info.php'; ?>
-    <?php include 'follow.php' ?>
+    <?php include 'follow.php'; ?>
     <!-- content -->
     <div id="content" class="app-content" role="main">
       <div class="app-content-body ">
@@ -46,7 +45,7 @@
                 var newValue = $(this).val() == "follow" ? 1 : 0;
                 var user_email = '<?php echo $user_email ?>';
                 var ajaxurl = 'follow.php';
-                alert(thisValue);
+                //alert(thisValue);
                 data =  {'action': thisValue, 'email': user_email};
                 $.post(ajaxurl, data, function (response) {
                   location.href = location.origin + location.pathname + '?email='+user_email+'&following='+newValue;
@@ -117,19 +116,20 @@
                   </thead>
                   <?php include "page_people_portfolios.php"; ?>
                   <tbody>
-                    <?php foreach ($stocks as $key => $value) {
+                    <?php
+                    foreach ($stocks as $key => $value) {
                       if(!empty($value[0])){
-                      echo "<tr>";
-                      echo "<td>". $value[0]."</td>";
-                      echo "<td>". $value[1]."</td>";
-                      echo "<td>". $value[2]."</td>";
-                      echo "<td>$". $value[3]."($".number_format($value[3] * $value[2],2,".","").")</td>";
-                      echo "<td>". $value[4]."</td>";
-                      echo "<td>". "$".number_format($value[4] * $value[2],2,".","")."</td>";
-                      echo "<td>". $value[5]."</td>";
-                      echo "</tr>";
-                    }
-                    } ?>
+                        echo "<tr>";
+                        echo "<td>". $value[0]."</td>";
+                        echo "<td>". $value[1]."</td>";
+                        echo "<td>". $value[2]."</td>";
+                        echo "<td>$". $value[3]."($".number_format($value[3] * $value[2],2,".","").")</td>";
+                        echo "<td>". $value[4]."</td>";
+                        echo "<td>". "$".number_format($value[4] * $value[2],2,".","")."</td>";
+                        echo "<td>". $value[5]."</td>";
+                        echo "</tr>";
+                      }
+                    }?>
                   </tbody>
                 </table>
               </div>
