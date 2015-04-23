@@ -34,7 +34,13 @@
     app.settings.asideDock = false;
   ">
                     <!-- main -->
-                    <?php
+                    <?php 
+                    
+                        $portfolio_count = 0;
+                        foreach($_SESSION['portfolios'] as $i => $portfolio_params) {
+                            $portfolio_count++;
+                        }
+                        
                         $i = $_SESSION['active_p_id'];
                         $num_stocks = 0;
                         $total_invested = 0;
@@ -62,14 +68,14 @@
                                 <div class="col-sm-6 text-right hidden-xs">
                                     <div class="inline m-r text-left">
                                         <?php echo '<div class="m-b-xs">'.$num_stocks.'<span class="text-muted"> holdings</span></div>', PHP_EOL ?>
-                                        <div ui-jq="sparkline" ui-options="[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
-                                        </div>
+                                        <!--<div ui-jq="sparkline" ui-options="[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
+                                        </div>-->
                                     </div>
                                     <div class="inline text-left">
                                         <?php echo '<div class="m-b-xs">$'.$total_invested.'<span class="text-muted"> invested</span></div>', PHP_EOL ?>
 
-                                        <div ui-jq="sparkline" ui-options="[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
-                                        </div>
+                                        <!--<div ui-jq="sparkline" ui-options="[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +124,7 @@
     $dividenddates = array();
     $exdividends = array();
     $industries = array();
+    $recommendations = array();
     
     $months = array();
     $months[] = "Jan";
@@ -134,6 +141,21 @@
     $months[] = "Dec";
     
     $top_industries = array();
+    
+    $top_industries[] = "Transportation";
+    $top_industries[] = "Finance";
+    $top_industries[] = "Technology";
+    $top_industries[] = "Energy";
+    $top_industries[] = "Health Care";
+    $top_industries[] = "Capital Goods";
+    $top_industries[] = "Basic Industries";
+    $top_industries[] = "Public Utilities";
+    $top_industries[] = "Consumer Services";
+    $top_industries[] = "Consumer Durables";
+    $top_industries[] = "Consumer Non-Durables";
+    $top_industries[] = "Miscellaneous";
+    
+
     $recommended_industries = array();
     
     $last_twelve_months = array();
@@ -188,9 +210,73 @@
             }
         }
         
-        //foreach($recommended_industries as $industry){
-        //    $query = $conn->prepare
-        //}
+        foreach($recommended_industries as $industry){
+            $query = $conn->prepare("SELECT * from(SELECT symbol, name, industry, ebitda, pegratio, peratio, dividendshare, open FROM ".$wiki_table." WHERE industry ='".$industry."' and pegratio > 0 and symbol not in ('".implode("','", $symbols)."') order by pegratio desc limit 20) as T order by dividendshare/open desc limit 1");
+            $query->execute();
+            $result = $query;
+            
+            foreach($result as $row){
+                if(!array_key_exists($row['symbol'], $recommendations)){
+                    $recommendations[$row['symbol']] = array();
+                    $recommendations[$row['symbol']]['based_on'] = array();
+                }
+                
+                $recommendations[$row['symbol']]['peratio'] = $row['peratio'];
+                $recommendations[$row['symbol']]['symbol'] = $row['symbol'];
+                $recommendations[$row['symbol']]['name'] = $row['name'];
+                $recommendations[$row['symbol']]['industry'] = $row['industry'];
+                $recommendations[$row['symbol']]['pegratio'] = $row['pegratio'];
+                $recommendations[$row['symbol']]['ebitda'] = $row['ebitda'];
+                $recommendations[$row['symbol']]['dividendshare'] = $row['dividendshare'];
+                $recommendations[$row['symbol']]['open'] = $row['open'];
+                
+                $recommendations[$row['symbol']]['based_on'][] = 'PEG Ratio';
+            }
+            
+            $query = $conn->prepare("SELECT * from(SELECT symbol, name, industry, ebitda, pegratio, peratio, dividendshare, open FROM ".$wiki_table." WHERE industry ='".$industry."' and peratio > 0 and symbol not in ('".implode("','", $symbols)."') order by peratio desc limit 20) as T order by dividendshare/open desc limit 1");
+            $query->execute();
+            $result = $query;
+            
+            foreach($result as $row){
+                if(!array_key_exists($row['symbol'], $recommendations)){
+                    $recommendations[$row['symbol']] = array();
+                    $recommendations[$row['symbol']]['based_on'] = array();
+                }
+                
+                $recommendations[$row['symbol']]['peratio'] = $row['peratio'];
+                $recommendations[$row['symbol']]['symbol'] = $row['symbol'];
+                $recommendations[$row['symbol']]['name'] = $row['name'];
+                $recommendations[$row['symbol']]['industry'] = $row['industry'];
+                $recommendations[$row['symbol']]['pegratio'] = $row['pegratio'];
+                $recommendations[$row['symbol']]['ebitda'] = $row['ebitda'];
+                $recommendations[$row['symbol']]['dividendshare'] = $row['dividendshare'];
+                $recommendations[$row['symbol']]['open'] = $row['open'];
+                
+                $recommendations[$row['symbol']]['based_on'][] = 'P/E Ratio';
+            }
+            
+            $query = $conn->prepare("SELECT * from(SELECT symbol, name, industry, ebitda, pegratio, peratio, dividendshare, open FROM ".$wiki_table." WHERE industry ='".$industry."' and ebitda > 0 and symbol not in ('".implode("','", $symbols)."') order by ebitda desc limit 20) as T order by dividendshare/open desc limit 1");
+            $query->execute();
+            $result = $query;
+            
+            foreach($result as $row){
+                if(!array_key_exists($row['symbol'], $recommendations)){
+                    $recommendations[$row['symbol']] = array();
+                    $recommendations[$row['symbol']]['based_on'] = array();
+                }
+                
+                $recommendations[$row['symbol']]['peratio'] = $row['peratio'];
+                $recommendations[$row['symbol']]['symbol'] = $row['symbol'];
+                $recommendations[$row['symbol']]['name'] = $row['name'];
+                $recommendations[$row['symbol']]['industry'] = $row['industry'];
+                $recommendations[$row['symbol']]['pegratio'] = $row['pegratio'];
+                $recommendations[$row['symbol']]['ebitda'] = $row['ebitda'];
+                $recommendations[$row['symbol']]['dividendshare'] = $row['dividendshare'];
+                $recommendations[$row['symbol']]['open'] = $row['open'];
+                
+                $recommendations[$row['symbol']]['based_on'][] = 'EBITDA';
+            }
+        }
     }
     catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
@@ -200,7 +286,19 @@
     
 ?>
                         <div class="wrapper-md" ng-controller="FlotChartDemoCtrl">
-                            <div class="panel wrapper">
+                            <div class="panel wrapper" id="no_portfolios_div" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12 b-r b-light no-border-xs">
+                                        <h3 class="font-thin m-t-none m-b-md text-muted">You dont have any portfolios!</h3>
+                                    </div>
+                                    <div class="col-md-12 b-r b-light no-border-xs">
+                                        <h4 class="font-thin m-t-none m-b-md text-muted">This is the dashboard, which will normall show a summary of your portfolios and a detailed overview of your current profile.</h4>
+                                        <h4 class="font-thin m-t-none m-b-md text-muted">To use this page, create a portfolio at the <a href="page_portfolios.php">portfolio page.</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel wrapper" id="portfolios_table_div">
                                 <div class="row">
                                     <div class="col-md-12 b-r b-light no-border-xs">
                                         <h4 class="font-thin m-t-none m-b-md text-muted">Your Portfolios:</h4>
@@ -249,7 +347,91 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel wrapper">
+
+                            <div class="panel wrapper" id="no_holdings_div" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12 b-r b-light no-border-xs">
+                                        <h3 class="font-thin m-t-none m-b-md text-muted">You dont have any stocks!</h3>
+                                    </div>
+                                    <div class="col-md-12 b-r b-light no-border-xs">
+                                        <h4 class="font-thin m-t-none m-b-md text-muted">This part of the dashboard will normally show a detailed overview of your current portfolio.</h4>
+                                        <h4 class="font-thin m-t-none m-b-md text-muted">To use this page, add stocks to the portfolio using the <a href="page_portfolios.php">portfolio page</a> or the sidebar on the right.</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel wrapper" id="recommendations_table_div">
+                                <div class="row">
+                                    <div class="col-md-12 b-r b-light no-border-xs">
+                                        <h4 class="font-thin m-t-none m-b-md text-muted"><?php echo $current_portfolio_name?> Recommendations:</h4>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Symbol</th>
+                                                    <th>Name</th>
+                                                    <th>Sector</th>
+                                                    <th>Last Open Price</th>
+                                                    <th>Annual Div Payout Per Share (% of Price)</th>
+                                                    <th>P/E Ratio</th>
+                                                    <th>PEG Ratio</th>
+                                                    <th>Based On</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $rec_count = 0;
+                                                    foreach($recommendations as $rec){
+                                                        $symbol = $rec['symbol'];
+                                                        $name = $rec['name'];
+                                                        $div_per_share = $rec['dividendshare'];
+                                                        $ebitda = $rec['ebitda'];
+                                                        $pegratio = $rec['pegratio'];
+                                                        $peratio = $rec['peratio'];
+                                                        $industry = $rec['industry'];
+                                                        $open = $rec['open'];
+                                                        $basedon = $rec['based_on'][0];
+                                                        
+                                                        if(isset($name) && $name !== ''){
+                                                            echo '<tr>', PHP_EOL;
+                                                            echo '<td><a href="ui_chart.php?stocks='.$symbol.'">'.$symbol.'</a></td>', PHP_EOL;
+                                                            echo '<td><a href="ui_chart.php?stocks='.$symbol.'">'.$name.'</a></td>', PHP_EOL;
+                                                            echo '<td>'.$industry.'</td>', PHP_EOL;
+                                                            if($open > 0) {
+                                                                echo '<td>$'.number_format($open, 2, '.', '').'</td>', PHP_EOL;
+                                                            }
+                                                            else {
+                                                                echo '<td> - </td>', PHP_EOL;
+                                                            }
+                                                            if($div_per_share > 0){
+                                                                echo '<td>$'.number_format($div_per_share, 2, '.', '').' ('.number_format($div_per_share/$open, 2, '.', '').'%)</td>', PHP_EOL;
+                                                            }
+                                                            else {
+                                                                echo '<td> - </td>', PHP_EOL;
+                                                            }
+                                                            if($peratio > 0) {
+                                                                echo '<td>'.number_format($peratio, 2, '.', '').'</td>', PHP_EOL;
+                                                            }
+                                                            else {
+                                                                echo '<td> - </td>', PHP_EOL;
+                                                            }
+                                                            if($pegratio > 0) {
+                                                                echo '<td>'.number_format($pegratio, 2, '.', '').'</td>', PHP_EOL;
+                                                            }
+                                                            else {
+                                                                echo '<td> - </td>', PHP_EOL;
+                                                            }
+                                                            echo '<td>'.$basedon.'</td>', PHP_EOL;
+                                                            echo '</tr>', PHP_EOL;
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel wrapper" id="portfolio_table_div">
                                 <div class="row">
                                     <div class="col-md-12 b-r b-light no-border-xs">
                                         <h4 class="font-thin m-t-none m-b-md text-muted"><?php echo $current_portfolio_name?> Holdings:</h4>
@@ -275,8 +457,8 @@
             $open = $open_prices[$symbol];
             if(isset($name) && $name !== ''){
                 echo '<tr>', PHP_EOL;
-                echo '<td>'.$symbol.'</td>', PHP_EOL;
-                echo '<td>'.$name.'</td>', PHP_EOL;
+                echo '<td><a href="ui_chart.php?stocks='.$symbol.'">'.$symbol.'</a></td>', PHP_EOL;
+                echo '<td><a href="ui_chart.php?stocks='.$symbol.'">'.$name.'</a></td>', PHP_EOL;
                 echo '<td>'.$shares.'</td>', PHP_EOL;
                 if($div_per_share > 0){
                     echo '<td>$'.number_format($div_per_share, 2, '.', '').' ($'.number_format($div_total, 2, '.', '').')</td>', PHP_EOL;
@@ -306,49 +488,11 @@
                                     </div>
                                 <div id="containerinvestments"></div>
                             </div>
-
-
-                            <div class="panel wrapper">
-                                <div class="row">
-                                    <div class="col-md-12 b-r b-light no-border-xs">
-                                        <h4 class="font-thin m-t-none m-b-md text-muted"><?php echo $current_portfolio_name?> Recommendations:</h4>
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Symbol</th>
-                                                    <th>Annual Div Payout</th>
-                                                    <th>Percent Match</th>
-                                                    <th>Based On</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="success">
-                                                    <td>RDS</td>
-                                                    <td>$3.76</td>
-                                                    <td>80%</td>
-                                                    <td>EV/EBITDA, Altman-Z</td>
-                                                </tr>
-                                                <tr class="success">
-                                                    <td>GS</td>
-                                                    <td>$2.40</td>
-                                                    <td>70%</td>
-                                                    <td>EV/EBITDA, P/E</td>
-                                                </tr>
-                                                <tr class="info">
-                                                    <td>AXP</td>
-                                                    <td>$1.04</td>
-                                                    <td>50%</td>
-                                                    <td>Beta, MACD</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
                             
-                            <div class="panel wrapper">
+                                                        
+                            <div class="panel wrapper" id ="div_payout_div">
                                 <div id="containerdivpayoutpie"></div>
-                                <div id="containerdivpayout"></div>
+                                <!--<div id="containerdivpayout"></div>-->
                             </div>
 
                             <!--<div class="panel wrapper">
@@ -416,10 +560,22 @@
 </html>
 
 <script>
-var divpayoutpiechart;
-var holdingspiechart;
-$(document).ready(function(){
-})
+
+    <?php 
+        if($portfolio_count == 0) {
+            echo "$('#recommendations_table_div').hide()", PHP_EOL;
+            echo "$('#portfolio_table_div').hide()", PHP_EOL;
+            echo "$('#div_payout_div').hide()", PHP_EOL;
+            echo "$('#portfolios_table_div').hide()", PHP_EOL;
+            echo "$('#no_portfolios_div').css('display', 'block')", PHP_EOL;
+        }
+        else if($num_stocks == 0) {
+            echo "$('#recommendations_table_div').hide()", PHP_EOL;
+            echo "$('#portfolio_table_div').hide()", PHP_EOL;
+            echo "$('#div_payout_div').hide()", PHP_EOL;
+            echo "$('#no_holdings_div').css('display', 'block')", PHP_EOL;
+        }
+    ?>
 
 function requestData() {
     $.ajax({
