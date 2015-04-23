@@ -22,7 +22,6 @@ if(true)
                 $info = array($row['symbol'], $row['name'], $row['number_shares'], $row['dividendshare'], $row['open'], $row['date_purchased']);
                 array_push($stocks, $info);
             }
-
         }
         $db = null;
     } catch(PDOException $e) {

@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="css/app.css" type="text/css" />
 
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
+  <!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
 
-<script src="http://code.highcharts.com/stock/highstock.js"></script>
-<script src="js/algs.js"></script>
-<script src="js/stock.js"></script>
+  <script src="http://code.highcharts.com/stock/highstock.js"></script>
+  <script src="js/algs.js"></script>
+  <script src="js/stock.js"></script>
 </head>
 <body>
   <div class="app app-header-fixed">
@@ -44,10 +44,11 @@
                 var thisValue = $(this).val();
                 var newValue = $(this).val() == "follow" ? 1 : 0;
                 var user_email = '<?php echo $user_email ?>';
+                var my_email = "<?php echo $_SESSION['email'] ?>";
                 var ajaxurl = 'follow.php';
-                //alert(thisValue);
-                data =  {'action': thisValue, 'email': user_email};
+                data =  {'action': thisValue, 'my_email': my_email, 'user_email': user_email};
                 $.post(ajaxurl, data, function (response) {
+                  //alert(response);
                   location.href = location.origin + location.pathname + '?email='+user_email+'&following='+newValue;
                 });
               });
