@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <link rel="stylesheet" href="css/app.css" type="text/css" />
        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="js/monthly.js"></script>
     <script src="js/jquery.dynatable.js"></script>
 
 </head>
@@ -91,14 +90,16 @@
 
           <div class="wrapper-md">
             <div class=" col-md-9 col-lg-9 ">
+                <p> ATTENTION:All of these stocks are not contained in our database. If you aren't able to find the symbol it simply means there is insufficient data.</p>
+
 <table class="table table-striped" id="local">
 <thead>
-        <th>symbol</th>
+        <th>Symbol</th>
 
-    <th>annualized div</th>
+    <th>Annualized Div</th>
 
-    <th>div yield</th>
-    <th>ex div date</th>
+    <th>Div Yield</th>
+    <th>Ex Div Date</th>
         <th>Record Date</th>
             <th>Pay Date</th>
                 <th>Next Payout</th>
@@ -154,15 +155,6 @@
         "next payout": "0.215"
     },
     {
-        "symbol": "GOOD",
-        "annualized div": "1.5",
-        "div yield": "8.0600%",
-        "ex div date": "03/18/2015",
-        "record date": "03/20/2015",
-        "pay date": "03/31/2015",
-        "next payout": "0.125"
-    },
-    {
         "symbol": "SJR",
         "annualized div": "1.1",
         "div yield": "4.8800%",
@@ -179,15 +171,6 @@
         "record date": "04/21/2015",
         "pay date": "05/15/2015",
         "next payout": "0.175"
-    },
-    {
-        "symbol": "STAG",
-        "annualized div": "1.26",
-        "div yield": "5.3200%",
-        "ex div date": "04/28/2015",
-        "record date": "04/30/2015",
-        "pay date": "05/15/2015",
-        "next payout": "0.1125"
     },
     {
         "symbol": "FSC",
@@ -6889,19 +6872,13 @@
         records: JSON.parse($('#music').text())
       }
     });
-
-    // getting JSON from a remote source fails:
-    
   });
   </script>
-
   <tbody>
   </tbody>
 </table>
-</body>​
-
-            </div>
-          </div>
+</div>
+</div>
           <?php include 'right_column.php'; ?>
         </div>
       </div>
