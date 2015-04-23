@@ -346,9 +346,9 @@ $(document).ready(function(){
       </div>
       <div class="modal-body">
                 <h3>Some useful tips</h3>
-                  <p> 1. Drag on the graph to zoom in. </p>
-                  <p> 2. Toggle different moving averages </p>
-                  <p> 3. Compare how the moving averages and MACD indicate trends in the price. </p>
+                  <p> 1. Click-and-drag a rectangle to zoom in to a visual. </p>
+                  <p> 2. Toggle different moving averages by selecting the labels on the right.</p>
+                  <p> 3. Compare how the moving averages and MACD indicate trends in the price (see following examples). </p>
                   <p> 4. Click on the price in order to fetch relevant news related to the stock. See how reactionary the markets are by clicking on low and high points! </p>
 
         <h3>Moving Average Crossovers</h3>

@@ -90,8 +90,6 @@
 
           <div class="wrapper-md">
             <div class=" col-md-9 col-lg-9 ">
-                <p> ATTENTION:All of these stocks are not contained in our database. If you aren't able to find the symbol it simply means there is insufficient data.</p>
-
 <table class="table table-striped" id="local">
 <thead>
         <th>Symbol</th>
@@ -6877,6 +6875,10 @@
   <tbody>
   </tbody>
 </table>
+<hr style="width: 100%; color: #3A3F50; height: 1px; background-color:#3A3F50;" />
+
+ <p class="font-thin"> Note: All of these stocks are not contained in our database. If you aren't able to find the symbol it simply means there is insufficient data.</p>
+
 </div>
 </div>
           <?php include 'right_column.php'; ?>
