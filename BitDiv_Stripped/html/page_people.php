@@ -96,45 +96,58 @@
 
           <!--Show Use's Portfoilo-->
           <div class="tab-pane" id="Portfolio">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Symbol</th>
-                  <th>Number of Shares</th>
-                  <th>Price</th>
-                  <th>Purchased Date</th>
-                </tr>
-              </thead>
-              <?php include "page_people_portfolios.php"; ?>
-              <tbody>
-                <?php foreach ($stocks as $key => $value) {
-                  echo "<tr>";
-                  foreach ($value as $key => $info) {
-                    print_r("<td> $info </td>");
-                  }
-                  echo "</tr>";
-                } ?>
-              </tbody>
-            </table>
+           <div class="panel wrapper">
+            <div class="row">
+              <div class="col-md-12 b-r b-light no-border-xs">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Symbol</th>
+                      <th>Name</th>
+                      <th>Shares</th>
+                      <th>Annual Dividend Payout Per Share (Total)</th>
+                      <th>Last Open Price</th>
+                      <th>Value</th>
+                      <th>Date purchased</th>
+                    </tr>
+                  </thead>
+                  <?php include "page_people_portfolios.php"; ?>
+                  <tbody>
+                    <?php foreach ($stocks as $key => $value) {
+                      echo "<tr>";
+                      echo "<td>". $value[0]."</td>";
+                      echo "<td>". $value[1]."</td>";
+                      echo "<td>". $value[2]."</td>";
+                      echo "<td>$". $value[3]."($".number_format($value[3] * $value[2],2,".","").")</td>";
+                      echo "<td>". $value[4]."</td>";
+                      echo "<td>". $value[4]."</td>";
+                      echo "<td>". $value[5]."</td>";
+                      echo "</tr>";
+                    } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        </div><!-- / tab-content -->
-        <?php include 'right_column.php'; ?>
-      </div>
+        </div>
+      </div><!-- / tab-content -->
+      <?php include 'right_column.php'; ?>
     </div>
   </div>
+</div>
 
-  <script>
-    jQuery(function () {
-      jQuery('#myTab a:first').tab('show')
-    })
-  </script>
-  <!-- / content -->
+<script>
+  jQuery(function () {
+    jQuery('#myTab a:first').tab('show')
+  })
+</script>
+<!-- / content -->
 
-  <script src="js/ui-load.js"></script>
-  <script src="js/ui-jp.config.js"></script>
-  <script src="js/ui-jp.js"></script>
-  <script src="js/ui-nav.js"></script>
-  <script src="js/ui-toggle.js"></script>
+<script src="js/ui-load.js"></script>
+<script src="js/ui-jp.config.js"></script>
+<script src="js/ui-jp.js"></script>
+<script src="js/ui-nav.js"></script>
+<script src="js/ui-toggle.js"></script>
 
 </body>
 </html>

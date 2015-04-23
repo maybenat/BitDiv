@@ -11,7 +11,7 @@ if(true)
         if(true) {
             session_name('Private');
             $email = $_SESSION['email'];
-            $statement = $db->prepare("select * from user_stocks where uid = (SELECT uid FROM users WHERE email = '$emailkey')");
+            $statement = $db->prepare("select name, symbol, number_shares, dividendshare, open, date_purchased  from user_stocks left join wiki_eod_symbols on user_stocks.ticker = wiki_eod_symbols.symbol where uid = (SELECT uid FROM users WHERE email = '$emailkey')");
             $statement->execute();
 
             $stocks = array();
@@ -19,9 +19,10 @@ if(true)
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $row)
             {
-                $info = array($row['ticker'], $row['number_shares'], $row['price'], $row['date_purchased']);
+                $info = array($row['symbol'], $row['name'], $row['number_shares'], $row['dividendshare'], $row['open'], $row['date_purchased']);
                 array_push($stocks, $info);
             }
+
         }
         $db = null;
     } catch(PDOException $e) {
