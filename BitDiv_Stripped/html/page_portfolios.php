@@ -88,7 +88,7 @@
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
-          <!--<div style="position:absolute;overflow-y:scroll;overflow-x:hidden;">-->
+          <div style="position:absolute;overflow-y:scroll;overflow-x:hidden;">
 
       <div class="app-content-body">
         <div class="hbox hbox-auto-xs hbox-auto-sm">
@@ -329,10 +329,10 @@ echo '</div>', PHP_EOL;
 echo '<div class="col-lg-4">', PHP_EOL;
 
   if($_SESSION['user_stocks_db_info'][$key]->Change < 0) {
-    echo '<p class="text-danger"><span class="glyphicon glyphicon-arrow-down"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
+    echo '<p class="text-danger"><span class="glyphicon glyphicon-arrow-down"></span> <strong>$'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
     .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
   } else {
-    echo '<p class="text-success"><span class="glyphicon glyphicon-arrow-up"></span> <strong>'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
+    echo '<p class="text-success"><span class="glyphicon glyphicon-arrow-up"></span> <strong>$'.substr($_SESSION['user_stocks_db_info'][$key]->Change, 1)
     .' ('.$_SESSION['user_stocks_db_info'][$key]->ChangeinPercent.')</strong></p>', PHP_EOL;
   }
 
@@ -341,7 +341,7 @@ echo '<div class="col-lg-4">', PHP_EOL;
   $div_yield = $_SESSION['user_stocks_db_info'][$key]->DividendYield;
   if(!$div_yield) { $div_yield = '0.00'; }
   echo '<p>Div & Yield: ', PHP_EOL;
-  echo '<strong>'.$div_share.' ('.$div_yield.'%)</strong></p>', PHP_EOL;
+  echo '<strong>$'.$div_share.' ('.$div_yield.'%)</strong></p>', PHP_EOL;
 
 
 
