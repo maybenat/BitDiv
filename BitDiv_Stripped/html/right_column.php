@@ -57,20 +57,20 @@
             <form action="includes/form_transaction.php?referer=<?php echo $current_page_url; ?>" method="post">
               <p class="m-t font-thin">Stock purchased:</p>
               <input type="text" name="ticker" placeholder="ticker" class="form-control" id="rp_tr_ticker" onblur="rp_tr_ticker_blur()" required value="<?php echo $current_stock; ?>" />
-              <span class="m-t font-thin" id="rp_tr_sub_ticker"><small><?php echo $_SESSION['user_stocks_db_info'][$current_stock]->Name; ?></small></span>
+              <span class="m-t font-thin"><small id="rp_tr_sub_ticker"><?php echo $_SESSION['user_stocks_db_info'][$current_stock]->Name; ?></small></span>
               <p class="m-t font-thin">Shares purchased:</p>
               <input type="number" name="number_shares" placeholder="number of shares" class="form-control" id="rp_tr_shares" onblur="rp_tr_shares_blur()" required />
-              <span class="m-t font-thin text-danger" id="rp_tr_sub_shares"><small></small></span>
+              <span class="m-t font-thin text-danger"><small id="rp_tr_sub_shares"></small></span>
               <p class="m-t font-thin">Price at time of purchase:</p>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
                 <input type="number" step="any" name="price" placeholder="price" class="form-control" id="rp_tr_price" onblur="rp_tr_price_blur()" required value="<?php echo $current_price; ?>" />
               </div>
-              <span class="m-t font-thin" id="rp_tr_sub_price"><small></small></span>
+              <span class="m-t font-thin"><small id="rp_tr_sub_price"></small></span>
 
               <p class="m-t font-thin">Date purchased:</p>
               <input type="date" name="date_purchased" placeholder="01/01/2001" class="form-control" id="rp_tr_date" onblur="rp_tr_date_blur()" required value="<?php echo date('m/d/Y'); ?>" />
-              <span class="m-t font-thin text-danger" id="rp_tr_sub_date"><small></small></span>
+              <span class="m-t font-thin text-danger"><small id="rp_tr_sub_date"></small></span>
 
               <p class="m-t"></p>
               <select name="portfolio" class="form-control font-thin">
@@ -164,6 +164,9 @@
                   rp_tr_submit.disabled = true;
                 } else {
                   rp_tr_price.value = data.query.results.quote.Open;
+                  if(!rp_tr_price.value) {
+                    rp_tr_price.value = "0.00";
+                  }
                   //LastTradePriceOnly;
                   rp_tr_sub_ticker.textContent = data.query.results.quote.Name;
                   rp_tr_sub_ticker.className = rp_tr_sub_ticker.className.replace( /(?:^|\s)text-danger(?!\S)/g , '' );
@@ -218,7 +221,7 @@
             rp_tr_price.value = parseFloat(rp_tr_price.value).toFixed(2);
             
             // if price invalid, disable submit button
-            if(rp_tr_price.value < 0) {
+            if(rp_tr_price.value < 0.01) {
               rp_tr_sub_price.textContent = "Price not valid";
               rp_tr_sub_price.className += " text-danger";
               rp_tr_submit.disabled = true;
