@@ -1,1 +1,2 @@
-Create a python simple server and open in browser. 
+bitdiv is a senior capstone project for the University of Utah. 
+bitdiv is an investment tracking and planning website. It allows users to analyze their portfolios based on financial metrics, news sources, and even other users. We seek to get investors quickly informed about investments through a series of visualizations that can be compared across different stocks. The emphasis is on helping the user make a choice they feel good about.
