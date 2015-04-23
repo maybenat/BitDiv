@@ -83,7 +83,7 @@
                   <?php
                   $i++;
                 }
-                  if(empty($i)) { 
+                  if(empty($i)) {
                 ?>
                   <option value="new">New Portfolio (create)</option>
                 <?php
@@ -148,9 +148,9 @@
             var rp_tr_sub_ticker = document.getElementById("rp_tr_sub_ticker");
             var rp_tr_price = document.getElementById("rp_tr_price");
             var rp_tr_submit = document.getElementById("rp_tr_submit");
-            
+
             rp_tr_ticker.value = rp_tr_ticker.value.toUpperCase();
-            
+
             var url = 'https://query.yahooapis.com/v1/public/yql';
             var symbol = rp_tr_ticker.value;
             var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
@@ -180,16 +180,16 @@
                 console.log('Request failed: ' + err);
               });
           }
-          
+
           function rp_tr_shares_blur() {
             var rp_tr_shares = document.getElementById("rp_tr_shares");
             var rp_tr_sub_shares = document.getElementById("rp_tr_sub_shares");
             var rp_tr_price = document.getElementById("rp_tr_price");
             var rp_tr_sub_price = document.getElementById("rp_tr_sub_price");
             var rp_tr_submit = document.getElementById("rp_tr_submit");
-            
+
             rp_tr_shares.value = Math.floor(parseFloat(rp_tr_shares.value));
-            
+
             // if number of shares invalid, disable submit button
             if(rp_tr_shares.value < 1) {
               rp_tr_sub_shares.textContent = "Please enter a valid number";
@@ -197,11 +197,11 @@
                 rp_tr_sub_price.textContent = "";
               }
               rp_tr_submit.disabled = true;
-              
+
             // if price invalid, don't change
             } else if((new RegExp("text-danger")).test(rp_tr_sub_price.className)) {
               rp_tr_sub_shares.textContent = "";
-            
+
             // otherwise present total
             } else {
               rp_tr_sub_shares.textContent = "";
@@ -211,15 +211,15 @@
               }
             }
           }
-          
+
           function rp_tr_price_blur() {
             var rp_tr_shares = document.getElementById("rp_tr_shares");
             var rp_tr_price = document.getElementById("rp_tr_price");
             var rp_tr_sub_price = document.getElementById("rp_tr_sub_price");
             var rp_tr_submit = document.getElementById("rp_tr_submit");
-            
+
             rp_tr_price.value = parseFloat(rp_tr_price.value).toFixed(2);
-            
+
             // if price invalid, disable submit button
             if(rp_tr_price.value < 0.01) {
               rp_tr_sub_price.textContent = "Price not valid";
@@ -237,17 +237,17 @@
               }
             }
           }
-          
+
           function rp_tr_date_blur() {
             var rp_tr_date = document.getElementById("rp_tr_date");
             var rp_tr_sub_date = document.getElementById("rp_tr_sub_date");
             var rp_tr_submit = document.getElementById("rp_tr_submit");
-            
+
             // if date invalid, disable submit button
             if(!isValidDate(new Date(Date.parse(rp_tr_date.value)))) {
               rp_tr_sub_date.textContent = "Please enter a valid date";
               rp_tr_submit.disabled = true;
-              
+
             } else {
               var date = (new Date(Date.parse(rp_tr_date.value)));
               var month = (date.getMonth() + 1);
@@ -261,13 +261,13 @@
               }
             }
           }
-          
+
           function isValidDate(d) {
             if(Object.prototype.toString.call(d) !== "[object Date]")
               return false;
             return !isNaN(d.getTime());
           }
-          
+
           function rp_tr_isValid() {
             var rp_tr_sub_ticker = document.getElementById("rp_tr_sub_ticker");
             var rp_tr_sub_shares = document.getElementById("rp_tr_sub_shares");

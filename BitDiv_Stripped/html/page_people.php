@@ -46,7 +46,7 @@
                 var newValue = $(this).val() == "follow" ? 1 : 0;
                 var user_email = '<?php echo $user_email ?>';
                 var ajaxurl = 'follow.php';
-                //alert(user_email);
+                alert(thisValue);
                 data =  {'action': thisValue, 'email': user_email};
                 $.post(ajaxurl, data, function (response) {
                   location.href = location.origin + location.pathname + '?email='+user_email+'&following='+newValue;

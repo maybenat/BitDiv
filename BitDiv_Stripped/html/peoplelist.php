@@ -4,13 +4,17 @@ include 'peopleDB.php';
 $q = $_REQUEST["q"];
 
 if ($q == "") {
+  $count = 5;
   foreach ($peopleList as $key => $val) {
-    echo "<li class=\"list-group-item\"><div class=\"clear\"><a href=\"page_people.php?email=$key&following=0\">$val</a></div><small class=\"text-muted\">";
-    switch ($riskList[$key])
-    {
-      case 0: echo "High Risk</small></li>"; break;
-      case 1: echo "Medium Risk</small></li>"; break;
-      case 2: echo "Low Risk</small></li>"; break;
+    if ($count > 0) {
+      $count = $count - 1;
+      echo "<li class=\"list-group-item\"><div class=\"clear\"><a href=\"page_people.php?email=$key&following=0\">$val</a></div><small class=\"text-muted\">";
+      switch ($riskList[$key])
+      {
+        case 0: echo "High Risk</small></li>"; break;
+        case 1: echo "Medium Risk</small></li>"; break;
+        case 2: echo "Low Risk</small></li>"; break;
+      }
     }
   }
 } else {
