@@ -42,10 +42,10 @@
                         }
                         
                         $i = $_SESSION['active_p_id'];
-                        $num_stocks = 0;
+                        $cur_num_stocks = 0;
                         $total_invested = 0;
                         foreach($_SESSION['user_stocks'][$i] as $key => $value) {            
-                            $num_stocks++;
+                            $cur_num_stocks++;
                             foreach($value as $sid => $sparams) {
                                 if($sparams['transfer']) {
                                     $total_num_shares -= $sparams['number_shares'];
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-sm-6 text-right hidden-xs">
                                     <div class="inline m-r text-left">
-                                        <?php echo '<div class="m-b-xs">'.$num_stocks.'<span class="text-muted"> holdings</span></div>', PHP_EOL ?>
+                                        <?php echo '<div class="m-b-xs">'.$cur_num_stocks.'<span class="text-muted"> holdings</span></div>', PHP_EOL ?>
                                         <!--<div ui-jq="sparkline" ui-options="[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" class="sparkline inline">loading...
                                         </div>-->
                                     </div>
@@ -569,7 +569,7 @@
             echo "$('#portfolios_table_div').hide()", PHP_EOL;
             echo "$('#no_portfolios_div').css('display', 'block')", PHP_EOL;
         }
-        else if($num_stocks == 0) {
+        else if($cur_num_stocks == 0) {
             echo "$('#recommendations_table_div').hide()", PHP_EOL;
             echo "$('#portfolio_table_div').hide()", PHP_EOL;
             echo "$('#div_payout_div').hide()", PHP_EOL;
