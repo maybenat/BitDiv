@@ -2,8 +2,16 @@ bitdiv is a senior capstone project for the University of Utah.
 
 Team members: Natalie McMullen, Michael Scutt, Karl Tharp, Guanxiong Wu. 
 
-In order to run:
+The live version of this website is:
 
-1) Install this directory on a server.
+http://eng.utah.edu/~mcmullen/BitDiv/html/
+
+For a user:
+Simply open the link above in your internet browser of choice. 
+
+For an admin to do a clean install:
+
+1) Install this directory on a linux server that is equipped with PHP and mySQL.
 2) The app will be located at Servername/BitDiv/html
-3) If you want to use your own database instead of accessing ours. Go to DBConnect.cs and fill in your database parameters. Please note this will take numerous days to run. 
+3) If you want to use your own database instead of accessing ours. Go to DBConnect.cs and fill in your database parameters. Run the C# app on a server, Populate.cs. Please note this will take numerous days to run. 
+4) To change your database on the Web side. Go to BitDiv/html/data/config.php. Enter correct information. 
