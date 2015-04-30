@@ -226,6 +226,9 @@
                 <a href="page_profile.php">Profile</a>
               </li>
               <li>
+                <a href="tutorial.pdf" target="_blank">User Tutorial</a>
+              </li>
+              <li>
                 <a href="about.php">About BitDiv</a>
               </li>
 
